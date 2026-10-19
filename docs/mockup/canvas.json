@@ -1,0 +1,13 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-19T15:20:00Z" },
+  "title": "HaHe Mockup Borneo",
+  "launch": { "view": "focused", "file": "Main.dc.html" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "Papan Permainan - Hutan Borneo (HP potret)" }
+  },
+  "order": ["Main.dc.html"],
+  "notes": {},
+  "designSystems": []
+}
