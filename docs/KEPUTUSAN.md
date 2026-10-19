@@ -87,13 +87,27 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 - **Lanjutkan permainan**: posisi tersimpan otomatis; bisa dilanjut setelah aplikasi ditutup.
 - **Layar juara**: konfeti, pion pemenang menari, urutan peringkat semua pemain.
 
-## 13. Usulan yang belum diputuskan
-- Pion melompat kotak demi kotak, naik tangga, meluncur di ular (sangat disarankan, dianggap bagian dasar animasi).
-- Bisa dipakai tanpa internet dan dipasang di HP seperti aplikasi.
+## 13. Keputusan tambahan (19 Okt 2026, diterima)
+- Pion melompat kotak demi kotak, naik tangga, meluncur di ular.
+- Bisa dimainkan tanpa internet dan dipasang seperti aplikasi: tombol **Pasang Aplikasi** di Pengaturan, dalam bingkai berketerangan.
 
 ## 14. Rencana tahap
+- Status: **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/).
 - **Tahap 1**: mesin game lengkap (semua mode, pengaturan, ukuran papan, level, nama pion, lawan komputer, kelompok, potret/landscape/IFP, efek suara, About, lanjutkan permainan, layar juara) + tema **Hutan Borneo** premium.
 - **Tahap 2**: sembilan tema lain, 2-3 tema per sesi.
+
+## 15. Daftar update berikutnya (disetujui, kode belum diubah)
+Menunggu perintah "Update Kode".
+
+1. **Pengaturan, aturan finis**: pilihan **Boleh melewati** atau **Harus pas (memantul)**.
+   - Harus pas (memantul): lemparan lebih dari sisa kotak membuat pion mantul mundur (perilaku Tahap 1 sekarang).
+   - Boleh melewati: lemparan lebih dari sisa kotak tetap dihitung sampai finis.
+   - Pilihan bawaan: Harus pas (memantul), sama seperti sekarang (usulan, boleh diganti).
+2. **Sebelum main, urutan pemain**: pilihan **Acak di awal** atau **Sesuai urutan data pemain**.
+   - Sesuai urutan data pemain: urutan seperti diisi di layar Siapkan Permainan (perilaku Tahap 1 sekarang).
+   - Acak di awal: urutan giliran diacak sekali saat permainan dimulai.
+   - Pilihan bawaan: Sesuai urutan data pemain (usulan, boleh diganti).
+- Bagian kode yang akan diubah: layar Siapkan Permainan (pilihan urutan), Pengaturan (pilihan aturan finis), dan logika gerak pion. Bagian lain tidak disentuh.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

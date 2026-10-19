@@ -6,13 +6,17 @@ Tempel prompt di bawah ke sesi baru.
 
 Pak Toto (Pak Guru) melanjutkan proyek **HaHe** (Handipe Hejan), game ular tangga untuk main bersama keluarga, di sesi baru ini.
 
-**Status:** desain sudah final. Mockup papan tema Hutan Borneo (HP potret) sudah jadi. Kode **belum** dibuat.
+**Status:** Tahap 1 **sudah dibangun** (19 Okt 2026): mesin game lengkap, tema Hutan Borneo, Pasang Aplikasi dan main offline. Sudah diuji di HP potret, HP landscape, dan IFP. Backsound masih menunggu file dari Pak Toto.
 
 **Repo:** https://github.com/iwaka91/HaHe
 - `docs/KEPUTUSAN.md`: semua keputusan final (baca ini dulu, jangan tanya ulang yang sudah diputuskan).
 - `docs/mockup/Main.dc.html` dan `canvas.json`: mockup final (hanya dibuka bila topiknya desain).
 
-**Langkah berikutnya:** Tahap 1 = mesin game lengkap + tema Hutan Borneo premium (lihat bagian 14 di KEPUTUSAN.md). Tahap 2 = sembilan tema lain, 2-3 tema per sesi.
+**Berkas kode:** `index.html` (game), `sw.js` dan `manifest.webmanifest` (pasang aplikasi, offline), `icons/`, `audio/` (tempat backsound, lihat `audio/README.md`).
+
+**Langkah berikutnya:**
+1. Update kecil (disetujui, lihat bagian 15 di KEPUTUSAN.md; tunggu perintah "Update Kode"): pilihan aturan finis (Boleh melewati / Harus pas memantul) dan pilihan urutan pemain (Acak di awal / Sesuai urutan data pemain).
+2. Tahap 2 = sembilan tema lain, 2-3 tema per sesi.
 
 **Aturan kerja Pak Toto (wajib):**
 - Berkomunikasi dalam bahasa Indonesia; sapa "Pak Guru" atau "Bapak".
@@ -25,6 +29,6 @@ Pak Toto (Pak Guru) melanjutkan proyek **HaHe** (Handipe Hejan), game ular tangg
 - Peringatkan bila diskusi melebar atau pindah ke proyek lain.
 - Bila Tahap atau fitur selesai, tawarkan pindah sesi baru dan buat serah terima ringkas.
 
-**Hal yang masih ditunggu dari Pak Toto:** backsound open source per tema (placeholder disiapkan), dan keputusan soal pion melompat kotak demi kotak serta mode tanpa internet (lihat bagian 13).
+**Hal yang masih ditunggu dari Pak Toto:** backsound open source per tema (taruh di `audio/hutan-borneo.mp3`, kredit ditulis di Tentang), dan ejaan sapaan Dayak Ngaju ("Tabe!" dan "Isen Mulang!") untuk dicek.
 
-Mulailah dengan membaca `docs/KEPUTUSAN.md`, lalu tanyakan satu hal: apakah Tahap 1 siap dibangun ("Bangun Kode").
+Mulailah dengan membaca `docs/KEPUTUSAN.md`, lalu tanyakan satu hal: apakah dua update di bagian 15 siap dikerjakan ("Update Kode").
