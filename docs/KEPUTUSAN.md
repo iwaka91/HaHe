@@ -1,6 +1,6 @@
 # HaHe: Keputusan Desain (final per 19 Okt 2026)
 
-HaHe = singkatan dari **Handipe Hejan**, ular tangga dalam bahasa Dayak Ngaju.
+HaHe = singkatan dari **Handipe Hejan**, yang berarti ular tangga.
 Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa pun.
 Alamat: hahe.totogutomo.com
 
@@ -92,12 +92,12 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 - Bisa dimainkan tanpa internet dan dipasang seperti aplikasi: tombol **Pasang Aplikasi** di Pengaturan, dalam bingkai berketerangan.
 
 ## 14. Rencana tahap
-- Status: **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/).
+- Status: **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/). **Versi 1.1** (20 Okt 2026): Update A + tema Luar Angkasa dan Es Krim (lihat bagian 16).
 - **Tahap 1**: mesin game lengkap (semua mode, pengaturan, ukuran papan, level, nama pion, lawan komputer, kelompok, potret/landscape/IFP, efek suara, About, lanjutkan permainan, layar juara) + tema **Hutan Borneo** premium.
 - **Tahap 2**: sembilan tema lain, 2-3 tema per sesi.
 
-## 15. Daftar update berikutnya (disetujui, kode belum diubah)
-Menunggu perintah "Update Kode".
+## 15. Update kecil (SELESAI di Versi 1.1)
+Nomor 1 dibangun. Nomor 2 digantikan oleh pengaturan urutan manual (bagian 16).
 
 1. **Pengaturan, aturan finis**: pilihan **Boleh melewati** atau **Harus pas (memantul)**.
    - Harus pas (memantul): lemparan lebih dari sisa kotak membuat pion mantul mundur (perilaku Tahap 1 sekarang).
@@ -108,6 +108,25 @@ Menunggu perintah "Update Kode".
    - Acak di awal: urutan giliran diacak sekali saat permainan dimulai.
    - Pilihan bawaan: Sesuai urutan data pemain (usulan, boleh diganti).
 - Bagian kode yang akan diubah: layar Siapkan Permainan (pilihan urutan), Pengaturan (pilihan aturan finis), dan logika gerak pion. Bagian lain tidak disentuh.
+
+## 16. Keputusan hasil uji V 1.0 (20 Okt 2026)
+Sudah dibangun di **Versi 1.1**:
+- Pengaturan saat bermain: aturan tidak langsung berlaku; ada tombol **Simpan untuk Main Baru** dan **Terapkan & Mulai Ulang** (dengan konfirmasi; pemain tetap sama). Dadu, suara, dan tampilan tetap langsung berlaku.
+- **Aturan finis**: Harus pas (memantul, bawaan) atau Boleh melewati.
+- About: "Handipe Hejan, yang berarti ular tangga".
+- Sapaan beranda: **"Tabe Salamat Lingu Nalatai!"** (juga di Tentang). Sapaan naik tangga tetap "Isen Mulang!".
+- **Pilih pion**: ketuk pion membuka jendela Pilih Karakter + warna cincin. Karakter yang dipakai pemain lain dikunci selama jumlah pemain tidak melebihi jumlah karakter; selebihnya boleh sama (beda warna cincin).
+- **Urutan giliran**: diatur manual dengan ▲▼, geser nomor, atau tombol **Acak urutan**. Lawan komputer: pilihan Kamu duluan / Komputer duluan. (Menggantikan pilihan "Acak di awal / Sesuai urutan" di bagian 15.)
+- Aturan tema selain Borneo: **1 dadu**, **4 karakter asli**, **Tingang 2D** sebagai karakter ke-5 (digambar ulang mengikuti gaya tema; tanpa kacamata dan lambang dada). Pemain lebih banyak dibedakan warna cincin.
+- Ganti tema otomatis mengganti dadu ke dadu tema itu (tetap bisa dipilih manual).
+- Tema 2D dibangun tanpa mockup:
+  - **Luar Angkasa**: Astronot, Alien, Robot, Roket, Tingang. Dadu Planet. Tangga besi bercahaya, bingkai bintang dan planet.
+  - **Es Krim**: Cone Stroberi, Es Loli, Sundae Ceri, Milkshake, Tingang. Dadu Permen. Tangga permen, bingkai meses, ceri, dan hati.
+
+Rencana berikutnya:
+- Sesi berikut: Bawah Laut, Kebun Ceria, Negeri Salju (2D).
+- Setelah itu: Bajak Laut, Princess, Dinosaurus, Unicorn (3D); Tingang 3D memakai versi Borneo.
+- **Musim kedua**: karakter Borneo baru **Dboy = Jaya Tingang**, **Dgirl = Bunga Huma**, **Lontar = Si Lontar** (gambar acuan dari Pak Toto). Di papan memakai versi disederhanakan.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

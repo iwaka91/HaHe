@@ -85,7 +85,7 @@ input{font-family:inherit}
 #home .hello{font-family:var(--disp);font-size:24px;color:#fff3a0;text-shadow:0 2px 0 #0b2e18}
 #home .menu{width:min(340px,100%);display:flex;flex-direction:column;gap:14px;margin-top:6px}
 #home .trio{display:flex;gap:10px;align-items:flex-end;height:110px}
-#home .trio .pn{width:72px;height:94px}
+#home .trio .pn{width:min(72px,17vw);height:min(94px,22vw)}
 #home .grow{flex:1}
 
 /* ---------- LEMBAR (setup, pengaturan, about) ---------- */
@@ -289,6 +289,85 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 @media (prefers-reduced-motion:reduce){.bob,.wave,.ff,.pion.cur .arrow,.champ .pn{animation:none!important}}
 .pn svg,.av svg{width:100%;height:100%;display:block;overflow:visible}
 .hidden{display:none!important}
+
+/* ---------- URUTAN PEMAIN (Siapkan Permainan) ---------- */
+.ord{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;width:34px}
+.ord button{width:30px;height:24px;padding:0;border-radius:8px;border:2px solid var(--sheetLine);background:var(--sheet);font-size:12px;font-weight:900;line-height:1;color:var(--sheetInk)}
+.ord button:disabled{opacity:.3}
+.ord .no{width:30px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:#2b1a0b;color:#ffd84a;font-family:var(--disp);font-size:16px;touch-action:none;cursor:grab}
+.row.dragging{position:relative;z-index:5;box-shadow:0 10px 18px rgba(0,0,0,.3);opacity:.95}
+.ordtools{display:flex;gap:8px;margin-bottom:8px}
+.ordtools .chip{flex:1}
+/* pilih karakter */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.pbtn{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:16px;border:3px solid var(--sheetLine);background:var(--chip);font-weight:800;font-size:12.5px;color:var(--sheetInk)}
+.pbtn .av{width:56px;height:56px}
+.pbtn.on{border-color:#0f4a24;background:#d8f5cf;box-shadow:0 3px 0 #0f4a24}
+:root[data-theme="dark"] .pbtn.on{background:#1f4a28}
+.pbtn:disabled{opacity:.38;cursor:default}
+.pbtn .used{position:absolute;top:4px;right:4px;font-size:9.5px;padding:1px 5px;border-radius:7px;background:#b3261e;color:#fff}
+.rgrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.rdot{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.3);padding:0}
+.rdot.on{outline:3px solid #0f4a24;outline-offset:2px}
+.rdot:disabled{opacity:.25;cursor:default}
+#pickm .mbox{width:min(460px,100%);text-align:left}
+#pickm h3{margin:4px 0 0;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink2)}
+/* tombol simpan/terapkan (Pengaturan saat bermain) */
+.applybar{width:min(640px,100%);display:flex;flex-direction:column;gap:8px}
+.applybar .bbtn{font-size:17px;letter-spacing:.6px;min-height:50px}
+.applybar .hint{margin:0;color:#fff3c4;text-align:center;text-shadow:0 1px 0 #000}
+.applybar .two{display:flex;gap:8px}
+@media (max-width:420px){.applybar .two{flex-direction:column}}
+
+/* =========================================================
+   TEMA (SKIN): latar, warna kotak, dadu
+   ========================================================= */
+.bgset{position:absolute;inset:0;display:none}
+:root[data-skin="borneo"] .bgset[data-for="borneo"],:root[data-skin="angkasa"] .bgset[data-for="angkasa"],:root[data-skin="eskrim"] .bgset[data-for="eskrim"]{display:block}
+#home .hello{max-width:92vw;text-align:center;line-height:1.15}
+
+/* Luar Angkasa */
+:root[data-skin="angkasa"]{
+  --sky1:#3b2c9e;--sky2:#5b45c9;--sky3:#7a5fe0;--sky4:#3a2a8f;--sky5:#1a1150;
+  --cellA1:#e6e0ff;--cellA2:#cfc4ff;--cellB1:#bfe9ff;--cellB2:#98d6f7;--cellInk:#2a1f6b;
+  --panel:rgba(22,14,70,.7);--panelLine:rgba(160,220,255,.3);--foot:#e6e0ff;
+}
+:root[data-skin="angkasa"][data-theme="dark"]{
+  --sky1:#05071d;--sky2:#0c1240;--sky3:#1a1150;--sky4:#0b0b2e;--sky5:#020210;
+  --cellA1:#7466d4;--cellA2:#6254c0;--cellB1:#3a7cb8;--cellB2:#2f6aa2;--cellInk:#0b0826;
+  --panel:rgba(5,6,26,.8);--foot:#b9b0ff;
+}
+.sp-stars{position:absolute;inset:0;background-image:radial-gradient(1.6px 1.6px at 8% 12%,#fff,transparent),radial-gradient(1px 1px at 22% 30%,#fff,transparent),radial-gradient(2px 2px at 35% 8%,#fff8c4,transparent),radial-gradient(1px 1px at 48% 22%,#fff,transparent),radial-gradient(1.6px 1.6px at 62% 40%,#cfe9ff,transparent),radial-gradient(1px 1px at 76% 18%,#fff,transparent),radial-gradient(2px 2px at 90% 34%,#fff,transparent),radial-gradient(1px 1px at 14% 58%,#fff,transparent),radial-gradient(1.6px 1.6px at 30% 74%,#fff8c4,transparent),radial-gradient(1px 1px at 56% 66%,#fff,transparent),radial-gradient(1.6px 1.6px at 72% 82%,#cfe9ff,transparent),radial-gradient(1px 1px at 88% 70%,#fff,transparent),radial-gradient(1px 1px at 42% 90%,#fff,transparent),radial-gradient(1.6px 1.6px at 6% 88%,#fff,transparent)}
+.sp-tw{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 8px 3px rgba(190,230,255,.8);animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+.sp-shoot{position:absolute;top:14%;left:-20%;width:90px;height:3px;border-radius:3px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);transform:rotate(18deg);animation:shoot 7s linear infinite}
+@keyframes shoot{0%,78%{left:-20%;top:10%;opacity:0}80%{opacity:1}92%{left:110%;top:36%;opacity:0}100%{opacity:0}}
+.bgset svg{position:absolute}
+.q-lite .sp-tw,.q-lite .sp-shoot,.q-lite .sprk{animation:none}
+.q-lite .sp-shoot{display:none}
+:root[data-skin="eskrim"][data-theme="dark"] .bgset[data-for="eskrim"] svg{filter:brightness(.62) saturate(.9)}
+
+/* Es Krim */
+:root[data-skin="eskrim"]{
+  --sky1:#ffc4dd;--sky2:#ffd9e6;--sky3:#ffe9d2;--sky4:#fff1c9;--sky5:#c4ecdc;
+  --cellA1:#fff0f6;--cellA2:#ffd4e5;--cellB1:#dcf7ec;--cellB2:#bdebd9;--cellInk:#7a2a4f;
+  --panel:rgba(122,36,78,.62);--panelLine:rgba(255,255,255,.35);--foot:#8a2f5c;
+}
+:root[data-skin="eskrim"][data-theme="dark"]{
+  --sky1:#2a0f24;--sky2:#3e1636;--sky3:#4a1d3c;--sky4:#2e1530;--sky5:#120814;
+  --cellA1:#c96b97;--cellA2:#b45a85;--cellB1:#4fa58a;--cellB2:#3f8f76;--cellInk:#2a0a1a;
+  --panel:rgba(40,10,32,.8);--panelLine:rgba(255,190,220,.25);--foot:#f5bcd6;
+}
+.sprk{position:absolute;width:12px;height:4px;border-radius:3px;animation:sprk 5s ease-in-out infinite}
+@keyframes sprk{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(var(--r))}}
+
+/* dadu tema baru */
+.dice-planet .face{background:radial-gradient(circle at 30% 25%,#4656b8,#18205a 72%);border:3px solid #7fe3ff;box-shadow:inset 0 0 0 2px rgba(127,227,255,.35),inset 0 -6px 10px rgba(0,0,0,.4)}
+.dice-planet .face i{background:radial-gradient(circle at 40% 35%,#ffffff,#6ff0ff 70%);box-shadow:0 0 6px 1px rgba(111,240,255,.8)}
+.dice-planet .f1 i.on{background:radial-gradient(circle at 40% 35%,#fff3a0,#ff9a3c 70%);box-shadow:0 0 8px 2px rgba(255,180,80,.9);width:18px;height:18px}
+.dice-permen .face{background:radial-gradient(circle at 30% 25%,#fff6fa,#ffc2da 75%);border:3px solid #d0447f;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(208,68,127,.25)}
+.dice-permen .face i{background:radial-gradient(circle at 40% 35%,#a8643a,#5a2a10 70%);box-shadow:inset 0 2px 2px rgba(0,0,0,.4)}
+.dice-permen .f1 i.on{background:radial-gradient(circle at 40% 35%,#ff8a9a,#e8343a 70%);width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -394,6 +473,174 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <circle cx="12.2" cy="22" r="1.6" fill="#ff9a8a" opacity=".6"/><circle cx="26.8" cy="22" r="1.6" fill="#ff9a8a" opacity=".6"/>
 <g class="wave"><ellipse cx="31.4" cy="30" rx="3.6" ry="8.8" transform="rotate(-24 31.4 30)" fill="url(#gFur2)"/><circle cx="34.8" cy="21.4" r="3.1" fill="url(#gFace)"/></g>
 </symbol>
+<!-- ===== PION 2D (tema 2D kartun) ===== -->
+<!-- Tingang 2D: tamu karakter ke-5 di tema lain (tanpa tulisan di dada) -->
+<symbol id="pn-tingang2d" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#1b1f4a" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="14.5" cy="46" rx="4.2" ry="2.1" fill="#ffb72e"/><ellipse cx="25.5" cy="46" rx="4.2" ry="2.1" fill="#ffb72e"/>
+<ellipse cx="9.4" cy="32.5" rx="3.4" ry="7" transform="rotate(14 9.4 32.5)" fill="#262c66"/>
+<ellipse cx="20" cy="33" rx="12" ry="12.4" fill="#2e3577"/>
+</g>
+<ellipse cx="21" cy="36" rx="7.4" ry="8" fill="#ffffff"/>
+<g class="wave"><ellipse cx="31" cy="29" rx="3.8" ry="7.4" transform="rotate(-18 31 29)" fill="#262c66" stroke="#1b1f4a" stroke-width="1.3"/></g>
+<circle cx="19" cy="19" r="11.6" fill="#2e3577" stroke="#1b1f4a" stroke-width="1.3"/>
+<ellipse cx="13.6" cy="12.6" rx="4" ry="2" transform="rotate(-30 13.6 12.6)" fill="#ffffff" opacity=".3"/>
+<ellipse cx="16" cy="21" rx="6" ry="5.6" fill="#ffffff"/>
+<circle cx="16.6" cy="19.4" r="2.5" fill="#1b1f4a"/><circle cx="17.4" cy="18.5" r=".9" fill="#ffffff"/>
+<circle cx="13.4" cy="24" r="1.8" fill="#ff8fa8" opacity=".85"/>
+<path d="M23 17 C29 14.5 37 17 39 21.5 C35 21 31 22.5 28 26 C25 26.5 23 24.5 22.5 22 Z" fill="#ffc22e" stroke="#8a4a00" stroke-width="1.1" stroke-linejoin="round"/>
+<path d="M23.4 21.6 C28 21 33 21.2 38.4 21.8" fill="none" stroke="#8a4a00" stroke-width="1" stroke-linecap="round"/>
+<path d="M24.6 22.3 C26.6 22 28.6 22.2 30 22.6 C28.6 24.6 26 24.6 24.6 22.3 Z" fill="#ff6f8a"/>
+<path d="M22.5 16.5 C25 8.5 33 8 35 14.5 C31 13 26.5 13.5 23 17 Z" fill="#ef4a2a" stroke="#8a2410" stroke-width="1.1" stroke-linejoin="round"/>
+<ellipse cx="27.5" cy="11.8" rx="2.4" ry="1" transform="rotate(-15 27.5 11.8)" fill="#ffffff" opacity=".55"/>
+</symbol>
+<!-- Luar Angkasa: Astronot -->
+<symbol id="pn-astronot" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#23305a" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="14.5" cy="46" rx="4.4" ry="2.2" fill="#8a96b8"/><ellipse cx="25.5" cy="46" rx="4.4" ry="2.2" fill="#8a96b8"/>
+<ellipse cx="8.8" cy="33.5" rx="3.4" ry="7" transform="rotate(14 8.8 33.5)" fill="#eef1f8"/>
+<rect x="9" y="27" width="22" height="18.5" rx="8" fill="#f6f8fc"/>
+<rect x="15" y="32" width="10" height="6" rx="1.6" fill="#ff6a5a" stroke-width=".9"/>
+</g>
+<circle cx="17.6" cy="35" r="1.1" fill="#ffd84a"/><circle cx="22.4" cy="35" r="1.1" fill="#6ff0ff"/>
+<g class="wave" stroke="#23305a" stroke-width="1.3"><ellipse cx="31.4" cy="29.5" rx="3.4" ry="7.2" transform="rotate(-22 31.4 29.5)" fill="#eef1f8"/><circle cx="34.4" cy="22.8" r="2.8" fill="#ff6a5a"/></g>
+<path d="M20 5.5 V2" stroke="#23305a" stroke-width="1.3"/><circle cx="20" cy="1.8" r="1.7" fill="#ff6a5a" stroke="#23305a" stroke-width="1"/>
+<circle cx="8" cy="17.5" r="2.2" fill="#c7cde0" stroke="#23305a" stroke-width="1.1"/><circle cx="32" cy="17.5" r="2.2" fill="#c7cde0" stroke="#23305a" stroke-width="1.1"/>
+<circle cx="20" cy="17.5" r="12" fill="#f6f8fc" stroke="#23305a" stroke-width="1.3"/>
+<ellipse cx="20" cy="18.5" rx="8.8" ry="7.4" fill="#2b3a7a" stroke="#23305a" stroke-width="1.1"/>
+<ellipse cx="20" cy="19.2" rx="7" ry="5.8" fill="#ffd9b8"/>
+<path d="M13.6 16.4 C14.5 12.6 18 12 21 12.4 C17 13.5 15.2 15 14.6 17 Z" fill="#5a3a1a"/>
+<circle cx="17.2" cy="18.6" r="1.5" fill="#2a1608"/><circle cx="22.8" cy="18.6" r="1.5" fill="#2a1608"/>
+<circle cx="17.7" cy="18" r=".5" fill="#ffffff"/><circle cx="23.3" cy="18" r=".5" fill="#ffffff"/>
+<path d="M17.8 21.6 Q20 23.6 22.2 21.6" fill="none" stroke="#7a3a1a" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="15" cy="21.4" r="1.3" fill="#ff9a8a" opacity=".7"/><circle cx="25" cy="21.4" r="1.3" fill="#ff9a8a" opacity=".7"/>
+<ellipse cx="14.4" cy="11.6" rx="3.4" ry="1.5" transform="rotate(-32 14.4 11.6)" fill="#ffffff" opacity=".8"/>
+<path d="M24.5 13 C26.5 14 27.6 15.8 27.8 18" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+</symbol>
+<!-- Luar Angkasa: Alien -->
+<symbol id="pn-alien" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#1f4a1a" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="15" cy="46" rx="4" ry="2.1" fill="#4fbf3a"/><ellipse cx="25" cy="46" rx="4" ry="2.1" fill="#4fbf3a"/>
+<ellipse cx="10.5" cy="34.5" rx="3" ry="6.4" transform="rotate(18 10.5 34.5)" fill="#7be35a"/>
+<ellipse cx="20" cy="35" rx="10" ry="10.6" fill="#7be35a"/>
+</g>
+<ellipse cx="20" cy="37" rx="5.6" ry="6" fill="#c8f6ad"/>
+<g class="wave"><ellipse cx="30" cy="31" rx="3" ry="6.4" transform="rotate(-25 30 31)" fill="#7be35a" stroke="#1f4a1a" stroke-width="1.3"/></g>
+<g fill="none" stroke="#1f4a1a" stroke-width="1.3" stroke-linecap="round"><path d="M14 9.5 Q11.4 5 9 3"/><path d="M26 9.5 Q28.6 5 31 3"/></g>
+<circle cx="9" cy="3" r="2.1" fill="#ffd84a" stroke="#1f4a1a" stroke-width="1"/><circle cx="31" cy="3" r="2.1" fill="#ffd84a" stroke="#1f4a1a" stroke-width="1"/>
+<ellipse cx="20" cy="18.5" rx="13" ry="11" fill="#7be35a" stroke="#1f4a1a" stroke-width="1.3"/>
+<ellipse cx="13.5" cy="12.6" rx="4.4" ry="2" transform="rotate(-24 13.5 12.6)" fill="#ffffff" opacity=".4"/>
+<ellipse cx="15" cy="18" rx="3.7" ry="4.3" fill="#ffffff" stroke="#1f4a1a" stroke-width=".9"/><ellipse cx="25" cy="18" rx="3.7" ry="4.3" fill="#ffffff" stroke="#1f4a1a" stroke-width=".9"/>
+<circle cx="15.6" cy="18.8" r="2.2" fill="#1a1a2a"/><circle cx="25.6" cy="18.8" r="2.2" fill="#1a1a2a"/>
+<circle cx="16.3" cy="17.9" r=".8" fill="#ffffff"/><circle cx="26.3" cy="17.9" r=".8" fill="#ffffff"/>
+<path d="M16.4 24 Q20 27.8 23.6 24 Z" fill="#3a1a2a" stroke="#1f4a1a" stroke-width=".8" stroke-linejoin="round"/>
+<path d="M18.4 25.6 Q20 24.6 21.6 25.6 Q20 26.8 18.4 25.6 Z" fill="#ff7a9a"/>
+<circle cx="10.6" cy="22.6" r="1.7" fill="#ff9ab0" opacity=".75"/><circle cx="29.4" cy="22.6" r="1.7" fill="#ff9ab0" opacity=".75"/>
+</symbol>
+<!-- Luar Angkasa: Robot -->
+<symbol id="pn-robot" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#2a2f45" stroke-width="1.3" stroke-linejoin="round">
+<rect x="10.5" y="43.6" width="8" height="4" rx="1.8" fill="#7a869e"/><rect x="21.5" y="43.6" width="8" height="4" rx="1.8" fill="#7a869e"/>
+<ellipse cx="8.8" cy="34.5" rx="3" ry="6.4" transform="rotate(12 8.8 34.5)" fill="#9fb0cc"/>
+<rect x="17" y="25" width="6" height="4" fill="#7a869e"/>
+<rect x="10" y="28" width="20" height="16.5" rx="4.5" fill="#c7d3e8"/>
+<circle cx="20" cy="36" r="3.4" fill="#ff5a5a"/>
+</g>
+<rect x="12.6" y="30.4" width="3" height="1.6" rx=".8" fill="#ffb020"/><rect x="24.4" y="30.4" width="3" height="1.6" rx=".8" fill="#6ff0ff"/>
+<g class="wave" stroke="#2a2f45" stroke-width="1.3"><ellipse cx="31.4" cy="30" rx="3" ry="6.6" transform="rotate(-24 31.4 30)" fill="#9fb0cc"/><circle cx="34.2" cy="23.6" r="2.6" fill="#ffb020"/></g>
+<path d="M20 8 V3.6" stroke="#2a2f45" stroke-width="1.3"/><circle cx="20" cy="3" r="2" fill="#ffb020" stroke="#2a2f45" stroke-width="1"/>
+<rect x="5.4" y="13" width="3.2" height="7" rx="1.5" fill="#ffb020" stroke="#2a2f45" stroke-width="1.1"/><rect x="31.4" y="13" width="3.2" height="7" rx="1.5" fill="#ffb020" stroke="#2a2f45" stroke-width="1.1"/>
+<rect x="8" y="8" width="24" height="18" rx="6" fill="#c7d3e8" stroke="#2a2f45" stroke-width="1.3"/>
+<rect x="10.5" y="9.6" width="7" height="1.8" rx=".9" fill="#ffffff" opacity=".7"/>
+<rect x="11" y="11.5" width="18" height="12" rx="4" fill="#1d2a4a" stroke="#2a2f45" stroke-width=".9"/>
+<ellipse cx="16" cy="16.8" rx="2.1" ry="2.7" fill="#6ff0ff"/><ellipse cx="24" cy="16.8" rx="2.1" ry="2.7" fill="#6ff0ff"/>
+<path d="M16.6 20.2 Q20 22.6 23.4 20.2" fill="none" stroke="#6ff0ff" stroke-width="1.3" stroke-linecap="round"/>
+</symbol>
+<!-- Luar Angkasa: Roket -->
+<symbol id="pn-roket" viewBox="0 0 40 52" overflow="visible">
+<path d="M16.6 44 Q20 51 23.4 44 Z" fill="#ffb020"/><path d="M18.2 44 Q20 48 21.8 44 Z" fill="#fff3a0"/>
+<g stroke="#2a2f45" stroke-width="1.3" stroke-linejoin="round">
+<path d="M11 36 L4.5 45.5 L12 45 Z" fill="#ff5a4a"/><path d="M29 36 L35.5 45.5 L28 45 Z" fill="#ff5a4a"/>
+<path d="M20 2 C30 10 31 26 28.6 44.5 L11.4 44.5 C9 26 10 10 20 2 Z" fill="#f6f8fc"/>
+<path d="M20 2 C24.6 5.6 27.4 9.6 28.6 13.4 L11.4 13.4 C12.6 9.6 15.4 5.6 20 2 Z" fill="#ff5a4a"/>
+<rect x="10.8" y="36" width="18.4" height="3.6" fill="#ff5a4a" stroke-width=".9"/>
+<circle cx="20" cy="24.5" r="6.6" fill="#ffd84a"/>
+</g>
+<circle cx="20" cy="24.5" r="5" fill="#9fd6ff"/>
+<circle cx="18.2" cy="24" r="1.2" fill="#1a1a2a"/><circle cx="21.8" cy="24" r="1.2" fill="#1a1a2a"/>
+<circle cx="18.6" cy="23.5" r=".4" fill="#ffffff"/><circle cx="22.2" cy="23.5" r=".4" fill="#ffffff"/>
+<path d="M18.2 26.4 Q20 27.9 21.8 26.4" fill="none" stroke="#1a1a2a" stroke-width="1" stroke-linecap="round"/>
+<path d="M14 15.5 C13.2 22 13.1 29 13.6 34.5" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/>
+<path d="M14.6 15.4 C13.8 22 13.7 29 14.2 34.6" fill="none" stroke="#c7cde0" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<!-- Es Krim: Cone Stroberi -->
+<clipPath id="clCone"><path d="M11 25.5 L20 47 L29 25.5 Z"/></clipPath>
+<symbol id="pn-cone" viewBox="0 0 40 52" overflow="visible">
+<path d="M11 25.5 L20 47 L29 25.5 Z" fill="#eaa64e" stroke="#7a3a1a" stroke-width="1.3" stroke-linejoin="round"/>
+<g clip-path="url(#clCone)" stroke="#b8722a" stroke-width="1"><path d="M10 28 L22 47 M15 26 L26 44 M21 26 L29 38 M30 28 L18 47 M25 26 L14 44 M19 26 L11 38"/></g>
+<path d="M9 20 A11 11 0 0 1 31 20 C31.5 25 29.5 27.6 27.5 25.6 C26.5 28.6 23 28.6 22.5 25.6 C21 28.8 17.5 28.6 17 25.8 C15.5 28.6 12 28 12 25 C9.5 26 8.6 23 9 20 Z" fill="#ff9cc2" stroke="#a8325f" stroke-width="1.3" stroke-linejoin="round"/>
+<ellipse cx="14.4" cy="13.4" rx="3.6" ry="1.8" transform="rotate(-30 14.4 13.4)" fill="#ffffff" opacity=".55"/>
+<g fill="#e0457a"><circle cx="12" cy="20" r=".8"/><circle cx="27.4" cy="15.6" r=".8"/><circle cx="25" cy="23" r=".8"/></g>
+<path d="M22 6.4 Q23 3 25.4 2.2" fill="none" stroke="#3d7a1a" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="21.8" cy="8.4" r="2.8" fill="#e8343a" stroke="#7a1a1a" stroke-width="1"/><circle cx="21" cy="7.6" r=".8" fill="#ffffff" opacity=".7"/>
+<circle cx="16" cy="17.8" r="1.6" fill="#3a1a2a"/><circle cx="24" cy="17.8" r="1.6" fill="#3a1a2a"/>
+<circle cx="16.5" cy="17.2" r=".55" fill="#ffffff"/><circle cx="24.5" cy="17.2" r=".55" fill="#ffffff"/>
+<path d="M17.6 21 Q20 23.4 22.4 21" fill="none" stroke="#7a1f3f" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="13.6" cy="20.6" r="1.6" fill="#ff5f8f" opacity=".6"/><circle cx="26.4" cy="20.6" r="1.6" fill="#ff5f8f" opacity=".6"/>
+</symbol>
+<!-- Es Krim: Es Loli -->
+<symbol id="pn-loli" viewBox="0 0 40 52" overflow="visible">
+<rect x="18" y="37" width="4" height="10.5" rx="2" fill="#f3d29a" stroke="#7a4a1a" stroke-width="1.2"/>
+<rect x="9.5" y="4" width="21" height="35" rx="10" fill="#ffa53a" stroke="#8a4a0a" stroke-width="1.3"/>
+<path d="M9.6 15 C9.4 8 14 4 20 4 C26 4 30.6 8 30.4 15 C28.8 18 27 15 25 17 C23 19.2 21 15 19 17.6 C17 19.8 15 15.6 13 17 C11.6 18 10.4 17 9.6 15 Z" fill="#7a3e1a" stroke="#4a220a" stroke-width="1.2" stroke-linejoin="round"/>
+<g stroke-width="1.4" stroke-linecap="round"><path d="M13 9 L14.6 8.2" stroke="#ff6fa6"/><path d="M18 7 L19.6 7.6" stroke="#ffe27a"/><path d="M23 9.4 L24.4 8.4" stroke="#6ff0d0"/><path d="M26.4 12.4 L27.6 13.4" stroke="#ffffff"/><path d="M15.6 12.6 L17 13.4" stroke="#8ab8ff"/></g>
+<rect x="12.2" y="21" width="2.4" height="13" rx="1.2" fill="#ffffff" opacity=".45"/>
+<circle cx="16.4" cy="25.4" r="1.7" fill="#3a1a2a"/><circle cx="23.6" cy="25.4" r="1.7" fill="#3a1a2a"/>
+<circle cx="16.9" cy="24.8" r=".55" fill="#ffffff"/><circle cx="24.1" cy="24.8" r=".55" fill="#ffffff"/>
+<path d="M17.4 28.8 Q20 31.6 22.6 28.8" fill="none" stroke="#8a3a0a" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="13.8" cy="28.4" r="1.6" fill="#ff5f5f" opacity=".5"/><circle cx="26.2" cy="28.4" r="1.6" fill="#ff5f5f" opacity=".5"/>
+</symbol>
+<!-- Es Krim: Sundae Ceri -->
+<symbol id="pn-sundae" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#4a5a8a" stroke-width="1.2" stroke-linejoin="round">
+<path d="M13.5 47 L26.5 47 L24.6 42.5 L15.4 42.5 Z" fill="#bfe8ff"/>
+<rect x="18.4" y="35.5" width="3.2" height="7.4" fill="#bfe8ff"/>
+</g>
+<rect x="26.6" y="4.5" width="3" height="13" rx="1.2" transform="rotate(22 28 11)" fill="#f3c27a" stroke="#8a5a2a" stroke-width="1"/>
+<g stroke="#8a5a2a" stroke-width="1.2"><circle cx="13.2" cy="20" r="6.4" fill="#fff3d6"/><circle cx="26.8" cy="20" r="6.4" fill="#8fe0c0"/><circle cx="20" cy="14.6" r="7.4" fill="#ff9cc2"/></g>
+<ellipse cx="17" cy="11" rx="2.6" ry="1.3" transform="rotate(-30 17 11)" fill="#ffffff" opacity=".6"/>
+<path d="M20 4.6 Q21 1.8 23.4 1.4" fill="none" stroke="#3d7a1a" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="20" cy="6.4" r="2.6" fill="#e8343a" stroke="#7a1a1a" stroke-width="1"/><circle cx="19.2" cy="5.6" r=".7" fill="#ffffff" opacity=".7"/>
+<path d="M6.6 23.6 L33.4 23.6 C33.4 31 27.6 36.6 20 36.6 C12.4 36.6 6.6 31 6.6 23.6 Z" fill="#d9f3ff" stroke="#4a5a8a" stroke-width="1.3" stroke-linejoin="round"/>
+<path d="M9.4 26 C10 30 12.6 33 16 34" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="16.4" cy="28.6" r="1.6" fill="#3a1a2a"/><circle cx="23.6" cy="28.6" r="1.6" fill="#3a1a2a"/>
+<circle cx="16.9" cy="28" r=".55" fill="#ffffff"/><circle cx="24.1" cy="28" r=".55" fill="#ffffff"/>
+<path d="M17.6 31.6 Q20 33.8 22.4 31.6" fill="none" stroke="#4a3a6a" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="13.6" cy="31" r="1.5" fill="#ff8fb0" opacity=".7"/><circle cx="26.4" cy="31" r="1.5" fill="#ff8fb0" opacity=".7"/>
+</symbol>
+<!-- Es Krim: Milkshake -->
+<symbol id="pn-milkshake" viewBox="0 0 40 52" overflow="visible">
+<path d="M24 12 L28.4 1.4" stroke="#c2357c" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M24 12 L28.4 1.4" stroke="#ff8fbf" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2"/>
+<path d="M10 16 L30 16 L27 46.5 L13 46.5 Z" fill="#c98a5a" stroke="#5a2a10" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="12.2" y="37" width="15.6" height="2.8" fill="#ff9cc2"/>
+<path d="M12.6 19 L14.8 44" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+<path d="M9 17 C8 12 12 10 14 11.6 C15 7.6 21 7 22.6 10.6 C25 8.6 30 10 30 13.6 C32 14.6 32 18.2 29 18.2 L11 18.2 C9 18.6 8.4 17.6 9 17 Z" fill="#fff8f0" stroke="#8a5a3a" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="16.4" cy="8.4" r="2.6" fill="#e8343a" stroke="#7a1a1a" stroke-width="1"/><circle cx="15.7" cy="7.6" r=".7" fill="#ffffff" opacity=".7"/>
+<circle cx="16.6" cy="27.6" r="1.7" fill="#3a1a0a"/><circle cx="23.4" cy="27.6" r="1.7" fill="#3a1a0a"/>
+<circle cx="17.1" cy="27" r=".55" fill="#ffffff"/><circle cx="23.9" cy="27" r=".55" fill="#ffffff"/>
+<path d="M17.6 31.4 Q20 33.8 22.4 31.4" fill="none" stroke="#3a1a0a" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="14.4" cy="30.8" r="1.6" fill="#ff8a9a" opacity=".6"/><circle cx="25.6" cy="30.8" r="1.6" fill="#ff8a9a" opacity=".6"/>
+</symbol>
+<!-- hiasan bingkai tema 2D -->
+<g id="planet"><ellipse rx="13" ry="4.2" fill="none" stroke="#ffe27a" stroke-width="2" transform="rotate(-20)"/><circle r="8" fill="#ff8a5a" stroke="#7a2f15" stroke-width="1.2"/><path d="M-6 -2 C-2 -4 3 -3 6.5 -1" fill="none" stroke="#ffc49a" stroke-width="1.4"/><ellipse cx="-2.4" cy="-3.4" rx="2.4" ry="1.2" fill="#fff" opacity=".5"/><path d="M-13 0 A13 4.2 0 0 0 13 0" fill="none" stroke="#ffe27a" stroke-width="2" transform="rotate(-20)"/></g>
+<g id="star5"><polygon points="0,-7 2,-2.2 7,-2.2 3,1 4.4,6.2 0,3.2 -4.4,6.2 -3,1 -7,-2.2 -2,-2.2" fill="#ffe27a" stroke="#8a5a00" stroke-width=".8" stroke-linejoin="round"/></g>
+<g id="heart"><path d="M0 5 C-7 0 -6.5 -6 -3 -6 C-1.4 -6 -.4 -5 0 -3.8 C.4 -5 1.4 -6 3 -6 C6.5 -6 7 0 0 5 Z" fill="#ff4f86" stroke="#ffffff" stroke-width="1.1"/></g>
+<pattern id="starBand" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="#232b72"/><polygon points="7,1.6 8,4.2 10.6,4.2 8.5,5.8 9.3,8.4 7,6.8 4.7,8.4 5.5,5.8 3.4,4.2 6,4.2" fill="#ffe27a"/><circle cx="0.5" cy="2" r=".8" fill="#7fe3ff"/><circle cx="13.5" cy="8" r=".8" fill="#7fe3ff"/></pattern>
+<pattern id="starBandV" width="14" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="14" height="10" fill="#232b72"/><polygon points="7,1.6 8,4.2 10.6,4.2 8.5,5.8 9.3,8.4 7,6.8 4.7,8.4 5.5,5.8 3.4,4.2 6,4.2" fill="#ffe27a"/><circle cx="0.5" cy="2" r=".8" fill="#7fe3ff"/><circle cx="13.5" cy="8" r=".8" fill="#7fe3ff"/></pattern>
+<pattern id="sprBand" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#ffc2da"/><rect x="2" y="2" width="4" height="1.6" rx=".8" fill="#ffffff" transform="rotate(25 4 2.8)"/><rect x="9" y="5.6" width="4" height="1.6" rx=".8" fill="#6fd8b8" transform="rotate(-30 11 6.4)"/><rect x="5" y="7" width="3.6" height="1.6" rx=".8" fill="#ffd84a" transform="rotate(10 6.8 7.8)"/><rect x="12" y="1.4" width="3.6" height="1.6" rx=".8" fill="#8ab8ff" transform="rotate(-15 13.8 2.2)"/></pattern>
+<pattern id="sprBandV" width="16" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="16" height="10" fill="#ffc2da"/><rect x="2" y="2" width="4" height="1.6" rx=".8" fill="#ffffff" transform="rotate(25 4 2.8)"/><rect x="9" y="5.6" width="4" height="1.6" rx=".8" fill="#6fd8b8" transform="rotate(-30 11 6.4)"/><rect x="5" y="7" width="3.6" height="1.6" rx=".8" fill="#ffd84a" transform="rotate(10 6.8 7.8)"/><rect x="12" y="1.4" width="3.6" height="1.6" rx=".8" fill="#8ab8ff" transform="rotate(-15 13.8 2.2)"/></pattern>
+<clipPath id="frameClip"><rect width="358" height="358" rx="26"/></clipPath>
 <!-- ikon ceri (digambar sendiri) -->
 <symbol id="ic-cherry" viewBox="0 0 40 40">
 <path d="M20 5 C18 14 13 20 11 26" fill="none" stroke="#5a8a1e" stroke-width="2.4" stroke-linecap="round"/>
@@ -415,6 +662,22 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <div id="app">
   <!-- latar -->
   <div class="bg" aria-hidden="true">
+   <!-- Latar Luar Angkasa -->
+   <div class="bgset" data-for="angkasa">
+    <div class="sp-stars"></div><div id="spTw"></div><div class="sp-shoot"></div>
+    <svg style="right:-40px;top:6%;width:190px;height:190px" viewBox="-60 -60 120 120"><ellipse rx="56" ry="15" fill="none" stroke="#ffd36b" stroke-width="7" opacity=".8" transform="rotate(-18)"/><circle r="34" fill="#ff9a5a"/><path d="M-30 -8 C-10 -16 14 -14 32 -6" fill="none" stroke="#ffc49a" stroke-width="6" opacity=".7"/><path d="M-32 8 C-10 2 14 4 31 10" fill="none" stroke="#e8743a" stroke-width="5" opacity=".6"/><ellipse cx="-12" cy="-16" rx="10" ry="5" fill="#fff" opacity=".35"/><path d="M-56 0 A56 15 0 0 0 56 0" fill="none" stroke="#ffd36b" stroke-width="7" transform="rotate(-18)"/></svg>
+    <svg style="left:-26px;bottom:14%;width:120px;height:120px" viewBox="-50 -50 100 100"><circle r="40" fill="#8fd3ff"/><circle cx="-12" cy="-10" r="9" fill="#6ab8ef"/><circle cx="14" cy="8" r="12" fill="#6ab8ef"/><circle cx="-6" cy="20" r="6" fill="#6ab8ef"/><ellipse cx="-16" cy="-22" rx="11" ry="5" fill="#fff" opacity=".4"/></svg>
+    <svg style="left:44%;top:2%;width:40px;height:40px" viewBox="-20 -20 40 40"><circle r="16" fill="#f3efd9"/><circle cx="-5" cy="-4" r="4" fill="#d9d2b0"/><circle cx="6" cy="5" r="3" fill="#d9d2b0"/></svg>
+   </div>
+   <!-- Latar Es Krim -->
+   <div class="bgset" data-for="eskrim">
+    <svg style="left:0;top:0;width:100%;height:70px" viewBox="0 0 390 70" preserveAspectRatio="none"><path d="M0 0 H390 V26 C380 26 378 44 368 44 C358 44 360 28 346 28 C334 28 336 56 322 56 C308 56 312 30 296 30 C284 30 286 40 274 40 C262 40 264 26 250 26 C238 26 240 50 226 50 C212 50 216 28 200 28 C188 28 190 38 178 38 C166 38 168 26 154 26 C142 26 144 58 128 58 C114 58 118 30 102 30 C90 30 92 42 80 42 C68 42 70 26 56 26 C44 26 46 48 32 48 C20 48 22 28 10 28 C4 28 2 26 0 26 Z" fill="#ff8fb8"/><path d="M0 0 H390 V14 H0 Z" fill="#ffb3d0"/></svg>
+    <div id="sprinkles"></div>
+    <svg style="left:-30px;bottom:6%;width:150px;height:170px" viewBox="0 0 150 170"><path d="M40 90 L75 170 L110 90 Z" fill="#eaa64e"/><g stroke="#c88436" stroke-width="3"><path d="M48 96 L90 160"/><path d="M66 92 L104 120"/><path d="M100 96 L60 160"/><path d="M84 92 L46 120"/></g><circle cx="75" cy="70" r="40" fill="#8fe0c0"/><circle cx="75" cy="36" r="30" fill="#ff9cc2"/><circle cx="80" cy="6" r="9" fill="#e8343a"/><ellipse cx="62" cy="24" rx="10" ry="5" fill="#fff" opacity=".5"/></svg>
+    <svg style="right:-26px;bottom:10%;width:120px;height:150px" viewBox="0 0 120 150"><rect x="52" y="104" width="16" height="44" rx="8" fill="#f3d29a"/><rect x="18" y="6" width="84" height="110" rx="40" fill="#ffd36b"/><path d="M18 46 C18 22 36 6 60 6 C84 6 102 22 102 46 C94 54 86 44 78 52 C70 60 62 46 54 54 C46 62 38 48 30 54 C24 58 20 52 18 46 Z" fill="#7a3e1a"/><rect x="30" y="64" width="9" height="40" rx="4.5" fill="#fff" opacity=".45"/></svg>
+   </div>
+   <!-- Latar Hutan Borneo -->
+   <div class="bgset" data-for="borneo">
     <div class="stars"></div><div class="sun"></div><div class="moon"></div>
     <svg class="canopy" viewBox="0 0 390 150" preserveAspectRatio="none">
       <path d="M0 40 C40 2 84 -6 124 18 C166 -28 218 -28 258 12 C298 -14 348 -8 390 26 L390 150 L0 150 Z" fill="var(--hill)" opacity=".75"/>
@@ -428,6 +691,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <svg class="leafc" style="left:0;bottom:0" viewBox="0 -200 200 200"><use href="#leaf" fill="#145c2d" transform="rotate(-70) scale(2)"/><use href="#leaf" fill="#1d7a3b" transform="rotate(-48) scale(2.2)"/><use href="#leaf" fill="#2a9650" transform="rotate(-24) scale(1.8)"/><use href="#leaf" fill="#145c2d" transform="rotate(-88) scale(1.5)"/></svg>
     <svg class="leafc" style="right:0;bottom:0" viewBox="-200 -200 200 200"><use href="#leaf" fill="#145c2d" transform="rotate(-110) scale(2)"/><use href="#leaf" fill="#1d7a3b" transform="rotate(-132) scale(2.2)"/><use href="#leaf" fill="#2a9650" transform="rotate(-156) scale(1.8)"/><use href="#leaf" fill="#145c2d" transform="rotate(-92) scale(1.5)"/></svg>
     <div id="fireflies"></div>
+   </div>
   </div>
 
   <!-- BERANDA -->
@@ -464,6 +728,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <div class="sheetwrap">
       <div class="sheethead"><button class="rbtn" data-act="back" aria-label="Kembali"><svg><use href="#ic-back"/></svg></button><h2>Pengaturan</h2></div>
       <div class="sheet" id="settingsBody"></div>
+      <div class="applybar hidden" id="applyBar"></div>
     </div>
     <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
   </section>
@@ -519,6 +784,13 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     </div>
   </div>
 
+  <!-- PILIH KARAKTER -->
+  <div class="modal" id="pickm">
+    <div class="mbox"><h2 style="text-align:center">Pilih Karakter</h2><div id="pickBody"></div>
+      <button class="bbtn sm" data-act="pickDone">SELESAI</button>
+    </div>
+  </div>
+
   <!-- KONFIRMASI -->
   <div class="modal" id="confirm">
     <div class="mbox"><h2 id="cfT"></h2><p id="cfP"></p>
@@ -541,8 +813,8 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <script>
 'use strict';
 /* =========================================================
-   HaHe (Handipe Hejan) · Tahap 1
-   Mesin game + tema Hutan Borneo
+   HaHe (Handipe Hejan) · Versi 1.1 (Tahap 2 dimulai)
+   Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim
    HaHe ©2026 | hahe.totogutomo.com
    ========================================================= */
 
@@ -558,12 +830,44 @@ const SKINS = {
     ],
     dice: ['kayu', 'ukir'],
     bgm: 'audio/hutan-borneo.mp3',
-    snakes: [['#12532c', '#3fb34f', '#b9f07a'], ['#7a3a08', '#f08a24', '#ffe0a0'], ['#0c4f4b', '#2aa6a0', '#b4f0ea'], ['#44590c', '#b4d62f', '#f3ffb0'], ['#7a1f3a', '#e0527a', '#ffc4d4']]
+    snakes: [['#12532c', '#3fb34f', '#b9f07a'], ['#7a3a08', '#f08a24', '#ffe0a0'], ['#0c4f4b', '#2aa6a0', '#b4f0ea'], ['#44590c', '#b4d62f', '#f3ffb0'], ['#7a1f3a', '#e0527a', '#ffc4d4']],
+    ladder: { edge: '#3b2412', rail: '#a8672f', rung: '#d9a064', shine: '#e9bd86', deco: 'leaf' }
+  },
+  // Tahap 2 · tema 2D kartun: 4 karakter asli + Tingang sebagai tamu karakter ke-5, satu dadu
+  angkasa: {
+    id: 'angkasa', name: 'Luar Angkasa',
+    pions: [
+      { id: 'astronot', name: 'Astronot' },
+      { id: 'alien', name: 'Alien' },
+      { id: 'robot', name: 'Robot' },
+      { id: 'roket', name: 'Roket' },
+      { id: 'tingang2d', name: 'Tingang' }
+    ],
+    dice: ['planet'],
+    bgm: 'audio/luar-angkasa.mp3',
+    snakes: [['#2a0f5c', '#8a5cff', '#d9c7ff'], ['#063a5a', '#22b8ff', '#bff0ff'], ['#4a0f4a', '#e050d0', '#ffc4f5'], ['#0f4a3a', '#2fe0a8', '#c4ffe9'], ['#5a3a06', '#ffb020', '#ffe9b0']],
+    ladder: { edge: '#1b2a5a', rail: '#a9bcdc', rung: '#6ff0ff', shine: '#ffffff', deco: 'star' }
+  },
+  eskrim: {
+    id: 'eskrim', name: 'Es Krim',
+    pions: [
+      { id: 'cone', name: 'Cone Stroberi' },
+      { id: 'loli', name: 'Es Loli' },
+      { id: 'sundae', name: 'Sundae Ceri' },
+      { id: 'milkshake', name: 'Milkshake' },
+      { id: 'tingang2d', name: 'Tingang' }
+    ],
+    dice: ['permen'],
+    bgm: 'audio/es-krim.mp3',
+    snakes: [['#8a1e4a', '#ff6fa6', '#fff0f6'], ['#6a3a10', '#c98a4a', '#ffe6c4'], ['#2a6a50', '#5fd0a0', '#e0fff0'], ['#5a2a7a', '#b38cff', '#f0e6ff'], ['#8a5a00', '#ffcf3a', '#fff6c4']],
+    ladder: { edge: '#b8326e', rail: '#fff4f8', stripe: '#ff6fa6', rung: '#f3c27a', shine: '#ffffff', deco: 'sprinkle' }
   }
 };
 const DICE = {
   kayu: { name: 'Dadu Kayu', skin: 'borneo', cls: 'dice-kayu' },
-  ukir: { name: 'Dadu Ukir Dayak', skin: 'borneo', cls: 'dice-ukir' }
+  ukir: { name: 'Dadu Ukir Dayak', skin: 'borneo', cls: 'dice-ukir' },
+  planet: { name: 'Dadu Planet', skin: 'angkasa', cls: 'dice-planet' },
+  permen: { name: 'Dadu Permen', skin: 'eskrim', cls: 'dice-permen' }
 };
 const RINGS = [
   { id: 'merah', name: 'Merah', a: '#ff6a5a', b: '#b3261e' },
@@ -586,7 +890,9 @@ const LEVELS = {
 };
 const MODES = { klasik: 'Klasik', waktu: 'By Time', kesempatan: 'By Chance' };
 // Sapaan berbahasa Dayak Ngaju (mudah ditambah/diganti di sini)
-const SAPAAN = { beranda: 'Tabe!', tangga: 'Isen Mulang!' };
+const SAPAAN = { beranda: 'Tabe Salamat Lingu Nalatai!', tangga: 'Isen Mulang!' };
+// Pengaturan yang mengubah aturan permainan (saat bermain: disimpan dulu, tidak langsung berlaku)
+const GAME_KEYS = ['skin', 'mode', 'timeMin', 'throws', 'level', 'size', 'finish'];
 
 // ---------- Penyimpanan ----------
 const store = {
@@ -598,7 +904,8 @@ const DEFAULTS = {
   theme: 'light', layout: 'auto', quality: 'best',
   bgm: true, bgmVol: 0.5, sfx: true, sfxVol: 0.8,
   skin: 'borneo', dice: 'kayu',
-  mode: 'klasik', timeMin: 5, throws: 10, level: 'standar', size: 'auto'
+  mode: 'klasik', timeMin: 5, throws: 10, level: 'standar', size: 'auto',
+  finish: 'pas' // 'pas' = harus pas (memantul), 'lewat' = boleh melewati
 };
 let S = Object.assign({}, DEFAULTS, store.get('hahe.settings', {}));
 function saveSettings() { store.set('hahe.settings', S); }
@@ -606,7 +913,8 @@ function saveSettings() { store.set('hahe.settings', S); }
 let draft = store.get('hahe.draft', null) || {
   kind: 'teman',
   players: [{ name: '', pion: 'tingang', ring: 'merah' }, { name: '', pion: 'orangutan', ring: 'biru' }],
-  teams: [{ name: 'Tim 1', members: '', pion: 'tingang', ring: 'merah' }, { name: 'Tim 2', members: '', pion: 'bekantan', ring: 'biru' }]
+  teams: [{ name: 'Tim 1', members: '', pion: 'tingang', ring: 'merah' }, { name: 'Tim 2', members: '', pion: 'bekantan', ring: 'biru' }],
+  cpuFirst: false
 };
 function saveDraft() { store.set('hahe.draft', draft); }
 
@@ -624,6 +932,18 @@ function seeded(str) {
   return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
 }
 function suggestSize(n) { return n <= 4 ? 10 : n <= 6 ? 8 : 6; }
+// Pion unik selama jumlah pemain tidak melebihi jumlah karakter; selebihnya boleh berulang (beda warna cincin)
+function remapPions(list, skinId) {
+  const ids = SKINS[skinId].pions.map(x => x.id), used = new Set(), uniq = list.length <= ids.length;
+  list.forEach((p, i) => {
+    if (ids.includes(p.pion) && !(uniq && used.has(p.pion))) { used.add(p.pion); return; }
+    p.pion = ids.find(x => !used.has(x)) || ids[i % ids.length]; used.add(p.pion);
+  });
+}
+function freePion(list) { const ids = skin().pions.map(x => x.id); return ids.find(x => !list.some(p => p.pion === x)) || ids[list.length % ids.length]; }
+// tema yang tampil: saat bermain mengikuti tema permainan
+function visSkin() { return cur === 'game' && G ? G.skin : S.skin; }
+function applySkin() { const s = visSkin(); if (document.documentElement.dataset.skin !== s) document.documentElement.dataset.skin = s; }
 
 // gradasi cincin pion
 (function () {
@@ -652,6 +972,13 @@ function avatarSVG(pion, ring) {
   let h = ''; const r = seeded('ff');
   for (let i = 0; i < 14; i++) h += `<span class="ff" style="left:${(r() * 96).toFixed(1)}%;top:${(30 + r() * 65).toFixed(1)}%;animation-delay:${(-r() * 4).toFixed(2)}s;animation-duration:${(3 + r() * 3).toFixed(1)}s"></span>`;
   document.getElementById('fireflies').innerHTML = h;
+  // bintang berkelip (Luar Angkasa) dan taburan meses (Es Krim)
+  let t = ''; const r2 = seeded('tw');
+  for (let i = 0; i < 10; i++) t += `<span class="sp-tw" style="left:${(r2() * 96).toFixed(1)}%;top:${(r2() * 92).toFixed(1)}%;animation-delay:${(-r2() * 3).toFixed(2)}s;width:${(3 + r2() * 4).toFixed(1)}px;height:${(3 + r2() * 4).toFixed(1)}px"></span>`;
+  document.getElementById('spTw').innerHTML = t;
+  let m = ''; const r3 = seeded('sp'), cols = ['#ff6fa6', '#ffd84a', '#6fd8b8', '#8ab8ff', '#ffffff', '#b38cff'];
+  for (let i = 0; i < 26; i++) m += `<span class="sprk" style="left:${(r3() * 96).toFixed(1)}%;top:${(10 + r3() * 84).toFixed(1)}%;background:${cols[i % cols.length]};--r:${Math.round(r3() * 180)}deg;animation-delay:${(-r3() * 5).toFixed(2)}s"></span>`;
+  document.getElementById('sprinkles').innerHTML = m;
 })();
 
 // =========================================================
@@ -694,7 +1021,7 @@ const SFX = {
 const BGM = {
   el: null, src: '', missing: {},
   sync() {
-    const src = skin().bgm;
+    const src = (SKINS[visSkin()] || SKINS.borneo).bgm;
     if (!this.el) { this.el = new Audio(); this.el.loop = true; this.el.preload = 'auto'; this.el.addEventListener('error', () => { BGM.missing[BGM.src] = true; if (cur === 'settings') renderSettings(); }); }
     if (this.src !== src) { this.src = src; this.el.src = src; }
     this.el.volume = Math.max(0, Math.min(1, S.bgmVol));
@@ -713,6 +1040,7 @@ let cur = 'home', prev = [];
 function applyLook() {
   document.documentElement.dataset.theme = S.theme;
   document.body.classList.toggle('q-lite', S.quality === 'lite');
+  applySkin();
   applyLayout();
 }
 function isLand() { return S.layout === 'auto' ? innerWidth > innerHeight * 1.05 : S.layout === 'landscape'; }
@@ -730,7 +1058,9 @@ addEventListener('resize', applyLayout);
 
 function show(id, push = true) {
   if (push && cur !== id) prev.push(cur);
+  if (cur === 'settings' && id !== 'settings') pend = null; // keluar Pengaturan: perubahan yang belum disimpan dibatalkan
   cur = id;
+  applySkin(); BGM.sync();
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
   if (id === 'home') renderHome();
   if (id === 'setup') renderSetup();
@@ -757,13 +1087,14 @@ function renderHome() {
 function chips(name, items, val) {
   return `<div class="chips">${items.map(([v, label, sub]) => `<button class="chip ${String(v) === String(val) ? 'on' : ''}" data-chip="${name}" data-v="${v}">${label}${sub ? `<small>${sub}</small>` : ''}</button>`).join('')}</div>`;
 }
-function gameOptionsHTML(n) {
+function gameOptionsHTML(n, V = S) {
   const sug = suggestSize(n);
-  let h = `<div class="sec"><h3>Mode permainan</h3>${chips('mode', [['klasik', 'Klasik', 'Pertama sampai'], ['waktu', 'By Time', 'Waktu mundur'], ['kesempatan', 'By Chance', 'Lemparan sama']], S.mode)}`;
-  if (S.mode === 'waktu') h += `<div class="hint">Lama permainan:</div>${chips('timeMin', [[3, '3 menit'], [5, '5 menit'], [10, '10 menit'], [15, '15 menit']], S.timeMin)}`;
-  if (S.mode === 'kesempatan') h += `<div class="hint">Jumlah lemparan tiap pemain:</div>${chips('throws', [[5, '5 kali'], [10, '10 kali'], [15, '15 kali'], [20, '20 kali']], S.throws)}`;
-  h += `</div><div class="sec"><h3>Level papan</h3>${chips('level', Object.entries(LEVELS).map(([k, v]) => [k, v.name, `${v.s} ular · ${v.l} tangga`]), S.level)}<div class="hint">Jumlah di atas untuk papan 10×10; papan lebih kecil menyesuaikan.</div></div>`;
-  h += `<div class="sec"><h3>Ukuran papan</h3>${chips('size', [['auto', `Otomatis`, `saran ${sug}×${sug}`], [10, '10×10'], [8, '8×8'], [6, '6×6']], S.size)}</div>`;
+  let h = `<div class="sec"><h3>Mode permainan</h3>${chips('mode', [['klasik', 'Klasik', 'Pertama sampai'], ['waktu', 'By Time', 'Waktu mundur'], ['kesempatan', 'By Chance', 'Lemparan sama']], V.mode)}`;
+  if (V.mode === 'waktu') h += `<div class="hint">Lama permainan:</div>${chips('timeMin', [[3, '3 menit'], [5, '5 menit'], [10, '10 menit'], [15, '15 menit']], V.timeMin)}`;
+  if (V.mode === 'kesempatan') h += `<div class="hint">Jumlah lemparan tiap pemain:</div>${chips('throws', [[5, '5 kali'], [10, '10 kali'], [15, '15 kali'], [20, '20 kali']], V.throws)}`;
+  h += `</div><div class="sec"><h3>Aturan finis</h3>${chips('finish', [['pas', 'Harus pas', 'lebih = memantul'], ['lewat', 'Boleh melewati', 'lebih = tetap finis']], V.finish)}</div>`;
+  h += `<div class="sec"><h3>Level papan</h3>${chips('level', Object.entries(LEVELS).map(([k, v]) => [k, v.name, `${v.s} ular · ${v.l} tangga`]), V.level)}<div class="hint">Jumlah di atas untuk papan 10×10; papan lebih kecil menyesuaikan.</div></div>`;
+  h += `<div class="sec"><h3>Ukuran papan</h3>${chips('size', [['auto', `Otomatis`, `saran ${sug}×${sug}`], [10, '10×10'], [8, '8×8'], [6, '6×6']], V.size)}</div>`;
   return h;
 }
 function ringPickerNext(cur, taken) {
@@ -771,37 +1102,92 @@ function ringPickerNext(cur, taken) {
   for (let k = 1; k <= RINGS.length; k++) { const r = RINGS[(i + k) % RINGS.length]; if (!taken.includes(r.id)) return r.id; }
   return RINGS[(i + 1) % RINGS.length].id;
 }
+const curList = () => draft.kind === 'kelompok' ? draft.teams : draft.players;
+function ordHTML(i, n) {
+  return `<div class="ord"><button data-up="${i}" ${i === 0 ? 'disabled' : ''} aria-label="Naikkan urutan">▲</button><div class="no" data-drag="${i}" title="Geser untuk mengatur urutan">${i + 1}</div><button data-down="${i}" ${i === n - 1 ? 'disabled' : ''} aria-label="Turunkan urutan">▼</button></div>`;
+}
 function renderSetup() {
   const sk = skin();
-  const list = draft.kind === 'kelompok' ? draft.teams : draft.players;
+  remapPions(draft.players, sk.id); remapPions(draft.teams, sk.id);
   let h = `<div class="sec"><h3>Cara bermain</h3>${chips('kind', [['teman', 'Bersama Teman'], ['komputer', 'Lawan Komputer'], ['kelompok', 'Mode Kelompok']], draft.kind)}</div>`;
-  h += `<div class="sec"><h3>${draft.kind === 'kelompok' ? 'Kelompok' : 'Pemain'}</h3>`;
+  h += `<div class="sec"><h3>${draft.kind === 'kelompok' ? 'Kelompok' : 'Pemain'} · urutan giliran</h3>`;
   if (draft.kind === 'komputer') {
     const p = draft.players[0];
     const cpu = cpuPion(p);
-    h += rowHTML(p, 0, 'Nama kamu', false);
-    h += `<div class="row"><div class="pick">${avatarSVG(cpu.pion, cpu.ring)}</div><div style="flex:1;font-weight:800;font-size:16px">Komputer</div><span class="cpu-tag">OTOMATIS</span></div>`;
-  } else if (draft.kind === 'kelompok') {
-    draft.teams.forEach((t, i) => {
-      h += `<div class="row" style="flex-wrap:wrap"><button class="pick" data-pick="${i}" aria-label="Ganti pion">${avatarSVG(t.pion, t.ring)}</button><button class="ringdot" data-ring="${i}" style="background:linear-gradient(${ringOf(t.ring).a},${ringOf(t.ring).b})" aria-label="Ganti warna cincin"></button><input type="text" maxlength="18" data-name="${i}" value="${esc(t.name)}" placeholder="Nama tim"><button class="xbtn" data-del="${i}" ${draft.teams.length <= 2 ? 'disabled' : ''} aria-label="Hapus">×</button>
-      <input type="text" class="members" style="flex-basis:100%" data-mem="${i}" value="${esc(t.members)}" placeholder="Anggota, pisahkan dengan koma (mis. Ani, Budi, Cici)"></div>`;
-    });
-    h += `<button class="addbtn" data-act="addPlayer">+ Tambah Kelompok</button><div class="hint">Satu pion per kelompok. Anggota bergiliran melempar dadu.</div>`;
+    const me = rowHTML(p, 0, 'Nama kamu', false, false);
+    const pc = `<div class="row"><div class="pick">${avatarSVG(cpu.pion, cpu.ring)}</div><div style="flex:1;font-weight:800;font-size:16px">Komputer</div><span class="cpu-tag">OTOMATIS</span></div>`;
+    h += draft.cpuFirst ? pc + me : me + pc;
+    h += `<div class="hint">Yang main duluan:</div>${chips('cpuFirst', [['0', 'Kamu duluan'], ['1', 'Komputer duluan']], draft.cpuFirst ? '1' : '0')}`;
   } else {
-    draft.players.forEach((p, i) => { h += rowHTML(p, i, `Pemain ${i + 1}`, draft.players.length > 2); });
-    h += `<button class="addbtn" data-act="addPlayer">+ Tambah Pemain</button><div class="hint">Ketuk gambar pion untuk ganti karakter, ketuk bulatan untuk ganti warna cincin.</div>`;
+    const L = curList();
+    h += `<div class="ordtools"><button class="chip" data-act="shuffle">🎲 Acak urutan</button></div>`;
+    if (draft.kind === 'kelompok') {
+      L.forEach((t, i) => {
+        h += `<div class="row" data-row="${i}" style="flex-wrap:wrap">${ordHTML(i, L.length)}<button class="pick" data-pick="${i}" aria-label="Pilih karakter">${avatarSVG(t.pion, t.ring)}</button><input type="text" maxlength="18" data-name="${i}" value="${esc(t.name)}" placeholder="Nama tim"><button class="xbtn" data-del="${i}" ${L.length <= 2 ? 'disabled' : ''} aria-label="Hapus">×</button>
+        <input type="text" class="members" style="flex-basis:100%" data-mem="${i}" value="${esc(t.members)}" placeholder="Anggota, pisahkan dengan koma (mis. Ani, Budi, Cici)"></div>`;
+      });
+      h += `<button class="addbtn" data-act="addPlayer">+ Tambah Kelompok</button><div class="hint">Satu pion per kelompok. Anggota bergiliran melempar dadu.</div>`;
+    } else {
+      L.forEach((p, i) => { h += rowHTML(p, i, `Pemain ${i + 1}`, L.length > 2, true); });
+      h += `<button class="addbtn" data-act="addPlayer">+ Tambah Pemain</button>`;
+    }
+    h += `<div class="hint">Ketuk gambar pion untuk memilih karakter dan warna. Urutan dari atas = urutan giliran; atur dengan ▲▼ atau geser nomornya.</div>`;
   }
-  h += `</div>` + gameOptionsHTML(countOf()) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} · ${DICE[S.dice].name} (ubah di Pengaturan)</div></div>`;
+  h += `</div>` + gameOptionsHTML(countOf()) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} · ${(DICE[S.dice] || DICE.kayu).name} (ubah di Pengaturan)</div></div>`;
   $('#setupBody').innerHTML = h;
 }
-function rowHTML(p, i, ph, canDel) {
-  return `<div class="row"><button class="pick" data-pick="${i}" aria-label="Ganti pion">${avatarSVG(p.pion, p.ring)}</button><button class="ringdot" data-ring="${i}" style="background:linear-gradient(${ringOf(p.ring).a},${ringOf(p.ring).b})" aria-label="Ganti warna cincin"></button><input type="text" maxlength="16" data-name="${i}" value="${esc(p.name)}" placeholder="${ph}">${draft.kind === 'komputer' ? '' : `<button class="xbtn" data-del="${i}" ${canDel ? '' : 'disabled'} aria-label="Hapus">×</button>`}</div>`;
+function rowHTML(p, i, ph, canDel, ord) {
+  const n = curList().length;
+  return `<div class="row" data-row="${i}">${ord ? ordHTML(i, n) : ''}<button class="pick" data-pick="${i}" aria-label="Pilih karakter">${avatarSVG(p.pion, p.ring)}</button><input type="text" maxlength="16" data-name="${i}" value="${esc(p.name)}" placeholder="${ph}">${draft.kind === 'komputer' ? '' : `<button class="xbtn" data-del="${i}" ${canDel ? '' : 'disabled'} aria-label="Hapus">×</button>`}</div>`;
 }
 function cpuPion(p) {
   const pions = skin().pions.map(x => x.id);
   const pion = pions.find(x => x !== p.pion) || pions[0];
   return { pion, ring: p.ring === 'biru' ? 'merah' : 'biru' };
 }
+// ---------- Pilih karakter & warna ----------
+let pickIdx = -1;
+function openPick(i) { readInputs(); pickIdx = i; renderPick(); modal('pickm', true); }
+function renderPick() {
+  const L = curList(), p = L[pickIdx]; if (!p) return;
+  const others = draft.kind === 'komputer' ? [cpuPion(p)] : L.filter(x => x !== p);
+  const sk = skin(), lockP = L.length <= sk.pions.length && draft.kind !== 'komputer', lockR = L.length <= RINGS.length;
+  let h = `<h3>Karakter (${esc(sk.name)})</h3><div class="pgrid">${sk.pions.map(x => {
+    const used = draft.kind !== 'komputer' && others.some(o => o.pion === x.id);
+    return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${used && lockP ? 'disabled' : ''}>${used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.name)}</button>`;
+  }).join('')}</div>`;
+  h += `<h3>Warna cincin</h3><div class="rgrid">${RINGS.map(r => {
+    const used = others.some(o => o.ring === r.id);
+    return `<button class="rdot ${p.ring === r.id ? 'on' : ''}" data-setring="${r.id}" ${used && lockR ? 'disabled' : ''} style="background:linear-gradient(${r.a},${r.b})" aria-label="${r.name}"></button>`;
+  }).join('')}</div>`;
+  if (!lockP && draft.kind !== 'komputer') h += `<div class="hint">Pemain lebih banyak dari jumlah karakter: karakter boleh sama, dibedakan warna cincin.</div>`;
+  $('#pickBody').innerHTML = h;
+}
+// ---------- Urutan pemain (geser) ----------
+function moveRow(from, to) {
+  const L = curList(); if (to < 0 || to >= L.length || from === to) return;
+  readInputs(); const [x] = L.splice(from, 1); L.splice(to, 0, x); saveDraft(); renderSetup();
+}
+let drag = null;
+document.addEventListener('pointerdown', e => {
+  const h = e.target.closest('[data-drag]'); if (!h) return;
+  const row = h.closest('.row'), rows = [...document.querySelectorAll('#setupBody .row[data-row]')];
+  drag = { i: +h.dataset.drag, row, y0: e.clientY, dy: 0, mids: rows.map(r => { const b = r.getBoundingClientRect(); return b.top + b.height / 2; }) };
+  try { h.setPointerCapture(e.pointerId); } catch (err) {}
+  row.classList.add('dragging'); e.preventDefault();
+});
+document.addEventListener('pointermove', e => {
+  if (!drag) return; drag.dy = e.clientY - drag.y0; drag.row.style.transform = `translateY(${drag.dy}px)`;
+});
+function endDrag() {
+  if (!drag) return; const d = drag; drag = null;
+  d.row.classList.remove('dragging'); d.row.style.transform = '';
+  const y = d.mids[d.i] + d.dy;
+  const to = d.mids.filter((m, k) => k !== d.i && m < y).length; // posisi baru = jumlah baris lain di atasnya
+  if (Math.abs(d.dy) > 8) { SFX.click(); moveRow(d.i, to); }
+}
+document.addEventListener('pointerup', endDrag);
+document.addEventListener('pointercancel', endDrag);
 function countOf() { return draft.kind === 'kelompok' ? draft.teams.length : draft.kind === 'komputer' ? 2 : draft.players.length; }
 
 // ---------- Pengaturan ----------
@@ -810,9 +1196,17 @@ addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = 
 addEventListener('appinstalled', () => { installEvt = null; store.set('hahe.installed', true); if (cur === 'settings') renderSettings(); });
 const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 
+// Saat dibuka dari permainan yang sedang berjalan, aturan permainan ditampung dulu (pend)
+let pend = null;
+const fromGame = () => prev[prev.length - 1] === 'game' && !!G && !G.over;
+const gameVals = () => ({ skin: G.skin, mode: G.mode, timeMin: G.timeMin || S.timeMin, throws: G.throws, level: G.level, size: G.sizeSet || G.size, finish: G.finish || 'pas' });
+const differs = (a, b) => GAME_KEYS.some(k => String(a[k]) !== String(b[k]));
 function renderSettings() {
-  const sk = skin();
-  const inGame = !!G && !G.over;
+  const inGame = fromGame();
+  if (inGame && !pend) pend = Object.fromEntries(GAME_KEYS.map(k => [k, S[k]]));
+  if (!inGame) pend = null;
+  const V = pend || S;
+  const sk = SKINS[V.skin] || SKINS.borneo;
   let h = '';
   // Pasang aplikasi
   h += `<div class="sec"><h3>Pasang aplikasi</h3><div class="frame">`;
@@ -837,23 +1231,50 @@ function renderSettings() {
     <div class="toggle"><span class="lbl">Efek suara</span><button class="sw ${S.sfx ? 'on' : ''}" data-sw="sfx" aria-label="Efek suara"></button></div>
     <input type="range" min="0" max="100" value="${Math.round(S.sfxVol * 100)}" data-vol="sfxVol" aria-label="Volume efek suara"></div>`;
   // Tema & dadu
-  h += `<div class="sec"><h3>Tema</h3>${chips('skin', Object.values(SKINS).map(s => [s.id, s.name]), S.skin)}<div class="hint">Tema lain menyusul.</div>
-    <div class="hint">Dadu:</div>${chips('dice', Object.entries(DICE).map(([k, d]) => [k, d.name, SKINS[d.skin].name]), S.dice)}</div>`;
+  h += `<div class="sec"><h3>Tema</h3>${chips('skin', Object.values(SKINS).map(s => [s.id, s.name]), V.skin)}<div class="hint">${inGame ? 'Ganti tema berlaku setelah disimpan. ' : ''}Tema lain menyusul.</div>
+    <div class="hint">Dadu (langsung berlaku):</div>${chips('dice', Object.entries(DICE).map(([k, d]) => [k, d.name, SKINS[d.skin].name]), S.dice)}</div>`;
   // Permainan
-  h += `<h3 style="margin:0 0 8px;font-size:13px;letter-spacing:1.4px;color:var(--ink2)">PERMAINAN${inGame ? ' (berlaku untuk permainan baru)' : ''}</h3>` + gameOptionsHTML(countOf());
+  h += `<h3 style="margin:0 0 8px;font-size:13px;letter-spacing:1.4px;color:var(--ink2)">ATURAN PERMAINAN</h3>` + gameOptionsHTML(inGame ? G.players.length : countOf(), V);
   $('#settingsBody').innerHTML = h;
+  // tombol simpan / terapkan (hanya saat permainan berjalan)
+  const bar = $('#applyBar');
+  bar.classList.toggle('hidden', !inGame);
+  if (inGame) {
+    const dirtyNew = differs(pend, S), dirtyNow = differs(pend, gameVals());
+    bar.innerHTML = `<p class="hint">${dirtyNew || dirtyNow ? 'Aturan diubah. Pilih cara menyimpannya:' : 'Ubah aturan di atas, lalu pilih cara menyimpannya.'}</p>
+      <div class="two"><button class="bbtn wood" data-act="saveNew" ${dirtyNew ? '' : 'disabled'}>SIMPAN UNTUK MAIN BARU</button>
+      <button class="bbtn gold" data-act="applyNow" ${dirtyNow ? '' : 'disabled'}>TERAPKAN &amp; MULAI ULANG</button></div>`;
+  }
+}
+function commitPend() {
+  if (!pend) return;
+  const skinChanged = pend.skin !== S.skin;
+  GAME_KEYS.forEach(k => { S[k] = pend[k]; });
+  if (skinChanged && !(S.dice in DICE && DICE[S.dice].skin === S.skin)) S.dice = SKINS[S.skin].dice[0];
+  saveSettings();
+}
+// mulai ulang permainan berjalan dengan aturan baru; pemain tetap sama
+function restartWithRules() {
+  stopTimer();
+  const players = G.players.map(p => ({ name: p.name, pion: p.pion, ring: p.ring, cpu: p.cpu, members: p.members, mi: 0 }));
+  remapPions(players, S.skin);
+  G = makeGame(players, G.kind);
+  pend = null; prev = ['home'];
+  saveGame(); show('game', false); startTurn();
+  toast('Aturan baru!', 'Permainan dimulai ulang');
 }
 
 // ---------- Tentang ----------
 function renderAbout() {
   $('#aboutBody').innerHTML = `
   <div style="text-align:center;margin-bottom:10px"><div class="logo" style="font-size:64px"><span class="h1">Ha</span><span class="h2">He</span></div></div>
-  <p><b>HaHe</b> adalah singkatan dari <b>Handipe Hejan</b>, sebutan ular tangga dalam bahasa Dayak Ngaju.</p>
+  <p><b>HaHe</b> adalah singkatan dari <b>Handipe Hejan</b>, yang berarti ular tangga.</p>
+  <p style="text-align:center;font-family:var(--disp);font-size:20px;font-weight:400">“${SAPAAN.beranda}”</p>
   <p>Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa pun, di HP, tablet, maupun IFP kelas.</p>
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Tahap 1 · Tema Hutan Borneo</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.1 · Tema Hutan Borneo, Luar Angkasa, Es Krim</p></div>`;
 }
 
 // =========================================================
@@ -927,14 +1348,20 @@ function boardSVG() {
   G.ladders.forEach(([f, t]) => {
     const a = cellCenter(f, N), b = cellCenter(t, N);
     const L = Math.hypot(b.x - a.x, b.y - a.y), ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+    const st = sk.ladder || SKINS.borneo.ladder;
     let rungs = ''; for (let s = 30; s < L - 14; s += 38) rungs += `<line x1="${s}" y1="-16" x2="${s}" y2="16"/>`;
+    const rails = `<line x1="0" y1="-16" x2="${L}" y2="-16"/><line x1="0" y1="16" x2="${L}" y2="16"/>`;
+    let deco = '';
+    if (st.deco === 'leaf') deco = `<ellipse cx="${L * 0.4}" cy="-19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(-20 ${L * 0.4} -19)"/><ellipse cx="${L * 0.7}" cy="19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(20 ${L * 0.7} 19)"/>`;
+    if (st.deco === 'star') deco = `<use href="#star5" transform="translate(${L * 0.45} -17) scale(2.2)"/><circle cx="${L * 0.75}" cy="16" r="6" fill="#ff6a5a" stroke="#fff" stroke-width="2"/>`;
+    if (st.deco === 'sprinkle') deco = `<use href="#heart" transform="translate(${L * 0.5} -17) scale(2)"/>`;
     lad += `<g transform="translate(${a.x} ${a.y}) rotate(${ang.toFixed(2)})" stroke-linecap="round">
-      <g stroke="#3b2412" stroke-width="25"><line x1="0" y1="-16" x2="${L}" y2="-16"/><line x1="0" y1="16" x2="${L}" y2="16"/>${rungs}</g>
-      <g stroke="#a8672f" stroke-width="15"><line x1="0" y1="-16" x2="${L}" y2="-16"/><line x1="0" y1="16" x2="${L}" y2="16"/></g>
-      <g stroke="#d9a064" stroke-width="11">${rungs}</g>
-      <g stroke="#e9bd86" stroke-width="3.8" opacity=".8"><line x1="6" y1="-19" x2="${L - 6}" y2="-19"/><line x1="6" y1="13" x2="${L - 6}" y2="13"/></g>
-      <ellipse cx="${L * 0.4}" cy="-19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(-20 ${L * 0.4} -19)"/>
-      <ellipse cx="${L * 0.7}" cy="19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(20 ${L * 0.7} 19)"/></g>`;
+      <g stroke="${st.edge}" stroke-width="25">${rails}${rungs}</g>
+      <g stroke="${st.rail}" stroke-width="15">${rails}</g>
+      ${st.stripe ? `<g stroke="${st.stripe}" stroke-width="15" stroke-dasharray="12 12" stroke-linecap="butt">${rails}</g>` : ''}
+      <g stroke="${st.rung}" stroke-width="11">${rungs}</g>
+      <g stroke="${st.shine}" stroke-width="3.8" opacity=".8"><line x1="6" y1="-19" x2="${L - 6}" y2="-19"/><line x1="6" y1="13" x2="${L - 6}" y2="13"/></g>
+      ${deco}</g>`;
   });
   let sn = '';
   G.snakes.forEach(([h, t], k) => {
@@ -950,7 +1377,37 @@ function boardSVG() {
       <circle cx="-3" cy="-1.6" r="1.3" fill="#111"/><circle cx="3.4" cy="-1.6" r="1.3" fill="#111"/>
       <path d="M0 6 V11 M0 11 L-2.5 14 M0 11 L2.5 14" stroke="#e03a3a" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>`;
   });
-  return `<svg viewBox="0 0 358 358" aria-hidden="true">
+  return `<svg viewBox="0 0 358 358" aria-hidden="true">${frameSVG(sk.id)}
+  <svg id="inner" x="19" y="19" width="320" height="320" viewBox="0 0 ${W} ${W}" overflow="hidden">
+    <defs><clipPath id="bclip"><rect width="${W}" height="${W}" rx="${5 * W / 320}"/></clipPath></defs>
+    <g clip-path="url(#bclip)">${cells}</g>${lad}${sn}
+  </svg></svg><div class="pions" id="pions"></div>`;
+}
+// bingkai papan per tema
+function frameSVG(id) {
+  const at = (h, pts) => pts.map(([x, y]) => `<use href="${h}" transform="translate(${x} ${y})"/>`).join('');
+  const C = [[9, 9], [349, 9], [9, 349], [349, 349]], M = [[179, 9], [179, 349], [9, 179], [349, 179]];
+  if (id === 'angkasa') return `
+  <rect width="358" height="358" rx="26" fill="#141a4a"/>
+  <rect x="2.5" y="2.5" width="353" height="353" rx="24" fill="none" stroke="#7fe3ff" stroke-width="1.4"/>
+  <rect x="14" y="4" width="330" height="10" fill="url(#starBand)"/><rect x="14" y="344" width="330" height="10" fill="url(#starBand)"/>
+  <rect x="4" y="14" width="10" height="330" fill="url(#starBandV)"/><rect x="344" y="14" width="10" height="330" fill="url(#starBandV)"/>
+  <rect x="15.5" y="15.5" width="327" height="327" rx="9" fill="#0b0f2e" stroke="#7fe3ff" stroke-width="1.6"/>
+  <rect x="17.6" y="17.6" width="322.8" height="322.8" rx="7.5" fill="none" stroke="#c9bdff" stroke-width="1" stroke-opacity=".85"/>
+  ${C.map(([x, y]) => `<use href="#planet" transform="translate(${x} ${y}) scale(.85)"/>`).join('')}${at('#star5', M)}`;
+  if (id === 'eskrim') {
+    let drips = ''; for (let x = 22, k = 0; x < 340; x += 21, k++) drips += `<ellipse cx="${x}" cy="12" rx="6.5" ry="${k % 2 ? 4 : 7}" fill="#fff8fb"/>`;
+    return `
+  <rect width="358" height="358" rx="26" fill="#ff8fb8"/>
+  <rect x="2.5" y="2.5" width="353" height="353" rx="24" fill="none" stroke="#c2357c" stroke-width="1.4"/>
+  <rect x="14" y="4" width="330" height="10" fill="url(#sprBand)"/><rect x="14" y="344" width="330" height="10" fill="url(#sprBand)"/>
+  <rect x="4" y="14" width="10" height="330" fill="url(#sprBandV)"/><rect x="344" y="14" width="10" height="330" fill="url(#sprBandV)"/>
+  <g clip-path="url(#frameClip)"><rect width="358" height="8" fill="#fff8fb"/>${drips}</g>
+  <rect x="15.5" y="15.5" width="327" height="327" rx="9" fill="#fff" stroke="#c2357c" stroke-width="1.6"/>
+  <rect x="17.6" y="17.6" width="322.8" height="322.8" rx="7.5" fill="none" stroke="#ffd4e5" stroke-width="1"/>
+  ${C.map(([x, y]) => `<use href="#ic-cherry" x="${x - 11}" y="${y - 12}" width="22" height="22"/>`).join('')}${M.map(([x, y]) => `<use href="#heart" transform="translate(${x} ${y + 1}) scale(1.1)"/>`).join('')}`;
+  }
+  return `
   <rect x="0" y="0" width="358" height="358" rx="26" fill="#0f0a07"/>
   <rect x="2.5" y="2.5" width="353" height="353" rx="24" fill="none" stroke="#f2b705" stroke-width="1.4"/>
   <g transform="translate(14 4)"><rect width="330" height="10" fill="url(#triD)"/></g>
@@ -959,12 +1416,7 @@ function boardSVG() {
   <g transform="translate(344 14)"><rect width="10" height="330" fill="url(#triPL)"/></g>
   <rect x="15.5" y="15.5" width="327" height="327" rx="9" fill="#000" stroke="#f2b705" stroke-width="1.6"/>
   <rect x="17.6" y="17.6" width="322.8" height="322.8" rx="7.5" fill="none" stroke="#fff" stroke-width="1" stroke-opacity=".85"/>
-  <use href="#med" transform="translate(9 9)"/><use href="#med" transform="translate(349 9)"/><use href="#med" transform="translate(9 349)"/><use href="#med" transform="translate(349 349)"/>
-  <use href="#dia" transform="translate(179 9)"/><use href="#dia" transform="translate(179 349)"/><use href="#dia" transform="translate(9 179)"/><use href="#dia" transform="translate(349 179)"/>
-  <svg id="inner" x="19" y="19" width="320" height="320" viewBox="0 0 ${W} ${W}" overflow="hidden">
-    <defs><clipPath id="bclip"><rect width="${W}" height="${W}" rx="${5 * W / 320}"/></clipPath></defs>
-    <g clip-path="url(#bclip)">${cells}</g>${lad}${sn}
-  </svg></svg><div class="pions" id="pions"></div>`;
+  ${at('#med', C)}${at('#dia', M)}`;
 }
 function sizeBoard() {
   const slot = $('#boardslot'), b = $('#board'); if (!slot || !b || cur !== 'game') return;
@@ -987,23 +1439,28 @@ function startGame() {
   } else {
     players = draft.players.map((p, i) => ({ name: p.name.trim() || `Pemain ${i + 1}`, pion: p.pion, ring: p.ring }));
   }
-  players.forEach(p => { p.pos = 1; p.rolls = 0; });
-  const size = S.size === 'auto' ? suggestSize(players.length) : +S.size;
-  const bd = buildBoard(S.skin, size, S.level);
-  G = {
-    v: 1, skin: S.skin, size, level: S.level, mode: S.mode, kind,
-    throws: +S.throws, timeLeft: S.mode === 'waktu' ? S.timeMin * 60000 : 0,
-    players, turn: 0, ladders: bd.ladders, snakes: bd.snakes, over: false, winner: -1, last: null
-  };
+  if (kind === 'komputer' && draft.cpuFirst) players.reverse();
+  G = makeGame(players, kind);
   saveGame();
   show('game');
   startTurn();
+}
+// permainan baru dari daftar pemain (urutan daftar = urutan giliran) dan pengaturan S
+function makeGame(players, kind) {
+  players.forEach(p => { p.pos = 1; p.rolls = 0; if (p.members) p.mi = 0; });
+  const size = S.size === 'auto' ? suggestSize(players.length) : +S.size;
+  const bd = buildBoard(S.skin, size, S.level);
+  return {
+    v: 2, skin: S.skin, size, sizeSet: S.size, level: S.level, mode: S.mode, kind, finish: S.finish,
+    throws: +S.throws, timeMin: +S.timeMin, timeLeft: S.mode === 'waktu' ? S.timeMin * 60000 : 0,
+    players, turn: 0, ladders: bd.ladders, snakes: bd.snakes, over: false, winner: -1, last: null
+  };
 }
 function restartSame() {
   if (!G) return;
   G.players.forEach(p => { p.pos = 1; p.rolls = 0; if (p.members) p.mi = 0; });
   G.turn = 0; G.over = false; G.winner = -1; G.last = null;
-  G.timeLeft = G.mode === 'waktu' ? S.timeMin * 60000 : 0; G.throws = +S.throws;
+  G.timeLeft = G.mode === 'waktu' ? (G.timeMin || S.timeMin) * 60000 : 0;
   saveGame(); modal('win', false); modal('pause', false); stopConfetti();
   show('game', false); startTurn();
 }
@@ -1154,12 +1611,13 @@ async function doRoll() {
   const i = G.turn, p = G.players[i], last = G.size * G.size;
   const v = await rollDice();
   G.last = v; p.rolls++;
-  // langkah kotak demi kotak (memantul bila lewat kotak akhir)
-  let target = p.pos + v, bounce = false;
-  if (target > last) { target = last - (target - last); bounce = true; }
+  // langkah kotak demi kotak. Aturan finis: 'pas' = memantul bila lebih; 'lewat' = lebih tetap finis
+  const lewat = G.finish === 'lewat';
+  const steps = lewat ? Math.min(v, last - p.pos) : v;
+  const bounce = !lewat && p.pos + v > last;
   const elp = $('#pn' + i); elp.classList.add('moving'); elp.querySelector('.tag').style.visibility = '';
   let pos = p.pos, dir = 1;
-  for (let s = 0; s < v; s++) {
+  for (let s = 0; s < steps; s++) {
     if (pos === last) dir = -1;
     pos += dir; await hopTo(i, pos); dir < 0 ? SFX.back() : SFX.step();
   }
@@ -1241,11 +1699,15 @@ function stopConfetti() { cancelAnimationFrame(cfRAF); cfRAF = null; }
 // INTERAKSI
 // =========================================================
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw]');
+  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw],[data-up],[data-down],[data-setpion],[data-setring]');
   if (!t) return;
   SFX.init();
   if (t.dataset.chip) return onChip(t.dataset.chip, t.dataset.v);
-  if (t.dataset.pick != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players, p = L[+t.dataset.pick]; const ids = skin().pions.map(x => x.id); p.pion = ids[(ids.indexOf(p.pion) + 1) % ids.length]; saveDraft(); SFX.click(); return renderSetup(); }
+  if (t.dataset.pick != null) { SFX.click(); return openPick(+t.dataset.pick); }
+  if (t.dataset.setpion) { const p = curList()[pickIdx]; if (p) { p.pion = t.dataset.setpion; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
+  if (t.dataset.setring) { const p = curList()[pickIdx]; if (p) { p.ring = t.dataset.setring; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
+  if (t.dataset.up != null) { SFX.click(); return moveRow(+t.dataset.up, +t.dataset.up - 1); }
+  if (t.dataset.down != null) { SFX.click(); return moveRow(+t.dataset.down, +t.dataset.down + 1); }
   if (t.dataset.ring != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players, p = L[+t.dataset.ring]; p.ring = ringPickerNext(p.ring, L.filter(x => x !== p).map(x => x.ring)); saveDraft(); SFX.click(); return renderSetup(); }
   if (t.dataset.del != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players; if (L.length > 2) L.splice(+t.dataset.del, 1); saveDraft(); return renderSetup(); }
   if (t.dataset.sw) { S[t.dataset.sw] = !S[t.dataset.sw]; saveSettings(); SFX.vol(); BGM.sync(); SFX.click(); return renderSettings(); }
@@ -1260,8 +1722,8 @@ document.addEventListener('click', e => {
     case 'start': readInputs(); startGame(); break;
     case 'addPlayer': {
       readInputs();
-      if (draft.kind === 'kelompok') { const n = draft.teams.length; draft.teams.push({ name: `Tim ${n + 1}`, members: '', pion: skin().pions[n % skin().pions.length].id, ring: ringPickerNext(RINGS[n % RINGS.length].id, draft.teams.map(x => x.ring)) }); }
-      else { const n = draft.players.length; draft.players.push({ name: '', pion: skin().pions[n % skin().pions.length].id, ring: ringPickerNext(RINGS[(n + RINGS.length - 1) % RINGS.length].id, draft.players.map(x => x.ring)) }); }
+      if (draft.kind === 'kelompok') { const n = draft.teams.length; draft.teams.push({ name: `Tim ${n + 1}`, members: '', pion: freePion(draft.teams), ring: ringPickerNext(RINGS[n % RINGS.length].id, draft.teams.map(x => x.ring)) }); }
+      else { const n = draft.players.length; draft.players.push({ name: '', pion: freePion(draft.players), ring: ringPickerNext(RINGS[(n + RINGS.length - 1) % RINGS.length].id, draft.players.map(x => x.ring)) }); }
       saveDraft(); renderSetup(); const sb = $('#setupBody'); sb.scrollTop = sb.scrollHeight; break;
     }
     case 'roll': if (!busy && G && !G.players[G.turn].cpu) doRoll(); break;
@@ -1273,6 +1735,14 @@ document.addEventListener('click', e => {
     case 'cfNo': modal('confirm', false); break;
     case 'cfYes': modal('confirm', false); if (cfCb) cfCb(); break;
     case 'install': doInstall(); break;
+    case 'pickDone': modal('pickm', false); break;
+    case 'shuffle': {
+      readInputs(); const L = curList();
+      for (let k = L.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [L[k], L[j]] = [L[j], L[k]]; }
+      saveDraft(); renderSetup(); SFX.dice(); break;
+    }
+    case 'saveNew': commitPend(); pend = null; renderSettings(); { const n = $('#applyBar .hint'); if (n) n.textContent = '✓ Tersimpan. Berlaku saat Main Baru; permainan sekarang tidak berubah.'; } break;
+    case 'applyNow': confirmBox('Terapkan & mulai ulang?', 'Aturan baru langsung dipakai. Posisi pion sekarang akan hilang; pemain tetap sama.', () => { commitPend(); restartWithRules(); }); break;
   }
 });
 document.addEventListener('input', e => {
@@ -1289,12 +1759,18 @@ function readInputs() {
 function onChip(name, v) {
   SFX.click();
   if (name === 'kind') { readInputs(); draft.kind = v; saveDraft(); return renderSetup(); }
+  if (name === 'cpuFirst') { readInputs(); draft.cpuFirst = v === '1'; saveDraft(); return renderSetup(); }
   const num = ['timeMin', 'throws'];
-  S[name] = num.includes(name) ? +v : (name === 'size' && v !== 'auto' ? +v : v);
+  const val = num.includes(name) ? +v : (name === 'size' && v !== 'auto' ? +v : v);
+  // saat permainan berjalan: aturan ditampung dulu, menunggu tombol Simpan / Terapkan
+  if (cur === 'settings' && pend && GAME_KEYS.includes(name)) { pend[name] = val; return renderSettings(); }
+  const skinChanged = name === 'skin' && S.skin !== val;
+  S[name] = val;
+  if (skinChanged && DICE[S.dice].skin !== val) S.dice = SKINS[val].dice[0]; // dadu ikut tema (tetap bisa diganti)
   saveSettings();
   if (name === 'theme' || name === 'quality') applyLook();
   if (name === 'layout') { applyLook(); tryLock(); }
-  if (name === 'skin') BGM.sync();
+  if (name === 'skin') { applySkin(); BGM.sync(); }
   if (name === 'dice' && G) { $('#cube').className = 'cube ' + DICE[S.dice].cls; $('#diceScene').className = 'dice-scene ' + DICE[S.dice].cls; }
   if (cur === 'setup') { readInputs(); renderSetup(); } else renderSettings();
 }
