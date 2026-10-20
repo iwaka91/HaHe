@@ -428,6 +428,37 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .dice-permen .face{background:radial-gradient(circle at 30% 25%,#fff6fa,#ffc2da 75%);border:3px solid #d0447f;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(208,68,127,.25)}
 .dice-permen .face i{background:radial-gradient(circle at 40% 35%,#a8643a,#5a2a10 70%);box-shadow:inset 0 2px 2px rgba(0,0,0,.4)}
 .dice-permen .f1 i.on{background:radial-gradient(circle at 40% 35%,#ff8a9a,#e8343a 70%);width:18px;height:18px}
+
+/* ---------- MODE EDUKASI & MODE CEPAT (Versi 1.3) ---------- */
+.eduq{min-height:0}
+#quizm .mbox{width:min(440px,100%);gap:10px}
+.qtag{align-self:center;padding:4px 14px;border-radius:999px;background:#2b1a0b;color:#ffd84a;font-weight:800;font-size:12px;letter-spacing:1.4px}
+.qwho{font-weight:800;color:var(--ink2);font-size:14px}
+.qbig{font-family:var(--disp);font-size:44px;line-height:1.1;word-break:break-word}
+.qemo{font-size:72px;line-height:1.1}
+.qtext{font-weight:800;font-size:20px;line-height:1.35}
+.qbox{display:flex;justify-content:center;flex-wrap:wrap;gap:5px}
+.qbox i{font-style:normal;width:30px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:2px solid var(--sheetLine);background:var(--chip);font-family:var(--disp);font-size:20px}
+.qin{height:56px;border-radius:16px;border:3px solid var(--cardLine);background:var(--sheet);color:var(--sheetInk);text-align:center;font-family:var(--disp);font-size:30px;width:100%;user-select:text}
+.qkeys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qkeys button{min-height:52px;border-radius:16px;border:2px solid var(--sheetLine);background:var(--chip);color:var(--sheetInk);font-family:var(--disp);font-size:26px}
+.qkeys button.ok{background:var(--chipOn);color:#fff;border-color:#0f4a24}
+.qbar{height:8px;border-radius:99px;background:var(--chip);overflow:hidden}
+.qbar b{display:block;height:100%;width:100%;background:#f0a51e;transition:width .25s linear}
+.qres{font-family:var(--disp);font-size:30px}
+.qres.ok{color:#1f8a38}.qres.no{color:#b3261e}
+.qrow{display:flex;gap:10px}
+.qskip{background:none;border:0;color:var(--ink2);font-weight:800;font-size:15px;text-decoration:underline;padding:6px}
+.stepper{display:flex;align-items:center;justify-content:center;gap:16px}
+.stepper button{width:56px;height:56px;border-radius:50%;border:3px solid var(--cardLine);background:var(--chip);color:var(--sheetInk);font-family:var(--disp);font-size:30px;line-height:1}
+.stepper .n{font-family:var(--disp);font-size:46px;min-width:70px}
+.cbx{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:16px;border:2px solid var(--sheetLine);background:var(--chip);color:var(--sheetInk);font-weight:800;font-size:17px;text-align:left;width:100%}
+.cbx .bx{width:30px;height:30px;flex:none;border-radius:8px;border:3px solid var(--cardLine);background:var(--sheet);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff}
+.cbx.on .bx{background:var(--chipOn);border-color:#0f4a24}
+.cbx small{display:block;font-size:12px;opacity:.75}
+.gname{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.gname .av{width:40px;height:40px;flex:none}
+.gname input{flex:1;min-width:0;height:44px;border-radius:12px;border:2px solid var(--sheetLine);background:var(--sheet);color:var(--sheetInk);padding:0 12px;font-size:16px;font-weight:800;user-select:text}
 </style>
 </head>
 <body>
@@ -771,6 +802,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <div class="menu">
       <button class="bbtn gold hidden" id="btnContinue" data-act="continue">LANJUTKAN</button>
       <button class="bbtn" data-act="newgame">MAIN BARU</button>
+      <button class="bbtn gold sm" data-act="quick">⚡ MODE CEPAT</button>
       <div style="display:flex;gap:12px">
         <button class="bbtn wood sm" data-act="settings">Pengaturan</button>
         <button class="bbtn wood sm" data-act="about">Tentang</button>
@@ -858,6 +890,19 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     </div>
   </div>
 
+  <!-- MODE CEPAT -->
+  <div class="modal" id="quickm">
+    <div class="mbox"><h2>Mode Cepat</h2><div id="quickBody" style="display:flex;flex-direction:column;gap:12px"></div>
+      <button class="bbtn" data-act="quickGo">MULAI!</button>
+      <button class="bbtn wood sm" data-act="quickNo">Batal</button>
+    </div>
+  </div>
+
+  <!-- SOAL MODE EDUKASI -->
+  <div class="modal" id="quizm">
+    <div class="mbox" id="quizBox"></div>
+  </div>
+
   <!-- KONFIRMASI -->
   <div class="modal" id="confirm">
     <div class="mbox"><h2 id="cfT"></h2><p id="cfP"></p>
@@ -894,7 +939,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <script>
 'use strict';
 /* =========================================================
-   HaHe (Handipe Hejan) · Versi 1.2 (Tahap 2)
+   HaHe (Handipe Hejan) · Versi 1.3 (Mode Edukasi & Mode Cepat)
    Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim
    HaHe ©2026 | hahe.totogutomo.com
    ========================================================= */
@@ -984,7 +1029,10 @@ const MODES = { klasik: 'Klasik', waktu: 'By Time', kesempatan: 'By Chance' };
 const SAPAAN = { beranda: 'Tabe Salamat Lingu Nalatai!', tangga: 'Isen Mulang!' };
 // Pengaturan yang mengubah aturan permainan (saat bermain: disimpan dulu, tidak langsung berlaku)
 // (tema dipilih di Beranda, tidak lagi di Pengaturan)
-const GAME_KEYS = ['mode', 'timeMin', 'throws', 'level', 'size', 'finish'];
+// Mode Edukasi: pengaturan soal (ikut aturan permainan)
+const EDU_KEYS = ['eduOn', 'eduTypes', 'eduEja', 'eduHitung', 'eduLang', 'eduEnHint', 'eduCount', 'eduTime'];
+const EDU_TYPES = [['eja', 'Mengeja'], ['hitung', 'Menghitung'], ['kata', 'Tebak Kata'], ['aksi', 'Tantangan']];
+const GAME_KEYS = ['mode', 'timeMin', 'throws', 'level', 'size', 'finish'].concat(EDU_KEYS);
 
 // ---------- Penyimpanan ----------
 const store = {
@@ -997,7 +1045,10 @@ const DEFAULTS = {
   bgm: true, bgmVol: 0.5, sfx: true, sfxVol: 0.8,
   skin: 'borneo', dice: 'kayu',
   mode: 'klasik', timeMin: 5, throws: 10, level: 'standar', size: 'auto',
-  finish: 'pas' // 'pas' = harus pas (memantul), 'lewat' = boleh melewati
+  finish: 'pas', // 'pas' = harus pas (memantul), 'lewat' = boleh melewati
+  // Mode Edukasi (bawaan: mati; campur semua jenis, tingkat sedang)
+  eduOn: false, eduTypes: ['eja', 'hitung', 'kata', 'aksi'], eduEja: 'sedang', eduHitung: 'puluhan',
+  eduLang: 'id', eduEnHint: 'gambar', eduCount: 'sedang', eduTime: 0
 };
 let S = Object.assign({}, DEFAULTS, store.get('hahe.settings', {}));
 function saveSettings() { store.set('hahe.settings', S); }
@@ -1233,6 +1284,27 @@ function gameOptionsHTML(n, V = S) {
   h += `<div class="sec"><h3>Ukuran papan</h3>${chips('size', [['auto', `Otomatis`, `saran ${sug}×${sug}`], [10, '10×10'], [8, '8×8'], [6, '6×6']], V.size)}</div>`;
   return h;
 }
+// bagian Mode Edukasi; full = tampilkan semua pilihan soal walau mode mati (Pengaturan)
+function eduHTML(V, cpu, full) {
+  let h = `<div class="sec"><h3>Mode Edukasi</h3>`;
+  if (cpu && !full) return h + `<div class="hint" style="margin:0">Tidak tersedia saat Lawan Komputer.</div></div>`;
+  h += chips('eduOn', [['0', 'Mati'], ['1', 'Nyala', 'soal di kotak ?']], V.eduOn ? '1' : '0');
+  if (cpu) h += `<div class="hint">Tidak berlaku saat Lawan Komputer.</div>`;
+  if (V.eduOn || full) {
+    const T = V.eduTypes || [];
+    h += `<div class="hint">Jenis soal (boleh lebih dari satu):</div><div class="chips">${EDU_TYPES.map(([k, n]) => `<button class="chip ${T.includes(k) ? 'on' : ''}" data-chip="eduTypes" data-v="${k}">${T.includes(k) ? '✓ ' : ''}${n}</button>`).join('')}</div>`;
+    if (T.includes('eja')) h += `<div class="hint">Mengeja, panjang kata:</div>${chips('eduEja', [['pendek', 'Pendek'], ['sedang', 'Sedang'], ['panjang', 'Panjang']], V.eduEja)}`;
+    if (T.includes('hitung')) h += `<div class="hint">Menghitung (tambah &amp; kurang):</div>${chips('eduHitung', [['satuan', 'Satuan', 'angka 1–9'], ['puluhan', 'Puluhan', 'hingga 99'], ['ribuan', 'Ribuan', 'hingga 9.999']], V.eduHitung)}`;
+    if (T.includes('kata')) {
+      h += `<div class="hint">Tebak Kata, bahasa:</div>${chips('eduLang', [['id', 'Indonesia'], ['en', 'English']], V.eduLang)}`;
+      if (V.eduLang === 'en') h += `<div class="hint">Petunjuk English:</div>${chips('eduEnHint', [['gambar', 'Gambar'], ['indo', 'Kata Indonesia']], V.eduEnHint)}`;
+    }
+    h += `<div class="hint">Banyak kotak ?:</div>${chips('eduCount', [['sedikit', 'Sedikit'], ['sedang', 'Sedang'], ['banyak', 'Banyak']], V.eduCount)}`;
+    h += `<div class="hint">Waktu menjawab:</div>${chips('eduTime', [[0, 'Tanpa batas'], [20, '20 detik'], [30, '30 detik'], [60, '60 detik']], V.eduTime)}`;
+    h += `<div class="hint">Mendarat di kotak ? = jawab soal. Benar: lempar lagi (bonus). Salah atau lewati: giliran berikutnya.</div>`;
+  }
+  return h + `</div>`;
+}
 function ringPickerNext(cur, taken) {
   const i = RINGS.findIndex(r => r.id === cur);
   for (let k = 1; k <= RINGS.length; k++) { const r = RINGS[(i + k) % RINGS.length]; if (!taken.includes(r.id)) return r.id; }
@@ -1264,12 +1336,12 @@ function renderSetup() {
       });
       h += `<button class="addbtn" data-act="addPlayer">+ Tambah Kelompok</button><div class="hint">Satu pion per kelompok. Anggota bergiliran melempar dadu.</div>`;
     } else {
-      L.forEach((p, i) => { h += rowHTML(p, i, `Pemain ${i + 1}`, L.length > 2, true); });
+      L.forEach((p, i) => { h += rowHTML(p, i, `P${i + 1}`, L.length > 2, true); });
       h += `<button class="addbtn" data-act="addPlayer">+ Tambah Pemain</button>`;
     }
     h += `<div class="hint">Ketuk gambar pion untuk memilih karakter dan warna. Urutan dari atas = urutan giliran; atur dengan ▲▼ atau geser nomornya.</div>`;
   }
-  h += `</div>` + gameOptionsHTML(countOf()) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} · ${(DICE[S.dice] || DICE.kayu).name} (tema di Beranda, dadu di Pengaturan)</div></div>`;
+  h += `</div>` + gameOptionsHTML(countOf()) + eduHTML(S, draft.kind === 'komputer', false) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} · ${(DICE[S.dice] || DICE.kayu).name} (tema di Beranda, dadu di Pengaturan)</div></div>`;
   const sb = $('#setupBody'), st = sb.scrollTop;
   sb.innerHTML = h; sb.scrollTop = st; // posisi gulir tetap
 }
@@ -1336,18 +1408,22 @@ addEventListener('appinstalled', () => { installEvt = null; store.set('hahe.inst
 const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 
 // Saat dibuka dari permainan yang sedang berjalan, aturan permainan ditampung dulu (pend)
-let pend = null;
+let pend = null, pend0 = null; // pend0: isi awal, untuk tahu ada perubahan atau tidak
 const fromGame = () => prev[prev.length - 1] === 'game' && !!G && !G.over;
-const gameVals = () => ({ mode: G.mode, timeMin: G.timeMin || S.timeMin, throws: G.throws, level: G.level, size: G.sizeSet || G.size, finish: G.finish || 'pas' });
+const gameVals = () => Object.assign({ mode: G.mode, timeMin: G.timeMin || S.timeMin, throws: G.throws, level: G.level, size: G.sizeSet || G.size, finish: G.finish || 'pas' }, Object.fromEntries(EDU_KEYS.map(k => [k, S[k]])), { eduOn: false }, G.eduCfg || {});
 const differs = (a, b) => GAME_KEYS.some(k => String(a[k]) !== String(b[k]));
 function renderSettings() {
   const inGame = fromGame();
   // aturan permainan selalu ditampung dulu; berlaku lewat tombol Simpan / Mulai Ulang
-  if (!pend) pend = Object.fromEntries(GAME_KEYS.map(k => [k, S[k]]));
+  if (!pend) { pend = Object.fromEntries(GAME_KEYS.map(k => [k, S[k]])); pend0 = Object.assign({}, pend); }
   const V = pend;
   const sk = SKINS[visSkin()] || SKINS.borneo;
   const body = $('#settingsBody'), st = body.scrollTop;
   let h = '';
+  // Nama pemain (hanya saat bermain; langsung berlaku)
+  if (inGame) {
+    h += `<div class="sec"><h3>Nama pemain</h3>${G.players.map((p, i) => `<div class="gname"><div class="av">${avatarSVG(p.pion, p.ring)}</div>${p.cpu ? `<div style="flex:1;font-weight:800">Komputer</div>` : `<input type="text" maxlength="16" data-gname="${i}" value="${esc(p.name)}" placeholder="P${i + 1}">`}</div>`).join('')}<div class="hint">Nama langsung berlaku.</div></div>`;
+  }
   // Pasang HaHe
   h += `<div class="sec"><h3>Pasang HaHe</h3><div class="frame">`;
   if (isStandalone()) {
@@ -1372,7 +1448,7 @@ function renderSettings() {
   // Dadu (tema dipilih di Beranda)
   h += `<div class="sec"><h3>Dadu</h3>${chips('dice', Object.entries(DICE).map(([k, d]) => [k, d.name, SKINS[d.skin].name]), S.dice)}<div class="hint">Dadu langsung berlaku. Tema dipilih di Beranda.</div></div>`;
   // Permainan
-  h += `<div class="grp">ATURAN PERMAINAN</div>` + gameOptionsHTML(inGame ? G.players.length : countOf(), V);
+  h += `<div class="grp">ATURAN PERMAINAN</div>` + gameOptionsHTML(inGame ? G.players.length : countOf(), V) + eduHTML(V, inGame ? G.kind === 'komputer' : false, true);
   body.innerHTML = h; body.scrollTop = st; // posisi gulir tetap
   // tombol simpan / mulai ulang (selalu tampil)
   const bar = $('#applyBar');
@@ -1380,7 +1456,7 @@ function renderSettings() {
   const dirtyNew = differs(pend, S);
   if (inGame) {
     const dirtyNow = differs(pend, gameVals());
-    bar.innerHTML = `<p class="hint">${dirtyNew || dirtyNow ? 'Aturan diubah. Pilih cara menyimpannya:' : 'Ubah aturan di atas, lalu pilih cara menyimpannya.'}</p>
+    bar.innerHTML = `<p class="hint">${differs(pend, pend0 || pend) ? 'Aturan diubah. Pilih cara menyimpannya:' : 'Ubah aturan di atas, lalu pilih cara menyimpannya.'}</p>
       <div class="two"><button class="bbtn ghost" data-act="saveNew" ${dirtyNew ? '' : 'disabled'}>SIMPAN UNTUK MAIN BARU</button>
       <button class="bbtn" data-act="applyNow" ${dirtyNow ? '' : 'disabled'}>TERAPKAN &amp; MULAI ULANG</button></div>`;
   } else {
@@ -1420,7 +1496,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.2 · Tema Hutan Borneo, Luar Angkasa, Es Krim</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.3 · Tema Hutan Borneo, Luar Angkasa, Es Krim · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // =========================================================
@@ -1489,6 +1565,7 @@ function boardSVG() {
     if (n === 1) cells += `<text x="${c.x}" y="${c.y + 8}" text-anchor="middle" font-size="24" font-weight="800" fill="#fff" letter-spacing="1">MULAI</text>`;
     else cells += `<text x="${x + 9}" y="${y + 30}" font-size="28" font-weight="800" fill="${n === last ? '#5a3a00' : 'var(--cellInk)'}" style="fill:${n === last ? '#5a3a00' : 'var(--cellInk)'}">${n}</text>`;
     if (n === last) cells += `<use href="#ic-crown" x="${x + 22}" y="${y + 40}" width="56" height="35"/>`;
+    if (G.q && G.q.includes(n)) cells += `<circle cx="${c.x + 6}" cy="${c.y + 8}" r="30" fill="#ffd84a" stroke="${(sk.ladder || SKINS.borneo.ladder).edge}" stroke-width="6"/><text x="${c.x + 6}" y="${c.y + 24}" text-anchor="middle" font-size="46" font-weight="900" fill="#5a3a00" style="fill:#5a3a00">?</text>`;
   }
   let lad = '';
   G.ladders.forEach(([f, t]) => {
@@ -1580,11 +1657,11 @@ function startGame() {
   let players = [];
   if (kind === 'komputer') {
     const p = draft.players[0]; const c = cpuPion(p);
-    players = [{ name: p.name.trim() || 'Pemain 1', pion: p.pion, ring: p.ring }, { name: 'Komputer', pion: c.pion, ring: c.ring, cpu: true }];
+    players = [{ name: p.name.trim() || 'P1', pion: p.pion, ring: p.ring }, { name: 'Komputer', pion: c.pion, ring: c.ring, cpu: true }];
   } else if (kind === 'kelompok') {
     players = draft.teams.map((t, i) => ({ name: t.name.trim() || `Tim ${i + 1}`, pion: t.pion, ring: t.ring, members: t.members.split(',').map(s => s.trim()).filter(Boolean), mi: 0 }));
   } else {
-    players = draft.players.map((p, i) => ({ name: p.name.trim() || `Pemain ${i + 1}`, pion: p.pion, ring: p.ring }));
+    players = draft.players.map((p, i) => ({ name: p.name.trim() || `P${i + 1}`, pion: p.pion, ring: p.ring }));
   }
   if (kind === 'komputer' && draft.cpuFirst) players.reverse();
   G = makeGame(players, kind);
@@ -1593,15 +1670,28 @@ function startGame() {
   startTurn();
 }
 // permainan baru dari daftar pemain (urutan daftar = urutan giliran) dan pengaturan S
-function makeGame(players, kind, skinId = S.skin) {
+function makeGame(players, kind, skinId = S.skin, over = {}) {
+  const R = Object.assign({}, S, over); // over: aturan khusus (Mode Cepat)
   players.forEach(p => { p.pos = 1; p.rolls = 0; if (p.members) p.mi = 0; });
-  const size = S.size === 'auto' ? suggestSize(players.length) : +S.size;
-  const bd = buildBoard(skinId, size, S.level);
+  const size = R.size === 'auto' ? suggestSize(players.length) : +R.size;
+  const bd = buildBoard(skinId, size, R.level);
+  const eduCfg = Object.fromEntries(EDU_KEYS.map(k => [k, R[k]]));
+  const edu = eduCfg.eduOn && kind !== 'komputer';
   return {
-    v: 2, skin: skinId, size, sizeSet: S.size, level: S.level, mode: S.mode, kind, finish: S.finish,
-    throws: +S.throws, timeMin: +S.timeMin, timeLeft: S.mode === 'waktu' ? S.timeMin * 60000 : 0,
-    players, turn: 0, ladders: bd.ladders, snakes: bd.snakes, over: false, winner: -1, last: null
+    v: 3, skin: skinId, size, sizeSet: R.size, level: R.level, mode: R.mode, kind, finish: R.finish,
+    throws: +R.throws, timeMin: +R.timeMin, timeLeft: R.mode === 'waktu' ? R.timeMin * 60000 : 0,
+    players, turn: 0, ladders: bd.ladders, snakes: bd.snakes, over: false, winner: -1, last: null,
+    eduCfg, q: edu ? pickQ(size, bd.ladders, bd.snakes, eduCfg.eduCount) : []
   };
+}
+// kotak ? tersebar acak (bukan MULAI, finis, ular, tangga)
+function pickQ(N, ladders, snakes, count) {
+  const last = N * N, ban = new Set([1, last]);
+  ladders.concat(snakes).forEach(([a, b]) => { ban.add(a); ban.add(b); });
+  const pool = []; for (let n = 2; n < last; n++) if (!ban.has(n)) pool.push(n);
+  const k = Math.min(pool.length, Math.max(2, Math.round(last * ({ sedikit: 0.06, sedang: 0.1, banyak: 0.15 }[count] || 0.1))));
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  return pool.slice(0, k).sort((a, b) => a - b);
 }
 function restartSame() {
   if (!G) return;
@@ -1751,7 +1841,7 @@ function startTurn() {
   const p = G.players[G.turn];
   if (p.cpu) setTimeout(() => { if (G && !G.over && cur === 'game' && !paused() && G.players[G.turn] === p) doRoll(); }, 900);
 }
-function paused() { return $('#pause').classList.contains('show') || $('#confirm').classList.contains('show'); }
+function paused() { return ['pause', 'confirm', 'quizm'].some(id => $('#' + id).classList.contains('show')); }
 async function doRoll() {
   if (!G || G.over || busy) return;
   busy = true; updateHud();
@@ -1779,6 +1869,18 @@ async function doRoll() {
   if (p.members && p.members.length) p.mi = (p.mi + 1) % p.members.length;
   // menang?
   if (p.pos === last) { G.winner = i; return endGame(); }
+  // Mode Edukasi: mendarat di kotak ?
+  if (G.q && G.q.includes(p.pos) && !p.cpu) {
+    await wait(200);
+    const ok = await askQuiz(p);
+    if (!G || G.over) return;
+    if (G.mode === 'waktu' && G.timeLeft <= 0) return endGame();
+    if (ok) {
+      if (G.mode === 'kesempatan') p.rolls = Math.max(0, p.rolls - 1); // lemparan bonus tidak dihitung
+      saveGame(); toast('Bonus lempar!', `${p.name} lempar lagi`);
+      await wait(400); return startTurn();
+    }
+  }
   if (G.mode === 'kesempatan' && G.players.every(q => q.rolls >= G.throws)) return endGame();
   if (G.mode === 'waktu' && G.timeLeft <= 0) return endGame();
   // giliran berikutnya
@@ -1788,6 +1890,129 @@ async function doRoll() {
   saveGame();
   await wait(250);
   startTurn();
+}
+
+// =========================================================
+// MODE EDUKASI: bank soal & jendela soal
+// =========================================================
+const BANK = {
+  eja: {
+    pendek: ['buku', 'bola', 'roti', 'susu', 'kaki', 'mata', 'ikan', 'rusa', 'sapi', 'kopi', 'meja', 'topi', 'baju', 'gigi', 'batu', 'nasi', 'kuda', 'padi', 'awan', 'api', 'ayam', 'gula', 'jam', 'pena', 'tas'],
+    sedang: ['sekolah', 'jendela', 'sepatu', 'gajah', 'kelinci', 'pelangi', 'kursi', 'payung', 'pensil', 'sungai', 'rumah', 'kereta', 'burung', 'semut', 'piring', 'bintang', 'jagung', 'pisang', 'sayur', 'hutan', 'perahu', 'telinga', 'tangga', 'kucing', 'sepeda'],
+    panjang: ['perpustakaan', 'matahari', 'pemandangan', 'persahabatan', 'kebersihan', 'orangutan', 'Kalimantan', 'pengetahuan', 'kesehatan', 'semangka', 'penghapus', 'kebudayaan', 'pelabuhan', 'keluarga', 'pertanian', 'lingkungan', 'kemerdekaan', 'bekantan', 'perjalanan', 'kegembiraan']
+  },
+  // [gambar, jawaban Indonesia, jawaban English] (jawaban lain dipisah |)
+  kata: [
+    ['🐘', 'gajah', 'elephant'], ['🐟', 'ikan', 'fish'], ['🍌', 'pisang', 'banana'], ['🏠', 'rumah', 'house|home'], ['🌙', 'bulan', 'moon'],
+    ['☀️', 'matahari', 'sun'], ['🚗', 'mobil', 'car'], ['🐱', 'kucing', 'cat'], ['🐶', 'anjing', 'dog'], ['🍎', 'apel', 'apple'],
+    ['📚', 'buku', 'book|books'], ['⚽', 'bola', 'ball'], ['🌧️', 'hujan', 'rain'], ['🌳', 'pohon', 'tree'], ['🐦', 'burung', 'bird'],
+    ['🚲', 'sepeda', 'bicycle|bike'], ['✈️', 'pesawat', 'airplane|plane|aeroplane'], ['🌸', 'bunga', 'flower'], ['🐍', 'ular', 'snake'], ['🍚', 'nasi', 'rice'],
+    ['🥛', 'susu', 'milk'], ['⭐', 'bintang', 'star'], ['🐄', 'sapi', 'cow'], ['🐔', 'ayam', 'chicken|hen'], ['🦆', 'bebek', 'duck'],
+    ['🐒', 'monyet|kera', 'monkey'], ['👟', 'sepatu', 'shoe|shoes'], ['☂️', 'payung', 'umbrella'], ['🔑', 'kunci', 'key'], ['🥚', 'telur', 'egg'],
+    ['🍉', 'semangka', 'watermelon'], ['🌽', 'jagung', 'corn'], ['🐭', 'tikus', 'mouse|rat'], ['🐸', 'katak|kodok', 'frog'], ['🦋', 'kupu-kupu', 'butterfly'],
+    ['🍞', 'roti', 'bread'], ['🚢', 'kapal', 'ship|boat'], ['🌈', 'pelangi', 'rainbow'], ['🐢', 'kura-kura', 'turtle|tortoise'], ['🏫', 'sekolah', 'school']
+  ],
+  aksi: [
+    ['🦘', 'Lompat di tempat 5 kali'], ['🦩', 'Berdiri dengan satu kaki sambil berhitung sampai 5'], ['👏', 'Tepuk tangan 10 kali'],
+    ['🐱', 'Tirukan suara kucing'], ['🦧', 'Tirukan gaya orangutan selama 5 detik'], ['🔄', 'Putar badan 3 kali pelan-pelan'],
+    ['🙆', 'Sentuh ujung kaki 5 kali'], ['🙌', 'Tos dengan pemain di sebelahmu'], ['😁', 'Tersenyum paling lebar selama 5 detik'],
+    ['🚶', 'Jalan di tempat sambil berhitung sampai 10'], ['🐓', 'Tirukan suara ayam berkokok'], ['🙋', 'Angkat kedua tangan lalu goyangkan 5 kali'],
+    ['🏋️', 'Jongkok lalu berdiri 5 kali'], ['🐦', 'Tirukan burung tingang terbang selama 5 detik'], ['🍎', 'Sebutkan 3 nama buah dengan cepat'],
+    ['🐾', 'Sebutkan 3 nama hewan dengan cepat'], ['🤗', 'Peluk dirimu sendiri dan ucapkan "Aku hebat!"'], ['🐸', 'Lompat seperti katak 3 kali'],
+    ['🤷', 'Naik-turunkan bahu 5 kali'], ['🎤', 'Nyanyikan satu baris lagu kesukaanmu'], ['🔟', 'Hitung mundur dari 10 sampai 1 dengan suara keras'],
+    ['🤖', 'Berjalan seperti robot 5 langkah'], ['👐', 'Tepuk paha lalu tepuk tangan, bergantian 5 kali'], ['💪', 'Ucapkan "Isen Mulang!" dengan semangat sambil mengepalkan tangan'],
+    ['🙃', 'Buat wajah paling lucu selama 5 detik']
+  ]
+};
+const QTAG = { eja: 'MENGEJA', hitung: 'MENGHITUNG', kata: 'TEBAK KATA', aksi: 'TANTANGAN' };
+let recentQ = [];
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const pickArr = (arr, key) => { // hindari soal yang baru saja muncul
+  for (let t = 0; t < 20; t++) { const x = arr[Math.floor(Math.random() * arr.length)], k = key + JSON.stringify(x); if (!recentQ.includes(k) || t === 19) { recentQ.push(k); if (recentQ.length > 15) recentQ.shift(); return x; } }
+};
+function makeQ(cfg) {
+  const types = (cfg.eduTypes && cfg.eduTypes.length ? cfg.eduTypes : ['eja', 'hitung', 'kata', 'aksi']);
+  const type = types[Math.floor(Math.random() * types.length)];
+  if (type === 'eja') return { type, word: pickArr(BANK.eja[cfg.eduEja] || BANK.eja.sedang, 'e') };
+  if (type === 'aksi') { const [emo, text] = pickArr(BANK.aksi, 'a'); return { type, emo, text }; }
+  if (type === 'kata') {
+    const [emo, id, en] = pickArr(BANK.kata, 'k'), isEn = cfg.eduLang === 'en';
+    const ans = (isEn ? en : id).split('|');
+    return { type, emo, en: isEn, hintWord: isEn && cfg.eduEnHint === 'indo' ? id.split('|')[0] : '', ans, show: ans[0] };
+  }
+  // menghitung: tambah dan kurang
+  const lv = cfg.eduHitung || 'puluhan', plus = Math.random() < 0.5;
+  let a, b;
+  if (lv === 'satuan') { if (plus) { a = rnd(1, 9); b = rnd(1, 9); } else { a = rnd(2, 9); b = rnd(1, a); } }
+  else if (lv === 'puluhan') { if (plus) { a = rnd(10, 89); b = rnd(1, 99 - a); } else { a = rnd(10, 99); b = rnd(1, a); } }
+  else { if (plus) { a = rnd(100, 8999); b = rnd(10, 9999 - a); } else { a = rnd(1000, 9999); b = rnd(100, a); } }
+  return { type, text: `${a.toLocaleString('id-ID')} ${plus ? '+' : '−'} ${b.toLocaleString('id-ID')}`, ans: [String(plus ? a + b : a - b)], show: (plus ? a + b : a - b).toLocaleString('id-ID') };
+}
+let QZ = null;
+function askQuiz(p) {
+  return new Promise(res => {
+    QZ = Object.assign(makeQ(G.eduCfg || {}), { res, p, val: '', done: false, left: +((G.eduCfg || {}).eduTime) || 0 });
+    renderQuiz(); modal('quizm', true); SFX.ladder();
+    if (QZ.left > 0) { QZ.total = QZ.left; QZ.tm = setInterval(() => { if (!QZ || QZ.done) return; if (document.hidden) return; QZ.left -= 0.25; const b = $('#qbar'); if (b) b.style.width = Math.max(0, QZ.left / QZ.total * 100) + '%'; if (QZ.left <= 0) quizEnd(false, 'Waktu habis!'); }, 250); }
+    if (QZ.type === 'kata') setTimeout(() => { const i = $('#qin'); if (i) i.focus(); }, 150);
+  });
+}
+function renderQuiz() {
+  const q = QZ, who = q.p.members && q.p.members.length ? `${q.p.name} · ${q.p.members[(q.p.mi + q.p.members.length - 1) % q.p.members.length]}` : q.p.name;
+  let h = `<div class="qtag">${QTAG[q.type]}</div><div class="qwho">Giliran ${esc(who)}</div>`;
+  if (q.left > 0) h += `<div class="qbar"><b id="qbar"></b></div>`;
+  if (q.type === 'eja') h += `<div class="qbig">${esc(q.word)}</div><p>Eja kata ini huruf demi huruf.<br><span class="hint">Pemain lain menilai.</span></p><div class="qrow"><button class="bbtn red sm" data-act="qNo">Salah</button><button class="bbtn sm" data-act="qYes">Benar</button></div>`;
+  if (q.type === 'aksi') h += `<div class="qemo">${q.emo}</div><div class="qtext">${esc(q.text)}</div><p class="hint">Pemain lain menilai.</p><div class="qrow"><button class="bbtn wood sm" data-act="qNo">Lewati</button><button class="bbtn sm" data-act="qYes">Berhasil</button></div>`;
+  if (q.type === 'hitung') h += `<div class="qbig">${q.text} = ?</div><div class="qin" style="display:flex;align-items:center;justify-content:center">${esc(q.val) || '&nbsp;'}</div><div class="qkeys">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button data-act="qKey" data-k="${n}">${n}</button>`).join('')}<button data-act="qKey" data-k="del">⌫</button><button data-act="qKey" data-k="0">0</button><button class="ok" data-act="qCheck">Cek</button></div><button class="qskip" data-act="qSkip">Lewati</button>`;
+  if (q.type === 'kata') {
+    const w = q.show, boxes = [...w].map((c, i) => `<i>${i === 0 ? esc(c.toUpperCase()) : c === '-' ? '-' : ''}</i>`).join('');
+    h += q.hintWord ? `<div class="hint" style="margin:0">Bahasa Inggris dari:</div><div class="qbig">${esc(q.hintWord)}</div>` : `<div class="qemo">${q.emo}</div>${q.en ? '<div class="hint" style="margin:0">Tulis dalam bahasa Inggris</div>' : ''}`;
+    h += `<div class="qbox">${boxes}</div><input id="qin" class="qin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Jawaban"><div class="qrow"><button class="bbtn wood sm" data-act="qSkip">Lewati</button><button class="bbtn sm" data-act="qCheck">Cek</button></div>`;
+  }
+  $('#quizBox').innerHTML = h;
+}
+function quizCheck() {
+  if (!QZ || QZ.done) return;
+  const v = QZ.type === 'kata' ? (($('#qin') || {}).value || '') : QZ.val;
+  const norm = s => String(s).toLowerCase().replace(/[\s.\-]/g, '');
+  if (!norm(v)) return;
+  quizEnd(QZ.ans.some(a => norm(a) === norm(v)));
+}
+function quizEnd(ok, why) {
+  const q = QZ; if (!q || q.done) return;
+  q.done = true; clearInterval(q.tm);
+  const showAns = !ok && (q.type === 'hitung' || q.type === 'kata');
+  let h = `<div class="qtag">${QTAG[q.type]}</div><div class="qres ${ok ? 'ok' : 'no'}">${ok ? (q.type === 'aksi' ? 'Hebat!' : 'Benar!') : (why || (q.type === 'aksi' ? 'Dilewati' : 'Belum tepat'))}</div>`;
+  if (ok) h += `<p>Bonus: lempar dadu sekali lagi!</p>`;
+  if (showAns) h += `<p>Jawabannya:</p><div class="qbig">${esc(q.show)}</div>`;
+  if (!ok) h += `<p class="hint">Giliran pemain berikutnya.</p>`;
+  $('#quizBox').innerHTML = h;
+  ok ? SFX.win() : SFX.back();
+  setTimeout(() => { modal('quizm', false); QZ = null; q.res(ok); }, showAns ? 2200 : 1500);
+}
+
+// ---------- Mode Cepat ----------
+let QK = { n: 2, edu: false };
+function openQuick() { QK = { n: (store.get('hahe.quick', {}).n) || 2, edu: false }; renderQuick(); modal('quickm', true); }
+function renderQuick() {
+  let h = `<div><div class="hint" style="margin:0 0 6px">Jumlah pemain</div><div class="stepper"><button data-act="qkMinus" aria-label="Kurangi">−</button><div class="n">${QK.n}</div><button data-act="qkPlus" aria-label="Tambah">+</button></div>${QK.n === 1 ? '<div class="hint">1 pemain = lawan komputer</div>' : ''}</div>`;
+  if (QK.n > 1) h += `<button class="cbx ${QK.edu ? 'on' : ''}" data-act="qkEdu"><span class="bx">${QK.edu ? '✓' : ''}</span><span>Mode Edukasi<small>soal di kotak ? (pilihan soal dari Pengaturan)</small></span></button>`;
+  h += `<p class="hint" style="margin:0">Papan 8×8 · Klasik · tema acak. Nama pemain bisa diganti di Pengaturan saat bermain.</p>`;
+  $('#quickBody').innerHTML = h;
+}
+function quickGo() {
+  store.set('hahe.quick', { n: QK.n });
+  const avail = THEME_LIST.filter(t => !t.soon && SKINS[t.id]).map(t => t.id);
+  const sk = avail[Math.floor(Math.random() * avail.length)];
+  S.skin = sk; S.dice = SKINS[sk].dice[0]; saveSettings(); applySkin();
+  const pions = SKINS[sk].pions.map(x => x.id);
+  let players, kind;
+  if (QK.n === 1) { kind = 'komputer'; players = [{ name: 'P1', pion: pions[0], ring: 'merah' }, { name: 'Komputer', pion: pions[1], ring: 'biru', cpu: true }]; }
+  else { kind = 'teman'; players = Array.from({ length: QK.n }, (_, i) => ({ name: `P${i + 1}`, pion: pions[i % pions.length], ring: RINGS[i % RINGS.length].id })); }
+  G = makeGame(players, kind, sk, { size: 8, mode: 'klasik', level: 'standar', finish: 'pas', eduOn: QK.n > 1 && QK.edu });
+  modal('quickm', false);
+  saveGame(); show('game'); startTurn();
+  toast('Mode Cepat', `Tema ${SKINS[sk].name}`);
 }
 
 // ---------- waktu (By Time) ----------
@@ -1863,6 +2088,17 @@ document.addEventListener('click', e => {
   if (a !== 'roll') SFX.click();
   switch (a) {
     case 'newgame': show('setup'); break;
+    case 'quick': openQuick(); break;
+    case 'qkMinus': QK.n = Math.max(1, QK.n - 1); renderQuick(); break;
+    case 'qkPlus': QK.n = Math.min(10, QK.n + 1); renderQuick(); break;
+    case 'qkEdu': QK.edu = !QK.edu; renderQuick(); break;
+    case 'quickNo': modal('quickm', false); break;
+    case 'quickGo': quickGo(); break;
+    case 'qYes': quizEnd(true); break;
+    case 'qNo': quizEnd(false); break;
+    case 'qSkip': quizEnd(false, 'Dilewati'); break;
+    case 'qCheck': quizCheck(); break;
+    case 'qKey': if (QZ && !QZ.done) { const k = t.dataset.k; QZ.val = k === 'del' ? QZ.val.slice(0, -1) : (QZ.val + k).slice(0, 6); renderQuiz(); } break;
     case 'continue': { const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
     case 'settings': if (cur === 'game' && busy) break; show('settings'); break;
     case 'about': show('about'); break;
@@ -1908,6 +2144,7 @@ document.addEventListener('input', e => {
   const t = e.target;
   if (t.dataset.vol) { S[t.dataset.vol] = (+t.value) / 100; saveSettings(); SFX.vol(); BGM.sync(); }
   if (t.dataset.name != null || t.dataset.mem != null) { readInputs(); }
+  if (t.dataset.gname != null && G && G.players[+t.dataset.gname]) { G.players[+t.dataset.gname].name = t.value.trim() || `P${+t.dataset.gname + 1}`; saveGame(); }
 });
 document.addEventListener('change', e => { if (e.target.dataset.vol === 'sfxVol') SFX.step(); });
 function readInputs() {
@@ -1919,8 +2156,14 @@ function onChip(name, v) {
   SFX.click();
   if (name === 'kind') { readInputs(); draft.kind = v; saveDraft(); return renderSetup(); }
   if (name === 'cpuFirst') { readInputs(); draft.cpuFirst = v === '1'; saveDraft(); return renderSetup(); }
-  const num = ['timeMin', 'throws'];
-  const val = num.includes(name) ? +v : (name === 'size' && v !== 'auto' ? +v : v);
+  const num = ['timeMin', 'throws', 'eduTime'];
+  let val = num.includes(name) ? +v : (name === 'size' && v !== 'auto' ? +v : v);
+  if (name === 'eduOn') val = v === '1';
+  if (name === 'eduTypes') { // pilih lebih dari satu (minimal satu)
+    const src = (cur === 'settings' && pend) ? pend : S, a = (src.eduTypes || []).slice(), k = a.indexOf(v);
+    if (k >= 0) { if (a.length > 1) a.splice(k, 1); } else a.push(v);
+    val = EDU_TYPES.map(x => x[0]).filter(x => a.includes(x));
+  }
   // saat permainan berjalan: aturan ditampung dulu, menunggu tombol Simpan / Terapkan
   if (cur === 'settings' && pend && GAME_KEYS.includes(name)) { pend[name] = val; return renderSettings(); }
   const skinChanged = name === 'skin' && S.skin !== val;
@@ -1962,6 +2205,8 @@ function exitApp() {
 addEventListener('popstate', () => {
   if (exiting) return;
   const open = id => $('#' + id).classList.contains('show');
+  if (open('quizm')) { armBack(); return; } // soal harus dijawab dulu
+  if (open('quickm')) { armBack(); return modal('quickm', false); }
   if (cur === 'home' && !['confirm', 'infom', 'pickm'].some(open)) {
     if (open('exitm')) return; // back kedua di peringatan: biarkan keluar
     modal('exitm', true); return; // peringatan keluar (back berikutnya = keluar)
@@ -1979,6 +2224,7 @@ addEventListener('popstate', () => {
 try { history.replaceState({ hahe: 0 }, ''); } catch (e) {}
 armBack();
 document.addEventListener('keydown', e => {
+  if ($('#quizm').classList.contains('show')) { if (e.key === 'Enter' && QZ && !QZ.done && QZ.type === 'kata') { e.preventDefault(); quizCheck(); } return; }
   if (cur === 'game' && (e.code === 'Space' || e.code === 'Enter') && !e.target.closest('input') && !paused() && !$('#win').classList.contains('show')) { e.preventDefault(); if (G && !G.players[G.turn].cpu) doRoll(); }
 });
 

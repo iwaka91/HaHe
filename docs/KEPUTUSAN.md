@@ -92,7 +92,7 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 - Bisa dimainkan tanpa internet dan dipasang seperti aplikasi: tombol **Pasang Aplikasi** di Pengaturan, dalam bingkai berketerangan.
 
 ## 14. Rencana tahap
-- Status: **Versi 1.2** (20 Okt 2026): perbaikan hasil uji V 1.1 (lihat bagian 17). **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/). **Versi 1.1** (20 Okt 2026): Update A + tema Luar Angkasa dan Es Krim (lihat bagian 16).
+- Status: **Versi 1.3** (20 Okt 2026): Mode Edukasi dan Mode Cepat (lihat bagian 18). **Versi 1.2** (20 Okt 2026): perbaikan hasil uji V 1.1 (lihat bagian 17). **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/). **Versi 1.1** (20 Okt 2026): Update A + tema Luar Angkasa dan Es Krim (lihat bagian 16).
 - **Tahap 1**: mesin game lengkap (semua mode, pengaturan, ukuran papan, level, nama pion, lawan komputer, kelompok, potret/landscape/IFP, efek suara, About, lanjutkan permainan, layar juara) + tema **Hutan Borneo** premium.
 - **Tahap 2**: sembilan tema lain, 2-3 tema per sesi.
 
@@ -146,6 +146,26 @@ Rencana berikutnya:
   * Keluar Pengaturan dengan perubahan belum disimpan: muncul konfirmasi.
 - **Backsound**: tempat per tema menerima format umum (mp3, ogg, m4a, aac, wav, webm, opus, flac). Backsound ditagih setelah semua tema jadi.
 - **Pasang Aplikasi** diganti nama **Pasang HaHe**. Bila jendela pemasangan tidak muncul, tampil petunjuk lengkap (termasuk syarat uji di server lokal). Uji online belum dilakukan.
+
+## 18. Mode Edukasi dan Mode Cepat (20 Okt 2026), SELESAI di Versi 1.3
+
+**Mode Edukasi** (lapisan di atas mode permainan; aturan ular tangga tetap):
+- Sebagian kotak bertanda **?** tersebar acak (bukan MULAI, finis, ular, tangga). Banyaknya: Sedikit / Sedang / Banyak.
+- Mendarat di kotak ? = jawab soal. **Benar**: lempar lagi (bonus; di By Chance tidak dihitung). **Salah / Lewati**: tanpa hukuman, giliran berikutnya. Jawaban benar ditampilkan bila salah (Menghitung, Tebak Kata).
+- Jenis soal (boleh dicampur): **Mengeja** (pendek/sedang/panjang; pemain lain menekan Benar/Salah), **Menghitung** tambah dan kurang (Satuan 1–9, Puluhan hingga 99, Ribuan hingga 9.999; papan angka di layar), **Tebak Kata** (Indonesia / English; petunjuk English: Gambar atau Kata Indonesia; huruf pertama ditampilkan; diketik), **Tantangan aktivitas** ringan dan aman (25 buah; pemain lain menilai; tombol **Lewati** tetap ada).
+- Waktu menjawab: Tanpa batas (bawaan), 20, 30, 60 detik.
+- **Tidak tersedia saat Lawan Komputer.**
+- Bank soal disediakan Claude (tanpa diperiksa Pak Toto). Petunjuk gambar memakai emoji bawaan.
+- Diatur di Pengaturan dan Siapkan Permainan. Bawaan: mati; jenis campur semua, Mengeja sedang, Menghitung puluhan, Tebak Kata Indonesia, kotak sedang.
+
+**Mode Cepat** (tombol di Beranda):
+- Pilih jumlah pemain (1–10) dan kotak centang **Mode Edukasi** (bawaan tidak dicentang). 1 pemain = otomatis lawan komputer (kotak centang disembunyikan).
+- Otomatis: papan 8×8, Klasik, level Standar, finis harus pas, tema acak dari tema yang sudah jadi.
+- Bila edukasi dicentang: memakai pilihan soal terakhir di Pengaturan.
+
+**Nama pemain**: bawaan disingkat **P1, P2**, dan seterusnya; bisa diganti di Pengaturan saat permainan berjalan (langsung berlaku).
+
+Rencana berikutnya: tiga tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu tema 3D, lalu Musim kedua.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
