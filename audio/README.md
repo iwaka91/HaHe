@@ -1,10 +1,12 @@
 # Backsound per tema
 
-Letakkan file backsound (open source, CC0 atau CC-BY) di folder ini dengan nama:
+Letakkan file backsound (open source, CC0 atau CC-BY) di folder ini.
+Nama file mengikuti tema; format bebas, pilih salah satu yang umum:
+**mp3, ogg, m4a, aac, wav, webm, opus, flac**.
 
-| Tema | Nama file |
+| Tema | Nama file (contoh) |
 |---|---|
-| Hutan Borneo | `hutan-borneo.mp3` |
+| Hutan Borneo | `hutan-borneo.mp3` (atau `.ogg`, `.m4a`, dan lainnya) |
 | Luar Angkasa | `luar-angkasa.mp3` |
 | Es Krim | `es-krim.mp3` |
 

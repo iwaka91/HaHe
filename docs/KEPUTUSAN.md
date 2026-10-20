@@ -1,6 +1,6 @@
-# HaHe: Keputusan Desain (final per 19 Okt 2026)
+# HaHe: Keputusan Desain (final per 20 Okt 2026)
 
-HaHe = singkatan dari **Handipe Hejan**, yang berarti ular tangga.
+HaHe = singkatan dari kata **Handipe** dan **Hejan**, yang berarti Ular dan Tangga dalam bahasa Dayak Ngaju.
 Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa pun.
 Alamat: hahe.totogutomo.com
 
@@ -42,7 +42,7 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 - Backsound: on/off + **volume**. Tempat (placeholder) backsound **per tema**, bukan satu lagu.
 - Efek suara: on/off + **volume**.
 - Mode permainan, level papan, ukuran papan, jumlah pemain.
-- Pilih tema, dadu (bisa pakai dadu dari tema lain), pion.
+- Dadu (bisa pakai dadu dari tema lain). Tema dipilih di **Beranda** sejak Versi 1.2; pion dipilih di Siapkan Permainan.
 - Kualitas grafis: tema Hutan Borneo memakai setelan "Best".
 
 ## 7. Suara
@@ -92,7 +92,7 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 - Bisa dimainkan tanpa internet dan dipasang seperti aplikasi: tombol **Pasang Aplikasi** di Pengaturan, dalam bingkai berketerangan.
 
 ## 14. Rencana tahap
-- Status: **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/). **Versi 1.1** (20 Okt 2026): Update A + tema Luar Angkasa dan Es Krim (lihat bagian 16).
+- Status: **Versi 1.2** (20 Okt 2026): perbaikan hasil uji V 1.1 (lihat bagian 17). **Tahap 1 sudah dibangun** (index.html, sw.js, manifest, icons/, audio/). **Versi 1.1** (20 Okt 2026): Update A + tema Luar Angkasa dan Es Krim (lihat bagian 16).
 - **Tahap 1**: mesin game lengkap (semua mode, pengaturan, ukuran papan, level, nama pion, lawan komputer, kelompok, potret/landscape/IFP, efek suara, About, lanjutkan permainan, layar juara) + tema **Hutan Borneo** premium.
 - **Tahap 2**: sembilan tema lain, 2-3 tema per sesi.
 
@@ -127,6 +127,25 @@ Rencana berikutnya:
 - Sesi berikut: Bawah Laut, Kebun Ceria, Negeri Salju (2D).
 - Setelah itu: Bajak Laut, Princess, Dinosaurus, Unicorn (3D); Tingang 3D memakai versi Borneo.
 - **Musim kedua**: karakter Borneo baru **Dboy = Jaya Tingang**, **Dgirl = Bunga Huma**, **Lontar = Si Lontar** (gambar acuan dari Pak Toto). Di papan memakai versi disederhanakan.
+
+## 17. Keputusan hasil uji V 1.1 (20 Okt 2026), SELESAI di Versi 1.2
+
+- **Tombol back Android**: kembali ke layar sebelumnya (Pengaturan/Tentang/Siapkan ke Beranda; saat main membuka Jeda; menutup jendela kecil). Di Beranda muncul **"Yakin keluar dari HaHe?"** dengan wajah haru 🥹 digambar sendiri (Tetap main / Keluar); back sekali lagi = keluar.
+- **Pilih tema pindah ke Beranda** (keluar dari Pengaturan). Urutan Beranda: deretan pemain sesuai tema (bawaan Borneo atau pilihan terakhir), **Pilih Tema** [ikon], MAIN BARU, Pengaturan | Tentang.
+  * Ikon tema: kotak persegi berlatar tema, karakter utama di dalamnya, kepalanya menyembul keluar kotak.
+  * Tema belum jadi tampil dengan label **"Segera!"** (tidak bisa dipilih).
+  * Saat Borneo aktif: siluet hitam Dboy, Dgirl, Lontar berlabel **"Season 2"** (tidak bisa dimainkan), juga di jendela Pilih Karakter.
+  * Dadu tetap dipilih di Pengaturan.
+- Sapaan "Tabe Salamat Lingu Nalatai!" dan "Isen Mulang!" **sudah dicek Pak Toto (benar)**. Tema Es Krim: warna sapaan digelapkan agar terbaca.
+- **Tentang**: "HaHe merupakan singkatan dari kata Handipe dan Hejan yang berarti Ular dan Tangga dalam bahasa Dayak Ngaju." lalu sapaan, sisanya sama seperti 1.1.
+- **Tambah pemain**: layar tidak lagi melompat; tombol tetap di tempatnya.
+- **Gaya Pengaturan diganti** agar beda dari Siapkan Permainan: layar penuh, warna tenang (biru keabuan), kartu putih.
+- **Tombol Simpan dan Mulai Ulang selalu tampil** di Pengaturan:
+  * Dari Beranda: **Simpan** (berlaku saat Main Baru) dan **Simpan & Mulai Ulang** (langsung main dengan pemain terakhir).
+  * Saat bermain: **Simpan untuk Main Baru** dan **Terapkan & Mulai Ulang**.
+  * Keluar Pengaturan dengan perubahan belum disimpan: muncul konfirmasi.
+- **Backsound**: tempat per tema menerima format umum (mp3, ogg, m4a, aac, wav, webm, opus, flac). Backsound ditagih setelah semua tema jadi.
+- **Pasang Aplikasi** diganti nama **Pasang HaHe**. Bila jendela pemasangan tidak muncul, tampil petunjuk lengkap (termasuk syarat uji di server lokal). Uji online belum dilakukan.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
