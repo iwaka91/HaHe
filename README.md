@@ -5,13 +5,14 @@ Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa 
 
 Main di: **hahe.totogutomo.com**
 
-## Fitur (Versi 1.3)
+## Fitur (Versi 1.4)
 - Ular tangga untuk 1 sampai beberapa pemain; 1 pemain berarti melawan komputer.
-- Tiga tema: Hutan Borneo, Luar Angkasa, Es Krim (pilih tema di Beranda).
-- **Mode Edukasi**: kotak `?` muncul acak, berisi soal Mengeja, Menghitung, Tebak Kata (Indonesia/English), dan Tantangan aktivitas. Jawaban benar berarti lempar dadu lagi. Tidak aktif saat melawan komputer.
+- Empat tema: Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju (pilih tema di Beranda).
+- **Mode Edukasi**: kotak **[?]** muncul acak (Sedikit 15%, Sedang 25%, Banyak 40%), berisi soal Mengeja, Menghitung (tambah, kurang, kali, bagi; satuan sampai ribuan), Tebak Kata (Indonesia/English), dan Tantangan aktivitas. Jawaban benar berarti lempar dadu lagi. Tidak aktif saat melawan komputer.
 - **Mode Cepat** (di Beranda): pilih jumlah pemain dan centang Mode Edukasi; papan 8x8, Klasik, tema acak.
 - Nama pemain bawaan P1, P2, dan seterusnya; bisa diganti di Pengaturan saat bermain.
-- Bisa dipasang di HP (tombol "Pasang HaHe") dan dimainkan tanpa internet.
+- Layar penuh otomatis saat bermain; tombol Layar Penuh ada di Beranda.
+- Bisa dipasang di HP (tombol "Pasang HaHe" di Beranda) dan dimainkan tanpa internet.
 
 ## Isi repo
 - `index.html`: game lengkap (satu berkas).
@@ -22,8 +23,8 @@ Main di: **hahe.totogutomo.com**
 - `docs/mockup/`: mockup papan tema Hutan Borneo (HP potret).
 
 ## Status dan rencana
-- Versi 1.3 terkirim; perlu diuji di HP dan IFP lewat situs online.
-- Berikutnya: tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu tema 3D (Bajak Laut, Princess, Dinosaurus, Unicorn), lalu Musim kedua Borneo.
+- Versi 1.4 terkirim; perlu diuji di HP dan IFP (ikon dan pemasangan diuji ulang di hahe.totogutomo.com setelah deploy).
+- Berikutnya: tema 2D (Bawah Laut, Kebun Ceria), lalu tema 3D (Bajak Laut, Princess, Dinosaurus, Unicorn), lalu Musim kedua Borneo.
 - Backsound per tema menyusul setelah semua tema jadi (kredit ditulis di Tentang).
 
 HaHe ©2026 | hahe.totogutomo.com

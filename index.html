@@ -381,7 +381,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
    TEMA (SKIN): latar, warna kotak, dadu
    ========================================================= */
 .bgset{position:absolute;inset:0;display:none}
-:root[data-skin="borneo"] .bgset[data-for="borneo"],:root[data-skin="angkasa"] .bgset[data-for="angkasa"],:root[data-skin="eskrim"] .bgset[data-for="eskrim"]{display:block}
+:root[data-skin="borneo"] .bgset[data-for="borneo"],:root[data-skin="angkasa"] .bgset[data-for="angkasa"],:root[data-skin="eskrim"] .bgset[data-for="eskrim"],:root[data-skin="salju"] .bgset[data-for="salju"]{display:block}
 #home .hello{max-width:92vw;text-align:center;line-height:1.15}
 
 /* Luar Angkasa */
@@ -421,6 +421,23 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .sprk{position:absolute;width:12px;height:4px;border-radius:3px;animation:sprk 5s ease-in-out infinite}
 @keyframes sprk{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(var(--r))}}
 
+/* Negeri Salju */
+:root[data-skin="salju"]{
+  --sky1:#6fb8ea;--sky2:#a8d8f5;--sky3:#d3eefc;--sky4:#eaf7ff;--sky5:#ffffff;
+  --cellA1:#f4fbff;--cellA2:#dff1fc;--cellB1:#cfe8f8;--cellB2:#b4d8f0;--cellInk:#1f4a73;
+  --panel:rgba(20,60,100,.62);--panelLine:rgba(255,255,255,.35);--foot:#1f4a73;
+}
+:root[data-skin="salju"][data-theme="dark"]{
+  --sky1:#0a1430;--sky2:#14264f;--sky3:#1d3a6a;--sky4:#2a4c80;--sky5:#35598f;
+  --cellA1:#8fb4d8;--cellA2:#7ba2c8;--cellB1:#5f90bc;--cellB2:#4f80ac;--cellInk:#0a1a30;
+  --panel:rgba(6,14,36,.8);--panelLine:rgba(160,200,255,.25);--foot:#bcd8f2;
+}
+:root[data-skin="salju"][data-theme="dark"] .bgset[data-for="salju"] svg{filter:brightness(.55) saturate(.9)}
+:root[data-skin="salju"]:not([data-theme="dark"]) #home .hello{color:#1d4f86;text-shadow:0 2px 0 #fff,2px 0 0 #fff,-2px 0 0 #fff,0 -2px 0 #fff,1px 1px 0 #fff,-1px 1px 0 #fff,0 4px 8px rgba(29,79,134,.3)}
+.snw{position:absolute;top:-12px;border-radius:50%;background:#fff;opacity:.9;box-shadow:0 0 4px rgba(255,255,255,.8);animation:snw linear infinite}
+@keyframes snw{0%{transform:translate(0,-12px)}100%{transform:translate(var(--dx),108vh)}}
+.q-lite .snw{animation:none}
+
 /* dadu tema baru */
 .dice-planet .face{background:radial-gradient(circle at 30% 25%,#4656b8,#18205a 72%);border:3px solid #7fe3ff;box-shadow:inset 0 0 0 2px rgba(127,227,255,.35),inset 0 -6px 10px rgba(0,0,0,.4)}
 .dice-planet .face i{background:radial-gradient(circle at 40% 35%,#ffffff,#6ff0ff 70%);box-shadow:0 0 6px 1px rgba(111,240,255,.8)}
@@ -428,6 +445,9 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .dice-permen .face{background:radial-gradient(circle at 30% 25%,#fff6fa,#ffc2da 75%);border:3px solid #d0447f;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(208,68,127,.25)}
 .dice-permen .face i{background:radial-gradient(circle at 40% 35%,#a8643a,#5a2a10 70%);box-shadow:inset 0 2px 2px rgba(0,0,0,.4)}
 .dice-permen .f1 i.on{background:radial-gradient(circle at 40% 35%,#ff8a9a,#e8343a 70%);width:18px;height:18px}
+.dice-es .face{background:radial-gradient(circle at 30% 25%,#ffffff,#bfe6fb 75%);border:3px solid #3a8ac4;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(58,138,196,.3)}
+.dice-es .face i{background:radial-gradient(circle at 40% 35%,#4a86c0,#16406e 70%);box-shadow:inset 0 2px 2px rgba(0,0,0,.4)}
+.dice-es .f1 i.on{background:radial-gradient(circle at 40% 35%,#ff8a9a,#e8343a 70%);width:18px;height:18px}
 
 /* ---------- MODE EDUKASI & MODE CEPAT (Versi 1.3) ---------- */
 .eduq{min-height:0}
@@ -723,6 +743,92 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <path d="M17.6 31.4 Q20 33.8 22.4 31.4" fill="none" stroke="#3a1a0a" stroke-width="1.2" stroke-linecap="round"/>
 <circle cx="14.4" cy="30.8" r="1.6" fill="#ff8a9a" opacity=".6"/><circle cx="25.6" cy="30.8" r="1.6" fill="#ff8a9a" opacity=".6"/>
 </symbol>
+<!-- Negeri Salju: Manusia Salju -->
+<symbol id="pn-manusiasalju" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#3a6a96" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="20" cy="39" rx="11.6" ry="9.6" fill="#ffffff"/>
+</g>
+<g stroke="#6a4020" stroke-width="1.7" stroke-linecap="round" fill="none"><path d="M9 33 L2.6 28.4 M4.6 29.8 L3.4 26.4"/></g>
+<g class="wave" stroke="#6a4020" stroke-width="1.7" stroke-linecap="round" fill="none"><path d="M31 33 L37.6 27.4 M35.4 29.2 L37.2 25.6 M35.4 29.2 L38.6 29.8"/></g>
+<g fill="#2a3550"><circle cx="20" cy="35" r="1.3"/><circle cx="20" cy="40" r="1.3"/><circle cx="20" cy="45" r="1.1"/></g>
+<ellipse cx="14.6" cy="33.6" rx="3.4" ry="1.6" transform="rotate(-24 14.6 33.6)" fill="#cfe8f8" opacity=".7"/>
+<circle cx="20" cy="21" r="10" fill="#ffffff" stroke="#3a6a96" stroke-width="1.3"/>
+<ellipse cx="14.8" cy="15.6" rx="3.4" ry="1.6" transform="rotate(-30 14.8 15.6)" fill="#cfe8f8" opacity=".8"/>
+<path d="M10.8 29.2 C15.4 32.6 24.6 32.6 29.2 29.2 L28.4 33.4 C24 36 16 36 11.6 33.4 Z" fill="#e8343a" stroke="#8a1a1a" stroke-width="1" stroke-linejoin="round"/>
+<rect x="23.6" y="31.6" width="4.6" height="9.6" rx="1.6" fill="#e8343a" stroke="#8a1a1a" stroke-width="1"/>
+<rect x="11.6" y="9.4" width="16.8" height="3.2" rx="1.4" fill="#2a3550" stroke="#141c33" stroke-width="1"/>
+<rect x="14.4" y="2" width="11.2" height="8.6" rx="1.8" fill="#3a4a7a" stroke="#141c33" stroke-width="1"/>
+<rect x="14.4" y="6.2" width="11.2" height="2.4" fill="#e8343a"/>
+<circle cx="16.4" cy="19.4" r="1.45" fill="#2a3550"/><circle cx="23.6" cy="19.4" r="1.45" fill="#2a3550"/>
+<circle cx="16.9" cy="18.8" r=".5" fill="#ffffff"/><circle cx="24.1" cy="18.8" r=".5" fill="#ffffff"/>
+<path d="M20 21.2 L29 22.6 L20 24.4 Z" fill="#ff8a2a" stroke="#a84a00" stroke-width=".9" stroke-linejoin="round"/>
+<g fill="#2a3550"><circle cx="15.4" cy="25.4" r=".7"/><circle cx="17.6" cy="26.4" r=".7"/><circle cx="20" cy="26.8" r=".7"/><circle cx="22.4" cy="26.4" r=".7"/></g>
+<circle cx="13" cy="23.6" r="1.6" fill="#ff9ab0" opacity=".7"/><circle cx="27" cy="23.6" r="1.6" fill="#ff9ab0" opacity=".7"/>
+</symbol>
+<!-- Negeri Salju: Penguin -->
+<symbol id="pn-penguin" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#7a3a00" stroke-width="1.2"><ellipse cx="14.4" cy="46.4" rx="4.8" ry="2.1" fill="#ff9a2a"/><ellipse cx="25.6" cy="46.4" rx="4.8" ry="2.1" fill="#ff9a2a"/></g>
+<g stroke="#141c33" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="7.8" cy="32" rx="3" ry="8" transform="rotate(14 7.8 32)" fill="#26324f"/>
+<ellipse cx="20" cy="30.6" rx="12.6" ry="16.2" fill="#26324f"/>
+</g>
+<ellipse cx="20" cy="33.4" rx="8.4" ry="12" fill="#ffffff"/>
+<g class="wave"><ellipse cx="32.2" cy="29.6" rx="3" ry="7.8" transform="rotate(-18 32.2 29.6)" fill="#26324f" stroke="#141c33" stroke-width="1.3"/></g>
+<ellipse cx="15.8" cy="21.4" rx="3.5" ry="3.9" fill="#ffffff"/><ellipse cx="24.2" cy="21.4" rx="3.5" ry="3.9" fill="#ffffff"/>
+<circle cx="16.2" cy="22" r="1.8" fill="#141c33"/><circle cx="23.8" cy="22" r="1.8" fill="#141c33"/>
+<circle cx="16.8" cy="21.2" r=".6" fill="#ffffff"/><circle cx="24.4" cy="21.2" r=".6" fill="#ffffff"/>
+<path d="M16.4 25.6 Q20 23.4 23.6 25.6 Q20 29.6 16.4 25.6 Z" fill="#ffb02e" stroke="#7a3a00" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="12.6" cy="26" r="1.6" fill="#ff9ab0" opacity=".75"/><circle cx="27.4" cy="26" r="1.6" fill="#ff9ab0" opacity=".75"/>
+<path d="M9.4 17.6 C8.8 8.6 13 6 20 6 C27 6 31.2 8.6 30.6 17.6 C26 19.4 14 19.4 9.4 17.6 Z" fill="#4aa3e0" stroke="#1d5a8a" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M9.6 14.6 C14 16.6 26 16.6 30.4 14.6" fill="none" stroke="#ffffff" stroke-width="1.8" opacity=".85"/>
+<circle cx="20" cy="5.2" r="2.7" fill="#ffffff" stroke="#1d5a8a" stroke-width="1"/>
+</symbol>
+<!-- Negeri Salju: Beruang Kutub -->
+<symbol id="pn-beruangkutub" viewBox="0 0 40 52" overflow="visible">
+<g stroke="#6f8fb0" stroke-width="1.3" stroke-linejoin="round">
+<circle cx="9.6" cy="11" r="4.2" fill="#f7fbff"/><circle cx="30.4" cy="11" r="4.2" fill="#f7fbff"/>
+<ellipse cx="14.4" cy="46.2" rx="4.6" ry="2.2" fill="#f7fbff"/><ellipse cx="25.6" cy="46.2" rx="4.6" ry="2.2" fill="#f7fbff"/>
+<ellipse cx="8.8" cy="36" rx="3.2" ry="6.8" transform="rotate(14 8.8 36)" fill="#f7fbff"/>
+<ellipse cx="20" cy="37" rx="11.8" ry="10.4" fill="#f7fbff"/>
+</g>
+<circle cx="9.6" cy="11" r="2.1" fill="#ffc2cf"/><circle cx="30.4" cy="11" r="2.1" fill="#ffc2cf"/>
+<ellipse cx="20" cy="39" rx="6.4" ry="6.6" fill="#e4f0fb"/>
+<g class="wave"><ellipse cx="31.2" cy="32.6" rx="3.2" ry="7" transform="rotate(-20 31.2 32.6)" fill="#f7fbff" stroke="#6f8fb0" stroke-width="1.3"/></g>
+<path d="M10 28.2 C15 31.4 25 31.4 30 28.2 L29 32.2 C24 34.8 16 34.8 11 32.2 Z" fill="#3aa86a" stroke="#1a6a3a" stroke-width="1" stroke-linejoin="round"/>
+<path d="M13 29.6 L12.2 33.2 M17 30.6 L16.4 34.2 M21 30.9 L20.8 34.4 M25 30.6 L25.2 34 " stroke="#c9f0d8" stroke-width="1.1"/>
+<rect x="23.8" y="30.6" width="4.4" height="8.6" rx="1.6" fill="#3aa86a" stroke="#1a6a3a" stroke-width="1"/>
+<circle cx="20" cy="19.6" r="11.2" fill="#f7fbff" stroke="#6f8fb0" stroke-width="1.3"/>
+<ellipse cx="14.4" cy="12.6" rx="3.6" ry="1.8" transform="rotate(-30 14.4 12.6)" fill="#ffffff" opacity=".9"/>
+<ellipse cx="20" cy="23.8" rx="5.4" ry="4.2" fill="#e4f0fb"/>
+<ellipse cx="20" cy="21.8" rx="2.2" ry="1.6" fill="#2a3550"/>
+<circle cx="15.4" cy="17.6" r="1.5" fill="#2a3550"/><circle cx="24.6" cy="17.6" r="1.5" fill="#2a3550"/>
+<circle cx="15.9" cy="17" r=".5" fill="#ffffff"/><circle cx="25.1" cy="17" r=".5" fill="#ffffff"/>
+<path d="M17.6 25.4 Q20 27.6 22.4 25.4" fill="none" stroke="#2a3550" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="12.4" cy="22.4" r="1.6" fill="#ff9ab0" opacity=".7"/><circle cx="27.6" cy="22.4" r="1.6" fill="#ff9ab0" opacity=".7"/>
+</symbol>
+<!-- Negeri Salju: Rusa Kutub -->
+<symbol id="pn-rusa" viewBox="0 0 40 52" overflow="visible">
+<g fill="none" stroke="#7a4a1a" stroke-width="1.8" stroke-linecap="round"><path d="M13 10 L10 2.6 M11 5.6 L7 5 M10.4 3.8 L12.2 1"/><path d="M27 10 L30 2.6 M29 5.6 L33 5 M29.6 3.8 L27.8 1"/></g>
+<g stroke="#6a3a10" stroke-width="1.3" stroke-linejoin="round">
+<ellipse cx="7.8" cy="14" rx="4" ry="2.2" transform="rotate(-28 7.8 14)" fill="#b8793a"/><ellipse cx="32.2" cy="14" rx="4" ry="2.2" transform="rotate(28 32.2 14)" fill="#b8793a"/>
+<ellipse cx="14.4" cy="46.2" rx="4.4" ry="2.2" fill="#7a4a1a"/><ellipse cx="25.6" cy="46.2" rx="4.4" ry="2.2" fill="#7a4a1a"/>
+<ellipse cx="8.8" cy="36" rx="3.2" ry="6.8" transform="rotate(14 8.8 36)" fill="#c98a4a"/>
+<ellipse cx="20" cy="37" rx="11.6" ry="10.4" fill="#c98a4a"/>
+</g>
+<ellipse cx="20" cy="39.6" rx="6.2" ry="6.2" fill="#f1d1a0"/>
+<g class="wave"><ellipse cx="31.2" cy="32.6" rx="3.2" ry="7" transform="rotate(-20 31.2 32.6)" fill="#c98a4a" stroke="#6a3a10" stroke-width="1.3"/></g>
+<path d="M10 28.4 C15 31.6 25 31.6 30 28.4 L29 32.4 C24 35 16 35 11 32.4 Z" fill="#3a7cd8" stroke="#1a3f7a" stroke-width="1" stroke-linejoin="round"/>
+<path d="M13 29.8 L12.2 33.4 M17 30.8 L16.4 34.4 M21 31.1 L20.8 34.6 M25 30.8 L25.2 34.2" stroke="#d4e6ff" stroke-width="1.1"/>
+<rect x="23.8" y="30.8" width="4.4" height="8.6" rx="1.6" fill="#3a7cd8" stroke="#1a3f7a" stroke-width="1"/>
+<ellipse cx="20" cy="20.4" rx="10.8" ry="9.8" fill="#c98a4a" stroke="#6a3a10" stroke-width="1.3"/>
+<ellipse cx="14.4" cy="14.4" rx="3.4" ry="1.7" transform="rotate(-30 14.4 14.4)" fill="#ffffff" opacity=".4"/>
+<ellipse cx="20" cy="25" rx="6" ry="4.4" fill="#f1d1a0"/>
+<circle cx="20" cy="23.4" r="2.7" fill="#e8343a" stroke="#7a1a1a" stroke-width="1"/><circle cx="19.2" cy="22.6" r=".8" fill="#ffffff" opacity=".8"/>
+<circle cx="15.2" cy="18.4" r="1.5" fill="#2a1608"/><circle cx="24.8" cy="18.4" r="1.5" fill="#2a1608"/>
+<circle cx="15.7" cy="17.8" r=".5" fill="#ffffff"/><circle cx="25.3" cy="17.8" r=".5" fill="#ffffff"/>
+<path d="M17.8 27 Q20 28.8 22.2 27" fill="none" stroke="#6a3a10" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="12.2" cy="23" r="1.5" fill="#ff9ab0" opacity=".65"/><circle cx="27.8" cy="23" r="1.5" fill="#ff9ab0" opacity=".65"/>
+</symbol>
 <!-- hiasan bingkai tema 2D -->
 <g id="planet"><ellipse rx="13" ry="4.2" fill="none" stroke="#ffe27a" stroke-width="2" transform="rotate(-20)"/><circle r="8" fill="#ff8a5a" stroke="#7a2f15" stroke-width="1.2"/><path d="M-6 -2 C-2 -4 3 -3 6.5 -1" fill="none" stroke="#ffc49a" stroke-width="1.4"/><ellipse cx="-2.4" cy="-3.4" rx="2.4" ry="1.2" fill="#fff" opacity=".5"/><path d="M-13 0 A13 4.2 0 0 0 13 0" fill="none" stroke="#ffe27a" stroke-width="2" transform="rotate(-20)"/></g>
 <g id="star5"><polygon points="0,-7 2,-2.2 7,-2.2 3,1 4.4,6.2 0,3.2 -4.4,6.2 -3,1 -7,-2.2 -2,-2.2" fill="#ffe27a" stroke="#8a5a00" stroke-width=".8" stroke-linejoin="round"/></g>
@@ -731,6 +837,9 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <pattern id="starBandV" width="14" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="14" height="10" fill="#232b72"/><polygon points="7,1.6 8,4.2 10.6,4.2 8.5,5.8 9.3,8.4 7,6.8 4.7,8.4 5.5,5.8 3.4,4.2 6,4.2" fill="#ffe27a"/><circle cx="0.5" cy="2" r=".8" fill="#7fe3ff"/><circle cx="13.5" cy="8" r=".8" fill="#7fe3ff"/></pattern>
 <pattern id="sprBand" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#ffc2da"/><rect x="2" y="2" width="4" height="1.6" rx=".8" fill="#ffffff" transform="rotate(25 4 2.8)"/><rect x="9" y="5.6" width="4" height="1.6" rx=".8" fill="#6fd8b8" transform="rotate(-30 11 6.4)"/><rect x="5" y="7" width="3.6" height="1.6" rx=".8" fill="#ffd84a" transform="rotate(10 6.8 7.8)"/><rect x="12" y="1.4" width="3.6" height="1.6" rx=".8" fill="#8ab8ff" transform="rotate(-15 13.8 2.2)"/></pattern>
 <pattern id="sprBandV" width="16" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="16" height="10" fill="#ffc2da"/><rect x="2" y="2" width="4" height="1.6" rx=".8" fill="#ffffff" transform="rotate(25 4 2.8)"/><rect x="9" y="5.6" width="4" height="1.6" rx=".8" fill="#6fd8b8" transform="rotate(-30 11 6.4)"/><rect x="5" y="7" width="3.6" height="1.6" rx=".8" fill="#ffd84a" transform="rotate(10 6.8 7.8)"/><rect x="12" y="1.4" width="3.6" height="1.6" rx=".8" fill="#8ab8ff" transform="rotate(-15 13.8 2.2)"/></pattern>
+<g id="flake"><circle r="7.6" fill="#3a8ac4" stroke="#ffffff" stroke-width="1"/><g stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"><path d="M0 -5.6 V5.6 M-4.85 -2.8 L4.85 2.8 M-4.85 2.8 L4.85 -2.8"/></g></g>
+<pattern id="snoBand" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#7cc4ee"/><circle cx="3" cy="3" r="1.7" fill="#ffffff"/><circle cx="11" cy="7" r="1.7" fill="#ffffff"/><circle cx="8" cy="2" r=".9" fill="#e4f4ff"/><circle cx="14.4" cy="3.6" r=".9" fill="#e4f4ff"/><circle cx="5" cy="8" r=".9" fill="#e4f4ff"/></pattern>
+<pattern id="snoBandV" width="16" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="16" height="10" fill="#7cc4ee"/><circle cx="3" cy="3" r="1.7" fill="#ffffff"/><circle cx="11" cy="7" r="1.7" fill="#ffffff"/><circle cx="8" cy="2" r=".9" fill="#e4f4ff"/><circle cx="14.4" cy="3.6" r=".9" fill="#e4f4ff"/><circle cx="5" cy="8" r=".9" fill="#e4f4ff"/></pattern>
 <clipPath id="frameClip"><rect width="358" height="358" rx="26"/></clipPath>
 <!-- ikon ceri (digambar sendiri) -->
 <symbol id="ic-cherry" viewBox="0 0 40 40">
@@ -773,6 +882,14 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <svg style="left:-30px;bottom:6%;width:150px;height:170px" viewBox="0 0 150 170"><path d="M40 90 L75 170 L110 90 Z" fill="#eaa64e"/><g stroke="#c88436" stroke-width="3"><path d="M48 96 L90 160"/><path d="M66 92 L104 120"/><path d="M100 96 L60 160"/><path d="M84 92 L46 120"/></g><circle cx="75" cy="70" r="40" fill="#8fe0c0"/><circle cx="75" cy="36" r="30" fill="#ff9cc2"/><circle cx="80" cy="6" r="9" fill="#e8343a"/><ellipse cx="62" cy="24" rx="10" ry="5" fill="#fff" opacity=".5"/></svg>
     <svg style="right:-26px;bottom:10%;width:120px;height:150px" viewBox="0 0 120 150"><rect x="52" y="104" width="16" height="44" rx="8" fill="#f3d29a"/><rect x="18" y="6" width="84" height="110" rx="40" fill="#ffd36b"/><path d="M18 46 C18 22 36 6 60 6 C84 6 102 22 102 46 C94 54 86 44 78 52 C70 60 62 46 54 54 C46 62 38 48 30 54 C24 58 20 52 18 46 Z" fill="#7a3e1a"/><rect x="30" y="64" width="9" height="40" rx="4.5" fill="#fff" opacity=".45"/></svg>
    </div>
+   <!-- Latar Negeri Salju -->
+   <div class="bgset" data-for="salju">
+    <svg style="left:0;bottom:24%;width:100%;height:200px" viewBox="0 0 390 200" preserveAspectRatio="none"><path d="M0 200 L0 110 L50 40 L92 100 L140 20 L196 105 L246 56 L300 112 L348 48 L390 100 L390 200 Z" fill="#9cc6e6"/><path d="M140 20 L162 52 L148 48 L140 58 L128 46 L118 52 Z M50 40 L66 64 L56 60 L50 68 L40 58 L34 62 Z M348 48 L364 70 L354 66 L348 74 L338 64 L330 68 Z" fill="#ffffff"/></svg>
+    <svg style="left:0;bottom:0;width:100%;height:34%" viewBox="0 0 390 260" preserveAspectRatio="none"><path d="M0 70 C60 20 130 34 190 66 C250 96 320 34 390 60 V260 H0 Z" fill="#e3f4ff"/><path d="M0 120 C70 76 140 96 200 118 C270 142 330 94 390 112 V260 H0 Z" fill="#ffffff"/></svg>
+    <svg style="left:-6px;bottom:15%;width:92px;height:150px" viewBox="0 0 92 150"><rect x="42" y="124" width="8" height="22" fill="#6a4020"/><polygon points="46,70 14,128 78,128" fill="#2f8a5a"/><polygon points="46,36 20,92 72,92" fill="#37a06a"/><polygon points="46,4 26,52 66,52" fill="#40b476"/><path d="M26 52 L46 4 L66 52 L58 48 L52 54 L46 46 L38 54 L32 48 Z M20 92 L46 36 L72 92 L64 88 L56 94 L46 86 L36 94 L28 88 Z M14 128 L46 70 L78 128 L68 123 L60 130 L46 120 L32 130 L24 123 Z" fill="#ffffff"/></svg>
+    <svg style="right:-10px;bottom:13%;width:78px;height:128px" viewBox="0 0 92 150"><rect x="42" y="124" width="8" height="22" fill="#6a4020"/><polygon points="46,70 14,128 78,128" fill="#2f8a5a"/><polygon points="46,36 20,92 72,92" fill="#37a06a"/><polygon points="46,4 26,52 66,52" fill="#40b476"/><path d="M26 52 L46 4 L66 52 L58 48 L52 54 L46 46 L38 54 L32 48 Z M20 92 L46 36 L72 92 L64 88 L56 94 L46 86 L36 94 L28 88 Z M14 128 L46 70 L78 128 L68 123 L60 130 L46 120 L32 130 L24 123 Z" fill="#ffffff"/></svg>
+    <div id="snowflakes"></div>
+   </div>
    <!-- Latar Hutan Borneo -->
    <div class="bgset" data-for="borneo">
     <div class="stars"></div><div class="sun"></div><div class="moon"></div>
@@ -806,6 +923,10 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       <div style="display:flex;gap:12px">
         <button class="bbtn wood sm" data-act="settings">Pengaturan</button>
         <button class="bbtn wood sm" data-act="about">Tentang</button>
+      </div>
+      <div style="display:flex;gap:12px">
+        <button class="bbtn wood sm" id="btnFs" data-act="fs" style="font-size:16px;padding:0 8px;min-height:46px">⛶ Layar Penuh</button>
+        <button class="bbtn wood sm" id="btnInstall" data-act="install" style="font-size:16px;padding:0 8px;min-height:46px">⬇ Pasang HaHe</button>
       </div>
     </div>
     <div class="grow"></div>
@@ -939,8 +1060,8 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <script>
 'use strict';
 /* =========================================================
-   HaHe (Handipe Hejan) · Versi 1.3 (Mode Edukasi & Mode Cepat)
-   Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim
+   HaHe (Handipe Hejan) · Versi 1.4 (layar penuh, Kali dan Bagi, tema Negeri Salju)
+   Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju
    HaHe ©2026 | hahe.totogutomo.com
    ========================================================= */
 
@@ -987,6 +1108,20 @@ const SKINS = {
     bgm: 'audio/es-krim',
     snakes: [['#8a1e4a', '#ff6fa6', '#fff0f6'], ['#6a3a10', '#c98a4a', '#ffe6c4'], ['#2a6a50', '#5fd0a0', '#e0fff0'], ['#5a2a7a', '#b38cff', '#f0e6ff'], ['#8a5a00', '#ffcf3a', '#fff6c4']],
     ladder: { edge: '#b8326e', rail: '#fff4f8', stripe: '#ff6fa6', rung: '#f3c27a', shine: '#ffffff', deco: 'sprinkle' }
+  },
+  salju: {
+    id: 'salju', name: 'Negeri Salju',
+    pions: [
+      { id: 'manusiasalju', name: 'Manusia Salju' },
+      { id: 'penguin', name: 'Penguin' },
+      { id: 'beruangkutub', name: 'Beruang Kutub' },
+      { id: 'rusa', name: 'Rusa Kutub' },
+      { id: 'tingang2d', name: 'Tingang' }
+    ],
+    dice: ['es'],
+    bgm: 'audio/negeri-salju',
+    snakes: [['#1a4a7a', '#4aa8e8', '#d4f0ff'], ['#1f6a5a', '#4fd0b0', '#d8fff2'], ['#4a2f7a', '#a98aff', '#eadfff'], ['#7a2a4a', '#f06a9a', '#ffd4e4'], ['#6a5a1a', '#f0c84a', '#fff3c0']],
+    ladder: { edge: '#2a5a8a', rail: '#e6f5ff', rung: '#8fd0f5', shine: '#ffffff', deco: 'snow' }
   }
 };
 // Daftar tema di Beranda (urutan tampil). soon = belum tersedia ("Segera!")
@@ -995,7 +1130,7 @@ const THEME_LIST = [
   { id: 'bajaklaut', name: 'Bajak Laut', soon: true }, { id: 'princess', name: 'Princess', soon: true },
   { id: 'dinosaurus', name: 'Dinosaurus', soon: true }, { id: 'unicorn', name: 'Unicorn', soon: true },
   { id: 'bawahlaut', name: 'Bawah Laut', soon: true }, { id: 'kebun', name: 'Kebun Ceria', soon: true },
-  { id: 'salju', name: 'Negeri Salju', soon: true }
+  { id: 'salju', hero: 'manusiasalju' }
 ];
 // Karakter Season 2 (siluet, belum bisa dimainkan): Jaya Tingang, Bunga Huma, Si Lontar
 const SEASON2 = { borneo: ['s2a', 's2b', 's2c'] };
@@ -1003,7 +1138,8 @@ const DICE = {
   kayu: { name: 'Dadu Kayu', skin: 'borneo', cls: 'dice-kayu' },
   ukir: { name: 'Dadu Ukir Dayak', skin: 'borneo', cls: 'dice-ukir' },
   planet: { name: 'Dadu Planet', skin: 'angkasa', cls: 'dice-planet' },
-  permen: { name: 'Dadu Permen', skin: 'eskrim', cls: 'dice-permen' }
+  permen: { name: 'Dadu Permen', skin: 'eskrim', cls: 'dice-permen' },
+  es: { name: 'Dadu Es', skin: 'salju', cls: 'dice-es' }
 };
 const RINGS = [
   { id: 'merah', name: 'Merah', a: '#ff6a5a', b: '#b3261e' },
@@ -1030,8 +1166,9 @@ const SAPAAN = { beranda: 'Tabe Salamat Lingu Nalatai!', tangga: 'Isen Mulang!' 
 // Pengaturan yang mengubah aturan permainan (saat bermain: disimpan dulu, tidak langsung berlaku)
 // (tema dipilih di Beranda, tidak lagi di Pengaturan)
 // Mode Edukasi: pengaturan soal (ikut aturan permainan)
-const EDU_KEYS = ['eduOn', 'eduTypes', 'eduEja', 'eduHitung', 'eduLang', 'eduEnHint', 'eduCount', 'eduTime'];
+const EDU_KEYS = ['eduOn', 'eduTypes', 'eduEja', 'eduOps', 'eduHitung', 'eduLang', 'eduEnHint', 'eduCount', 'eduTime'];
 const EDU_TYPES = [['eja', 'Mengeja'], ['hitung', 'Menghitung'], ['kata', 'Tebak Kata'], ['aksi', 'Tantangan']];
+const EDU_OPS = [['tambah', 'Tambah +'], ['kurang', 'Kurang −'], ['kali', 'Kali ×'], ['bagi', 'Bagi ÷']];
 const GAME_KEYS = ['mode', 'timeMin', 'throws', 'level', 'size', 'finish'].concat(EDU_KEYS);
 
 // ---------- Penyimpanan ----------
@@ -1043,11 +1180,11 @@ const store = {
 const DEFAULTS = {
   theme: 'light', layout: 'auto', quality: 'best',
   bgm: true, bgmVol: 0.5, sfx: true, sfxVol: 0.8,
-  skin: 'borneo', dice: 'kayu',
+  skin: 'borneo', dice: 'kayu', full: true,
   mode: 'klasik', timeMin: 5, throws: 10, level: 'standar', size: 'auto',
   finish: 'pas', // 'pas' = harus pas (memantul), 'lewat' = boleh melewati
   // Mode Edukasi (bawaan: mati; campur semua jenis, tingkat sedang)
-  eduOn: false, eduTypes: ['eja', 'hitung', 'kata', 'aksi'], eduEja: 'sedang', eduHitung: 'puluhan',
+  eduOn: false, eduTypes: ['eja', 'hitung', 'kata', 'aksi'], eduEja: 'sedang', eduOps: ['tambah', 'kurang', 'kali', 'bagi'], eduHitung: 'puluhan',
   eduLang: 'id', eduEnHint: 'gambar', eduCount: 'sedang', eduTime: 0
 };
 let S = Object.assign({}, DEFAULTS, store.get('hahe.settings', {}));
@@ -1122,6 +1259,9 @@ function avatarSVG(pion, ring) {
   let m = ''; const r3 = seeded('sp'), cols = ['#ff6fa6', '#ffd84a', '#6fd8b8', '#8ab8ff', '#ffffff', '#b38cff'];
   for (let i = 0; i < 26; i++) m += `<span class="sprk" style="left:${(r3() * 96).toFixed(1)}%;top:${(10 + r3() * 84).toFixed(1)}%;background:${cols[i % cols.length]};--r:${Math.round(r3() * 180)}deg;animation-delay:${(-r3() * 5).toFixed(2)}s"></span>`;
   document.getElementById('sprinkles').innerHTML = m;
+  let w = ''; const r4 = seeded('snw');
+  for (let i = 0; i < 28; i++) { const z = 3 + r4() * 5; w += `<span class="snw" style="left:${(r4() * 98).toFixed(1)}%;width:${z.toFixed(1)}px;height:${z.toFixed(1)}px;--dx:${Math.round(-30 + r4() * 60)}px;animation-duration:${(7 + r4() * 8).toFixed(1)}s;animation-delay:${(-r4() * 12).toFixed(2)}s"></span>`; }
+  document.getElementById('snowflakes').innerHTML = w;
 })();
 
 // =========================================================
@@ -1243,6 +1383,7 @@ function renderHome() {
   }).join('');
   const sv = store.get('hahe.save', null);
   $('#btnContinue').classList.toggle('hidden', !(sv && !sv.over));
+  updateFsBtn(); updateInstallBtn();
 }
 
 // latar ikon tema (kotak persegi), digambar sendiri
@@ -1288,20 +1429,24 @@ function gameOptionsHTML(n, V = S) {
 function eduHTML(V, cpu, full) {
   let h = `<div class="sec"><h3>Mode Edukasi</h3>`;
   if (cpu && !full) return h + `<div class="hint" style="margin:0">Tidak tersedia saat Lawan Komputer.</div></div>`;
-  h += chips('eduOn', [['0', 'Mati'], ['1', 'Nyala', 'soal di kotak ?']], V.eduOn ? '1' : '0');
+  h += chips('eduOn', [['0', 'Mati'], ['1', 'Nyala', 'soal di [?]']], V.eduOn ? '1' : '0');
   if (cpu) h += `<div class="hint">Tidak berlaku saat Lawan Komputer.</div>`;
   if (V.eduOn || full) {
     const T = V.eduTypes || [];
     h += `<div class="hint">Jenis soal (boleh lebih dari satu):</div><div class="chips">${EDU_TYPES.map(([k, n]) => `<button class="chip ${T.includes(k) ? 'on' : ''}" data-chip="eduTypes" data-v="${k}">${T.includes(k) ? '✓ ' : ''}${n}</button>`).join('')}</div>`;
     if (T.includes('eja')) h += `<div class="hint">Mengeja, panjang kata:</div>${chips('eduEja', [['pendek', 'Pendek'], ['sedang', 'Sedang'], ['panjang', 'Panjang']], V.eduEja)}`;
-    if (T.includes('hitung')) h += `<div class="hint">Menghitung (tambah &amp; kurang):</div>${chips('eduHitung', [['satuan', 'Satuan', 'angka 1–9'], ['puluhan', 'Puluhan', 'hingga 99'], ['ribuan', 'Ribuan', 'hingga 9.999']], V.eduHitung)}`;
+    if (T.includes('hitung')) {
+      const O = V.eduOps || [];
+      h += `<div class="hint">Menghitung, operasi (boleh lebih dari satu):</div><div class="chips">${EDU_OPS.map(([k, n]) => `<button class="chip ${O.includes(k) ? 'on' : ''}" data-chip="eduOps" data-v="${k}">${O.includes(k) ? '✓ ' : ''}${n}</button>`).join('')}</div>`;
+      h += `<div class="hint">Menghitung, tingkat angka:</div>${chips('eduHitung', [['satuan', 'Satuan', 'angka 1–9'], ['puluhan', 'Puluhan', 'hingga 99'], ['ratusan', 'Ratusan', 'hingga 999'], ['ribuan', 'Ribuan', 'hingga 9.999']], V.eduHitung)}`;
+    }
     if (T.includes('kata')) {
       h += `<div class="hint">Tebak Kata, bahasa:</div>${chips('eduLang', [['id', 'Indonesia'], ['en', 'English']], V.eduLang)}`;
       if (V.eduLang === 'en') h += `<div class="hint">Petunjuk English:</div>${chips('eduEnHint', [['gambar', 'Gambar'], ['indo', 'Kata Indonesia']], V.eduEnHint)}`;
     }
-    h += `<div class="hint">Banyak kotak ?:</div>${chips('eduCount', [['sedikit', 'Sedikit'], ['sedang', 'Sedang'], ['banyak', 'Banyak']], V.eduCount)}`;
+    h += `<div class="hint">Banyak [?]:</div>${chips('eduCount', [['sedikit', 'Sedikit', '15%'], ['sedang', 'Sedang', '25%'], ['banyak', 'Banyak', '40%']], V.eduCount)}`;
     h += `<div class="hint">Waktu menjawab:</div>${chips('eduTime', [[0, 'Tanpa batas'], [20, '20 detik'], [30, '30 detik'], [60, '60 detik']], V.eduTime)}`;
-    h += `<div class="hint">Mendarat di kotak ? = jawab soal. Benar: lempar lagi (bonus). Salah atau lewati: giliran berikutnya.</div>`;
+    h += `<div class="hint">Mendarat di [?] = jawab soal. Benar: lempar lagi (bonus). Salah atau lewati: giliran berikutnya.</div>`;
   }
   return h + `</div>`;
 }
@@ -1403,9 +1548,36 @@ function countOf() { return draft.kind === 'kelompok' ? draft.teams.length : dra
 
 // ---------- Pengaturan ----------
 let installEvt = null;
-addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; if (cur === 'settings') renderSettings(); });
-addEventListener('appinstalled', () => { installEvt = null; store.set('hahe.installed', true); if (cur === 'settings') renderSettings(); });
-const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; updateInstallBtn(); });
+addEventListener('appinstalled', () => { installEvt = null; store.set('hahe.installed', true); updateInstallBtn(); });
+const isStandalone = () => ['standalone', 'minimal-ui'].some(m => matchMedia(`(display-mode: ${m})`).matches) || (matchMedia('(display-mode: fullscreen)').matches && !(document.fullscreenElement || document.webkitFullscreenElement)) || navigator.standalone === true;
+// tombol Pasang HaHe di Beranda: hilang bila sudah terpasang
+function updateInstallBtn() { const b = document.getElementById('btnInstall'); if (b) b.classList.toggle('hidden', isStandalone()); }
+
+// ---------- Layar penuh ----------
+// Otomatis menyala saat bermain; dimatikan/dinyalakan lewat tombol di Beranda.
+let fsOwn = false;
+const FS = {
+  ok: !!(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen),
+  on() { return !!(document.fullscreenElement || document.webkitFullscreenElement); },
+  enter() { try { const e = document.documentElement; const r = e.requestFullscreen ? e.requestFullscreen({ navigationUI: 'hide' }) : e.webkitRequestFullscreen(); if (r && r.catch) r.catch(() => {}); } catch (x) {} },
+  leave() { try { if (!FS.on()) return; fsOwn = true; const r = document.exitFullscreen ? document.exitFullscreen() : document.webkitExitFullscreen(); if (r && r.catch) r.catch(() => {}); } catch (x) {} },
+  auto() { if (S.full && FS.ok && !FS.on()) FS.enter(); } // dipanggil dari ketukan pemain (syarat browser)
+};
+function updateFsBtn() { const b = document.getElementById('btnFs'); if (!b) return; b.classList.toggle('hidden', !FS.ok); b.textContent = FS.on() ? '⛶ Matikan Layar Penuh' : '⛶ Layar Penuh'; }
+function onFsChange() {
+  updateFsBtn();
+  if (FS.on()) return;
+  const own = fsOwn; fsOwn = false;
+  // keluar dari layar penuh karena tombol back saat main: tampilkan jeda (LANJUT MAIN menyalakan lagi)
+  if (!own && S.full && cur === 'game' && G && !G.over) {
+    const open = id => $('#' + id).classList.contains('show');
+    const tryPause = () => { if (!open('pause') && !open('quizm') && !open('win') && !busy) { modal('pause', true); return true; } return false; };
+    if (!tryPause()) setTimeout(tryPause, 900);
+  }
+}
+document.addEventListener('fullscreenchange', onFsChange);
+document.addEventListener('webkitfullscreenchange', onFsChange);
 
 // Saat dibuka dari permainan yang sedang berjalan, aturan permainan ditampung dulu (pend)
 let pend = null, pend0 = null; // pend0: isi awal, untuk tahu ada perubahan atau tidak
@@ -1424,15 +1596,6 @@ function renderSettings() {
   if (inGame) {
     h += `<div class="sec"><h3>Nama pemain</h3>${G.players.map((p, i) => `<div class="gname"><div class="av">${avatarSVG(p.pion, p.ring)}</div>${p.cpu ? `<div style="flex:1;font-weight:800">Komputer</div>` : `<input type="text" maxlength="16" data-gname="${i}" value="${esc(p.name)}" placeholder="P${i + 1}">`}</div>`).join('')}<div class="hint">Nama langsung berlaku.</div></div>`;
   }
-  // Pasang HaHe
-  h += `<div class="sec"><h3>Pasang HaHe</h3><div class="frame">`;
-  if (isStandalone()) {
-    h += `<p><b>HaHe sudah terpasang ✓</b><br>Aplikasi ini dapat dimainkan tanpa internet.</p>`;
-  } else {
-    h += `<p>Pasang <b>HaHe</b> di HP, tablet, atau IFP agar aplikasi <b>dapat dimainkan tanpa internet (offline)</b> di masa mendatang dan bisa dibuka langsung dari layar utama.</p><p>Silakan klik <b>Pasang HaHe</b>.</p>`;
-    h += `<button class="bbtn sm" data-act="install">PASANG HaHe</button>`;
-  }
-  h += `</div></div>`;
   // Tampilan
   h += `<div class="sec"><h3>Tampilan</h3>${chips('theme', [['light', 'Terang'], ['dark', 'Gelap']], S.theme)}
     <div class="hint">Tata letak layar:</div>${chips('layout', [['auto', 'Otomatis'], ['portrait', 'Potret'], ['landscape', 'Landscape']], S.layout)}
@@ -1496,7 +1659,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.3 · Tema Hutan Borneo, Luar Angkasa, Es Krim · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.4 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // =========================================================
@@ -1577,6 +1740,7 @@ function boardSVG() {
     let deco = '';
     if (st.deco === 'leaf') deco = `<ellipse cx="${L * 0.4}" cy="-19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(-20 ${L * 0.4} -19)"/><ellipse cx="${L * 0.7}" cy="19" rx="15" ry="7.5" fill="#4cb35f" transform="rotate(20 ${L * 0.7} 19)"/>`;
     if (st.deco === 'star') deco = `<use href="#star5" transform="translate(${L * 0.45} -17) scale(2.2)"/><circle cx="${L * 0.75}" cy="16" r="6" fill="#ff6a5a" stroke="#fff" stroke-width="2"/>`;
+    if (st.deco === 'snow') deco = `<use href="#flake" transform="translate(${L * 0.45} -17) scale(2)"/><circle cx="${L * 0.75}" cy="16" r="6" fill="#ffffff" stroke="#3a8ac4" stroke-width="2"/>`;
     if (st.deco === 'sprinkle') deco = `<use href="#heart" transform="translate(${L * 0.5} -17) scale(2)"/>`;
     lad += `<g transform="translate(${a.x} ${a.y}) rotate(${ang.toFixed(2)})" stroke-linecap="round">
       <g stroke="${st.edge}" stroke-width="25">${rails}${rungs}</g>
@@ -1618,6 +1782,14 @@ function frameSVG(id) {
   <rect x="15.5" y="15.5" width="327" height="327" rx="9" fill="#0b0f2e" stroke="#7fe3ff" stroke-width="1.6"/>
   <rect x="17.6" y="17.6" width="322.8" height="322.8" rx="7.5" fill="none" stroke="#c9bdff" stroke-width="1" stroke-opacity=".85"/>
   ${C.map(([x, y]) => `<use href="#planet" transform="translate(${x} ${y}) scale(.85)"/>`).join('')}${at('#star5', M)}`;
+  if (id === 'salju') return `
+  <rect width="358" height="358" rx="26" fill="#bfe3f7"/>
+  <rect x="2.5" y="2.5" width="353" height="353" rx="24" fill="none" stroke="#3a8ac4" stroke-width="1.4"/>
+  <rect x="14" y="4" width="330" height="10" fill="url(#snoBand)"/><rect x="14" y="344" width="330" height="10" fill="url(#snoBand)"/>
+  <rect x="4" y="14" width="10" height="330" fill="url(#snoBandV)"/><rect x="344" y="14" width="10" height="330" fill="url(#snoBandV)"/>
+  <rect x="15.5" y="15.5" width="327" height="327" rx="9" fill="#ffffff" stroke="#3a8ac4" stroke-width="1.6"/>
+  <rect x="17.6" y="17.6" width="322.8" height="322.8" rx="7.5" fill="none" stroke="#cfe8f8" stroke-width="1"/>
+  ${C.map(([x, y]) => `<use href="#flake" transform="translate(${x} ${y}) scale(1.25)"/>`).join('')}${at('#flake', M)}`;
   if (id === 'eskrim') {
     let drips = ''; for (let x = 22, k = 0; x < 340; x += 21, k++) drips += `<ellipse cx="${x}" cy="12" rx="6.5" ry="${k % 2 ? 4 : 7}" fill="#fff8fb"/>`;
     return `
@@ -1689,7 +1861,7 @@ function pickQ(N, ladders, snakes, count) {
   const last = N * N, ban = new Set([1, last]);
   ladders.concat(snakes).forEach(([a, b]) => { ban.add(a); ban.add(b); });
   const pool = []; for (let n = 2; n < last; n++) if (!ban.has(n)) pool.push(n);
-  const k = Math.min(pool.length, Math.max(2, Math.round(last * ({ sedikit: 0.06, sedang: 0.1, banyak: 0.15 }[count] || 0.1))));
+  const k = Math.min(pool.length, Math.max(2, Math.round(last * ({ sedikit: 0.15, sedang: 0.25, banyak: 0.4 }[count] || 0.25))));
   for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
   return pool.slice(0, k).sort((a, b) => a - b);
 }
@@ -1940,13 +2112,23 @@ function makeQ(cfg) {
     const ans = (isEn ? en : id).split('|');
     return { type, emo, en: isEn, hintWord: isEn && cfg.eduEnHint === 'indo' ? id.split('|')[0] : '', ans, show: ans[0] };
   }
-  // menghitung: tambah dan kurang
-  const lv = cfg.eduHitung || 'puluhan', plus = Math.random() < 0.5;
-  let a, b;
-  if (lv === 'satuan') { if (plus) { a = rnd(1, 9); b = rnd(1, 9); } else { a = rnd(2, 9); b = rnd(1, a); } }
-  else if (lv === 'puluhan') { if (plus) { a = rnd(10, 89); b = rnd(1, 99 - a); } else { a = rnd(10, 99); b = rnd(1, a); } }
-  else { if (plus) { a = rnd(100, 8999); b = rnd(10, 9999 - a); } else { a = rnd(1000, 9999); b = rnd(100, a); } }
-  return { type, text: `${a.toLocaleString('id-ID')} ${plus ? '+' : '−'} ${b.toLocaleString('id-ID')}`, ans: [String(plus ? a + b : a - b)], show: (plus ? a + b : a - b).toLocaleString('id-ID') };
+  // menghitung: tambah, kurang, kali, bagi (angka dijaga ramah; hasil bagi selalu bulat)
+  const lv = cfg.eduHitung || 'puluhan', ops = (cfg.eduOps && cfg.eduOps.length ? cfg.eduOps : ['tambah', 'kurang']);
+  const op = ops[Math.floor(Math.random() * ops.length)], MAX = { satuan: 9, puluhan: 99, ratusan: 999, ribuan: 9999 }[lv] || 99;
+  const MIN = { satuan: 1, puluhan: 10, ratusan: 100, ribuan: 1000 }[lv] || 10;
+  let a, b, sym, res;
+  if (op === 'tambah') { a = rnd(MIN, Math.max(MIN, Math.floor(MAX * 0.9))); b = rnd(1, Math.max(1, MAX - a)); sym = '+'; res = a + b; }
+  else if (op === 'kurang') { a = rnd(Math.max(2, MIN), MAX); b = rnd(1, a); sym = '−'; res = a - b; }
+  else if (op === 'kali') {
+    b = rnd(2, 9);
+    a = lv === 'satuan' ? rnd(2, 9) : lv === 'puluhan' ? rnd(10, 99) : lv === 'ratusan' ? rnd(100, 999) : rnd(1000, 2999);
+    sym = '×'; res = a * b;
+  } else {
+    b = rnd(2, 9); const q = lv === 'satuan' ? rnd(2, 9) : rnd(Math.max(2, Math.ceil(MIN / b)), Math.floor(MAX / b));
+    a = b * q; sym = '÷'; res = q;
+  }
+  const f = n => n.toLocaleString('id-ID');
+  return { type, text: `${f(a)} ${sym} ${f(b)}`, ans: [String(res)], show: f(res) };
 }
 let QZ = null;
 function askQuiz(p) {
@@ -1967,7 +2149,7 @@ function renderQuiz() {
   if (q.type === 'kata') {
     const w = q.show, boxes = [...w].map((c, i) => `<i>${i === 0 ? esc(c.toUpperCase()) : c === '-' ? '-' : ''}</i>`).join('');
     h += q.hintWord ? `<div class="hint" style="margin:0">Bahasa Inggris dari:</div><div class="qbig">${esc(q.hintWord)}</div>` : `<div class="qemo">${q.emo}</div>${q.en ? '<div class="hint" style="margin:0">Tulis dalam bahasa Inggris</div>' : ''}`;
-    h += `<div class="qbox">${boxes}</div><input id="qin" class="qin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Jawaban"><div class="qrow"><button class="bbtn wood sm" data-act="qSkip">Lewati</button><button class="bbtn sm" data-act="qCheck">Cek</button></div>`;
+    h += `<div class="qbox">${boxes}</div><div class="hint" style="margin:0;font-weight:800">Tulis semua huruf menjadi kata lengkap</div><input id="qin" class="qin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Tulis kata lengkap"><div class="qrow"><button class="bbtn wood sm" data-act="qSkip">Lewati</button><button class="bbtn sm" data-act="qCheck">Cek</button></div>`;
   }
   $('#quizBox').innerHTML = h;
 }
@@ -1996,7 +2178,7 @@ let QK = { n: 2, edu: false };
 function openQuick() { QK = { n: (store.get('hahe.quick', {}).n) || 2, edu: false }; renderQuick(); modal('quickm', true); }
 function renderQuick() {
   let h = `<div><div class="hint" style="margin:0 0 6px">Jumlah pemain</div><div class="stepper"><button data-act="qkMinus" aria-label="Kurangi">−</button><div class="n">${QK.n}</div><button data-act="qkPlus" aria-label="Tambah">+</button></div>${QK.n === 1 ? '<div class="hint">1 pemain = lawan komputer</div>' : ''}</div>`;
-  if (QK.n > 1) h += `<button class="cbx ${QK.edu ? 'on' : ''}" data-act="qkEdu"><span class="bx">${QK.edu ? '✓' : ''}</span><span>Mode Edukasi<small>soal di kotak ? (pilihan soal dari Pengaturan)</small></span></button>`;
+  if (QK.n > 1) h += `<button class="cbx ${QK.edu ? 'on' : ''}" data-act="qkEdu"><span class="bx">${QK.edu ? '✓' : ''}</span><span>Mode Edukasi<small>soal di [?] (pilihan soal dari Pengaturan)</small></span></button>`;
   h += `<p class="hint" style="margin:0">Papan 8×8 · Klasik · tema acak. Nama pemain bisa diganti di Pengaturan saat bermain.</p>`;
   $('#quickBody').innerHTML = h;
 }
@@ -2093,17 +2275,17 @@ document.addEventListener('click', e => {
     case 'qkPlus': QK.n = Math.min(10, QK.n + 1); renderQuick(); break;
     case 'qkEdu': QK.edu = !QK.edu; renderQuick(); break;
     case 'quickNo': modal('quickm', false); break;
-    case 'quickGo': quickGo(); break;
+    case 'quickGo': FS.auto(); quickGo(); break;
     case 'qYes': quizEnd(true); break;
     case 'qNo': quizEnd(false); break;
     case 'qSkip': quizEnd(false, 'Dilewati'); break;
     case 'qCheck': quizCheck(); break;
     case 'qKey': if (QZ && !QZ.done) { const k = t.dataset.k; QZ.val = k === 'del' ? QZ.val.slice(0, -1) : (QZ.val + k).slice(0, 6); renderQuiz(); } break;
-    case 'continue': { const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
+    case 'continue': { FS.auto(); const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
     case 'settings': if (cur === 'game' && busy) break; show('settings'); break;
     case 'about': show('about'); break;
     case 'back': goBack(); break;
-    case 'start': readInputs(); startGame(); break;
+    case 'start': FS.auto(); readInputs(); startGame(); break;
     case 'addPlayer': {
       readInputs();
       const sb = $('#setupBody'), ab = $('#setupBody .addbtn'), y0 = ab ? ab.getBoundingClientRect().top : 0;
@@ -2116,13 +2298,14 @@ document.addEventListener('click', e => {
     }
     case 'roll': if (!busy && G && !G.players[G.turn].cpu) doRoll(); break;
     case 'pause': if (busy) break; modal('pause', true); break;
-    case 'resume': modal('pause', false); startTurn(); break;
+    case 'resume': FS.auto(); modal('pause', false); startTurn(); break;
     case 'restart': confirmBox('Main ulang?', 'Semua pion kembali ke kotak MULAI.', () => restartSame()); break;
     case 'home': goHome(); break;
     case 'again': restartSame(); break;
     case 'cfNo': modal('confirm', false); break;
     case 'cfYes': modal('confirm', false); if (cfCb) cfCb(); break;
     case 'install': doInstall(); break;
+    case 'fs': if (FS.on()) { S.full = false; saveSettings(); FS.leave(); } else { S.full = true; saveSettings(); FS.enter(); } break;
     case 'pickDone': modal('pickm', false); break;
     case 'shuffle': {
       readInputs(); const L = curList();
@@ -2159,10 +2342,10 @@ function onChip(name, v) {
   const num = ['timeMin', 'throws', 'eduTime'];
   let val = num.includes(name) ? +v : (name === 'size' && v !== 'auto' ? +v : v);
   if (name === 'eduOn') val = v === '1';
-  if (name === 'eduTypes') { // pilih lebih dari satu (minimal satu)
-    const src = (cur === 'settings' && pend) ? pend : S, a = (src.eduTypes || []).slice(), k = a.indexOf(v);
+  if (name === 'eduTypes' || name === 'eduOps') { // pilih lebih dari satu (minimal satu)
+    const src = (cur === 'settings' && pend) ? pend : S, a = (src[name] || []).slice(), k = a.indexOf(v);
     if (k >= 0) { if (a.length > 1) a.splice(k, 1); } else a.push(v);
-    val = EDU_TYPES.map(x => x[0]).filter(x => a.includes(x));
+    val = (name === 'eduTypes' ? EDU_TYPES : EDU_OPS).map(x => x[0]).filter(x => a.includes(x));
   }
   // saat permainan berjalan: aturan ditampung dulu, menunggu tombol Simpan / Terapkan
   if (cur === 'settings' && pend && GAME_KEYS.includes(name)) { pend[name] = val; return renderSettings(); }
@@ -2178,7 +2361,7 @@ function onChip(name, v) {
 }
 function infoBox(t, html) { $('#infoT').textContent = t; $('#infoP').innerHTML = html; modal('infom', true); }
 async function doInstall() {
-  if (installEvt) { installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; renderSettings(); return; }
+  if (installEvt) { installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; updateInstallBtn(); return; }
   // jendela pemasangan belum disediakan browser: beri petunjuk yang jelas
   const local = /^(localhost|127\.|\[::1\]|192\.168\.|10\.)/.test(location.hostname) || location.protocol === 'file:';
   let h = '';

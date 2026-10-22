@@ -1,4 +1,4 @@
-# HaHe: Keputusan Desain (final per 20 Okt 2026)
+# HaHe: Keputusan Desain (final per 22 Okt 2026)
 
 HaHe = singkatan dari kata **Handipe** dan **Hejan**, yang berarti Ular dan Tangga dalam bahasa Dayak Ngaju.
 Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa pun.
@@ -166,6 +166,17 @@ Rencana berikutnya:
 **Nama pemain**: bawaan disingkat **P1, P2**, dan seterusnya; bisa diganti di Pengaturan saat permainan berjalan (langsung berlaku).
 
 Rencana berikutnya: tiga tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu tema 3D, lalu Musim kedua.
+
+## 19. Hasil uji V 1.3 (21 Okt 2026), SELESAI di Versi 1.4
+- **Layar penuh**: tombol di Beranda (Layar Penuh / Matikan Layar Penuh). Saat Mulai atau Lanjutkan, layar penuh otomatis menyala (bila tidak dimatikan di Beranda). Tombol back saat main memunculkan jeda; **Lanjut Main** menyalakan layar penuh lagi. Dimatikan hanya lewat Beranda. Aplikasi terpasang memakai tampilan layar penuh (manifest).
+- **Banyak [?]**: Sedikit 15%, Sedang 25%, Banyak 40% dari kotak papan.
+- Di semua teks, kotak soal ditulis **[?]** (bukan "kotak ?").
+- **Tebak Kata**: ada petunjuk "Tulis semua huruf menjadi kata lengkap", kolom isian "Tulis kata lengkap".
+- **Menghitung**: operasi Tambah, Kurang, Kali, Bagi (boleh dipilih lebih dari satu; bawaan semua). Tingkat angka: Satuan, Puluhan, Ratusan, Ribuan. Kali: pengali 2–9 (ribuan: angka 1.000–2.999); Bagi: hasil selalu bulat.
+- **Pasang HaHe** dipindah dari Pengaturan ke Beranda (hilang bila sudah terpasang).
+- **Tema Negeri Salju** (2D, netral) selesai: Manusia Salju, Penguin, Beruang Kutub, Rusa Kutub + Tingang 2D; Dadu Es; latar gunung, pohon cemara, salju turun; bingkai kristal. Backsound: `audio/negeri-salju`.
+- **Ditunda**: ikon abu-abu "C" dan pesan "tidak dapat diinstal" saat uji di alamat percobaan (bukan alamat resmi). Diuji ulang setelah deploy ke hahe.totogutomo.com.
+- Rencana berikutnya: Bawah Laut dan Kebun Ceria (2D), lalu tema 3D (Unicorn salah satunya), lalu Musim kedua.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

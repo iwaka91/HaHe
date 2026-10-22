@@ -5,23 +5,25 @@ Tempel prompt di bawah ke sesi baru.
 ---
 
 ```
-Pak Toto (Pak Guru) melanjutkan proyek HaHe (Handipe Hejan), game ular tangga untuk main bersama keluarga, di sesi baru ini.
+Pak Toto (Pak Guru) melanjutkan proyek HaHe (Handipe Hejan), game ular tangga keluarga, di sesi baru.
 
 Repo: https://github.com/iwaka91/HaHe
-Baca dulu docs/KEPUTUSAN.md (terutama bagian 16 dan 17). Jangan tanya ulang yang sudah diputuskan. Mockup (docs/mockup) hanya dibuka bila topiknya desain.
+Baca dulu docs/KEPUTUSAN.md (terutama bagian 16 sampai 19). Jangan tanya ulang yang sudah diputuskan. Mockup (docs/mockup) hanya dibuka bila topiknya desain.
 
-STATUS (20 Okt 2026): Versi 1.2 terkirim ke repo (perbaikan hasil uji 1.1).
-- Tombol back Android: kembali ke Beranda; di Beranda muncul "Yakin keluar dari HaHe?" (wajah haru digambar sendiri), back berikutnya keluar.
-- Pilih tema pindah ke Beranda: ikon kotak bergaya tema (karakter utama menyembul keluar), tema belum jadi berlabel "Segera!", siluet Season 2 (Dboy, Dgirl, Lontar) saat Borneo aktif, juga di Pilih Karakter.
-- Pengaturan bergaya baru (layar penuh, warna tenang); tombol Simpan dan Simpan & Mulai Ulang selalu tampil (saat main: Simpan untuk Main Baru / Terapkan & Mulai Ulang).
-- Tentang: teks arti Handipe dan Hejan dalam bahasa Dayak Ngaju. Sapaan sudah dicek Pak Toto (benar). Sapaan Es Krim digelapkan.
-- Tambah pemain tidak lagi melompat. Backsound menerima mp3, ogg, m4a, aac, wav, webm, opus, flac.
-- Tombol "Pasang HaHe" (dulu Pasang Aplikasi) + petunjuk bila jendela pemasangan tidak muncul. Perlu diuji di situs online.
+STATUS (22 Okt 2026): Versi 1.4 terkirim ke repo.
+- Layar penuh: tombol di Beranda; otomatis menyala saat Mulai/Lanjutkan; back saat main = jeda (Lanjut Main menyalakan lagi); dimatikan lewat Beranda.
+- [?]: Sedikit 15%, Sedang 25%, Banyak 40%; semua teks memakai tulisan [?].
+- Tebak Kata: petunjuk "Tulis semua huruf menjadi kata lengkap".
+- Menghitung: Tambah, Kurang, Kali, Bagi (bisa dipilih), tingkat Satuan, Puluhan, Ratusan, Ribuan.
+- Tombol Pasang HaHe pindah ke Beranda.
+- Tema Negeri Salju selesai (Manusia Salju, Penguin, Beruang Kutub, Rusa Kutub + Tingang 2D; Dadu Es).
+- DITUNDA: ikon abu-abu "C" dan "tidak dapat diinstal" muncul saat uji di alamat percobaan (bukan hahe.totogutomo.com). Uji ulang setelah deploy; bila ikon masih salah di alamat resmi, perbaiki.
+- Perlu diuji Pak Toto di HP/IFP.
 
-LANGKAH BERIKUTNYA
-1. Tema 2D: Bawah Laut, Kebun Ceria, Negeri Salju (4 karakter asli + Tingang 2D, 1 dadu). Ikon tema di Beranda tinggal diaktifkan (label "Segera!" dilepas).
-2. Lalu tema 3D: Bajak Laut, Princess, Dinosaurus, Unicorn.
-3. Musim kedua: Borneo tambah Dboy = Jaya Tingang, Dgirl = Bunga Huma, Lontar = Si Lontar (siluet sudah ada, gambar acuan dari Pak Toto).
+LANGKAH BERIKUTNYA (sesi ini)
+1. Tanyakan hasil uji Versi 1.4.
+2. Tema 2D sisa: Bawah Laut, Kebun Ceria (4 karakter asli + Tingang 2D, 1 dadu). Ikon tema di Beranda diaktifkan (label "Segera!" dilepas).
+3. Berikutnya: tema 3D (Bajak Laut, Princess, Dinosaurus, Unicorn), lalu Musim kedua Borneo (Jaya Tingang, Bunga Huma, Si Lontar).
 
 MASIH MENUNGGU DARI PAK TOTO
 - Backsound per tema: ditagih setelah semua tema jadi (kredit di Tentang).
@@ -36,6 +38,4 @@ ATURAN KERJA PAK TOTO (WAJIB)
 - Sebelum update kode, sebut bagian yang diubah; hasil akhir tetap utuh dan siap pakai.
 - Peringatkan bila diskusi melebar atau pindah proyek.
 - Tahap/fitur selesai: tawarkan sesi baru + serah terima dalam kotak kode.
-
-Mulailah dengan membaca docs/KEPUTUSAN.md, lalu tanyakan hasil uji Versi 1.2 dan apakah tiga tema 2D berikutnya siap dikerjakan.
 ```
