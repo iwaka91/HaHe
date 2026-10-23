@@ -1,8 +1,10 @@
 {
   "name": "HaHe · Handipe Hejan",
   "short_name": "HaHe",
+  "id": "./",
   "description": "Game ular tangga untuk main bersama keluarga, teman, dan siapa pun.",
   "lang": "id",
+  "prefer_related_applications": false,
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -178,5 +178,16 @@ Rencana berikutnya: tiga tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu t
 - **Ditunda**: ikon abu-abu "C" dan pesan "tidak dapat diinstal" saat uji di alamat percobaan (bukan alamat resmi). Diuji ulang setelah deploy ke hahe.totogutomo.com.
 - Rencana berikutnya: Bawah Laut dan Kebun Ceria (2D), lalu tema 3D (Unicorn salah satunya), lalu Musim kedua.
 
+## 20. Update Versi 1.5 (24 Okt 2026)
+- **PWA (Pasang HaHe)**: manifest diberi `id` tetap; pemasangan berkas offline dibuat tahan gagal (satu berkas hilang tidak membatalkan pemasangan); tag meta untuk aplikasi terpasang dan ikon PNG ditambahkan. Aplikasi terpasang memakai layar penuh dari ikon (manifest: `fullscreen` lebih dulu, `standalone` cadangan). Di aplikasi terpasang layar penuh, tombol Layar Penuh disembunyikan dan penyalaan otomatis dilewati. Diuji di server lokal: aplikasi dinyatakan dapat dipasang tanpa galat. Uji akhir tetap di hahe.totogutomo.com setelah deploy.
+- **Urutan tema di Beranda**: tema aktif berbaris di kiri, tema "Segera!" di kanan (Negeri Salju digeser ke barisan aktif).
+- **Kebun Ceria** (2D): Lebah, Kupu-kupu, Kepik, Siput + Tingang bertopi jerami; Dadu Bunga; latar langit, bukit, pagar, bunga, kelopak melayang; bingkai pita bunga; tangga kayu berhias bunga. Backsound: `audio/kebun-ceria`.
+- **Bawah Laut** (2D): Ikan Badut, Kepiting, Gurita, Penyu + Tingang berkacamata selam dan snorkel; Dadu Mutiara; latar air, sinar, rumput laut, karang, pasir, gelembung, ikan berenang; bingkai pita ombak; tangga karang pink berhias bintang laut. Backsound: `audio/bawah-laut`.
+- **Aturan baru: Tingang menyesuaikan tema** (ide Pak Toto). Dikerjakan untuk tema baru. Tema lama menunggu perintah: Luar Angkasa (helm astronot), Es Krim (makan es krim), Negeri Salju (syal).
+- Ikon tema Kebun Ceria dan Bawah Laut di Beranda diaktifkan; gambar latar ikonnya disesuaikan agar tidak kembar dengan karakter utama.
+- **Princess (3D) ditunda ke sesi berikutnya** (tema 3D pertama, perlu teknik baru).
+- Rencana berikutnya: Princess, lalu Bajak Laut, Dinosaurus, Unicorn (3D; Tingang 3D memakai versi Borneo), lalu Musim kedua Borneo.
+- Catatan: di layar landscape pendek (contoh 1280x720) footer Beranda terpotong sedikit; sudah begitu sejak versi sebelumnya, perbaikan menunggu persetujuan.
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

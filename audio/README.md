@@ -10,6 +10,8 @@ Nama file mengikuti tema; format bebas, pilih salah satu yang umum:
 | Luar Angkasa | `luar-angkasa.mp3` |
 | Es Krim | `es-krim.mp3` |
 | Negeri Salju | `negeri-salju.mp3` |
+| Kebun Ceria | `kebun-ceria.mp3` |
+| Bawah Laut | `bawah-laut.mp3` |
 
 Tema lain menyusul. Bila file belum ada, game tetap berjalan tanpa backsound.
 Jangan lupa tulis kreditnya di bagian Tentang (About).
