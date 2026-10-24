@@ -264,5 +264,14 @@ Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
 - Mockup (Beranda berkabut, papan berkabut, karakter MPA) hanya di Claude Design, belum disimpan ke repo.
 - Versi 2.1; sw.js memakai simpanan baru (hahe-v12).
 
+## 27. Update Versi 2.2 (25 Okt 2026)
+- **Mode Cepat jadi menu pertama di Siapkan Permainan** (MAIN BARU > kartu "⚡ MODE CEPAT"); bila diketuk muncul kotak Mode Cepat, bila tidak user lanjut mengisi data. Tombol Mode Cepat di Beranda dihapus.
+- **Album Karakter jadi ikon di kanan atas Beranda**; tombol Album di bawah dihapus.
+- **Tombol Padamkan Karhutla**: pesan dua baris "Pemadaman belum optimal" dan "Doain segera pulih ya 🙏".
+- **Kabut Beranda**: ada gelombang kabut tipis lewat di atas tombol, karakter, dan tema (tombol tetap bisa ditekan); kalatu diperbanyak, ditambah beberapa yang besar. Mode Ringan: gelombang diam, kalatu besar dihilangkan.
+- **Masker hiasan** di dekat tombol MAIN BARU (medis di kiri, masker gas di kanan, tergantung di daun), tampil hanya saat kabut ada (Hutan Borneo).
+- **Album Hutan Borneo**: tulisan hitungan main diganti "Buka karakter dan tema dengan main di tema Borneo: 1× main dapat karakter MPA, 2× main dapat Ksatria Talawang, 5× main dapat tema Negeri Dongeng". Hitungan main tetap tampil di kartu karakter terkunci.
+- Versi 2.2; sw.js memakai simpanan baru (hahe-v13).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

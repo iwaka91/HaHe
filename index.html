@@ -62,6 +62,25 @@ input{font-family:inherit}
 @keyframes ff{0%,100%{opacity:.25;transform:translate(0,0)}50%{opacity:1;transform:translate(8px,-10px)}}
 .q-lite .ff{display:none}
 /* ---------- Kabut asap Hutan Borneo (Beranda dan papan) ---------- */
+.homealb{position:absolute;right:10px;top:max(8px,env(safe-area-inset-top));width:40px;height:40px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:6px;cursor:pointer;z-index:3}
+.homealb svg{width:100%;height:100%;display:block}
+.homealb:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
+.newwrap{position:relative;display:flex;flex-direction:column}
+#home .hello{padding:0 44px;box-sizing:border-box}
+.newwrap .bbtn{width:100%}
+.mask{display:none;position:absolute;top:-30px;width:46px;height:46px;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.mk-l{left:6px;transform:rotate(-6deg)}.mk-r{right:6px;transform:rotate(6deg)}
+:root[data-haze="1"] #home .mask{display:block}
+.hz-wave{position:absolute;left:-60%;width:120%;border-radius:50%;display:none;opacity:.0}
+.hz-w1{top:18%;height:30%;background:radial-gradient(ellipse at 50% 50%,rgba(214,200,160,.55),rgba(214,200,160,0) 70%);animation:hzWave 19s linear infinite}
+.hz-w2{top:52%;height:34%;background:radial-gradient(ellipse at 50% 50%,rgba(205,190,150,.5),rgba(205,190,150,0) 70%);animation:hzWave 27s linear infinite -9s}
+:root[data-hzs="home"] .hz-wave{display:block}
+@keyframes hzWave{0%{transform:translateX(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(100%);opacity:0}}
+.q-lite .hz-wave{animation:none;opacity:.5}
+#hazeTop .kl{z-index:1}
+.kl.kb{width:12px!important;height:8px!important;animation-duration:12s}
+.q-lite .kl.kb{display:none}
+
 #haze,#hazeTop{position:absolute;inset:0;pointer-events:none;display:none;overflow:hidden}
 #haze{z-index:0}#hazeTop{z-index:2;background:linear-gradient(180deg,rgba(205,188,140,.30),rgba(205,188,140,.06) 55%,rgba(205,188,140,.20))}
 :root[data-haze="1"] #haze,:root[data-haze="1"] #hazeTop{display:block}
@@ -1616,10 +1635,24 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <span class="kl k2" style="left:90%;top:90%;width:4px;height:4px;animation-delay:-5.4s"></span>
     <span class="kl k2" style="left:56%;top:94%;width:3px;height:3px;animation-delay:-0.6s"></span>
   </div>
-  <div id="hazeTop" aria-hidden="true"></div>
+  <div id="hazeTop" aria-hidden="true">
+    <div class="hz-wave hz-w1"></div><div class="hz-wave hz-w2"></div>
+    <span class="kl" style="left:8%;top:92%;width:4px;height:3px;animation-delay:-1s"></span>
+    <span class="kl" style="left:20%;top:76%;width:5px;height:4px;animation-delay:-3s"></span>
+    <span class="kl" style="left:37%;top:88%;width:3px;height:3px;animation-delay:-5s"></span>
+    <span class="kl" style="left:52%;top:80%;width:5px;height:3px;animation-delay:-7s"></span>
+    <span class="kl" style="left:73%;top:94%;width:4px;height:4px;animation-delay:-2s"></span>
+    <span class="kl k2" style="left:86%;top:78%;width:5px;height:3px;animation-delay:-4s"></span>
+    <span class="kl k2" style="left:62%;top:66%;width:4px;height:3px;animation-delay:-6s"></span>
+    <span class="kl k2" style="left:14%;top:62%;width:3px;height:4px;animation-delay:-8s"></span>
+    <span class="kl kb" style="left:18%;top:90%;animation-delay:-2s"></span>
+    <span class="kl kb" style="left:55%;top:96%;animation-delay:-6s"></span>
+    <span class="kl kb" style="left:82%;top:88%;animation-delay:-9s"></span>
+  </div>
 
   <!-- BERANDA -->
   <section class="screen" id="home">
+    <button class="homealb" data-act="album" aria-label="Album Karakter"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3" width="15" height="18" rx="2" fill="#fff3d6" stroke="#5a3315" stroke-width="1.6"/><path d="M6.5 3v18" stroke="#5a3315" stroke-width="1.6"/><circle cx="13" cy="10" r="2.6" fill="#e07a25"/><path d="M8.8 17c.6-2.6 2.2-3.6 4.2-3.6s3.6 1 4.2 3.6z" fill="#e07a25"/><rect x="18" y="6" width="3" height="4" rx=".8" fill="#5a3315"/></svg></button>
     <div class="grow"></div>
     <div class="hello" id="hello">Tabe!</div>
     <div class="logo"><span class="h1">Ha</span><span class="h2">He</span></div>
@@ -1628,9 +1661,11 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <div class="thwrap"><div class="tagpill" style="align-self:center">Pilih Tema</div><div class="themes" id="themeRow"></div><div class="thnote" id="thNote"></div></div>
     <div class="menu">
       <button class="bbtn gold hidden" id="btnContinue" data-act="continue">LANJUTKAN</button>
-      <button class="bbtn" data-act="newgame">MAIN BARU</button>
-      <button class="bbtn gold sm" data-act="quick">⚡ MODE CEPAT</button>
-      <button class="bbtn wood sm" data-act="album">📖 Album Karakter</button>
+      <div class="newwrap">
+        <button class="bbtn" data-act="newgame">MAIN BARU</button>
+        <svg class="mask mk-l" viewBox="0 0 60 60" aria-hidden="true"><ellipse cx="30" cy="14" rx="26" ry="9" transform="rotate(-8 30 14)" fill="#2f9e4f"/><path d="M8 18 Q30 8 52 14" stroke="#1d7a3b" stroke-width="1.4" fill="none"/><path d="M20 20 V28 M40 20 V28" stroke="#e8e8e8" stroke-width="1.4"/><rect x="12" y="27" width="36" height="22" rx="8" fill="#9fd3f0" stroke="#5aa0d0" stroke-width="1.6"/><path d="M15 34 H45 M15 39 H45 M15 44 H45" stroke="#6fb4dd" stroke-width="1.2"/><path d="M12 33 Q4 36 8 46 M48 33 Q56 36 52 46" stroke="#e8e8e8" stroke-width="1.4" fill="none"/></svg>
+        <svg class="mask mk-r" viewBox="0 0 60 60" aria-hidden="true"><ellipse cx="30" cy="14" rx="26" ry="9" transform="rotate(8 30 14)" fill="#2f9e4f"/><path d="M8 14 Q30 8 52 18" stroke="#1d7a3b" stroke-width="1.4" fill="none"/><path d="M22 20 V27 M38 20 V27" stroke="#3b3b3b" stroke-width="1.4"/><path d="M12 30 Q12 24 30 24 Q48 24 48 30 L48 40 Q44 54 30 54 Q16 54 12 40Z" fill="#4a5058" stroke="#2a2e33" stroke-width="1.6"/><ellipse cx="22" cy="35" rx="5" ry="4.2" fill="#1c1f23"/><ellipse cx="38" cy="35" rx="5" ry="4.2" fill="#1c1f23"/><ellipse cx="22" cy="34" rx="1.8" ry="1.2" fill="#fff" opacity=".5"/><circle cx="30" cy="48" r="5" fill="#8c939b" stroke="#2a2e33" stroke-width="1.2"/><path d="M26 48 H34 M30 44 V52" stroke="#2a2e33" stroke-width=".8"/></svg>
+      </div>
       <button class="karhutla" data-act="karhutla">🔥 Padamkan Karhutla</button>
       <div style="display:flex;gap:12px">
         <button class="bbtn wood sm" data-act="settings">Pengaturan</button>
@@ -2049,12 +2084,13 @@ let hazeOff = false;
 function applyHaze() {
   const on = visSkin() === 'borneo' && !hazeOff && (cur === 'home' || cur === 'game');
   const v = on ? '1' : '0';
+  const sc = on ? cur : ''; if (document.documentElement.dataset.hzs !== sc) document.documentElement.dataset.hzs = sc;
   if (document.documentElement.dataset.haze !== v) document.documentElement.dataset.haze = v;
 }
 let hzMsgT = null;
 function karhutla() {
   if (KABUT_BISA_PADAM) { hazeOff = true; applyHaze(); return; }
-  const m = $('#hzMsg'); m.textContent = 'Doain segera pulih ya 🙏';
+  const m = $('#hzMsg'); m.innerHTML = 'Pemadaman belum optimal<br><span style="font-size:15px">Doain segera pulih ya 🙏</span>';
   m.classList.add('show'); clearTimeout(hzMsgT); hzMsgT = setTimeout(() => m.classList.remove('show'), 2200);
 }
 function applySkin() { const s = visSkin(); if (document.documentElement.dataset.skin !== s) document.documentElement.dataset.skin = s; applyHaze(); }
@@ -2309,7 +2345,8 @@ function ordHTML(i, n) {
 function renderSetup() {
   const sk = skin();
   remapPions(draft.players, sk.id); remapPions(draft.teams, sk.id);
-  let h = `<div class="sec"><h3>Cara bermain</h3>${chips('kind', [['teman', 'Bersama Teman'], ['komputer', 'Lawan Komputer'], ['kelompok', 'Mode Kelompok']], draft.kind)}</div>`;
+  let h = `<div class="sec"><button class="bbtn gold sm" data-act="quick" style="width:100%">⚡ MODE CEPAT</button><div class="hint">Mau langsung main? Ketuk Mode Cepat. Kalau tidak, lanjut mengisi data di bawah.</div></div>`;
+  h += `<div class="sec"><h3>Cara bermain</h3>${chips('kind', [['teman', 'Bersama Teman'], ['komputer', 'Lawan Komputer'], ['kelompok', 'Mode Kelompok']], draft.kind)}</div>`;
   h += `<div class="sec"><h3>${draft.kind === 'kelompok' ? 'Kelompok' : 'Pemain'} · urutan giliran</h3>`;
   if (draft.kind === 'komputer') {
     const p = draft.players[0];
@@ -2531,7 +2568,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.1 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.2 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // ---------- Album Karakter ----------
@@ -2587,7 +2624,9 @@ function renderAlbum() {
     }).join('');
   } else {
     const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
-    h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? ' (MPA 🔒 terbuka di 1×, Ksatria Talawang 🔒 terbuka di 2×)' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
+    h += albSkin === 'borneo'
+      ? `<div class="alb-head">Buka karakter dan tema dengan main di tema Borneo: 1× main dapat karakter MPA, 2× main dapat Ksatria Talawang, 5× main dapat tema Negeri Dongeng</div>`
+      : `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}× (karakter 🔒 terbuka di 5× dan 10×)</div>`;
     if (!themeOpen(albSkin)) h += `<div class="alb-head">🔒 ${esc(themeHint(albSkin))}</div>`;
     // semua karakter tampil; yang terkunci redup + gembok, faktanya disembunyikan (hitungan main tetap ada)
     h += sk.pions.map(x => {
