@@ -202,5 +202,29 @@ Rencana berikutnya: tiga tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu t
 - Ikon Unicorn di Beranda aktif (barisan aktif). Tema "Segera!": Bajak Laut, Princess, Dinosaurus.
 - Rencana berikutnya: tema 3D lain (Princess, Bajak Laut, Dinosaurus), lalu Musim kedua Borneo.
 
+## 22. Update Versi 1.7 (24 Okt 2026)
+Hasil uji V 1.6 di HP: Unicorn berjalan baik, nyaris tanpa galat. Uji di IFP untuk semua tema dilakukan Pak Toto berikutnya.
+- **Lawan Komputer**: karakter komputer bawaan **acak**, **tidak boleh sama** dengan karakter pemain, dan **bisa diganti** (ketuk gambar komputer di Siapkan Permainan, lalu pilih karakter dan warna). Pilihan acak diacak ulang tiap permainan baru; pilihan manual dipertahankan. Karakter yang dipakai pihak lain tampil "dipakai" dan tidak bisa dipilih.
+- **Daftar tema di Beranda**: Princess dihapus dari daftar "Segera!". Bajak Laut dan Dinosaurus kini berlabel **"Season 2"** (belum bisa dimainkan).
+- **Princess digabung ke tema Unicorn** (karakter asli, tidak meniru karakter pihak lain): **Putri Mawar** (gaun merah muda, rambut cokelat bersanggul, tiara emas) dirilis sebagai karakter ke-5 Unicorn (Tingang tetap karakter tamu terakhir). **Dua siluet Princess berlabel Season 2** di Unicorn: putri berambut panjang dan putri bermahkota kristal (nama menyusul). Nama Putri Mawar mudah diganti.
+- **Putri Dayak dibatalkan** karena sama dengan Bunga Huma di Borneo.
+- **Siluet Si Lontar dihapus** dari Season 2 Borneo (tersisa Jaya Tingang dan Bunga Huma). Si Lontar tetap konsep disimpan sebagai **karakter spesial** (simbol sejarah dan pendidikan sejarah, bisa dimainkan lintas tema), dirilis di momen tertentu (momen bersejarah atau tema guru).
+- **Orangutan dan Bekantan** diperbaiki sesuai mockup 3D dan foto acuan: Orangutan berwajah lebar bergradasi, pipi lebar, janggut oranye; Bekantan sedikit menyamping sehingga hidung besar terlihat, wajah oranye bergradasi, perut krem, tangan dan kaki abu.
+- Barisan karakter di Beranda menyesuaikan lebar layar bila karakter banyak (Unicorn: 6 karakter + 2 siluet).
+- Versi 1.7; sw.js memakai simpanan baru (hahe-v8) agar pembaruan sampai ke aplikasi terpasang.
+
+### Rencana (sudah disetujui, belum dikerjakan): Album Karakter
+- Menu di Beranda bernama **Album Karakter**: daftar karakter per tema (gambar, nama, satu atau dua kalimat fakta/cerita). Karakter terkunci tampil sebagai siluet dengan petunjuk "Main 5 kali untuk membuka".
+- **Gembok** (kecuali Borneo, yang hanya punya 3 karakter utama): karakter urutan ke-3 terbuka setelah **5 kali** memainkan tema, urutan ke-4 setelah **10 kali**. **Tingang selalu terbuka.** Karakter yang digembok adalah karakter yang sudah ada, bukan karakter baru.
+- Hitungan "main" = permainan **sampai selesai** (ada juara), dihitung **per tema**, disimpan **per perangkat**.
+- Muncul pemberitahuan "Karakter A terbuka!" yang sekaligus membuka entri Album.
+- Progress bisa **diekspor/diimpor sebagai berkas JSON** (pindah perangkat atau berbagi karakter lengkap).
+- **Lawan komputer hanya memakai karakter yang sudah terbuka.**
+- Perlu dibedakan di tampilan: "Terkunci" (bisa dibuka sekarang) dan "Season 2" (belum tersedia).
+- Pengerjaan: tahap tersendiri, mulai dari Borneo dan Unicorn, tema lain menyusul bertahap.
+
+### Rencana: jalur Play Store
+Web dibungkus (bukan native). Mulai dengan pembungkus ringan (TWA) dari hahe.totogutomo.com; HaHe sudah PWA dan bisa offline setelah dibuka sekali. Dibahas setelah semua tema selesai. Karakter harus desain asli; backsound dicek lisensinya; aturan aplikasi anak/keluarga berlaku.
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

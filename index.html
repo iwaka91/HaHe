@@ -91,12 +91,12 @@ input{font-family:inherit}
 #home .menu{width:min(340px,100%);display:flex;flex-direction:column;gap:14px;margin-top:6px}
 #home .trio{display:flex;gap:10px;align-items:flex-end;justify-content:center;min-height:110px;flex:none}
 #home .trio.has2{gap:5px}
-#home .trio.has2 > .pn{width:min(66px,15.5vw);height:min(86px,20vw)}
+#home .trio.has2 > .pn{width:min(66px,15.5vw,var(--pw,100vw));height:min(86px,20vw,calc(var(--pw,100vw)*1.3))}
 /* Season 2: siluet karakter yang belum bisa dimainkan */
 .s2grp{flex:none;display:flex;flex-direction:column;align-items:center;margin-left:4px;padding:0 4px 3px;border-radius:14px;border:2px dashed rgba(255,255,255,.6);background:rgba(0,0,0,.2)}
 .s2tag{font-size:10px;font-weight:900;letter-spacing:1px;background:#2b1a0b;color:#ffd84a;padding:1px 8px;border-radius:999px;margin-top:-9px;white-space:nowrap}
 .s2row{display:flex;gap:2px}
-#home .trio .s2row .pn{width:min(44px,10.5vw);height:min(57px,13.6vw);opacity:.85}
+#home .trio .s2row .pn{width:min(44px,10.5vw,calc(var(--pw,100vw)*.67));height:min(57px,13.6vw,calc(var(--pw,100vw)*.87));opacity:.85}
 /* pilihan tema di beranda */
 .thwrap{width:min(920px,100%);flex:none;display:flex;flex-direction:column;align-items:center}
 .themes{width:100%;display:flex;gap:12px;overflow-x:auto;padding:20px 8px 6px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -579,6 +579,17 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <radialGradient id="gFur2" cx=".35" cy=".28" r=".85"><stop offset="0" stop-color="#eea468"/><stop offset=".45" stop-color="#c4672d"/><stop offset="1" stop-color="#7c3510"/></radialGradient>
 <radialGradient id="gCream" cx=".4" cy=".3" r=".85"><stop offset="0" stop-color="#fff6e2"/><stop offset="1" stop-color="#e6cb9c"/></radialGradient>
 <radialGradient id="gNose" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#ffc9a6"/><stop offset=".5" stop-color="#ee8a62"/><stop offset="1" stop-color="#bf5634"/></radialGradient>
+<radialGradient id="oFace" cx=".5" cy=".55" r=".62"><stop offset="0" stop-color="#f2c6a2"/><stop offset=".55" stop-color="#b98466"/><stop offset="1" stop-color="#6b5042"/></radialGradient>
+<linearGradient id="oFlL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a5c4c"/><stop offset="1" stop-color="#b98466"/></linearGradient>
+<linearGradient id="oFlR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#7a5c4c"/><stop offset="1" stop-color="#b98466"/></linearGradient>
+<radialGradient id="oMuzzle" cx=".45" cy=".35" r=".8"><stop offset="0" stop-color="#f7d8bb"/><stop offset="1" stop-color="#d9a37e"/></radialGradient>
+<linearGradient id="oBeard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0661f"/><stop offset=".6" stop-color="#c24e12"/><stop offset="1" stop-color="#8f3509"/></linearGradient>
+<radialGradient id="bFace" cx=".55" cy=".4" r=".75"><stop offset="0" stop-color="#ffcfa6"/><stop offset=".55" stop-color="#f0a070"/><stop offset="1" stop-color="#c8693a"/></radialGradient>
+<radialGradient id="bGray" cx=".35" cy=".28" r=".9"><stop offset="0" stop-color="#d4d7dc"/><stop offset=".5" stop-color="#9ea3ad"/><stop offset="1" stop-color="#626874"/></radialGradient>
+<radialGradient id="bCap" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#c9742f"/><stop offset="1" stop-color="#7a3512"/></radialGradient>
+<radialGradient id="gGown" cx=".35" cy=".28" r=".9"><stop offset="0" stop-color="#ffb3dc"/><stop offset=".5" stop-color="#ff6fb5"/><stop offset="1" stop-color="#b8307e"/></radialGradient>
+<radialGradient id="gHairP" cx=".35" cy=".25" r=".9"><stop offset="0" stop-color="#8a5a3c"/><stop offset=".55" stop-color="#4a2a1a"/><stop offset="1" stop-color="#2a140a"/></radialGradient>
+<radialGradient id="gSkinP" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#ffe9d6"/><stop offset="1" stop-color="#f3b98f"/></radialGradient>
 <linearGradient id="gBT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".6"/><stop offset="1" stop-color="#ffffff" stop-opacity=".05"/></linearGradient>
 <radialGradient id="gUni" cx=".35" cy=".28" r=".85"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f3eeff"/><stop offset="1" stop-color="#c9bfe8"/></radialGradient>
 <linearGradient id="gHorn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6c0"/><stop offset=".5" stop-color="#ffd24d"/><stop offset="1" stop-color="#e09a1a"/></linearGradient>
@@ -637,47 +648,46 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <path d="M22.5 16.5 C25 8.5 33 8 35 14.5 C31 13 26.5 13.5 23 17 Z" fill="url(#gCasque)" stroke="#8a2410" stroke-width=".8" stroke-linejoin="round"/>
 <ellipse cx="27.5" cy="11.6" rx="2.6" ry="1.1" transform="rotate(-15 27.5 11.6)" fill="#ffffff" opacity=".5"/>
 </symbol>
-<!-- PION 3D: Orangutan -->
+<!-- PION 3D: Orangutan (wajah lebar bergradasi, pipi lebar, janggut oranye) -->
 <symbol id="pn-orangutan" viewBox="0 0 40 52" overflow="visible">
-<ellipse cx="20" cy="32" rx="12.4" ry="12.6" fill="url(#gFur)"/>
-<ellipse cx="8.6" cy="33" rx="3.6" ry="8.6" transform="rotate(14 8.6 33)" fill="url(#gFur)"/>
-<ellipse cx="20" cy="35" rx="7.2" ry="8" fill="#f7a85e" opacity=".9"/>
-<ellipse cx="14.5" cy="46" rx="4.6" ry="2.2" fill="#8a3a0c"/>
-<ellipse cx="25.5" cy="46" rx="4.6" ry="2.2" fill="#8a3a0c"/>
-<circle cx="20" cy="18" r="12.8" fill="url(#gFur)"/>
-<ellipse cx="20" cy="8.6" rx="9" ry="4.2" fill="#c9561a"/>
-<ellipse cx="13.5" cy="11.5" rx="5" ry="2.6" transform="rotate(-32 13.5 11.5)" fill="#ffffff" opacity=".28"/>
-<circle cx="7.8" cy="19.5" r="2.7" fill="url(#gFace)"/>
-<circle cx="32.2" cy="19.5" r="2.7" fill="url(#gFace)"/>
-<ellipse cx="20" cy="20.6" rx="9.2" ry="8.6" fill="url(#gFace)"/>
-<circle cx="16" cy="19" r="2.4" fill="#ffffff"/><circle cx="24" cy="19" r="2.4" fill="#ffffff"/>
-<circle cx="16.3" cy="19.3" r="1.4" fill="#2a1608"/><circle cx="23.7" cy="19.3" r="1.4" fill="#2a1608"/>
-<circle cx="16.8" cy="18.6" r=".5" fill="#ffffff"/><circle cx="24.2" cy="18.6" r=".5" fill="#ffffff"/>
-<ellipse cx="20" cy="24.2" rx="4.6" ry="3.2" fill="#f4c196"/>
-<circle cx="18.6" cy="23.2" r=".7" fill="#7a4020"/><circle cx="21.4" cy="23.2" r=".7" fill="#7a4020"/>
-<path d="M17.6 25.8 Q20 28 22.4 25.8" fill="none" stroke="#7a3a1a" stroke-width="1.2" stroke-linecap="round"/>
-<circle cx="12.4" cy="23.6" r="1.8" fill="#ff9a8a" opacity=".65"/><circle cx="27.6" cy="23.6" r="1.8" fill="#ff9a8a" opacity=".65"/>
-<g class="wave"><ellipse cx="31.6" cy="30" rx="3.8" ry="9" transform="rotate(-24 31.6 30)" fill="url(#gFur)"/><circle cx="35" cy="21" r="3.3" fill="url(#gFace)"/></g>
+<ellipse cx="14" cy="46.5" rx="4.6" ry="2.2" fill="#8a3a0c"/><ellipse cx="26" cy="46.5" rx="4.6" ry="2.2" fill="#8a3a0c"/>
+<ellipse cx="20" cy="33" rx="12.6" ry="12.6" fill="url(#gFur)"/>
+<ellipse cx="7.6" cy="36" rx="3.6" ry="10" transform="rotate(8 7.6 36)" fill="url(#gFur)"/>
+<ellipse cx="20" cy="36" rx="7" ry="8" fill="#f7a85e" opacity=".85"/>
+<g class="wave" style="transform-origin:29px 31px"><path d="M28.5 32 Q35.4 33 35.6 26" fill="none" stroke="url(#gFur)" stroke-width="6.4" stroke-linecap="round"/><circle cx="35.6" cy="25.6" r="3.2" fill="#9c4a1c"/></g>
+<circle cx="20" cy="17.5" r="13" fill="url(#gFur)"/>
+<ellipse cx="20" cy="7.4" rx="9.6" ry="4.4" fill="#c9561a"/>
+<ellipse cx="13.5" cy="10.5" rx="5" ry="2.6" transform="rotate(-32 13.5 10.5)" fill="#ffffff" opacity=".28"/>
+<path d="M8.5 22 C7.5 33 14 36 20 35.6 C26 36 32.5 33 31.5 22 C28 28.5 12 28.5 8.5 22Z" fill="url(#oBeard)"/>
+<ellipse cx="9" cy="20" rx="4.3" ry="6.6" fill="url(#oFlL)"/><ellipse cx="31" cy="20" rx="4.3" ry="6.6" fill="url(#oFlR)"/>
+<ellipse cx="20" cy="19.6" rx="11.4" ry="9.4" fill="url(#oFace)"/>
+<path d="M12.6 15.6 Q15.5 14 18.2 15.4" fill="none" stroke="#4a3228" stroke-width="1.1" stroke-linecap="round"/><path d="M21.8 15.4 Q24.5 14 27.4 15.6" fill="none" stroke="#4a3228" stroke-width="1.1" stroke-linecap="round"/>
+<circle cx="15.6" cy="18.2" r="2.1" fill="#ffffff"/><circle cx="24.4" cy="18.2" r="2.1" fill="#ffffff"/>
+<circle cx="15.8" cy="18.5" r="1.25" fill="#241408"/><circle cx="24.2" cy="18.5" r="1.25" fill="#241408"/>
+<circle cx="16.2" cy="17.9" r=".45" fill="#ffffff"/><circle cx="24.6" cy="17.9" r=".45" fill="#ffffff"/>
+<ellipse cx="20" cy="24.4" rx="5.8" ry="4" fill="url(#oMuzzle)"/>
+<circle cx="18.6" cy="23" r=".7" fill="#6a3a22"/><circle cx="21.4" cy="23" r=".7" fill="#6a3a22"/>
+<path d="M17.4 26 Q20 28.2 22.6 26" fill="none" stroke="#6a3a22" stroke-width="1.1" stroke-linecap="round"/>
 </symbol>
-<!-- PION 3D: Bekantan -->
+<!-- PION 3D: Bekantan (kepala sedikit menyamping, hidung besar terlihat) -->
 <symbol id="pn-bekantan" viewBox="0 0 40 52" overflow="visible">
-<path d="M28 42 C37 41 40 33 36 27" fill="none" stroke="#7c3510" stroke-width="3.4" stroke-linecap="round"/>
-<ellipse cx="20" cy="32" rx="12.2" ry="12.6" fill="url(#gFur2)"/>
-<ellipse cx="8.8" cy="33" rx="3.5" ry="8.4" transform="rotate(14 8.8 33)" fill="url(#gFur2)"/>
-<ellipse cx="20" cy="35" rx="7.6" ry="8.6" fill="url(#gCream)"/>
-<ellipse cx="14.5" cy="46" rx="4.4" ry="2.1" fill="#6a2c0c"/><ellipse cx="25.5" cy="46" rx="4.4" ry="2.1" fill="#6a2c0c"/>
-<circle cx="19.5" cy="18" r="11.8" fill="url(#gFur2)"/>
-<path d="M8 15 C9 5.5 30 5.5 31 15 C26 10.5 13 10.5 8 15 Z" fill="#8a3d14"/>
-<ellipse cx="13.5" cy="10.5" rx="4.6" ry="2.4" transform="rotate(-30 13.5 10.5)" fill="#ffffff" opacity=".28"/>
-<circle cx="8" cy="19.5" r="2.4" fill="url(#gFace)"/><circle cx="31" cy="19.5" r="2.4" fill="url(#gFace)"/>
-<ellipse cx="19.5" cy="20.2" rx="8.6" ry="8" fill="url(#gFace)"/>
-<circle cx="15.4" cy="17.2" r="2.1" fill="#ffffff"/><circle cx="23.6" cy="17.2" r="2.1" fill="#ffffff"/>
-<circle cx="15.7" cy="17.5" r="1.2" fill="#2a1608"/><circle cx="23.3" cy="17.5" r="1.2" fill="#2a1608"/>
-<path d="M19.5 17 C12.5 21 13 30.5 19.5 31.5 C26 30.5 26.5 21 19.5 17 Z" fill="url(#gNose)" stroke="#9a4a26" stroke-width=".8" stroke-linejoin="round"/>
-<ellipse cx="17" cy="23" rx="1.5" ry="3.2" transform="rotate(10 17 23)" fill="#ffffff" opacity=".4"/>
-<ellipse cx="17.6" cy="29.3" rx="1.1" ry=".8" fill="#7a2f15"/><ellipse cx="21.4" cy="29.3" rx="1.1" ry=".8" fill="#7a2f15"/>
-<circle cx="12.2" cy="22" r="1.6" fill="#ff9a8a" opacity=".6"/><circle cx="26.8" cy="22" r="1.6" fill="#ff9a8a" opacity=".6"/>
-<g class="wave"><ellipse cx="31.4" cy="30" rx="3.6" ry="8.8" transform="rotate(-24 31.4 30)" fill="url(#gFur2)"/><circle cx="34.8" cy="21.4" r="3.1" fill="url(#gFace)"/></g>
+<path d="M27 43 C37 44 40 36 35.5 31" fill="none" stroke="#7c3510" stroke-width="3.2" stroke-linecap="round"/>
+<ellipse cx="14" cy="46.5" rx="4.5" ry="2.1" fill="url(#bGray)"/><ellipse cx="26" cy="46.5" rx="4.5" ry="2.1" fill="url(#bGray)"/>
+<ellipse cx="20" cy="33" rx="12.2" ry="12.6" fill="url(#gFur2)"/>
+<g class="wave" style="transform-origin:11px 32px"><path d="M11 32 Q3.2 31 3.6 23" fill="none" stroke="url(#bGray)" stroke-width="6" stroke-linecap="round"/><circle cx="3.6" cy="22.6" r="3.1" fill="#7d838e"/></g>
+<ellipse cx="21" cy="36" rx="8.6" ry="9.4" fill="url(#gCream)"/>
+<circle cx="18" cy="17.5" r="11.6" fill="url(#gFur2)"/>
+<path d="M7 15 C8 5 27 4.5 29 14 C24 9.5 12 10 7 15Z" fill="url(#bCap)"/>
+<ellipse cx="12.5" cy="10.2" rx="4.4" ry="2.3" transform="rotate(-30 12.5 10.2)" fill="#ffffff" opacity=".28"/>
+<circle cx="7.6" cy="19.6" r="2.4" fill="url(#bFace)"/>
+<ellipse cx="22" cy="20" rx="8.6" ry="8.2" fill="url(#bFace)"/>
+<circle cx="19.2" cy="16.8" r="2.1" fill="#ffffff"/><circle cx="19.9" cy="17.1" r="1.25" fill="#241408"/><circle cx="20.3" cy="16.5" r=".45" fill="#ffffff"/>
+<circle cx="27.4" cy="15.8" r="1.6" fill="#ffffff"/><circle cx="27.9" cy="16.1" r=".95" fill="#241408"/>
+<path d="M23.6 19 C27 17.4 33 17.8 36.6 21.4 C39.6 24.6 38 29.6 33.8 29.4 C31 29.2 29.4 27 26 24.8 C24.6 23.8 23.8 21.6 23.6 19Z" fill="url(#gNose)" stroke="#b0603a" stroke-width=".5" stroke-linejoin="round"/>
+<ellipse cx="30.4" cy="21.6" rx="3.6" ry="1.5" transform="rotate(24 30.4 21.6)" fill="#ffffff" opacity=".42"/>
+<ellipse cx="35" cy="27" rx="1.1" ry=".8" transform="rotate(-25 35 27)" fill="#7a2f15"/>
+<path d="M20.6 26.4 Q22.8 28.4 25 27.2" fill="none" stroke="#7a3a1a" stroke-width="1" stroke-linecap="round"/>
+<circle cx="14.4" cy="22.4" r="1.6" fill="#ff9a8a" opacity=".55"/>
 </symbol>
 <!-- ===== PION 2D (tema 2D kartun) ===== -->
 <!-- Tingang 2D: tamu karakter ke-5 di tema lain (tanpa tulisan di dada) -->
@@ -1076,6 +1086,32 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <path d="M17.4 30 Q20 32.4 22.6 30" fill="none" stroke="#16305a" stroke-width="1.1" stroke-linecap="round"/>
 <circle cx="12" cy="28.4" r="1.7" fill="#ff9ac4" opacity=".7"/><circle cx="28" cy="28.4" r="1.7" fill="#ff9ac4" opacity=".7"/>
 </symbol>
+<!-- Unicorn: Putri Mawar (karakter asli: gaun merah muda, rambut cokelat bersanggul, tiara emas) -->
+<symbol id="pn-putri" viewBox="0 0 40 52" overflow="visible">
+<path d="M13.4 28 C10.4 34.4 6 40 5.4 45.4 C12 49.6 28 49.6 34.6 45.4 C34 40 29.6 34.4 26.6 28 Z" fill="url(#gGown)" stroke="#a82a74" stroke-width=".8" stroke-linejoin="round"/>
+<path d="M14 33 C13 38 11.6 42 10.6 46 M20 34 L20 47.6 M26 33 C27 38 28.4 42 29.4 46" fill="none" stroke="#ffd0ea" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+<ellipse cx="20" cy="46.2" rx="14.8" ry="3" fill="#fff0f8" stroke="#e08ab8" stroke-width=".8"/>
+<ellipse cx="20" cy="29.4" rx="6.6" ry="5.6" fill="url(#gGown)" stroke="#a82a74" stroke-width=".8"/>
+<path d="M13.6 31.4 C17 33.4 23 33.4 26.4 31.4" fill="none" stroke="#ffd24d" stroke-width="2" stroke-linecap="round"/>
+<path d="M20 31.8 c-1.2 -1.6 -3.2 -.4 -2 1.2 l2 1.8 l2 -1.8 c1.2 -1.6 -.8 -2.8 -2 -1.2 z" fill="#ffd24d" stroke="#c98a00" stroke-width=".5"/>
+<ellipse cx="11.2" cy="32" rx="2.6" ry="5.2" transform="rotate(14 11.2 32)" fill="url(#gSkinP)" stroke="#d9946a" stroke-width=".6"/>
+<circle cx="12.6" cy="26.8" r="3" fill="url(#gGown)" stroke="#a82a74" stroke-width=".7"/>
+<g class="wave"><ellipse cx="30.6" cy="31.6" rx="2.6" ry="5.4" transform="rotate(-18 30.6 31.6)" fill="url(#gSkinP)" stroke="#d9946a" stroke-width=".6"/><circle cx="32.6" cy="36.4" r="2.3" fill="url(#gSkinP)" stroke="#d9946a" stroke-width=".6"/><circle cx="28" cy="26.8" r="3" fill="url(#gGown)" stroke="#a82a74" stroke-width=".7"/></g>
+<circle cx="20" cy="5.2" r="4.2" fill="url(#gHairP)"/>
+<ellipse cx="20" cy="18.6" rx="12.4" ry="12" fill="url(#gHairP)"/>
+<ellipse cx="20" cy="20" rx="9.6" ry="9.2" fill="url(#gSkinP)" stroke="#d9946a" stroke-width=".6"/>
+<path d="M10.2 18.6 C10.6 10.8 29.4 10.8 29.8 18.6 C27 15 22 14.2 19 13.2 C16 15 12.6 16.4 10.2 18.6Z" fill="url(#gHairP)"/>
+<ellipse cx="14.2" cy="12.6" rx="3.4" ry="1.5" transform="rotate(-28 14.2 12.6)" fill="#ffffff" opacity=".25"/>
+<path d="M12.8 12.4 L14.4 8.2 L17 11 L20 6.6 L23 11 L25.6 8.2 L27.2 12.4 Q20 14.2 12.8 12.4Z" fill="#ffd24d" stroke="#c98a00" stroke-width=".7" stroke-linejoin="round"/>
+<circle cx="20" cy="10.4" r="1" fill="#ff4fa0"/>
+<ellipse cx="15.8" cy="20" rx="2.3" ry="2.9" fill="#ffffff"/><ellipse cx="24.2" cy="20" rx="2.3" ry="2.9" fill="#ffffff"/>
+<ellipse cx="15.9" cy="20.4" rx="1.7" ry="2.3" fill="#6a3fa8"/><ellipse cx="24.1" cy="20.4" rx="1.7" ry="2.3" fill="#6a3fa8"/>
+<circle cx="15.9" cy="20.6" r=".9" fill="#1c0e30"/><circle cx="24.1" cy="20.6" r=".9" fill="#1c0e30"/>
+<circle cx="16.5" cy="19.5" r=".6" fill="#ffffff"/><circle cx="24.7" cy="19.5" r=".6" fill="#ffffff"/>
+<path d="M13.4 18.2 L12.4 17.4 M26.6 18.2 L27.6 17.4" stroke="#2a140a" stroke-width=".8" stroke-linecap="round"/>
+<circle cx="12.4" cy="23.6" r="1.6" fill="#ff8fb4" opacity=".6"/><circle cx="27.6" cy="23.6" r="1.6" fill="#ff8fb4" opacity=".6"/>
+<path d="M17.8 25.4 Q20 27.4 22.2 25.4" fill="none" stroke="#b8406a" stroke-width="1.1" stroke-linecap="round"/>
+</symbol>
 <!-- Unicorn: Tingang bertanduk ajaib (versi 3D Borneo) -->
 <symbol id="pn-tingangunicorn" viewBox="0 0 40 52" overflow="visible">
 <ellipse cx="8" cy="41" rx="6.2" ry="3.4" transform="rotate(-28 8 41)" fill="url(#gBelly)" stroke="#bdb6cf" stroke-width=".6"/>
@@ -1302,7 +1338,8 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <!-- Season 2: siluet (gambar asli menyusul dari Pak Toto) -->
 <symbol id="pn-s2a" viewBox="0 0 40 52" overflow="visible"><g fill="#101010"><path d="M19.5 1 C22 5 22.6 9 21.4 12.5 L17.8 12.5 C17 9 17.6 5 19.5 1 Z"/><path d="M26.5 3 C27.4 7 26.3 10.4 23.8 13 L21 12.4 C22.8 9.6 24.5 6.4 26.5 3 Z"/><path d="M12.6 4.6 C14.8 7.4 16.4 10 16.6 13 L13.8 13.6 C12.6 10.8 12.2 7.8 12.6 4.6 Z"/><rect x="11" y="11.6" width="18" height="3.4" rx="1.7"/><circle cx="20" cy="20" r="8.2"/><path d="M11 45 C11 33 14.2 28.4 20 28.4 C25.8 28.4 29 33 29 45 Z"/><rect x="6.6" y="30" width="5" height="12" rx="2.5" transform="rotate(16 9 31)"/><rect x="28.4" y="30" width="5" height="12" rx="2.5" transform="rotate(-16 31 31)"/></g><text x="20" y="41" font-size="11" fill="#fff" opacity=".55" text-anchor="middle" font-family="Lilita One,sans-serif">?</text></symbol>
 <symbol id="pn-s2b" viewBox="0 0 40 52" overflow="visible"><g fill="#101010"><path d="M10.6 22 C10 12 14 8 20 8 C26 8 30 12 29.4 22 L30.4 33 L9.6 33 Z"/><circle cx="20" cy="18.6" r="8.2"/><circle cx="27.6" cy="9.4" r="3.2"/><circle cx="30.8" cy="12.2" r="2.4"/><path d="M9.6 45.5 L14 29 L26 29 L30.4 45.5 Z"/><rect x="7.6" y="29.4" width="4.6" height="11" rx="2.3" transform="rotate(14 10 30)"/><rect x="27.8" y="29.4" width="4.6" height="11" rx="2.3" transform="rotate(-14 30 30)"/></g><text x="20" y="41" font-size="11" fill="#fff" opacity=".55" text-anchor="middle" font-family="Lilita One,sans-serif">?</text></symbol>
-<symbol id="pn-s2c" viewBox="0 0 40 52" overflow="visible"><g fill="#101010"><path d="M20 3 C28.5 9 30 22 27.6 34 C26.4 40 23.6 44 20 44 C16.4 44 13.6 40 12.4 34 C10 22 11.5 9 20 3 Z"/><rect x="6.4" y="24" width="7" height="3.6" rx="1.8" transform="rotate(-24 9.9 25.8)"/><rect x="26.6" y="24" width="7" height="3.6" rx="1.8" transform="rotate(24 30.1 25.8)"/><rect x="14.6" y="42" width="3.6" height="5" rx="1.8"/><rect x="21.8" y="42" width="3.6" height="5" rx="1.8"/></g><text x="20" y="33" font-size="11" fill="#fff" opacity=".55" text-anchor="middle" font-family="Lilita One,sans-serif">?</text></symbol>
+<symbol id="pn-s2p1" viewBox="0 0 40 52" overflow="visible"><g fill="#101010"><path d="M10 16 C9 5 15 3 20 3 C25 3 31 5 30 16 C31.4 26 29.6 38 34 47 C26 44 14 44 6 47 C10.4 38 8.6 26 10 16Z"/><circle cx="20" cy="18" r="8"/><path d="M14 11 L15.6 6.6 L18 9.4 L20 5.4 L22 9.4 L24.4 6.6 L26 11Z"/></g><path d="M14.4 29 C11 36 8.4 42 7.8 46 C14 49 26 49 32.2 46 C31.6 42 29 36 25.6 29Z" fill="#262626"/><text x="20" y="40" font-size="11" fill="#fff" opacity=".55" text-anchor="middle" font-family="Lilita One,sans-serif">?</text></symbol>
+<symbol id="pn-s2p2" viewBox="0 0 40 52" overflow="visible"><g fill="#101010"><path d="M13 11 L14.4 2.6 L17.2 9 L20 0.8 L22.8 9 L25.6 2.6 L27 11Z"/><circle cx="20" cy="19" r="8.2"/><path d="M14 29 C11 36 8 41 6.8 46 L10 44.2 L13 47.4 L16.6 44.6 L20 48 L23.4 44.6 L27 47.4 L30 44.2 L33.2 46 C32 41 29 36 26 29Z"/><rect x="6.6" y="30" width="5" height="11" rx="2.5" transform="rotate(16 9 31)"/><rect x="28.4" y="30" width="5" height="11" rx="2.5" transform="rotate(-16 31 31)"/></g><text x="20" y="40" font-size="11" fill="#fff" opacity=".55" text-anchor="middle" font-family="Lilita One,sans-serif">?</text></symbol>
 <!-- wajah haru (keluar aplikasi), digambar sendiri -->
 <symbol id="ic-teary" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="#ffd84a" stroke="#c98a00" stroke-width="3"/><ellipse cx="29" cy="20" rx="12" ry="6" fill="#fff" opacity=".4"/><path d="M18 27 Q25 20 33 25" fill="none" stroke="#7a4a00" stroke-width="3.2" stroke-linecap="round"/><path d="M47 25 Q55 20 62 27" fill="none" stroke="#7a4a00" stroke-width="3.2" stroke-linecap="round"/><ellipse cx="28" cy="41" rx="8.4" ry="9.8" fill="#3a2411"/><ellipse cx="52" cy="41" rx="8.4" ry="9.8" fill="#3a2411"/><circle cx="25" cy="37" r="3.4" fill="#fff"/><circle cx="49" cy="37" r="3.4" fill="#fff"/><circle cx="31" cy="44.5" r="1.7" fill="#fff"/><circle cx="55" cy="44.5" r="1.7" fill="#fff"/><path d="M19.4 47 Q28 53.6 36.6 47 L36.6 49.4 Q28 57 19.4 49.4 Z" fill="#7fd3ff" opacity=".95"/><path d="M43.4 47 Q52 53.6 60.6 47 L60.6 49.4 Q52 57 43.4 49.4 Z" fill="#7fd3ff" opacity=".95"/><path d="M33 61.5 Q36.5 58.5 40 61 Q43.5 58.5 47 61.5" fill="none" stroke="#7a4a00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="ic-pause" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="2" fill="#fff3c4"/><rect x="14" y="4" width="5" height="16" rx="2" fill="#fff3c4"/></symbol>
@@ -1542,7 +1579,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <script>
 'use strict';
 /* =========================================================
-   HaHe (Handipe Hejan) · Versi 1.6 (tema Unicorn 3D, Tingang menyesuaikan tema)
+   HaHe (Handipe Hejan) · Versi 1.7 (karakter komputer bisa diganti, Putri Mawar, label Season 2)
    Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Unicorn
    HaHe ©2026 | hahe.totogutomo.com
    ========================================================= */
@@ -1641,6 +1678,7 @@ const SKINS = {
       { id: 'poni', name: 'Kuda Poni' },
       { id: 'perikucing', name: 'Peri Kucing' },
       { id: 'narwal', name: 'Narwal' },
+      { id: 'putri', name: 'Putri Mawar' },
       { id: 'tingangunicorn', name: 'Tingang' }
     ],
     dice: ['pelangi'],
@@ -1649,17 +1687,16 @@ const SKINS = {
     ladder: { edge: '#7a4ab0', rail: '#fff6fb', stripe: '#c9a8ff', rung: '#ffd84a', shine: '#ffffff', deco: 'magic' }
   }
 };
-// Daftar tema di Beranda (urutan tampil). soon = belum tersedia ("Segera!")
+// Daftar tema di Beranda (urutan tampil). soon = belum tersedia (label "Season 2")
 // Tema aktif berbaris di kiri, yang belum jadi di kanan.
 const THEME_LIST = [
   { id: 'borneo', hero: 'tingang' }, { id: 'angkasa', hero: 'astronot' }, { id: 'eskrim', hero: 'cone' },
   { id: 'salju', hero: 'manusiasalju' }, { id: 'kebun', hero: 'lebah' }, { id: 'bawahlaut', hero: 'ikan' },
   { id: 'unicorn', hero: 'unicorn' },
-  { id: 'bajaklaut', name: 'Bajak Laut', soon: true }, { id: 'princess', name: 'Princess', soon: true },
-  { id: 'dinosaurus', name: 'Dinosaurus', soon: true }
+  { id: 'bajaklaut', name: 'Bajak Laut', soon: true }, { id: 'dinosaurus', name: 'Dinosaurus', soon: true }
 ];
-// Karakter Season 2 (siluet, belum bisa dimainkan): Jaya Tingang, Bunga Huma, Si Lontar
-const SEASON2 = { borneo: ['s2a', 's2b', 's2c'] };
+// Karakter Season 2 (siluet, belum bisa dimainkan): Borneo = Jaya Tingang, Bunga Huma; Unicorn = 2 Princess
+const SEASON2 = { borneo: ['s2a', 's2b'], unicorn: ['s2p1', 's2p2'] };
 const DICE = {
   kayu: { name: 'Dadu Kayu', skin: 'borneo', cls: 'dice-kayu' },
   ukir: { name: 'Dadu Ukir Dayak', skin: 'borneo', cls: 'dice-ukir' },
@@ -1916,9 +1953,10 @@ function renderHome() {
   if (s2) tr += `<div class="s2grp"><div class="s2tag">Season 2</div><div class="s2row">${s2.map((id, i) => `<div class="pn">${pionSVG(id, 'hitam', { delay: -i * 0.6 })}</div>`).join('')}</div></div>`;
   $('#homeTrio').innerHTML = tr;
   $('#homeTrio').classList.toggle('has2', !!s2);
+  $('#homeTrio').style.setProperty('--pw', (85 / (skin().pions.length + (s2 ? s2.length * 0.67 + 0.4 : 0))).toFixed(1) + 'vw');
   $('#themeRow').innerHTML = THEME_LIST.map(t => {
     const nm = t.soon ? t.name : SKINS[t.id].name, on = !t.soon && t.id === skin().id;
-    return `<button class="tile ${on ? 'on' : ''} ${t.soon ? 'soon' : ''}" data-tile="${t.id}" aria-label="Tema ${nm}${t.soon ? ' (segera)' : ''}"><div class="sq"><div class="bgq">${tileBG(t.id)}</div>${t.soon ? '<span class="soonTag">Segera!</span>' : `<svg class="ch" viewBox="0 0 40 52" aria-hidden="true"><use href="#pn-${t.hero}"/></svg>`}</div><span class="nm">${nm}</span></button>`;
+    return `<button class="tile ${on ? 'on' : ''} ${t.soon ? 'soon' : ''}" data-tile="${t.id}" aria-label="Tema ${nm}${t.soon ? ' (Season 2)' : ''}"><div class="sq"><div class="bgq">${tileBG(t.id)}</div>${t.soon ? '<span class="soonTag">Season 2</span>' : `<svg class="ch" viewBox="0 0 40 52" aria-hidden="true"><use href="#pn-${t.hero}"/></svg>`}</div><span class="nm">${nm}</span></button>`;
   }).join('');
   const sv = store.get('hahe.save', null);
   $('#btnContinue').classList.toggle('hidden', !(sv && !sv.over));
@@ -1932,7 +1970,6 @@ function tileBG(id) {
     angkasa: `<rect width="64" height="64" fill="#2b1f7e"/><rect y="40" width="64" height="24" fill="#3d2c9e"/><g fill="#fff"><circle cx="8" cy="10" r="1.2"/><circle cx="22" cy="20" r=".9"/><circle cx="36" cy="7" r="1.3"/><circle cx="12" cy="30" r=".8"/><circle cx="58" cy="30" r="1"/><circle cx="30" cy="34" r=".7"/></g><ellipse cx="50" cy="14" rx="11" ry="3.2" fill="none" stroke="#ffd36b" stroke-width="2" transform="rotate(-18 50 14)"/><circle cx="50" cy="14" r="7" fill="#ff9a5a"/><circle cx="6" cy="58" r="12" fill="#8fd3ff"/>`,
     eskrim: `<rect width="64" height="64" fill="#ffd3e4"/><rect y="42" width="64" height="22" fill="#fff1c9"/><path d="M0 0 H64 V9 C60 9 60 16 55 16 C50 16 51 9 45 9 C40 9 41 20 34 20 C28 20 29 9 23 9 C18 9 19 15 13 15 C8 15 8 9 4 9 H0 Z" fill="#ff8fb8"/><g><rect x="8" y="28" width="6" height="2" rx="1" fill="#6fd8b8" transform="rotate(30 11 29)"/><rect x="50" y="26" width="6" height="2" rx="1" fill="#8ab8ff" transform="rotate(-25 53 27)"/><rect x="44" y="50" width="6" height="2" rx="1" fill="#ff6fa6" transform="rotate(15 47 51)"/><rect x="10" y="52" width="6" height="2" rx="1" fill="#ffd84a" transform="rotate(-35 13 53)"/></g>`,
     bajaklaut: `<rect width="64" height="64" fill="#8fd8ff"/><circle cx="12" cy="12" r="6" fill="#fff3a6"/><rect y="40" width="64" height="24" fill="#2b7fc4"/><path d="M0 42 Q8 37 16 42 T32 42 T48 42 T64 42" fill="none" stroke="#fff" stroke-width="2"/><path d="M14 30 C20 18 44 18 50 30 C44 27 38 26 32 30 C26 26 20 27 14 30 Z" fill="#2b1a0b"/><path d="M18 30 C22 25 42 25 46 30" fill="none" stroke="#f2b705" stroke-width="1.6"/><circle cx="32" cy="23" r="3" fill="#fff"/><g fill="#2b1a0b"><circle cx="31" cy="22.6" r=".8"/><circle cx="33" cy="22.6" r=".8"/></g>`,
-    princess: `<rect width="64" height="64" fill="#f6d2ff"/><rect y="46" width="64" height="18" fill="#c7f0b4"/><g fill="#ff9ccf"><rect x="10" y="30" width="10" height="20"/><rect x="44" y="30" width="10" height="20"/><rect x="20" y="36" width="24" height="14"/></g><g fill="#b56ad9"><polygon points="8,31 15,18 22,31"/><polygon points="42,31 49,18 56,31"/></g><path d="M22 18 L26 9 L32 15 L38 9 L42 18 Z" fill="#ffd24d" stroke="#c98a00" stroke-width="1.2" stroke-linejoin="round"/><rect x="29" y="40" width="6" height="10" rx="3" fill="#b56ad9"/>`,
     dinosaurus: `<rect width="64" height="64" fill="#ffe39a"/><polygon points="34,44 46,18 58,44" fill="#9a6a3a"/><path d="M42 22 Q46 14 50 22 Z" fill="#ff5a2a"/><rect y="42" width="64" height="22" fill="#7cc24a"/><g fill="#2f6a1a"><ellipse cx="22" cy="34" rx="8" ry="9"/><ellipse cx="13" cy="22" rx="3" ry="4.4" transform="rotate(-25 13 22)"/><ellipse cx="22" cy="19" rx="3" ry="4.6"/><ellipse cx="31" cy="22" rx="3" ry="4.4" transform="rotate(25 31 22)"/></g>`,
     unicorn: `<rect width="64" height="64" fill="#ece2ff"/><g fill="none" stroke-width="4"><path d="M6 64 A26 26 0 0 1 58 64" stroke="#ff8ac4"/><path d="M10 64 A22 22 0 0 1 54 64" stroke="#ffb35a"/><path d="M14 64 A18 18 0 0 1 50 64" stroke="#ffe25a"/><path d="M18 64 A14 14 0 0 1 46 64" stroke="#7ee0b0"/><path d="M22 64 A10 10 0 0 1 42 64" stroke="#8fd0ff"/></g><g fill="#fff"><circle cx="8" cy="14" r="5"/><circle cx="14" cy="12" r="6"/><circle cx="20" cy="15" r="4"/></g><g transform="translate(54 12) scale(.7)"><use href="#star5"/></g>`,
     bawahlaut: `<rect width="64" height="64" fill="#3fb4e0"/><rect y="38" width="64" height="26" fill="#1f7fb8"/><path d="M0 60 Q10 52 18 60 Q26 54 34 62 Q44 52 52 60 Q58 56 64 60 V64 H0 Z" fill="#f2d79a"/><g fill="none" stroke="#fff" stroke-width="1.4" opacity=".8"><circle cx="50" cy="12" r="3"/><circle cx="56" cy="22" r="2"/><circle cx="46" cy="24" r="1.4"/></g><path d="M8 60 C4 52 12 48 8 40" fill="none" stroke="#2fb060" stroke-width="3.4" stroke-linecap="round"/><path d="M56 60 C60 50 52 46 56 36" fill="none" stroke="#2fb060" stroke-width="3.4" stroke-linecap="round"/>`,
@@ -2007,9 +2044,10 @@ function renderSetup() {
     const p = draft.players[0];
     const cpu = cpuPion(p);
     const me = rowHTML(p, 0, 'Nama kamu', false, false);
-    const pc = `<div class="row"><div class="pick">${avatarSVG(cpu.pion, cpu.ring)}</div><div style="flex:1;font-weight:800;font-size:16px">Komputer</div><span class="cpu-tag">OTOMATIS</span></div>`;
+    const pc = `<div class="row"><button class="pick" data-pick="cpu" aria-label="Ganti karakter komputer">${avatarSVG(cpu.pion, cpu.ring)}</button><div style="flex:1;font-weight:800;font-size:16px">Komputer</div><span class="cpu-tag">OTOMATIS</span></div>`;
     h += draft.cpuFirst ? pc + me : me + pc;
     h += `<div class="hint">Yang main duluan:</div>${chips('cpuFirst', [['0', 'Kamu duluan'], ['1', 'Komputer duluan']], draft.cpuFirst ? '1' : '0')}`;
+    h += `<div class="hint">Karakter komputer dipilih acak. Ketuk gambarnya untuk menggantinya.</div>`;
   } else {
     const L = curList();
     h += `<div class="ordtools"><button class="chip" data-act="shuffle">🎲 Acak urutan</button></div>`;
@@ -2033,20 +2071,25 @@ function rowHTML(p, i, ph, canDel, ord) {
   const n = curList().length;
   return `<div class="row" data-row="${i}">${ord ? ordHTML(i, n) : ''}<button class="pick" data-pick="${i}" aria-label="Pilih karakter">${avatarSVG(p.pion, p.ring)}</button><input type="text" maxlength="16" data-name="${i}" value="${esc(p.name)}" placeholder="${ph}">${draft.kind === 'komputer' ? '' : `<button class="xbtn" data-del="${i}" ${canDel ? '' : 'disabled'} aria-label="Hapus">×</button>`}</div>`;
 }
+// Karakter komputer: bawaan acak (tidak sama dengan pemain), bisa diganti lewat ketuk gambarnya
+const rndOf = a => a[Math.floor(Math.random() * a.length)];
 function cpuPion(p) {
   const pions = skin().pions.map(x => x.id);
-  const pion = pions.find(x => x !== p.pion) || pions[0];
-  return { pion, ring: p.ring === 'biru' ? 'merah' : 'biru' };
+  let c = draft.cpu;
+  if (!c || !pions.includes(c.pion) || c.pion === p.pion) { c = draft.cpu = { auto: true, pion: rndOf(pions.filter(x => x !== p.pion)), ring: null }; saveDraft(); }
+  if (!c.ring || c.ring === p.ring) { c.ring = rndOf(RINGS.map(r => r.id).filter(x => x !== p.ring && x !== 'hitam')); saveDraft(); }
+  return c;
 }
 // ---------- Pilih karakter & warna ----------
 let pickIdx = -1;
 function openPick(i) { readInputs(); pickIdx = i; renderPick(); modal('pickm', true); }
 function renderPick() {
-  const L = curList(), p = L[pickIdx]; if (!p) return;
-  const others = draft.kind === 'komputer' ? [cpuPion(p)] : L.filter(x => x !== p);
-  const sk = skin(), lockP = L.length <= sk.pions.length && draft.kind !== 'komputer', lockR = L.length <= RINGS.length;
-  let h = `<h3>Karakter (${esc(sk.name)})</h3><div class="pgrid">${sk.pions.map(x => {
-    const used = draft.kind !== 'komputer' && others.some(o => o.pion === x.id);
+  const L = curList(), isCpu = pickIdx === 'cpu', cm = draft.kind === 'komputer';
+  const p = isCpu ? cpuPion(L[0]) : L[pickIdx]; if (!p) return;
+  const others = isCpu ? [L[0]] : cm ? [cpuPion(p)] : L.filter(x => x !== p);
+  const sk = skin(), lockP = cm || L.length <= sk.pions.length, lockR = cm || L.length <= RINGS.length;
+  let h = `<h3>${isCpu ? 'Karakter komputer' : 'Karakter'} (${esc(sk.name)})</h3><div class="pgrid">${sk.pions.map(x => {
+    const used = others.some(o => o.pion === x.id);
     return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${used && lockP ? 'disabled' : ''}>${used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.name)}</button>`;
   }).join('')}</div>`;
   h += `<h3>Warna cincin</h3><div class="rgrid">${RINGS.map(r => {
@@ -2055,7 +2098,7 @@ function renderPick() {
   }).join('')}</div>`;
   const s2 = SEASON2[sk.id];
   if (s2) h += `<h3>Season 2 · segera hadir</h3><div class="pgrid">${s2.map(id => `<button class="pbtn" disabled><div class="av">${avatarSVG(id, 'hitam')}</div>Season 2</button>`).join('')}</div>`;
-  if (!lockP && draft.kind !== 'komputer') h += `<div class="hint">Pemain lebih banyak dari jumlah karakter: karakter boleh sama, dibedakan warna cincin.</div>`;
+  if (!lockP && !cm) h += `<div class="hint">Pemain lebih banyak dari jumlah karakter: karakter boleh sama, dibedakan warna cincin.</div>`;
   $('#pickBody').innerHTML = h;
 }
 // ---------- Urutan pemain (geser) ----------
@@ -2199,7 +2242,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.6 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Unicorn · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.7 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Unicorn · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // =========================================================
@@ -2403,6 +2446,7 @@ function startGame() {
     players = draft.players.map((p, i) => ({ name: p.name.trim() || `P${i + 1}`, pion: p.pion, ring: p.ring }));
   }
   if (kind === 'komputer' && draft.cpuFirst) players.reverse();
+  if (kind === 'komputer' && draft.cpu && draft.cpu.auto) { draft.cpu = null; saveDraft(); } // bawaan acak: permainan berikutnya diacak lagi
   G = makeGame(players, kind);
   saveGame();
   show('game');
@@ -2840,10 +2884,10 @@ document.addEventListener('click', e => {
   if (!t) return;
   SFX.init();
   if (t.dataset.chip) return onChip(t.dataset.chip, t.dataset.v);
-  if (t.dataset.tile) { SFX.click(); const th = THEME_LIST.find(x => x.id === t.dataset.tile); if (th && th.soon) return themeNote(`Tema ${th.name} segera hadir!`); return setSkin(t.dataset.tile); }
-  if (t.dataset.pick != null) { SFX.click(); return openPick(+t.dataset.pick); }
-  if (t.dataset.setpion) { const p = curList()[pickIdx]; if (p) { p.pion = t.dataset.setpion; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
-  if (t.dataset.setring) { const p = curList()[pickIdx]; if (p) { p.ring = t.dataset.setring; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
+  if (t.dataset.tile) { SFX.click(); const th = THEME_LIST.find(x => x.id === t.dataset.tile); if (th && th.soon) return themeNote(`Tema ${th.name} hadir di Season 2!`); return setSkin(t.dataset.tile); }
+  if (t.dataset.pick != null) { SFX.click(); return openPick(t.dataset.pick === 'cpu' ? 'cpu' : +t.dataset.pick); }
+  if (t.dataset.setpion) { const p = pickIdx === 'cpu' ? cpuPion(curList()[0]) : curList()[pickIdx]; if (p) { p.pion = t.dataset.setpion; if (pickIdx === 'cpu') p.auto = false; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
+  if (t.dataset.setring) { const p = pickIdx === 'cpu' ? cpuPion(curList()[0]) : curList()[pickIdx]; if (p) { p.ring = t.dataset.setring; if (pickIdx === 'cpu') p.auto = false; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
   if (t.dataset.up != null) { SFX.click(); return moveRow(+t.dataset.up, +t.dataset.up - 1); }
   if (t.dataset.down != null) { SFX.click(); return moveRow(+t.dataset.down, +t.dataset.down + 1); }
   if (t.dataset.ring != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players, p = L[+t.dataset.ring]; p.ring = ringPickerNext(p.ring, L.filter(x => x !== p).map(x => x.ring)); saveDraft(); SFX.click(); return renderSetup(); }
