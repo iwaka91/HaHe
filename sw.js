@@ -1,6 +1,6 @@
 /* HaHe ©2026 | hahe.totogutomo.com
    Penyimpan offline: aplikasi tetap bisa dimainkan tanpa internet. */
-const CACHE = 'hahe-v11';
+const CACHE = 'hahe-v12';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png'];
 
 self.addEventListener('install', e => {

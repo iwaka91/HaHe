@@ -256,5 +256,13 @@ Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
 - Pembelian dalam aplikasi lewat TWA (Play Billing) dibahas singkat lalu **ditunda**; dibahas bersama jalur Play Store setelah semua tema selesai.
 - Versi 2.0; sw.js memakai simpanan baru (hahe-v11).
 
+## 26. Update Versi 2.1 (25 Okt 2026)
+- **Kabut asap Hutan Borneo** (Beranda dan papan, tema lain tidak terpengaruh): langit kuning keabuan, matahari merah pucat, kabut bergeser pelan, dan **kalatu** (abu daun terbakar) hitam kecil melayang sesekali. Mode Ringan: kabut diam, kalatu lebih sedikit, papan tertutup lebih tipis.
+- **Papan sesekali tertutup kabut** (siklus sekitar 26 detik, tertutup beberapa detik). Mengganggu tetapi **tidak menghentikan permainan**: papan hanya tertutup tampilan, dadu dan tombol tetap bisa dipakai.
+- **Tombol "Padamkan Karhutla"** (Beranda dan layar permainan): kabut **tidak hilang**; muncul pesan "Doain segera pulih ya" sebagai kritik kabut asap yang belum reda. Kabut muncul lagi di setiap permainan. Penanda `KABUT_BISA_PADAM` di kode: ubah ke `true` pada pembaruan nanti agar kabut benar-benar bisa dipadamkan.
+- **Karakter MPA** (Masyarakat Peduli Api) masuk Hutan Borneo sebagai karakter aktif ke-5, **terkunci**, terbuka setelah Hutan Borneo dimainkan sampai selesai **1 kali**. Nama cukup "MPA"; di Album dijelaskan: MPA adalah Masyarakat Peduli Api, bekerja bersama pemadam kebakaran, relawan, dan siapa saja yang peduli pada Hutan Borneo; pesan "Cegah Sebelum Terjadi!".
+- Mockup (Beranda berkabut, papan berkabut, karakter MPA) hanya di Claude Design, belum disimpan ke repo.
+- Versi 2.1; sw.js memakai simpanan baru (hahe-v12).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
