@@ -273,5 +273,12 @@ Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
 - **Album Hutan Borneo**: tulisan hitungan main diganti "Buka karakter dan tema dengan main di tema Borneo: 1× main dapat karakter MPA, 2× main dapat Ksatria Talawang, 5× main dapat tema Negeri Dongeng". Hitungan main tetap tampil di kartu karakter terkunci.
 - Versi 2.2; sw.js memakai simpanan baru (hahe-v13).
 
+## 28. Update Versi 2.3 (25 Okt 2026)
+- **Warna giliran mengikuti warna cincin pemain** di tiga tempat: tombol LEMPAR, nama di kartu "Giliran", dan nama di daftar pemain. Warna teks tombol otomatis gelap atau terang agar terbaca. Saat giliran komputer, tombol LEMPAR kembali hijau.
+- **Ikon Album** di Beranda diperbesar (58 px), tetap di kanan atas.
+- **Masker** dipindah ke baris paling bawah Beranda (kiri dan kanan tulisan footer, di atas daun tema), diperbesar dan lebih detail: masker medis berlipat dan masker gas berlensa, filter, dan katup. Tampil hanya saat kabut ada. Beranda jadi sedikit lebih panjang (bisa digulir).
+- Mockup Beranda v2.2 (ikon dan masker) hanya di Claude Design, belum disimpan ke repo; di mockup masker menimpa area bawah, di game dipindah ke baris footer agar tidak menutup tombol.
+- Versi 2.3; sw.js memakai simpanan baru (hahe-v14).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

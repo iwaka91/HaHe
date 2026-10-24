@@ -62,15 +62,17 @@ input{font-family:inherit}
 @keyframes ff{0%,100%{opacity:.25;transform:translate(0,0)}50%{opacity:1;transform:translate(8px,-10px)}}
 .q-lite .ff{display:none}
 /* ---------- Kabut asap Hutan Borneo (Beranda dan papan) ---------- */
-.homealb{position:absolute;right:10px;top:max(8px,env(safe-area-inset-top));width:40px;height:40px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:6px;cursor:pointer;z-index:3}
+.homealb{position:absolute;right:10px;top:max(8px,env(safe-area-inset-top));width:58px;height:58px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:6px;cursor:pointer;z-index:3}
 .homealb svg{width:100%;height:100%;display:block}
 .homealb:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
 .newwrap{position:relative;display:flex;flex-direction:column}
-#home .hello{padding:0 44px;box-sizing:border-box}
+#home .hello{padding:0 62px;box-sizing:border-box}
 .newwrap .bbtn{width:100%}
-.mask{display:none;position:absolute;top:-30px;width:46px;height:46px;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
-.mk-l{left:6px;transform:rotate(-6deg)}.mk-r{right:6px;transform:rotate(6deg)}
-:root[data-haze="1"] #home .mask{display:block}
+.maskband{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;flex:none}
+.maskband .footer{flex:1;text-align:center;padding-bottom:6px}
+.mask{display:none;flex:none;width:min(30vw,112px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.45))}
+.mk-l{transform:rotate(-8deg);margin:0 0 4px 4px}.mk-r{transform:rotate(7deg);width:min(32vw,122px);margin:0 4px 2px 0}
+:root[data-haze="1"] .maskband .mask{display:block}
 .hz-wave{position:absolute;left:-60%;width:120%;border-radius:50%;display:none;opacity:.0}
 .hz-w1{top:18%;height:30%;background:radial-gradient(ellipse at 50% 50%,rgba(214,200,160,.55),rgba(214,200,160,0) 70%);animation:hzWave 19s linear infinite}
 .hz-w2{top:52%;height:34%;background:radial-gradient(ellipse at 50% 50%,rgba(205,190,150,.5),rgba(205,190,150,0) 70%);animation:hzWave 27s linear infinite -9s}
@@ -251,8 +253,8 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .q-lite .bob,.q-lite .wave{animation:none}
 
 .dock{flex:none;position:relative;display:flex;align-items:center;gap:14px;min-height:120px;padding:10px 18px;background:var(--panel);border:2px solid var(--panelLine);border-radius:30px;box-shadow:0 10px 18px rgba(0,0,0,.3)}
-.rollbtn{flex:1;height:84px;padding:0;border:3px solid #16521f;border-radius:26px;background:linear-gradient(#3fa628,#287d1d);box-shadow:0 6px 0 #145a1c,0 10px 12px rgba(0,0,0,.35),inset 0 3px 0 rgba(255,255,255,.35);color:#fff;font-family:var(--disp);font-size:34px;letter-spacing:1.5px;text-shadow:0 3px 0 #145a1c,2px 0 0 #145a1c,-2px 0 0 #145a1c,0 -2px 0 #145a1c}
-.rollbtn:active:not(:disabled){transform:translateY(5px);box-shadow:0 1px 0 #145a1c,inset 0 3px 0 rgba(255,255,255,.35)}
+.rollbtn{flex:1;height:84px;padding:0;border:3px solid var(--rbd,#16521f);border-radius:26px;background:linear-gradient(var(--rb1,#3fa628),var(--rb2,#287d1d));box-shadow:0 6px 0 var(--rbd,#145a1c),0 10px 12px rgba(0,0,0,.35),inset 0 3px 0 rgba(255,255,255,.35);color:var(--rbt,#fff);font-family:var(--disp);font-size:34px;letter-spacing:1.5px;text-shadow:0 3px 0 var(--rbd,#145a1c),2px 0 0 var(--rbd,#145a1c),-2px 0 0 var(--rbd,#145a1c),0 -2px 0 var(--rbd,#145a1c)}
+.rollbtn:active:not(:disabled){transform:translateY(5px);box-shadow:0 1px 0 var(--rbd,#145a1c),inset 0 3px 0 rgba(255,255,255,.35)}
 .rollbtn:disabled{filter:saturate(.4) brightness(.9);cursor:default}
 .rollbtn.cpu{font-size:22px}
 
@@ -1663,8 +1665,6 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       <button class="bbtn gold hidden" id="btnContinue" data-act="continue">LANJUTKAN</button>
       <div class="newwrap">
         <button class="bbtn" data-act="newgame">MAIN BARU</button>
-        <svg class="mask mk-l" viewBox="0 0 60 60" aria-hidden="true"><ellipse cx="30" cy="14" rx="26" ry="9" transform="rotate(-8 30 14)" fill="#2f9e4f"/><path d="M8 18 Q30 8 52 14" stroke="#1d7a3b" stroke-width="1.4" fill="none"/><path d="M20 20 V28 M40 20 V28" stroke="#e8e8e8" stroke-width="1.4"/><rect x="12" y="27" width="36" height="22" rx="8" fill="#9fd3f0" stroke="#5aa0d0" stroke-width="1.6"/><path d="M15 34 H45 M15 39 H45 M15 44 H45" stroke="#6fb4dd" stroke-width="1.2"/><path d="M12 33 Q4 36 8 46 M48 33 Q56 36 52 46" stroke="#e8e8e8" stroke-width="1.4" fill="none"/></svg>
-        <svg class="mask mk-r" viewBox="0 0 60 60" aria-hidden="true"><ellipse cx="30" cy="14" rx="26" ry="9" transform="rotate(8 30 14)" fill="#2f9e4f"/><path d="M8 14 Q30 8 52 18" stroke="#1d7a3b" stroke-width="1.4" fill="none"/><path d="M22 20 V27 M38 20 V27" stroke="#3b3b3b" stroke-width="1.4"/><path d="M12 30 Q12 24 30 24 Q48 24 48 30 L48 40 Q44 54 30 54 Q16 54 12 40Z" fill="#4a5058" stroke="#2a2e33" stroke-width="1.6"/><ellipse cx="22" cy="35" rx="5" ry="4.2" fill="#1c1f23"/><ellipse cx="38" cy="35" rx="5" ry="4.2" fill="#1c1f23"/><ellipse cx="22" cy="34" rx="1.8" ry="1.2" fill="#fff" opacity=".5"/><circle cx="30" cy="48" r="5" fill="#8c939b" stroke="#2a2e33" stroke-width="1.2"/><path d="M26 48 H34 M30 44 V52" stroke="#2a2e33" stroke-width=".8"/></svg>
       </div>
       <button class="karhutla" data-act="karhutla">🔥 Padamkan Karhutla</button>
       <div style="display:flex;gap:12px">
@@ -1677,7 +1677,19 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       </div>
     </div>
     <div class="grow"></div>
+    <div class="maskband"><svg class="mask mk-l" viewBox="0 0 130 110" role="img" aria-label="Masker medis"><defs><linearGradient id="mdc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8f0fb"/><stop offset="1" stop-color="#8cc8e8"/></linearGradient></defs>
+      <path d="M14 30 Q4 52 18 78" stroke="#f3f3f3" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M116 30 Q126 52 112 78" stroke="#f3f3f3" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M22 18 H108 Q122 18 122 34 V62 Q122 92 66 94 Q8 92 8 62 V34 Q8 18 22 18Z" fill="url(#mdc)" stroke="#4d93bf" stroke-width="2.2"/>
+      <path d="M12 40 H118 M10 54 H120 M12 68 H118 M18 82 H112" stroke="#6fb4dd" stroke-width="2"/><path d="M12 43 H118 M10 57 H120 M12 71 H118" stroke="#fff" stroke-width="1" opacity=".7"/>
+      <path d="M34 20 Q66 10 98 20" stroke="#b9c2c9" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="30" r="3" fill="#e5e5e5"/><circle cx="116" cy="30" r="3" fill="#e5e5e5"/></svg>
     <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
+    <svg class="mask mk-r" viewBox="0 0 140 150" role="img" aria-label="Masker gas"><defs><radialGradient id="gm" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#7c858e"/><stop offset=".6" stop-color="#4a5159"/><stop offset="1" stop-color="#262a2f"/></radialGradient><radialGradient id="gl" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#e9fbff"/><stop offset=".45" stop-color="#7fc4d8"/><stop offset="1" stop-color="#1d4a5c"/></radialGradient></defs>
+      <path d="M22 44 Q4 70 20 100 M118 44 Q136 70 120 100" stroke="#1d2024" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M30 28 Q70 6 110 28" stroke="#1d2024" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M24 46 Q24 22 70 22 Q116 22 116 46 L116 84 Q112 124 70 130 Q28 124 24 84Z" fill="url(#gm)" stroke="#16181b" stroke-width="2.4"/><path d="M30 54 Q70 44 110 54" stroke="#1d2024" stroke-width="3" fill="none"/>
+      <circle cx="48" cy="62" r="17" fill="#16181b"/><circle cx="48" cy="62" r="14" fill="url(#gl)" stroke="#8c939b" stroke-width="2"/><circle cx="92" cy="62" r="17" fill="#16181b"/><circle cx="92" cy="62" r="14" fill="url(#gl)" stroke="#8c939b" stroke-width="2"/>
+      <ellipse cx="42" cy="55" rx="5" ry="3" fill="#fff" opacity=".75" transform="rotate(-30 42 55)"/><ellipse cx="86" cy="55" rx="5" ry="3" fill="#fff" opacity=".75" transform="rotate(-30 86 55)"/><path d="M66 70 Q70 84 74 70" stroke="#16181b" stroke-width="3" fill="none"/>
+      <circle cx="70" cy="104" r="21" fill="#20242a" stroke="#0f1113" stroke-width="2"/><circle cx="70" cy="104" r="15" fill="#6b747d" stroke="#3a4046" stroke-width="2"/><circle cx="70" cy="104" r="9" fill="#4a5159" stroke="#2a2e33" stroke-width="1.5"/><circle cx="70" cy="104" r="3.5" fill="#a9b1b8"/>
+      <path d="M70 90 V118 M56 104 H84 M60 94 L80 114 M80 94 L60 114" stroke="#2a2e33" stroke-width="1.2"/><circle cx="30" cy="92" r="6" fill="#5b636b" stroke="#16181b" stroke-width="1.6"/><circle cx="110" cy="92" r="6" fill="#5b636b" stroke="#16181b" stroke-width="1.6"/></svg></div>
   </section>
 
   <!-- SIAPKAN PERMAINAN -->
@@ -2568,7 +2580,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.2 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.3 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // ---------- Album Karakter ----------
@@ -2940,6 +2952,14 @@ function placeAll(except = -1) {
   G.players.forEach((p, i) => { const el = $('#pn' + i); if (el) el.classList.toggle('cur', i === G.turn && !G.over); });
 }
 function fmtTime(ms) { const s = Math.max(0, Math.ceil(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+// warna turunan dari cincin pemain: gelap (tepi tombol), teks otomatis terbaca, warna nama
+function ringColors(r) {
+  const rgb = h => [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16));
+  const lum = h => { const [x, y, z] = rgb(h); return (0.299 * x + 0.587 * y + 0.114 * z) / 255; };
+  const dk = (h, f) => '#' + rgb(h).map(v => Math.round(v * f).toString(16).padStart(2, '0')).join('');
+  const mid = (lum(r.a) + lum(r.b)) / 2;
+  return { dark: dk(r.b, 0.55), text: mid > 0.6 ? '#2a1a0a' : '#fff', name: lum(r.b) > 0.55 ? dk(r.b, 0.62) : r.b, light: lum(r.a) < 0.35 ? '#d9d9d9' : r.a };
+}
 function updateHud() {
   if (!G) return;
   const p = G.players[G.turn];
@@ -2951,6 +2971,12 @@ function updateHud() {
   if (G.mode === 'kesempatan') { mk = 'SISA LEMPAR'; mv = `${Math.max(0, G.throws - p.rolls)}×`; }
   $('#turn').innerHTML = `<div class="av">${avatarSVG(p.pion, p.ring)}</div><div class="tx"><div class="k">GILIRAN</div><div class="nm">${esc(nm)}</div><div class="sub">${esc(sub)}</div></div><div class="modebox ${warn ? 'warn' : ''}"><div class="k">${mk}</div><div class="v">${mv}</div></div>`;
   $('#plist').innerHTML = G.players.map((q, i) => `<div class="prow ${i === G.turn ? 'cur' : ''}"><div class="av">${avatarSVG(q.pion, q.ring)}</div><div class="nm">${esc(q.name)}${q.cpu ? ' 🤖' : ''}</div><div class="ps">kotak ${q.pos}${G.mode === 'kesempatan' ? ` · ${Math.max(0, G.throws - q.rolls)}×` : ''}</div></div>`).join('');
+  // warna giliran: tombol LEMPAR, nama di kartu Giliran, dan nama di daftar pemain mengikuti warna cincin pemain
+  const rg = ringOf(p.ring), rbEl = $('#rollBtn');
+  if (p.cpu) ['--rb1', '--rb2', '--rbd', '--rbt'].forEach(k => rbEl.style.removeProperty(k));
+  else { const c = ringColors(rg); rbEl.style.setProperty('--rb1', rg.a); rbEl.style.setProperty('--rb2', rg.b); rbEl.style.setProperty('--rbd', c.dark); rbEl.style.setProperty('--rbt', c.text); }
+  const tn = $('#turn .nm'); if (tn) { tn.style.color = ringColors(rg).name; }
+  document.querySelectorAll('#plist .prow').forEach((el, i) => { const q = G.players[i]; if (!q) return; const c = ringColors(ringOf(q.ring)); const n = el.querySelector('.nm'); if (n) n.style.color = i === G.turn ? c.name : c.light; });
   const rb = $('#rollBtn');
   rb.disabled = busy || G.over || !!p.cpu;
   rb.classList.toggle('cpu', !!p.cpu);
