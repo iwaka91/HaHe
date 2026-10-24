@@ -189,5 +189,18 @@ Rencana berikutnya: tiga tema 2D (Bawah Laut, Kebun Ceria, Negeri Salju), lalu t
 - Rencana berikutnya: Princess, lalu Bajak Laut, Dinosaurus, Unicorn (3D; Tingang 3D memakai versi Borneo), lalu Musim kedua Borneo.
 - Catatan: di layar landscape pendek (contoh 1280x720) footer Beranda terpotong sedikit; sudah begitu sejak versi sebelumnya, perbaikan menunggu persetujuan.
 
+## 21. Update Versi 1.6 (24 Okt 2026)
+- **Tema Unicorn (3D pertama)**, gaya gradasi seperti pion Borneo: **Unicorn** putih bertanduk (karakter utama, surai dan ekor pelangi), **Kuda Poni** (tanpa tanduk, berponi), **Peri Kucing** dengan tongkat ajaib (desain asli; hanya terinspirasi gambar acuan, tidak meniru karakter milik orang lain), **Narwal**, dan **Tingang 3D versi Borneo bertanduk ajaib**. Latar pelangi, awan, bukit pastel, kristal, bintang berkelip; bingkai pita pelangi; tangga putih-ungu berhias bintang dan hati. Backsound: `audio/unicorn`.
+- **Dadu Pelangi**: efek kilau ajaib saat dilempar, **khusus** dadu ini (dadu lain tanpa kilau).
+- **Tingang menyesuaikan tema** (dengan kerlap-kerlip ajaib, hanya pada Tingang yang disesuaikan; Tingang Borneo tetap):
+  - Luar Angkasa: helm astronot.
+  - Es Krim: makan es krim (cone stroberi).
+  - Negeri Salju: syal merah putih.
+  - Bawah Laut: **menyelam dengan tabung oksigen** (menggantikan snorkel).
+  - Unicorn: tanduk ajaib (versi 3D Borneo).
+  - Kebun Ceria (topi jerami) tidak diubah dan belum diberi kerlap-kerlip.
+- Ikon Unicorn di Beranda aktif (barisan aktif). Tema "Segera!": Bajak Laut, Princess, Dinosaurus.
+- Rencana berikutnya: tema 3D lain (Princess, Bajak Laut, Dinosaurus), lalu Musim kedua Borneo.
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

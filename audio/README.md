@@ -12,6 +12,7 @@ Nama file mengikuti tema; format bebas, pilih salah satu yang umum:
 | Negeri Salju | `negeri-salju.mp3` |
 | Kebun Ceria | `kebun-ceria.mp3` |
 | Bawah Laut | `bawah-laut.mp3` |
+| Unicorn | `unicorn.mp3` |
 
 Tema lain menyusul. Bila file belum ada, game tetap berjalan tanpa backsound.
 Jangan lupa tulis kreditnya di bagian Tentang (About).
