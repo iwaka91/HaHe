@@ -360,7 +360,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .lkic{width:22px;height:22px;flex:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
 #home .trio .pn[data-char]{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
 #home .trio .pn.lk>svg:first-child{opacity:.3}
-#home .trio .pn.lk .lkic{position:absolute;left:50%;top:50%;margin:-8px 0 0 -11px;pointer-events:none}
+#home .trio .pn.lk .lkic{position:absolute;left:50%;top:30%;width:16px;height:16px;margin:0 0 0 -8px;pointer-events:none}
 .tile.lk .bgq svg{filter:saturate(.5) brightness(.8)}
 .tile.lk .ch{opacity:.3}
 .tile .lkic{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;pointer-events:none}
@@ -711,6 +711,88 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <ellipse cx="20" cy="24.4" rx="5.8" ry="4" fill="url(#oMuzzle)"/>
 <circle cx="18.6" cy="23" r=".7" fill="#6a3a22"/><circle cx="21.4" cy="23" r=".7" fill="#6a3a22"/>
 <path d="M17.4 26 Q20 28.2 22.6 26" fill="none" stroke="#6a3a22" stroke-width="1.1" stroke-linecap="round"/>
+</symbol>
+<!-- PION 3D: Ksatria Talawang (putra Dayak, hiasan bulu, ikat kepala merah emas, perisai talawang, mandau) -->
+<radialGradient id="tSkin" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#ffd9ae"/><stop offset=".6" stop-color="#f1a971"/><stop offset="1" stop-color="#d98a52"/></radialGradient>
+<linearGradient id="tHair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2b27"/><stop offset="1" stop-color="#0f0a0b"/></linearGradient>
+<linearGradient id="tVest" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2b30"/><stop offset="1" stop-color="#120c0f"/></linearGradient>
+<linearGradient id="tGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".55" stop-color="#f2b705"/><stop offset="1" stop-color="#b97d00"/></linearGradient>
+<linearGradient id="tBand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8483a"/><stop offset="1" stop-color="#a81d14"/></linearGradient>
+<linearGradient id="tSteel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8edf2"/><stop offset=".5" stop-color="#8b97a5"/><stop offset="1" stop-color="#55606c"/></linearGradient>
+<linearGradient id="tFeW" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ffffff"/><stop offset="1" stop-color="#d7332a"/></linearGradient>
+<linearGradient id="tFeR" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d8382c"/><stop offset="1" stop-color="#7a1210"/></linearGradient>
+<symbol id="pn-talawang" viewBox="0 0 40 52" overflow="visible">
+<!-- hiasan bulu -->
+<g transform="translate(14.5 9)">
+<ellipse cx="0" cy="-6.5" rx="2.2" ry="6.8" transform="rotate(-80)" fill="#2a1f22"/>
+<ellipse cx="0" cy="-6.5" rx="2.3" ry="7.2" transform="rotate(-60)" fill="url(#tFeR)"/>
+<ellipse cx="0" cy="-6.5" rx="2.4" ry="7.6" transform="rotate(-40)" fill="url(#tFeW)" stroke="#e7d7c8" stroke-width=".25"/>
+<ellipse cx="0" cy="-6.5" rx="2.3" ry="7.4" transform="rotate(-20)" fill="url(#tFeR)"/>
+<ellipse cx="0" cy="-6.5" rx="2.2" ry="6.6" transform="rotate(0)" fill="url(#tFeW)" stroke="#e7d7c8" stroke-width=".25"/>
+</g>
+<!-- mandau (tangan kiri) -->
+<path d="M5.2 36 L8.8 36 L7.6 13 Z" fill="url(#tSteel)" stroke="#3a4552" stroke-width=".4"/>
+<path d="M7 34 L7.3 18" stroke="#ffffff" stroke-width=".5" opacity=".6" fill="none"/>
+<rect x="4.6" y="35.4" width="4.8" height="1.6" rx=".6" fill="url(#tGold)"/>
+<rect x="5.3" y="37" width="3.4" height="5" rx="1.2" fill="#8a1d16"/>
+<path d="M5.6 41 L4.2 45 M7 41.4 L6.8 45.6 M8.4 41 L9.8 44.8" stroke="#e0382c" stroke-width=".7" stroke-linecap="round" fill="none"/>
+<!-- kaki, cawat bulu putih, sandal -->
+<rect x="14.2" y="40.6" width="3.6" height="4.6" rx="1.4" fill="#eaa468"/>
+<rect x="22.2" y="40.6" width="3.6" height="4.6" rx="1.4" fill="#eaa468"/>
+<ellipse cx="16" cy="43.4" rx="2.5" ry="1.3" fill="#ffffff"/><ellipse cx="24" cy="43.4" rx="2.5" ry="1.3" fill="#ffffff"/>
+<path d="M13.6 44.2 H18.4 M21.6 44.2 H26.4" stroke="#c8281f" stroke-width=".8" stroke-linecap="round"/>
+<ellipse cx="15.6" cy="46" rx="3.7" ry="1.7" fill="#4a2a12"/><ellipse cx="24.4" cy="46" rx="3.7" ry="1.7" fill="#4a2a12"/>
+<path d="M12.8 45.6 H18.4 M21.6 45.6 H27.2" stroke="#f2b705" stroke-width=".5" stroke-linecap="round"/>
+<!-- badan: rompi hitam, hiasan emas, kalung taring -->
+<ellipse cx="20" cy="34" rx="9.4" ry="8.4" fill="url(#tVest)"/>
+<path d="M13.6 27.6 L20 36.6 L26.4 27.6" fill="none" stroke="#f2b705" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.6 33 L21.4 33 L21.7 39 L18.3 39Z" fill="#c8281f"/>
+<g fill="#f2b705"><circle cx="20" cy="35.2" r=".55"/><circle cx="20" cy="37.2" r=".55"/><circle cx="12.6" cy="33.6" r=".5"/><circle cx="27.4" cy="33.6" r=".5"/></g>
+<path d="M13.8 28.4 Q20 37 26.2 28.4" fill="none" stroke="#6a3a22" stroke-width=".9" stroke-linecap="round"/>
+<path d="M16.6 31.9 L18.4 31.9 L17.5 34.6Z" fill="#ffffff" stroke="#cfc3a8" stroke-width=".3"/>
+<path d="M19.1 32.7 L20.9 32.7 L20 35.6Z" fill="#ffffff" stroke="#cfc3a8" stroke-width=".3"/>
+<path d="M21.6 31.9 L23.4 31.9 L22.5 34.6Z" fill="#ffffff" stroke="#cfc3a8" stroke-width=".3"/>
+<!-- ikat pinggang dan cawat merah -->
+<path d="M15.4 40.6 L24.6 40.6 L25.6 46 L14.4 46Z" fill="#c8281f"/>
+<path d="M15.2 43.2 L16.6 44.6 L18 43.2 L19.4 44.6 L20.8 43.2 L22.2 44.6 L23.6 43.2 L25 44.6" fill="none" stroke="#f2b705" stroke-width=".7" stroke-linejoin="round"/>
+<path d="M15.6 46 V47.4 M17.4 46 V47.6 M19.2 46 V47.6 M21 46 V47.6 M22.8 46 V47.6 M24.4 46 V47.4" stroke="#f2b705" stroke-width=".6" stroke-linecap="round"/>
+<rect x="11" y="38.2" width="18" height="2.6" rx="1.2" fill="url(#tGold)" stroke="#7a4a00" stroke-width=".4"/>
+<circle cx="20" cy="39.5" r="2" fill="url(#tGold)" stroke="#7a4a00" stroke-width=".4"/><circle cx="20" cy="39.5" r=".8" fill="#c8281f"/>
+<!-- lengan kiri memegang mandau -->
+<path d="M11 30 C9 33 8.2 36 7.6 38.2" fill="none" stroke="#eaa468" stroke-width="3.6" stroke-linecap="round"/>
+<ellipse cx="9.4" cy="33.6" rx="2.1" ry=".9" transform="rotate(22 9.4 33.6)" fill="url(#tGold)" stroke="#7a4a00" stroke-width=".3"/>
+<circle cx="7.2" cy="38.6" r="2.3" fill="#eaa468"/>
+<!-- kepala -->
+<circle cx="7.4" cy="19" r="2.8" fill="url(#tSkin)"/><circle cx="32.6" cy="19" r="2.8" fill="url(#tSkin)"/>
+<circle cx="20" cy="17" r="12.5" fill="url(#tSkin)"/>
+<path d="M7.6 16.5 C5.8 6.5 13.5 2.6 20 3.2 C26.5 2.6 34.2 6.5 32.4 16.5 C31.6 12.6 29.4 11 27 10.4 C23 8.8 17 8.8 13 10.4 C10.6 11 8.4 12.6 7.6 16.5Z" fill="url(#tHair)"/>
+<path d="M12.5 5.6 L10.8 1 L16 4Z M18.4 3.6 L19.6 -1.2 L23 3.4Z M25 4.2 L29.6 .6 L28.6 6.6Z M9.4 8.8 L6 5.4 L10.6 6.2Z" fill="#17100f"/>
+<path d="M7.8 15 C7 20 8.4 23.6 10.8 25.4 C9.6 21.2 10 17.6 11.2 14.4Z M32.2 15 C33 20 31.6 23.6 29.2 25.4 C30.4 21.2 30 17.6 28.8 14.4Z" fill="url(#tHair)"/>
+<ellipse cx="15.5" cy="6.8" rx="3.6" ry="1.3" transform="rotate(-20 15.5 6.8)" fill="#ffffff" opacity=".25"/>
+<!-- ikat kepala merah emas dengan kepala burung -->
+<path d="M7.8 12 C13 9.6 27 9.6 32.2 12 L32.4 15.4 C27 13.2 13 13.2 7.6 15.4Z" fill="url(#tBand)"/>
+<g fill="#f2b705"><circle cx="11.2" cy="13.2" r=".6"/><circle cx="14" cy="12.5" r=".6"/><circle cx="26" cy="12.5" r=".6"/><circle cx="28.8" cy="13.2" r=".6"/></g>
+<circle cx="20" cy="12.2" r="2.5" fill="url(#tGold)" stroke="#7a1d17" stroke-width=".5"/>
+<path d="M18.6 12.6 L21.4 12.6 L20 16Z" fill="#f2b705" stroke="#7a1d17" stroke-width=".4" stroke-linejoin="round"/>
+<circle cx="19.1" cy="11.6" r=".4" fill="#7a1d17"/>
+<!-- wajah: alis tegas, mata besar, senyum -->
+<path d="M11.4 16.9 Q14.8 15.2 18.2 16.8 M21.8 16.8 Q25.2 15.2 28.6 16.9" fill="none" stroke="#1c1214" stroke-width="1.3" stroke-linecap="round"/>
+<ellipse cx="15" cy="20.6" rx="2.7" ry="3" fill="#ffffff"/><ellipse cx="25" cy="20.6" rx="2.7" ry="3" fill="#ffffff"/>
+<circle cx="15.2" cy="21" r="2.1" fill="#5a2f1a"/><circle cx="24.8" cy="21" r="2.1" fill="#5a2f1a"/>
+<circle cx="15.3" cy="21.2" r="1.1" fill="#1c0f0a"/><circle cx="24.7" cy="21.2" r="1.1" fill="#1c0f0a"/>
+<circle cx="14.4" cy="20.1" r=".8" fill="#ffffff"/><circle cx="24" cy="20.1" r=".8" fill="#ffffff"/>
+<circle cx="16.2" cy="22" r=".4" fill="#ffffff"/><circle cx="25.6" cy="22" r=".4" fill="#ffffff"/>
+<path d="M19.4 23.8 Q20 24.4 20.6 23.8" fill="none" stroke="#b86a3e" stroke-width=".7" stroke-linecap="round"/>
+<path d="M17.4 26 Q20 28 22.6 26" fill="none" stroke="#7a2a1a" stroke-width="1" stroke-linecap="round"/>
+<ellipse cx="11.4" cy="25" rx="2" ry="1.1" fill="#ff7a78" opacity=".5"/><ellipse cx="28.6" cy="25" rx="2" ry="1.1" fill="#ff7a78" opacity=".5"/>
+<!-- perisai talawang -->
+<path d="M30.6 23 L36 27 L36 41 L30.6 47.5 L25.2 41 L25.2 27 Z" fill="#231619" stroke="url(#tGold)" stroke-width="1.1" stroke-linejoin="round"/>
+<path d="M30.6 25 L34.4 28 L34.4 40.4 L30.6 45.4 L26.8 40.4 L26.8 28 Z" fill="none" stroke="#b81e18" stroke-width=".7" stroke-linejoin="round"/>
+<path d="M30.6 27.4 C28 29 28 32 30.6 33 C33.2 34 33.4 37 30.6 38.4" fill="none" stroke="#f2b705" stroke-width="1.1" stroke-linecap="round"/>
+<path d="M28.8 30.2 C29.4 31.4 30.8 30.6 30.2 29.6" fill="none" stroke="#e0382c" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="30.6" cy="41" r="1.8" fill="#c8281f" stroke="#f2b705" stroke-width=".5"/><circle cx="30.6" cy="41" r=".6" fill="#f2b705"/>
+<path d="M30.6 23.8 L31.7 25.2 L30.6 26.6 L29.5 25.2Z" fill="#f2b705"/>
+<circle cx="25.4" cy="35" r="2.1" fill="#eaa468"/>
 </symbol>
 <!-- PION 3D: Bekantan (kepala sedikit menyamping, hidung besar terlihat) -->
 <symbol id="pn-bekantan" viewBox="0 0 40 52" overflow="visible">
@@ -1647,7 +1729,8 @@ const SKINS = {
     pions: [
       { id: 'tingang', name: 'Tingang' },
       { id: 'orangutan', name: 'Orangutan' },
-      { id: 'bekantan', name: 'Bekantan' }
+      { id: 'bekantan', name: 'Bekantan' },
+      { id: 'talawang', name: 'Ksatria Talawang', short: 'Talawang' }
     ],
     dice: ['kayu', 'ukir'],
     bgm: 'audio/hutan-borneo',
@@ -1842,7 +1925,8 @@ if (!ALB.plays || typeof ALB.plays !== 'object') ALB.plays = {};
 function saveAlbum() { store.set('hahe.album', ALB); }
 const isTingang = id => id.indexOf('tingang') === 0;
 function lockNeed(skinId, pionId) {
-  if (skinId === 'borneo' || isTingang(pionId)) return 0;
+  if (isTingang(pionId)) return 0;
+  if (skinId === 'borneo') return pionId === 'talawang' ? 2 : 0; // Borneo: hanya Ksatria Talawang yang digembok (2×)
   const k = SKINS[skinId].pions.map(x => x.id).filter(x => !isTingang(x)).indexOf(pionId);
   return k === 2 ? 5 : k === 3 ? 10 : 0;
 }
@@ -2210,7 +2294,7 @@ function renderPick() {
   const sk = skin(), lockP = cm || L.length <= availPions(sk.id).length, lockR = cm || L.length <= RINGS.length;
   let h = `<h3>${isCpu ? 'Karakter komputer' : 'Karakter'} (${esc(sk.name)})</h3><div class="pgrid">${sk.pions.map(x => {
     const used = others.some(o => o.pion === x.id), lk = !isOpen(sk.id, x.id);
-    return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${(used && lockP) || lk ? 'disabled' : ''}>${lk ? `<span class="used">🔒 ${lockNeed(sk.id, x.id)}×</span>` : used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.name)}</button>`;
+    return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${(used && lockP) || lk ? 'disabled' : ''}>${lk ? `<span class="used">🔒 ${lockNeed(sk.id, x.id)}×</span>` : used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.short || x.name)}</button>`;
   }).join('')}</div>`;
   h += `<h3>Warna cincin</h3><div class="rgrid">${RINGS.map(r => {
     const used = others.some(o => o.ring === r.id);
@@ -2362,7 +2446,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.9 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.0 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // ---------- Album Karakter ----------
@@ -2400,6 +2484,7 @@ const FACTS = {
   poni: 'Kuda poni bertubuh lebih kecil daripada kuda biasa, tetapi kuat dan ramah.',
   perikucing: 'Peri Kucing membawa tongkat bintang dan bersayap berkilau. Ia suka membuat kejutan kecil yang ajaib.',
   narwal: 'Narwal adalah paus kecil dari laut Arktik. “Tanduk” panjangnya sebenarnya gigi taring.',
+  talawang: 'Ksatria Talawang adalah putra muda Dayak, penjaga alam dan negeri. Ia membawa talawang (perisai) dan mandau, serta berani, bijaksana, dan setia.',
   putri: 'Putri Mawar tinggal di istana penuh bunga mawar. Ia ramah dan suka menyapa semua teman.'
 };
 const factOf = id => FACTS[id] || FACTS.tingang;
@@ -2416,7 +2501,7 @@ function renderAlbum() {
     }).join('');
   } else {
     const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
-    h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? '' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
+    h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? ' (Ksatria Talawang 🔒 terbuka di 2×)' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
     if (!themeOpen(albSkin)) h += `<div class="alb-head">🔒 ${esc(themeHint(albSkin))}</div>`;
     // semua karakter tampil; yang terkunci redup + gembok, faktanya disembunyikan (hitungan main tetap ada)
     h += sk.pions.map(x => {

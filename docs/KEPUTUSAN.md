@@ -248,5 +248,13 @@ Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
 - **Berkas uji** `docs/uji/hahe-album-semua-karakter.json`: muat lewat Album > Muat progres, membuka semua tema, karakter, dan dadu.
 - Versi 1.9; sw.js memakai simpanan baru (hahe-v10).
 
+## 25. Update Versi 2.0 (25 Okt 2026)
+- **Ksatria Talawang** masuk **Hutan Borneo sebagai karakter aktif** (bukan Season 2): putra muda Dayak berhiasan bulu, ikat kepala merah emas dengan kepala burung, rompi hitam, kalung taring, perisai talawang, dan mandau. Pion 3D sederhana dari lembar karakter Pak Toto (desain sendiri). Nama lengkap "Ksatria Talawang" di Beranda dan Album; di kotak pilihan karakter disingkat **"Talawang"**.
+- **Gembok khusus**: Ksatria Talawang terbuka setelah **Hutan Borneo dimainkan sampai selesai 2 kali**; Tingang, Orangutan, dan Bekantan tetap selalu terbuka. Hitungan main Borneo yang sama juga membuka Negeri Dongeng (5 kali). Fakta Album ditulis dari lembar karakter.
+- **Gembok di Beranda diperkecil dan dinaikkan** (ke bagian kepala karakter) agar tidak menabrak tulisan "Pilih Tema".
+- Mockup pion Ksatria Talawang hanya di Claude Design; **tidak disimpan ke repo** (keputusan Pak Toto).
+- Pembelian dalam aplikasi lewat TWA (Play Billing) dibahas singkat lalu **ditunda**; dibahas bersama jalur Play Store setelah semua tema selesai.
+- Versi 2.0; sw.js memakai simpanan baru (hahe-v11).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
