@@ -236,5 +236,17 @@ Web dibungkus (bukan native). Mulai dengan pembungkus ringan (TWA) dari hahe.tot
 - **Simpan progres / Muat progres** (berkas hahe-album.json): pindah perangkat atau berbagi; saat dimuat, digabung dengan angka tertinggi.
 - Versi 1.8; sw.js memakai simpanan baru (hahe-v9).
 
+## 24. Update Versi 1.9 (24 Okt 2026)
+Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
+- **Gembok di Beranda**: karakter terkunci tampil redup (sekitar 30%) dengan ikon gembok kuning. **Ketuk karakter di Beranda** membuka Album Karakter pada tema itu, karakter yang diketuk disorot.
+- **Tema Negeri Dongeng digembok**: terbuka setelah **Hutan Borneo dimainkan sampai selesai 5 kali** (per perangkat). Ikon tema redup + gembok; saat dipilih muncul arahan "Mainkan tema Hutan Borneo 5x untuk membuka Negeri Dongeng (sekarang n x)". Mode Cepat tidak memilih tema terkunci. Dadu Pelangi ikut terkunci bersama temanya.
+- **Album Karakter menampilkan semua karakter**, termasuk yang terkunci (gambar redup + gembok, nama tampil). Fakta **disembunyikan** dan diganti "Buka karakter untuk mengenali lebih jauh" beserta hitungan main (sekarang n x). Tema yang terkunci diberi keterangan di atas daftar.
+- **Pratinjau suara langsung**: efek suara berbunyi saat slider digeser (dibatasi agar tidak menumpuk) dan saat dinyalakan. Backsound memakai logika yang sama (volume langsung berlaku, main/berhenti langsung saat tombol); backsound belum bersuara karena berkas audio belum ada (menunggu semua tema jadi).
+- **Dadu Ajaib** (khusus Negeri Dongeng, tidak bisa dipakai di tema lain): tiap lemparan satu dari tiga kemungkinan yang tidak bertumpuk: **25% bonus langkah** (+1 sampai +3, langsung ditambahkan ke angka dadu), **20% lemparan ekstra satu kali** (tidak dihitung pada By Chance), **55% biasa**. Keajaiban ditandai kilau, bunyi, dan pesan "Keajaiban!". Berlaku juga untuk lemparan komputer. Peluang ada di konstanta MAGIC (mudah diubah).
+- **Pilih dadu pindah ke Siapkan Permainan** (bagian Dadu, di bawah Tema): gambar dadu bisa digeser. Dadu Ajaib tampil juga di tema lain tetapi tidak bisa dipilih (redup + gembok), dengan keterangan khusus Negeri Dongeng. Dadu tidak lagi ada di Pengaturan. Dadu yang dipilih tersimpan di permainan (G.dice).
+- **Tab Dadu di Album**: semua dadu dengan gambar, tema, dan keterangan; Dadu Ajaib memuat peluangnya. Dadu dari tema terkunci tampil redup + gembok, keterangannya tetap terbaca.
+- **Berkas uji** `docs/uji/hahe-album-semua-karakter.json`: muat lewat Album > Muat progres, membuka semua tema, karakter, dan dadu.
+- Versi 1.9; sw.js memakai simpanan baru (hahe-v10).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

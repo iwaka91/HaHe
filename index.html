@@ -356,6 +356,29 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .unl{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:16px;background:#fff3b8;border:2px solid #c98a00;font-weight:800;color:#5a3a00}
 .unl .r{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:20px}
 .unl .r .av{width:44px;height:44px}
+/* Versi 1.9: gembok (Beranda, tema, Album), pilih dadu, Dadu Ajaib */
+.lkic{width:22px;height:22px;flex:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+#home .trio .pn[data-char]{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#home .trio .pn.lk>svg:first-child{opacity:.3}
+#home .trio .pn.lk .lkic{position:absolute;left:50%;top:50%;margin:-8px 0 0 -11px;pointer-events:none}
+.tile.lk .bgq svg{filter:saturate(.5) brightness(.8)}
+.tile.lk .ch{opacity:.3}
+.tile .lkic{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;pointer-events:none}
+.alcard .av{position:relative}
+.alcard.lk .av>svg:first-child{opacity:.3}
+.alcard.lk .av .lkic{position:absolute;right:-3px;bottom:-3px;width:26px;height:26px}
+.alcard.lk .av>.dpv{opacity:.35}
+.alcard.hl{border-color:#ffd84a;box-shadow:0 0 0 3px #ffd84a}
+.alcard .dpv{margin:2px}
+.dscroll{position:relative;display:flex;gap:10px;overflow-x:auto;padding:6px 4px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dscroll::-webkit-scrollbar{display:none}
+.ditem{flex:none;width:98px;position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px 6px;border-radius:16px;border:3px solid var(--sheetLine);background:var(--chip);color:var(--sheetInk);font-weight:800;font-size:12.5px;line-height:1.2;text-align:center;scroll-snap-align:center}
+.ditem small{font-size:10.5px;font-weight:700;color:var(--ink2)}
+.ditem.on{border-color:#0f4a24;background:#d8f5cf;box-shadow:0 3px 0 #0f4a24}
+:root[data-theme="dark"] .ditem.on{background:#1f4a28}
+.ditem.lk{opacity:.55}
+.ditem .lkic{position:absolute;top:5px;right:5px;width:18px;height:18px}
+.dpv{--d:60px;position:relative;width:60px;height:60px;flex:none}
 .pbtn .used{position:absolute;top:4px;right:4px;font-size:9.5px;padding:1px 5px;border-radius:7px;background:#b3261e;color:#fff}
 .rgrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .rdot{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.3);padding:0}
@@ -541,8 +564,12 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .dice-pelangi .face{background:linear-gradient(135deg,#ffb8dc,#ffe2a8 24%,#fff7b4 44%,#c6f5d2 64%,#bce6ff 82%,#dcc8ff);border:3px solid #ffffff;box-shadow:inset 0 0 0 2px rgba(122,74,176,.45),inset 0 -6px 10px rgba(122,74,176,.22)}
 .dice-pelangi .face i{background:radial-gradient(circle at 40% 35%,#ffffff,#a77ef0 75%);box-shadow:0 0 5px 1px rgba(255,255,255,.95)}
 .dice-pelangi .f1 i.on{background:radial-gradient(circle at 40% 35%,#fff3a0,#ff6fa6 70%);width:18px;height:18px}
-/* kilau ajaib saat Dadu Pelangi dilempar (khusus tema Unicorn) */
-.dice-scene.dice-pelangi{isolation:isolate}.dice-pelangi .dice-toss{position:relative;z-index:1}
+/* Dadu Ajaib (khusus Negeri Dongeng): malam ungu, titik emas, titik satu merah muda bercahaya */
+.dice-ajaib .face{background:radial-gradient(circle at 30% 25%,#8a5ad8,#2a1466 78%);border:3px solid #ffd84a;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),inset 0 -6px 10px rgba(20,8,60,.45),0 0 10px rgba(180,130,255,.5)}
+.dice-ajaib .face i{background:radial-gradient(circle at 40% 35%,#fff7c0,#ffd84a 70%);box-shadow:0 0 6px 1px rgba(255,230,120,.9)}
+.dice-ajaib .f1 i.on{background:radial-gradient(circle at 40% 35%,#ffffff,#ff6fd0 70%);box-shadow:0 0 8px 2px rgba(255,140,220,.9);width:18px;height:18px}
+/* kilau ajaib: Dadu Pelangi tiap lemparan, Dadu Ajaib saat keajaiban muncul (khusus Negeri Dongeng) */
+.dice-scene.dice-pelangi,.dice-scene.dice-ajaib{isolation:isolate}.dice-pelangi .dice-toss,.dice-ajaib .dice-toss{position:relative;z-index:1}
 .dice-scene.glow::before{content:'';position:absolute;left:50%;top:50%;width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:50%;z-index:0;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(214,170,255,.55) 38%,rgba(255,170,220,0) 70%);animation:glw 1s ease-out forwards}
 @keyframes glw{0%{opacity:0;transform:scale(.4)}25%{opacity:1}70%{opacity:.8}100%{opacity:0;transform:scale(1.15)}}
 .dspk{position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;pointer-events:none;z-index:4;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:dspk 1s ease-out forwards;opacity:0}
@@ -1709,7 +1736,7 @@ const SKINS = {
       { id: 'putri', name: 'Putri Mawar' },
       { id: 'tingangunicorn', name: 'Tingang' }
     ],
-    dice: ['pelangi'],
+    dice: ['pelangi', 'ajaib'],
     bgm: 'audio/unicorn',
     snakes: [['#6a2f9a', '#c08af0', '#f3e4ff'], ['#9a2a6a', '#ff8ac4', '#ffe0f0'], ['#2a6a8a', '#6ad0f0', '#dff8ff'], ['#8a6a0a', '#ffd24d', '#fff6c4'], ['#2a7a5a', '#6ae0b0', '#dcfff0']],
     ladder: { edge: '#7a4ab0', rail: '#fff6fb', stripe: '#c9a8ff', rung: '#ffd84a', shine: '#ffffff', deco: 'magic' }
@@ -1733,7 +1760,22 @@ const DICE = {
   es: { name: 'Dadu Es', skin: 'salju', cls: 'dice-es' },
   bunga: { name: 'Dadu Bunga', skin: 'kebun', cls: 'dice-kebun' },
   mutiara: { name: 'Dadu Mutiara', skin: 'bawahlaut', cls: 'dice-laut' },
-  pelangi: { name: 'Dadu Pelangi', skin: 'unicorn', cls: 'dice-pelangi' }
+  pelangi: { name: 'Dadu Pelangi', skin: 'unicorn', cls: 'dice-pelangi' },
+  ajaib: { name: 'Dadu Ajaib', skin: 'unicorn', cls: 'dice-ajaib', magic: true }
+};
+// Peluang keajaiban Dadu Ajaib tiap lemparan (tidak bertumpuk): bonus langkah 25% (+1 sampai +3), lemparan ekstra 20%, selebihnya biasa
+const MAGIC = { bonus: 0.25, extra: 0.20, maxBonus: 3 };
+// Keterangan dadu untuk Album (tab Dadu)
+const DICE_INFO = {
+  kayu: 'Dadu kayu bertekstur serat, hangat dan sederhana. Teman main di Hutan Borneo.',
+  ukir: 'Dadu hitam berbingkai emas dan merah bergaya Dayak. Titik satunya merah menyala.',
+  planet: 'Dadu malam angkasa dengan titik biru bercahaya. Titik satunya jingga seperti planet.',
+  permen: 'Dadu merah muda semanis permen. Titik satunya merah seperti ceri.',
+  es: 'Dadu bening kebiruan, sedingin es di Negeri Salju. Titik satunya merah.',
+  bunga: 'Dadu kuning cerah berbingkai hijau, dengan titik-titik bunga yang ceria.',
+  mutiara: 'Dadu biru laut dengan titik putih berkilau seperti mutiara.',
+  pelangi: 'Dadu berwarna pelangi yang berkilau ajaib setiap kali dilempar.',
+  ajaib: 'Dadu istimewa Negeri Dongeng dan tidak bisa dipakai di tema lain. Tiap lemparan bisa membawa keajaiban: 25% bonus langkah langsung (+1 sampai +3), atau 20% lemparan ekstra satu kali. Selebihnya dadu biasa.'
 };
 const RINGS = [
   { id: 'merah', name: 'Merah', a: '#ff6a5a', b: '#b3261e' },
@@ -1807,6 +1849,19 @@ function lockNeed(skinId, pionId) {
 const playsOf = skinId => Math.max(0, Math.floor(+ALB.plays[skinId] || 0));
 const isOpen = (skinId, pionId) => playsOf(skinId) >= lockNeed(skinId, pionId);
 const availPions = skinId => SKINS[skinId].pions.map(x => x.id).filter(id => isOpen(skinId, id));
+// Tema terkunci: Negeri Dongeng terbuka setelah Hutan Borneo dimainkan sampai selesai 5×
+const THEME_LOCK = { unicorn: { from: 'borneo', need: 5 } };
+const themeOpen = id => { const k = THEME_LOCK[id]; return !k || playsOf(k.from) >= k.need; };
+const themeHint = id => { const k = THEME_LOCK[id]; return k ? `Mainkan tema ${SKINS[k.from].name} ${k.need}× untuk membuka ${SKINS[id].name} (sekarang ${Math.min(playsOf(k.from), k.need)}×)` : ''; };
+// Dadu ikut terbuka bersama temanya. Dadu Ajaib (magic) hanya bisa dipakai di tema asalnya.
+const diceOpen = id => !!DICE[id] && themeOpen(DICE[id].skin);
+const diceUsable = (id, skinId = S.skin) => diceOpen(id) && (!DICE[id].magic || DICE[id].skin === skinId);
+const diceFor = skinId => diceUsable(S.dice, skinId) ? S.dice : SKINS[skinId].dice[0];
+if (!SKINS[S.skin] || !themeOpen(S.skin)) S.skin = 'borneo';
+S.dice = diceFor(S.skin);
+const LOCK_SVG = '<svg class="lkic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="11" rx="3" fill="#ffd84a" stroke="#7a4a00" stroke-width="1.6"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="#7a4a00" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="15.6" r="1.7" fill="#7a4a00"/></svg>';
+// pratinjau dadu (satu sisi datar, lima titik) untuk pilihan dadu dan Album
+const dicePreview = id => `<div class="dpv ${DICE[id].cls}"><div class="face">${Array.from({ length: 9 }, (_, i) => `<i class="${PIPS[5].includes(i) ? 'on' : ''}"></i>`).join('')}</div></div>`;
 
 // ---------- Utilitas ----------
 const $ = (s, el = document) => el.querySelector(s);
@@ -1917,6 +1972,7 @@ const SFX = {
   ladder() { [523, 659, 784, 1047, 1319].forEach((f, i) => this.tone(f, 0.18, 'triangle', .22, i * 0.09)); },
   snake() { this.tone(760, 0.75, 'sawtooth', .07, 0, 120); this.noise(0.6, 0.25, 4200, 0, 0.8); },
   win() { [[523, 659, 784], [587, 740, 880], [659, 831, 988], [784, 988, 1175, 1568]].forEach((ch, i) => ch.forEach(f => this.tone(f, i === 3 ? 0.9 : 0.22, 'triangle', .16, i * 0.2))); },
+  magic() { [1047, 1319, 1568, 2093].forEach((f, i) => this.tone(f, 0.22, 'sine', .14, i * 0.07)); },
   click() { this.tone(880, 0.05, 'triangle', .1); },
   tick() { this.tone(1200, 0.04, 'square', .05); }
 };
@@ -1994,14 +2050,15 @@ function confirmBox(t, p, cb) { $('#cfT').textContent = t; $('#cfP').textContent
 function renderHome() {
   $('#hello').textContent = SAPAAN.beranda;
   const s2 = SEASON2[skin().id];
-  let tr = skin().pions.map((p, i) => `<div class="pn">${pionSVG(p.id, RINGS[i].id, { delay: -i * 0.8 })}</div>`).join('');
+  // karakter terkunci: redup 30% + gembok kuning; ketuk karakter = buka Album (karakter itu disorot)
+  let tr = skin().pions.map((p, i) => { const lk = !isOpen(skin().id, p.id); return `<div class="pn ${lk ? 'lk' : ''}" data-char="${p.id}" role="button" aria-label="${esc(p.name)}${lk ? ' (terkunci)' : ''}, lihat di Album">${pionSVG(p.id, RINGS[i].id, { delay: -i * 0.8 })}${lk ? LOCK_SVG : ''}</div>`; }).join('');
   if (s2) tr += `<div class="s2grp"><div class="s2tag">Season 2</div><div class="s2row">${s2.map((id, i) => `<div class="pn">${pionSVG(id, 'hitam', { delay: -i * 0.6 })}</div>`).join('')}</div></div>`;
   $('#homeTrio').innerHTML = tr;
   $('#homeTrio').classList.toggle('has2', !!s2);
   $('#homeTrio').style.setProperty('--pw', (85 / (skin().pions.length + (s2 ? s2.length * 0.67 + 0.4 : 0))).toFixed(1) + 'vw');
   $('#themeRow').innerHTML = THEME_LIST.map(t => {
-    const nm = t.soon ? t.name : SKINS[t.id].name, on = !t.soon && t.id === skin().id;
-    return `<button class="tile ${on ? 'on' : ''} ${t.soon ? 'soon' : ''}" data-tile="${t.id}" aria-label="Tema ${nm}${t.soon ? ' (Season 2)' : ''}"><div class="sq"><div class="bgq">${tileBG(t.id)}</div>${t.soon ? '<span class="soonTag">Season 2</span>' : `<svg class="ch" viewBox="0 0 40 52" aria-hidden="true"><use href="#pn-${t.hero}"/></svg>`}</div><span class="nm">${nm}</span></button>`;
+    const nm = t.soon ? t.name : SKINS[t.id].name, on = !t.soon && t.id === skin().id, lk = !t.soon && !themeOpen(t.id);
+    return `<button class="tile ${on ? 'on' : ''} ${t.soon ? 'soon' : ''} ${lk ? 'lk' : ''}" data-tile="${t.id}" aria-label="Tema ${nm}${t.soon ? ' (Season 2)' : ''}${lk ? ' (terkunci)' : ''}"><div class="sq"><div class="bgq">${tileBG(t.id)}</div>${t.soon ? '<span class="soonTag">Season 2</span>' : `<svg class="ch" viewBox="0 0 40 52" aria-hidden="true"><use href="#pn-${t.hero}"/></svg>`}${lk ? LOCK_SVG : ''}</div><span class="nm">${nm}</span></button>`;
   }).join('');
   const sv = store.get('hahe.save', null);
   $('#btnContinue').classList.toggle('hidden', !(sv && !sv.over));
@@ -2024,13 +2081,13 @@ function tileBG(id) {
   return `<svg viewBox="0 0 64 64" aria-hidden="true">${g[id] || ''}</svg>`;
 }
 function setSkin(id) {
-  if (!SKINS[id] || S.skin === id) return;
+  if (!SKINS[id] || S.skin === id || !themeOpen(id)) return;
   S.skin = id;
-  if (!(S.dice in DICE) || DICE[S.dice].skin !== id) S.dice = SKINS[id].dice[0]; // dadu ikut tema (tetap bisa diganti di Pengaturan)
+  if (!(S.dice in DICE) || DICE[S.dice].skin !== id) S.dice = SKINS[id].dice[0]; // dadu ikut tema (tetap bisa diganti di Siapkan Permainan)
   saveSettings(); applySkin(); BGM.sync(); renderHome();
 }
 let thNoteT = null;
-function themeNote(t) { const n = $('#thNote'); n.textContent = t; clearTimeout(thNoteT); thNoteT = setTimeout(() => { n.textContent = ''; }, 2200); }
+function themeNote(t, ms = 2200) { const n = $('#thNote'); n.textContent = t; clearTimeout(thNoteT); thNoteT = setTimeout(() => { n.textContent = ''; }, ms); }
 
 // ---------- Siapkan permainan ----------
 function chips(name, items, val) {
@@ -2108,9 +2165,27 @@ function renderSetup() {
     }
     h += `<div class="hint">Ketuk gambar pion untuk memilih karakter dan warna. Urutan dari atas = urutan giliran; atur dengan ▲▼ atau geser nomornya.</div>`;
   }
-  h += `</div>` + gameOptionsHTML(countOf()) + eduHTML(S, draft.kind === 'komputer', false) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} · ${(DICE[S.dice] || DICE.kayu).name} (tema di Beranda, dadu di Pengaturan)</div></div>`;
+  h += `</div>` + gameOptionsHTML(countOf()) + eduHTML(S, draft.kind === 'komputer', false) + `<div class="sec"><h3>Tema</h3><div class="hint" style="margin:0">${sk.name} (tema dipilih di Beranda)</div></div>` + diceHTML();
   const sb = $('#setupBody'), st = sb.scrollTop;
   sb.innerHTML = h; sb.scrollTop = st; // posisi gulir tetap
+  const ds = sb.querySelector('.dscroll'), di = ds && ds.querySelector('.ditem.on'); // dadu terpilih di tengah baris geser
+  if (ds && di) ds.scrollLeft = di.offsetLeft - (ds.clientWidth - di.offsetWidth) / 2;
+}
+// Pilih dadu (di Siapkan Permainan): gambar dadu bisa digeser. Dadu Ajaib hanya aktif di tema Negeri Dongeng.
+function diceHTML() {
+  const sk = skin(), ids = Object.keys(DICE);
+  let h = `<div class="sec"><h3>Dadu</h3><div class="dscroll">${ids.map(id => {
+    const d = DICE[id], ok = diceUsable(id), on = S.dice === id;
+    const sub = d.magic ? (diceOpen(id) ? 'Khusus Negeri Dongeng' : 'Negeri Dongeng') : SKINS[d.skin].name;
+    return `<button class="ditem ${on ? 'on' : ''} ${ok ? '' : 'lk'}" data-dice="${id}" ${ok ? '' : 'disabled'} aria-label="${esc(d.name)}${ok ? '' : ' (tidak tersedia)'}">${dicePreview(id)}<span>${esc(d.name)}</span><small>${esc(sub)}</small>${ok ? '' : LOCK_SVG}</button>`;
+  }).join('')}</div>`;
+  h += `<div class="hint" style="margin-top:0">Geser untuk melihat dadu lain.${sk.id === 'unicorn' ? ' Dadu Ajaib bisa dipakai di tema ini.' : ' Dadu Ajaib khusus tema Negeri Dongeng, tidak bisa dipakai di tema lain.'}</div></div>`;
+  return h;
+}
+function setDice(id) {
+  if (!DICE[id] || !diceUsable(id)) return;
+  S.dice = id; saveSettings();
+  if (cur === 'setup') { readInputs(); renderSetup(); }
 }
 function rowHTML(p, i, ph, canDel, ord) {
   const n = curList().length;
@@ -2237,8 +2312,7 @@ function renderSettings() {
     ${miss ? `<div class="hint">Backsound tema ${sk.name} belum tersedia.</div>` : ''}
     <div class="toggle"><span class="lbl">Efek suara</span><button class="sw ${S.sfx ? 'on' : ''}" data-sw="sfx" aria-label="Efek suara"></button></div>
     <input type="range" min="0" max="100" value="${Math.round(S.sfxVol * 100)}" data-vol="sfxVol" aria-label="Volume efek suara"></div>`;
-  // Dadu (tema dipilih di Beranda)
-  h += `<div class="sec"><h3>Dadu</h3>${chips('dice', Object.entries(DICE).map(([k, d]) => [k, d.name, SKINS[d.skin].name]), S.dice)}<div class="hint">Dadu langsung berlaku. Tema dipilih di Beranda.</div></div>`;
+  // (Dadu dipilih di Siapkan Permainan, tema dipilih di Beranda)
   // Permainan
   h += `<div class="grp">ATURAN PERMAINAN</div>` + gameOptionsHTML(inGame ? G.players.length : countOf(), V) + eduHTML(V, inGame ? G.kind === 'komputer' : false, true);
   body.innerHTML = h; body.scrollTop = st; // posisi gulir tetap
@@ -2288,7 +2362,7 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.8 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.9 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 
 // ---------- Album Karakter ----------
@@ -2329,21 +2403,34 @@ const FACTS = {
   putri: 'Putri Mawar tinggal di istana penuh bunga mawar. Ia ramah dan suka menyapa semua teman.'
 };
 const factOf = id => FACTS[id] || FACTS.tingang;
-let albSkin = 'borneo', albMsg = '';
+let albSkin = 'borneo', albMsg = '', albFocus = '';
 function renderAlbum() {
-  if (!SKINS[albSkin]) albSkin = S.skin;
-  const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
-  let h = `<div class="alb-tabs">${THEME_LIST.filter(t => !t.soon).map(t => `<button class="chip ${t.id === albSkin ? 'on' : ''}" data-albtheme="${t.id}">${esc(SKINS[t.id].name)}</button>`).join('')}</div>`;
-  h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? '' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
-  h += sk.pions.map(x => {
-    const need = lockNeed(albSkin, x.id), open = n >= need;
-    return open
-      ? `<div class="alcard"><div class="av">${avatarSVG(x.id, 'emas')}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">${esc(factOf(x.id))}</div></div></div>`
-      : `<div class="alcard lk"><div class="av"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="#fff"/><circle cx="30" cy="30" r="27" fill="#a79d89"/><text x="30" y="41" font-size="30" text-anchor="middle" fill="#fff" font-family="Lilita One,sans-serif">?</text></svg></div><div><div class="nm">🔒 ???</div><div class="tx">Terkunci. Mainkan tema ini sampai selesai ${need}× untuk membuka (sekarang ${n}×).</div></div></div>`;
-  }).join('');
-  if (s2) h += s2.map(id => `<div class="alcard s2"><div class="av">${avatarSVG(id, 'hitam')}</div><div><div class="nm">Season 2</div><div class="tx">Karakter ini menyusul di Season 2.</div></div></div>`).join('');
+  if (albSkin !== 'dadu' && !SKINS[albSkin]) albSkin = S.skin;
+  let h = `<div class="alb-tabs">${THEME_LIST.filter(t => !t.soon).map(t => `<button class="chip ${t.id === albSkin ? 'on' : ''}" data-albtheme="${t.id}">${esc(SKINS[t.id].name)}</button>`).join('')}<button class="chip ${albSkin === 'dadu' ? 'on' : ''}" data-albtheme="dadu">🎲 Dadu</button></div>`;
+  if (albSkin === 'dadu') {
+    // tab Dadu: semua dadu + keterangan; dadu ikut terbuka bersama temanya (buram + gembok bila belum), keterangan tetap terbaca
+    h += `<div class="alb-head">Dadu tiap tema. Dadu ikut terbuka bersama temanya.</div>`;
+    h += Object.keys(DICE).map(id => {
+      const d = DICE[id], open = diceOpen(id);
+      return `<div class="alcard ${open ? '' : 'lk'}"><div class="av">${dicePreview(id)}${open ? '' : LOCK_SVG}</div><div><div class="nm">${esc(d.name)}</div><div class="tx"><b>${esc(SKINS[d.skin].name)}</b>${d.magic ? ' · khusus tema ini' : ''}<br>${esc(DICE_INFO[id])}${open ? '' : `<br>🔒 ${esc(themeHint(d.skin))}`}</div></div></div>`;
+    }).join('');
+  } else {
+    const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
+    h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? '' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
+    if (!themeOpen(albSkin)) h += `<div class="alb-head">🔒 ${esc(themeHint(albSkin))}</div>`;
+    // semua karakter tampil; yang terkunci redup + gembok, faktanya disembunyikan (hitungan main tetap ada)
+    h += sk.pions.map(x => {
+      const need = lockNeed(albSkin, x.id), open = n >= need;
+      return open
+        ? `<div class="alcard" data-card="${x.id}"><div class="av">${avatarSVG(x.id, 'emas')}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">${esc(factOf(x.id))}</div></div></div>`
+        : `<div class="alcard lk" data-card="${x.id}"><div class="av">${avatarSVG(x.id, 'emas')}${LOCK_SVG}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">Buka karakter untuk mengenali lebih jauh. Mainkan tema ini sampai selesai ${need}× (sekarang ${n}×).</div></div></div>`;
+    }).join('');
+    if (s2) h += s2.map(id => `<div class="alcard s2"><div class="av">${avatarSVG(id, 'hitam')}</div><div><div class="nm">Season 2</div><div class="tx">Karakter ini menyusul di Season 2.</div></div></div>`).join('');
+  }
   h += `<div class="alb-tools"><button class="bbtn wood sm" data-act="albExport">⬆ Simpan progres</button><button class="bbtn wood sm" data-act="albImport">⬇ Muat progres</button></div><div class="hint" id="albMsg">${esc(albMsg)}</div><div class="hint">Progres tersimpan di perangkat ini. Berkas progres bisa dipindah ke perangkat lain atau dibagikan.</div>`;
   const sb = $('#albumBody'); sb.innerHTML = h;
+  // dari Beranda: karakter yang diketuk disorot dan digulir ke tengah
+  if (albFocus) { const f = sb.querySelector(`[data-card="${albFocus}"]`); albFocus = ''; if (f) { f.classList.add('hl'); setTimeout(() => f.scrollIntoView({ block: 'center', behavior: 'smooth' }), 80); } }
 }
 function exportAlbum() {
   const data = JSON.stringify({ app: 'HaHe', album: 1, plays: ALB.plays }, null, 1);
@@ -2579,7 +2666,7 @@ function makeGame(players, kind, skinId = S.skin, over = {}) {
   const eduCfg = Object.fromEntries(EDU_KEYS.map(k => [k, R[k]]));
   const edu = eduCfg.eduOn && kind !== 'komputer';
   return {
-    v: 3, skin: skinId, size, sizeSet: R.size, level: R.level, mode: R.mode, kind, finish: R.finish,
+    v: 3, skin: skinId, dice: diceFor(skinId), size, sizeSet: R.size, level: R.level, mode: R.mode, kind, finish: R.finish,
     throws: +R.throws, timeMin: +R.timeMin, timeLeft: R.mode === 'waktu' ? R.timeMin * 60000 : 0,
     players, turn: 0, ladders: bd.ladders, snakes: bd.snakes, over: false, winner: -1, last: null,
     eduCfg, q: edu ? pickQ(size, bd.ladders, bd.snakes, eduCfg.eduCount) : []
@@ -2612,8 +2699,9 @@ function renderGame() {
   pl.innerHTML = G.players.map((p, i) => `<div class="pion" id="pn${i}"><div class="hopper">${pionSVG(p.pion, p.ring, { delay: -i * 0.7 })}</div><svg class="arrow" viewBox="0 0 12 8"><polygon points="0,0 12,0 6,8" fill="#ffd84a" stroke="#7a4a22" stroke-width="1"/></svg><div class="tag">${esc(p.name)}</div></div>`).join('');
   const w = pionW();
   G.players.forEach((p, i) => { const el = $('#pn' + i); el.style.width = w + '%'; });
-  $('#cube').className = 'cube ' + (DICE[S.dice] || DICE.kayu).cls;
-  $('#diceScene').className = 'dice-scene ' + (DICE[S.dice] || DICE.kayu).cls;
+  const dk = gameDice();
+  $('#cube').className = 'cube ' + dk.cls;
+  $('#diceScene').className = 'dice-scene ' + dk.cls;
   buildCube();
   placeAll();
   updateHud();
@@ -2670,9 +2758,18 @@ function buildCube() {
   c.style.transition = 'none'; c.style.transform = `rotateX(${rx - 18}deg) rotateY(${ry + 22}deg)`;
   spin = { x: rx - 18, y: ry + 22 };
 }
-// kilau ajaib: khusus Dadu Pelangi (tema Unicorn)
-function magicDice() {
-  const sc = $('#diceScene'); if (!sc || !sc.classList.contains('dice-pelangi')) return;
+// dadu yang dipakai permainan ini (tersimpan di G.dice; permainan lama memakai pilihan terakhir)
+function gameDice() { return DICE[G && G.dice] || DICE[diceFor(G ? G.skin : S.skin)] || DICE.kayu; }
+// Keajaiban Dadu Ajaib tiap lemparan: bonus langkah (25%, +1 sampai +3), lemparan ekstra (20%), atau tidak ada. Tidak bertumpuk.
+function magicLuck() {
+  const r = Math.random();
+  if (r < MAGIC.bonus) return { bonus: 1 + Math.floor(Math.random() * MAGIC.maxBonus), extra: false };
+  if (r < MAGIC.bonus + MAGIC.extra) return { bonus: 0, extra: true };
+  return { bonus: 0, extra: false };
+}
+// kilau ajaib: Dadu Pelangi tiap lemparan; Dadu Ajaib (force) hanya saat keajaiban muncul
+function magicDice(force) {
+  const sc = $('#diceScene'); if (!sc || !(force || sc.classList.contains('dice-pelangi'))) return;
   sc.querySelectorAll('.dspk').forEach(e => e.remove());
   sc.classList.remove('glow'); void sc.offsetWidth; sc.classList.add('glow');
   const cols = ['#ffffff', '#fff3a0', '#ff8ac4', '#b38cff', '#8fd0ff', '#7ee0b0'];
@@ -2763,8 +2860,16 @@ async function doRoll() {
   if (!G || G.over || busy) return;
   busy = true; updateHud();
   const i = G.turn, p = G.players[i], last = G.size * G.size;
-  const v = await rollDice();
-  G.last = v; p.rolls++;
+  const face = await rollDice();
+  G.last = face; p.rolls++;
+  // Dadu Ajaib: keajaiban acak (bonus langkah langsung atau lemparan ekstra)
+  const mg = gameDice().magic ? magicLuck() : { bonus: 0, extra: false };
+  const v = face + mg.bonus; // angka yang dijalankan = angka dadu + bonus
+  if (mg.bonus || mg.extra) {
+    magicDice(true); SFX.magic();
+    toast('Keajaiban!', mg.bonus ? `Bonus +${mg.bonus} langkah` : 'Dapat lemparan ekstra');
+    await wait(mg.bonus ? 700 : 400);
+  }
   // langkah kotak demi kotak. Aturan finis: 'pas' = memantul bila lebih; 'lewat' = lebih tetap finis
   const lewat = G.finish === 'lewat';
   const steps = lewat ? Math.min(v, last - p.pos) : v;
@@ -2797,6 +2902,13 @@ async function doRoll() {
       saveGame(); toast('Bonus lempar!', `${p.name} lempar lagi`);
       await wait(400); return startTurn();
     }
+  }
+  // Dadu Ajaib: lemparan ekstra satu kali (tidak dihitung pada mode By Chance)
+  if (mg.extra) {
+    if (G.mode === 'waktu' && G.timeLeft <= 0) return endGame();
+    if (G.mode === 'kesempatan') p.rolls = Math.max(0, p.rolls - 1);
+    saveGame(); toast('Lempar lagi!', `${p.name} dapat lemparan ekstra`);
+    await wait(400); return startTurn();
   }
   if (G.mode === 'kesempatan' && G.players.every(q => q.rolls >= G.throws)) return endGame();
   if (G.mode === 'waktu' && G.timeLeft <= 0) return endGame();
@@ -2929,7 +3041,7 @@ function renderQuick() {
 }
 function quickGo() {
   store.set('hahe.quick', { n: QK.n });
-  const avail = THEME_LIST.filter(t => !t.soon && SKINS[t.id]).map(t => t.id);
+  const avail = THEME_LIST.filter(t => !t.soon && SKINS[t.id] && themeOpen(t.id)).map(t => t.id);
   const sk = avail[Math.floor(Math.random() * avail.length)];
   S.skin = sk; S.dice = SKINS[sk].dice[0]; saveSettings(); applySkin();
   const pions = availPions(sk);
@@ -3003,12 +3115,19 @@ function stopConfetti() { cancelAnimationFrame(cfRAF); cfRAF = null; }
 // INTERAKSI
 // =========================================================
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw],[data-up],[data-down],[data-setpion],[data-setring],[data-tile],[data-albtheme]');
+  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw],[data-up],[data-down],[data-setpion],[data-setring],[data-tile],[data-albtheme],[data-char],[data-dice]');
   if (!t) return;
   SFX.init();
-  if (t.dataset.albtheme) { SFX.click(); albSkin = t.dataset.albtheme; return renderAlbum(); }
+  if (t.dataset.albtheme) { SFX.click(); albSkin = t.dataset.albtheme; albFocus = ''; return renderAlbum(); }
+  if (t.dataset.char) { SFX.click(); albSkin = S.skin; albFocus = t.dataset.char; return show('album'); } // ketuk karakter di Beranda: buka Album, karakter itu disorot
+  if (t.dataset.dice) { SFX.click(); return setDice(t.dataset.dice); }
   if (t.dataset.chip) return onChip(t.dataset.chip, t.dataset.v);
-  if (t.dataset.tile) { SFX.click(); const th = THEME_LIST.find(x => x.id === t.dataset.tile); if (th && th.soon) return themeNote(`Tema ${th.name} hadir di Season 2!`); return setSkin(t.dataset.tile); }
+  if (t.dataset.tile) {
+    SFX.click(); const th = THEME_LIST.find(x => x.id === t.dataset.tile);
+    if (th && th.soon) return themeNote(`Tema ${th.name} hadir di Season 2!`);
+    if (th && !themeOpen(th.id)) return themeNote(themeHint(th.id), 4200);
+    return setSkin(t.dataset.tile);
+  }
   if (t.dataset.pick != null) { SFX.click(); return openPick(t.dataset.pick === 'cpu' ? 'cpu' : +t.dataset.pick); }
   if (t.dataset.setpion) { const p = pickIdx === 'cpu' ? cpuPion(curList()[0]) : curList()[pickIdx]; if (p) { p.pion = t.dataset.setpion; if (pickIdx === 'cpu') p.auto = false; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
   if (t.dataset.setring) { const p = pickIdx === 'cpu' ? cpuPion(curList()[0]) : curList()[pickIdx]; if (p) { p.ring = t.dataset.setring; if (pickIdx === 'cpu') p.auto = false; saveDraft(); SFX.click(); renderPick(); renderSetup(); } return; }
@@ -3016,7 +3135,11 @@ document.addEventListener('click', e => {
   if (t.dataset.down != null) { SFX.click(); return moveRow(+t.dataset.down, +t.dataset.down + 1); }
   if (t.dataset.ring != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players, p = L[+t.dataset.ring]; p.ring = ringPickerNext(p.ring, L.filter(x => x !== p).map(x => x.ring)); saveDraft(); SFX.click(); return renderSetup(); }
   if (t.dataset.del != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players; if (L.length > 2) L.splice(+t.dataset.del, 1); saveDraft(); return renderSetup(); }
-  if (t.dataset.sw) { S[t.dataset.sw] = !S[t.dataset.sw]; saveSettings(); SFX.vol(); BGM.sync(); SFX.click(); return renderSettings(); }
+  if (t.dataset.sw) {
+    S[t.dataset.sw] = !S[t.dataset.sw]; saveSettings(); SFX.vol(); BGM.sync(); // backsound: langsung main/berhenti saat dinyalakan/dimatikan
+    if (t.dataset.sw === 'sfx' && S.sfx) SFX.step(); else SFX.click(); // efek suara: langsung berbunyi saat dinyalakan (pratinjau)
+    return renderSettings();
+  }
   const a = t.dataset.act;
   if (a !== 'roll') SFX.click();
   switch (a) {
@@ -3035,10 +3158,10 @@ document.addEventListener('click', e => {
     case 'continue': { FS.auto(); const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
     case 'settings': if (cur === 'game' && busy) break; show('settings'); break;
     case 'about': show('about'); break;
-    case 'album': albSkin = S.skin; show('album'); break;
+    case 'album': albSkin = S.skin; albFocus = ''; show('album'); break;
     case 'albExport': exportAlbum(); break;
     case 'albImport': $('#albFile').click(); break;
-    case 'albFromWin': albSkin = G ? G.skin : S.skin; goHome(); show('album'); break;
+    case 'albFromWin': albSkin = G ? G.skin : S.skin; albFocus = ''; goHome(); show('album'); break;
     case 'back': goBack(); break;
     case 'start': FS.auto(); readInputs(); startGame(); break;
     case 'addPlayer': {
@@ -3078,9 +3201,13 @@ document.addEventListener('click', e => {
     case 'applyNow': confirmBox('Terapkan & mulai ulang?', 'Aturan baru langsung dipakai. Posisi pion sekarang akan hilang; pemain tetap sama.', () => { commitPend(); restartWithRules(); }); break;
   }
 });
+let lastPrev = 0; // waktu pratinjau efek suara terakhir (dibatasi agar tidak menumpuk)
 document.addEventListener('input', e => {
   const t = e.target;
-  if (t.dataset.vol) { S[t.dataset.vol] = (+t.value) / 100; saveSettings(); SFX.vol(); BGM.sync(); }
+  if (t.dataset.vol) {
+    S[t.dataset.vol] = (+t.value) / 100; saveSettings(); SFX.vol(); BGM.sync(); // backsound: volume langsung terdengar saat digeser
+    if (t.dataset.vol === 'sfxVol') { const now = performance.now(); if (now - lastPrev > 130) { lastPrev = now; SFX.step(); } } // efek suara: pratinjau langsung saat digeser
+  }
   if (t.dataset.name != null || t.dataset.mem != null) { readInputs(); }
   if (t.dataset.gname != null && G && G.players[+t.dataset.gname]) { G.players[+t.dataset.gname].name = t.value.trim() || `P${+t.dataset.gname + 1}`; saveGame(); }
 });

@@ -1,0 +1,13 @@
+{
+ "app": "HaHe",
+ "album": 1,
+ "plays": {
+  "borneo": 10,
+  "angkasa": 10,
+  "eskrim": 10,
+  "salju": 10,
+  "kebun": 10,
+  "bawahlaut": 10,
+  "unicorn": 10
+ }
+}
