@@ -340,6 +340,22 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 .pbtn.on{border-color:#0f4a24;background:#d8f5cf;box-shadow:0 3px 0 #0f4a24}
 :root[data-theme="dark"] .pbtn.on{background:#1f4a28}
 .pbtn:disabled{opacity:.38;cursor:default}
+
+/* Album Karakter */
+.alb-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.alb-tabs .chip{min-height:36px;padding:4px 11px;font-size:13.5px}
+.alb-head{font-weight:800;color:var(--ink2);font-size:13.5px;margin:0 2px 8px}
+.alcard{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:16px;background:var(--chip);border:2px solid var(--sheetLine);margin-bottom:8px}
+.alcard .av{width:64px;height:64px;flex:none}
+.alcard .nm{font-family:var(--disp);font-size:20px;line-height:1.1}
+.alcard .tx{font-weight:700;font-size:13.5px;line-height:1.4;margin-top:2px}
+.alcard.lk .nm,.alcard.lk .tx{color:var(--ink2)}
+.alcard.s2 .av{filter:brightness(0) opacity(.3)}
+.alb-tools{display:flex;gap:8px;margin-top:12px}
+.alb-tools .bbtn{min-height:44px;font-size:15px;padding:0 6px}
+.unl{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:16px;background:#fff3b8;border:2px solid #c98a00;font-weight:800;color:#5a3a00}
+.unl .r{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:20px}
+.unl .r .av{width:44px;height:44px}
 .pbtn .used{position:absolute;top:4px;right:4px;font-size:9.5px;padding:1px 5px;border-radius:7px;background:#b3261e;color:#fff}
 .rgrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .rdot{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.3);padding:0}
@@ -1439,6 +1455,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       <button class="bbtn gold hidden" id="btnContinue" data-act="continue">LANJUTKAN</button>
       <button class="bbtn" data-act="newgame">MAIN BARU</button>
       <button class="bbtn gold sm" data-act="quick">⚡ MODE CEPAT</button>
+      <button class="bbtn wood sm" data-act="album">📖 Album Karakter</button>
       <div style="display:flex;gap:12px">
         <button class="bbtn wood sm" data-act="settings">Pengaturan</button>
         <button class="bbtn wood sm" data-act="about">Tentang</button>
@@ -1477,6 +1494,16 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <div class="sheetwrap">
       <div class="sheethead"><button class="rbtn" data-act="back" aria-label="Kembali"><svg><use href="#ic-back"/></svg></button><h2>Tentang HaHe</h2></div>
       <div class="sheet about" id="aboutBody"></div>
+    </div>
+    <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
+  </section>
+
+  <!-- ALBUM KARAKTER -->
+  <section class="screen" id="album">
+    <div class="sheetwrap">
+      <div class="sheethead"><button class="rbtn" data-act="back" aria-label="Kembali"><svg><use href="#ic-back"/></svg></button><h2>Album Karakter</h2></div>
+      <div class="sheet" id="albumBody"></div>
+      <input type="file" id="albFile" accept="application/json,.json" class="hidden">
     </div>
     <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
   </section>
@@ -1569,6 +1596,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <canvas id="confetti"></canvas>
     <div class="mbox" style="position:relative">
       <div class="champ" id="champ"></div>
+      <div id="unlockNote"></div>
       <div class="rank" id="rank"></div>
       <button class="bbtn" data-act="again">MAIN LAGI</button>
       <button class="bbtn wood sm" data-act="home">Ke Beranda</button>
@@ -1579,8 +1607,8 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
 <script>
 'use strict';
 /* =========================================================
-   HaHe (Handipe Hejan) · Versi 1.7 (karakter komputer bisa diganti, Putri Mawar, label Season 2)
-   Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Unicorn
+   HaHe (Handipe Hejan) · Versi 1.8 (Album Karakter, tema Unicorn menjadi Negeri Dongeng)
+   Mesin game + tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng
    HaHe ©2026 | hahe.totogutomo.com
    ========================================================= */
 
@@ -1672,7 +1700,7 @@ const SKINS = {
   },
   // Tema 3D pertama: 4 karakter asli + Tingang 3D (versi Borneo, bertanduk ajaib)
   unicorn: {
-    id: 'unicorn', name: 'Unicorn',
+    id: 'unicorn', name: 'Negeri Dongeng',
     pions: [
       { id: 'unicorn', name: 'Unicorn' },
       { id: 'poni', name: 'Kuda Poni' },
@@ -1695,7 +1723,7 @@ const THEME_LIST = [
   { id: 'unicorn', hero: 'unicorn' },
   { id: 'bajaklaut', name: 'Bajak Laut', soon: true }, { id: 'dinosaurus', name: 'Dinosaurus', soon: true }
 ];
-// Karakter Season 2 (siluet, belum bisa dimainkan): Borneo = Jaya Tingang, Bunga Huma; Unicorn = 2 Princess
+// Karakter Season 2 (siluet, belum bisa dimainkan): Borneo = Jaya Tingang, Bunga Huma; Negeri Dongeng = 2 Princess
 const SEASON2 = { borneo: ['s2a', 's2b'], unicorn: ['s2p1', 's2p2'] };
 const DICE = {
   kayu: { name: 'Dadu Kayu', skin: 'borneo', cls: 'dice-kayu' },
@@ -1764,6 +1792,22 @@ let draft = store.get('hahe.draft', null) || {
 };
 function saveDraft() { store.set('hahe.draft', draft); }
 
+// ---------- Album Karakter: hitungan main & gembok ----------
+// Karakter urutan ke-3 (non-Tingang) terbuka setelah 5 kali main sampai selesai di tema itu, urutan ke-4 setelah 10 kali.
+// Tingang selalu terbuka; Hutan Borneo tanpa gembok. Disimpan per perangkat.
+let ALB = store.get('hahe.album', null) || { plays: {} };
+if (!ALB.plays || typeof ALB.plays !== 'object') ALB.plays = {};
+function saveAlbum() { store.set('hahe.album', ALB); }
+const isTingang = id => id.indexOf('tingang') === 0;
+function lockNeed(skinId, pionId) {
+  if (skinId === 'borneo' || isTingang(pionId)) return 0;
+  const k = SKINS[skinId].pions.map(x => x.id).filter(x => !isTingang(x)).indexOf(pionId);
+  return k === 2 ? 5 : k === 3 ? 10 : 0;
+}
+const playsOf = skinId => Math.max(0, Math.floor(+ALB.plays[skinId] || 0));
+const isOpen = (skinId, pionId) => playsOf(skinId) >= lockNeed(skinId, pionId);
+const availPions = skinId => SKINS[skinId].pions.map(x => x.id).filter(id => isOpen(skinId, id));
+
 // ---------- Utilitas ----------
 const $ = (s, el = document) => el.querySelector(s);
 const wait = ms => new Promise(r => setTimeout(r, ms));
@@ -1780,13 +1824,13 @@ function seeded(str) {
 function suggestSize(n) { return n <= 4 ? 10 : n <= 6 ? 8 : 6; }
 // Pion unik selama jumlah pemain tidak melebihi jumlah karakter; selebihnya boleh berulang (beda warna cincin)
 function remapPions(list, skinId) {
-  const ids = SKINS[skinId].pions.map(x => x.id), used = new Set(), uniq = list.length <= ids.length;
+  const ids = availPions(skinId), used = new Set(), uniq = list.length <= ids.length;
   list.forEach((p, i) => {
     if (ids.includes(p.pion) && !(uniq && used.has(p.pion))) { used.add(p.pion); return; }
     p.pion = ids.find(x => !used.has(x)) || ids[i % ids.length]; used.add(p.pion);
   });
 }
-function freePion(list) { const ids = skin().pions.map(x => x.id); return ids.find(x => !list.some(p => p.pion === x)) || ids[list.length % ids.length]; }
+function freePion(list) { const ids = availPions(skin().id); return ids.find(x => !list.some(p => p.pion === x)) || ids[list.length % ids.length]; }
 // tema yang tampil: saat bermain mengikuti tema permainan
 function visSkin() { return cur === 'game' && G ? G.skin : S.skin; }
 function applySkin() { const s = visSkin(); if (document.documentElement.dataset.skin !== s) document.documentElement.dataset.skin = s; }
@@ -1936,6 +1980,7 @@ function show(id, push = true) {
   if (id === 'setup') renderSetup();
   if (id === 'settings') renderSettings();
   if (id === 'about') renderAbout();
+  if (id === 'album') renderAlbum();
   if (id === 'game') { renderGame(); }
   applyLayout();
 }
@@ -2074,7 +2119,7 @@ function rowHTML(p, i, ph, canDel, ord) {
 // Karakter komputer: bawaan acak (tidak sama dengan pemain), bisa diganti lewat ketuk gambarnya
 const rndOf = a => a[Math.floor(Math.random() * a.length)];
 function cpuPion(p) {
-  const pions = skin().pions.map(x => x.id);
+  const pions = availPions(skin().id);
   let c = draft.cpu;
   if (!c || !pions.includes(c.pion) || c.pion === p.pion) { c = draft.cpu = { auto: true, pion: rndOf(pions.filter(x => x !== p.pion)), ring: null }; saveDraft(); }
   if (!c.ring || c.ring === p.ring) { c.ring = rndOf(RINGS.map(r => r.id).filter(x => x !== p.ring && x !== 'hitam')); saveDraft(); }
@@ -2087,10 +2132,10 @@ function renderPick() {
   const L = curList(), isCpu = pickIdx === 'cpu', cm = draft.kind === 'komputer';
   const p = isCpu ? cpuPion(L[0]) : L[pickIdx]; if (!p) return;
   const others = isCpu ? [L[0]] : cm ? [cpuPion(p)] : L.filter(x => x !== p);
-  const sk = skin(), lockP = cm || L.length <= sk.pions.length, lockR = cm || L.length <= RINGS.length;
+  const sk = skin(), lockP = cm || L.length <= availPions(sk.id).length, lockR = cm || L.length <= RINGS.length;
   let h = `<h3>${isCpu ? 'Karakter komputer' : 'Karakter'} (${esc(sk.name)})</h3><div class="pgrid">${sk.pions.map(x => {
-    const used = others.some(o => o.pion === x.id);
-    return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${used && lockP ? 'disabled' : ''}>${used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.name)}</button>`;
+    const used = others.some(o => o.pion === x.id), lk = !isOpen(sk.id, x.id);
+    return `<button class="pbtn ${p.pion === x.id ? 'on' : ''}" data-setpion="${x.id}" ${(used && lockP) || lk ? 'disabled' : ''}>${lk ? `<span class="used">🔒 ${lockNeed(sk.id, x.id)}×</span>` : used ? '<span class="used">dipakai</span>' : ''}<div class="av">${avatarSVG(x.id, p.ring)}</div>${esc(x.name)}</button>`;
   }).join('')}</div>`;
   h += `<h3>Warna cincin</h3><div class="rgrid">${RINGS.map(r => {
     const used = others.some(o => o.ring === r.id);
@@ -2098,6 +2143,7 @@ function renderPick() {
   }).join('')}</div>`;
   const s2 = SEASON2[sk.id];
   if (s2) h += `<h3>Season 2 · segera hadir</h3><div class="pgrid">${s2.map(id => `<button class="pbtn" disabled><div class="av">${avatarSVG(id, 'hitam')}</div>Season 2</button>`).join('')}</div>`;
+  if (sk.pions.some(x => !isOpen(sk.id, x.id))) h += `<div class="hint">🔒 Karakter terkunci terbuka setelah tema ini dimainkan sampai selesai (lihat Album Karakter).</div>`;
   if (!lockP && !cm) h += `<div class="hint">Pemain lebih banyak dari jumlah karakter: karakter boleh sama, dibedakan warna cincin.</div>`;
   $('#pickBody').innerHTML = h;
 }
@@ -2242,8 +2288,80 @@ function renderAbout() {
   <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
   <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
   <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.7 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Unicorn · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 1.8 · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
+
+// ---------- Album Karakter ----------
+const FACTS = {
+  tingang: 'Tingang atau burung enggang dimuliakan masyarakat Dayak. Paruhnya besar dengan tanduk di atasnya.',
+  tingangangkasa: 'Tingang memakai helm astronot dan siap terbang menjelajah bintang.',
+  tingangeskrim: 'Tingang ikut berpesta es krim. Hati-hati, jangan sampai paruhnya lengket!',
+  tingangsalju: 'Tingang memakai syal merah putih supaya hangat di Negeri Salju.',
+  tingangkebun: 'Tingang bertopi jerami ikut menjaga bunga-bunga di kebun.',
+  tingangselam: 'Tingang menyelam dengan tabung oksigen untuk melihat ikan dari dekat.',
+  tingangunicorn: 'Tingang kini punya tanduk ajaib yang berkilau di Negeri Dongeng.',
+  orangutan: 'Orangutan berarti “orang hutan”. Hewan ini hidup di hutan Kalimantan dan Sumatra, dan membuat sarang baru dari dahan setiap malam.',
+  bekantan: 'Bekantan adalah monyet berhidung besar yang hanya hidup di Pulau Kalimantan. Ia pandai berenang dan menyelam.',
+  astronot: 'Astronot memakai pakaian khusus karena di luar angkasa tidak ada udara untuk bernapas.',
+  alien: 'Alien datang dari planet jauh yang penuh warna. Ia suka mencari teman baru dan belajar permainan bumi, seperti ular tangga!',
+  robot: 'Robot dibuat untuk membantu pekerjaan manusia. Robot ini selalu semangat, asal baterainya penuh.',
+  roket: 'Roket terbang ke luar angkasa dengan menyemburkan gas panas ke bawah.',
+  cone: 'Cone Stroberi berasa manis-asam dan beralas wafel renyah. Ia suka tempat teduh supaya tidak meleleh.',
+  loli: 'Es Loli selalu dingin dan segar, dan paling dicari saat cuaca panas.',
+  sundae: 'Sundae Ceri adalah es krim bersaus dengan ceri di atasnya. Ceri itu mahkota kebanggaannya.',
+  milkshake: 'Milkshake dibuat dengan mengocok susu dan es krim sampai lembut. Paling asyik diminum pakai sedotan.',
+  manusiasalju: 'Manusia Salju dibuat dari gumpalan salju dengan wortel sebagai hidung. Ia paling senang saat salju turun.',
+  penguin: 'Penguin adalah burung yang tidak bisa terbang, tetapi sangat pandai berenang.',
+  beruangkutub: 'Beruang kutub hidup di daerah Arktik. Bulu tebal dan lapisan lemak menjaga tubuhnya tetap hangat.',
+  rusa: 'Rusa kutub hidup di daerah dingin, dan tanduknya tumbuh kembali setiap tahun.',
+  lebah: 'Lebah mengumpulkan sari bunga untuk dibuat madu, dan sambil terbang membantu bunga menjadi buah.',
+  kupu: 'Kupu-kupu berawal dari ulat, lalu menjadi kepompong, kemudian terbang dengan sayap yang indah.',
+  kepik: 'Kepik berbadan bulat dengan bintik-bintik. Ia sahabat petani karena memakan kutu daun.',
+  siput: 'Siput membawa rumahnya di punggung dan berjalan pelan-pelan di atas lendirnya.',
+  ikan: 'Ikan Badut berlindung di antara tentakel anemon laut, tempat yang aman baginya.',
+  kepiting: 'Kepiting berjalan menyamping dan memakai capitnya untuk memegang makanan.',
+  gurita: 'Gurita punya delapan lengan dan tiga jantung.',
+  penyu: 'Penyu bisa hidup puluhan tahun dan bertelur di pantai. Anak penyu berlari ke laut begitu menetas.',
+  unicorn: 'Unicorn adalah kuda bertanduk dalam dongeng yang konon membawa keajaiban. Di dunia nyata ia tidak ada.',
+  poni: 'Kuda poni bertubuh lebih kecil daripada kuda biasa, tetapi kuat dan ramah.',
+  perikucing: 'Peri Kucing membawa tongkat bintang dan bersayap berkilau. Ia suka membuat kejutan kecil yang ajaib.',
+  narwal: 'Narwal adalah paus kecil dari laut Arktik. “Tanduk” panjangnya sebenarnya gigi taring.',
+  putri: 'Putri Mawar tinggal di istana penuh bunga mawar. Ia ramah dan suka menyapa semua teman.'
+};
+const factOf = id => FACTS[id] || FACTS.tingang;
+let albSkin = 'borneo', albMsg = '';
+function renderAlbum() {
+  if (!SKINS[albSkin]) albSkin = S.skin;
+  const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
+  let h = `<div class="alb-tabs">${THEME_LIST.filter(t => !t.soon).map(t => `<button class="chip ${t.id === albSkin ? 'on' : ''}" data-albtheme="${t.id}">${esc(SKINS[t.id].name)}</button>`).join('')}</div>`;
+  h += `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}×${albSkin === 'borneo' ? '' : ' (karakter 🔒 terbuka di 5× dan 10×)'}</div>`;
+  h += sk.pions.map(x => {
+    const need = lockNeed(albSkin, x.id), open = n >= need;
+    return open
+      ? `<div class="alcard"><div class="av">${avatarSVG(x.id, 'emas')}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">${esc(factOf(x.id))}</div></div></div>`
+      : `<div class="alcard lk"><div class="av"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="#fff"/><circle cx="30" cy="30" r="27" fill="#a79d89"/><text x="30" y="41" font-size="30" text-anchor="middle" fill="#fff" font-family="Lilita One,sans-serif">?</text></svg></div><div><div class="nm">🔒 ???</div><div class="tx">Terkunci. Mainkan tema ini sampai selesai ${need}× untuk membuka (sekarang ${n}×).</div></div></div>`;
+  }).join('');
+  if (s2) h += s2.map(id => `<div class="alcard s2"><div class="av">${avatarSVG(id, 'hitam')}</div><div><div class="nm">Season 2</div><div class="tx">Karakter ini menyusul di Season 2.</div></div></div>`).join('');
+  h += `<div class="alb-tools"><button class="bbtn wood sm" data-act="albExport">⬆ Simpan progres</button><button class="bbtn wood sm" data-act="albImport">⬇ Muat progres</button></div><div class="hint" id="albMsg">${esc(albMsg)}</div><div class="hint">Progres tersimpan di perangkat ini. Berkas progres bisa dipindah ke perangkat lain atau dibagikan.</div>`;
+  const sb = $('#albumBody'); sb.innerHTML = h;
+}
+function exportAlbum() {
+  const data = JSON.stringify({ app: 'HaHe', album: 1, plays: ALB.plays }, null, 1);
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([data], { type: 'application/json' })); a.download = 'hahe-album.json';
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+  albMsg = 'Berkas hahe-album.json disimpan.'; renderAlbum();
+}
+$('#albFile').addEventListener('change', () => {
+  const inp = $('#albFile'), f = inp.files && inp.files[0]; if (!f) return;
+  f.text().then(t => {
+    const d = JSON.parse(t);
+    if (!d || d.app !== 'HaHe' || !d.plays || typeof d.plays !== 'object') throw 0;
+    Object.keys(SKINS).forEach(k => { const v = Math.min(999, Math.max(0, Math.floor(+d.plays[k] || 0))); if (v > playsOf(k)) ALB.plays[k] = v; });
+    saveAlbum(); albMsg = 'Progres berhasil dimuat (digabung dengan progres di perangkat ini).';
+  }).catch(() => { albMsg = 'Berkas tidak cocok. Pilih berkas hahe-album.json dari HaHe.'; }).then(() => { inp.value = ''; renderAlbum(); });
+});
 
 // =========================================================
 // MESIN GAME
@@ -2814,7 +2932,7 @@ function quickGo() {
   const avail = THEME_LIST.filter(t => !t.soon && SKINS[t.id]).map(t => t.id);
   const sk = avail[Math.floor(Math.random() * avail.length)];
   S.skin = sk; S.dice = SKINS[sk].dice[0]; saveSettings(); applySkin();
-  const pions = SKINS[sk].pions.map(x => x.id);
+  const pions = availPions(sk);
   let players, kind;
   if (QK.n === 1) { kind = 'komputer'; players = [{ name: 'P1', pion: pions[0], ring: 'merah' }, { name: 'Komputer', pion: pions[1], ring: 'biru', cpu: true }]; }
   else { kind = 'teman'; players = Array.from({ length: QK.n }, (_, i) => ({ name: `P${i + 1}`, pion: pions[i % pions.length], ring: RINGS[i % RINGS.length].id })); }
@@ -2854,6 +2972,11 @@ function endGame() {
   const rk = ranking();
   if (G.winner < 0) G.winner = rk[0].i;
   G.over = true; saveGame(); store.del('hahe.save');
+  // Album Karakter: hitung permainan yang selesai (per tema), cek karakter yang baru terbuka
+  const sk = G.skin, wasOpen = SKINS[sk].pions.filter(x => isOpen(sk, x.id)).map(x => x.id);
+  ALB.plays[sk] = playsOf(sk) + 1; saveAlbum();
+  const fresh = SKINS[sk].pions.filter(x => !wasOpen.includes(x.id) && isOpen(sk, x.id));
+  $('#unlockNote').innerHTML = fresh.length ? `<div class="unl">🎉 Karakter terbuka!${fresh.map(x => `<div class="r"><div class="av">${avatarSVG(x.id, 'emas')}</div><span>${esc(x.name)}</span></div>`).join('')}<button class="chip" data-act="albFromWin">Lihat di Album</button></div>` : '';
   placeAll(); updateHud();
   const w = G.players[G.winner];
   const co = rk.filter(r => r.rank === 1).length;
@@ -2880,9 +3003,10 @@ function stopConfetti() { cancelAnimationFrame(cfRAF); cfRAF = null; }
 // INTERAKSI
 // =========================================================
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw],[data-up],[data-down],[data-setpion],[data-setring],[data-tile]');
+  const t = e.target.closest('[data-act],[data-chip],[data-pick],[data-ring],[data-del],[data-sw],[data-up],[data-down],[data-setpion],[data-setring],[data-tile],[data-albtheme]');
   if (!t) return;
   SFX.init();
+  if (t.dataset.albtheme) { SFX.click(); albSkin = t.dataset.albtheme; return renderAlbum(); }
   if (t.dataset.chip) return onChip(t.dataset.chip, t.dataset.v);
   if (t.dataset.tile) { SFX.click(); const th = THEME_LIST.find(x => x.id === t.dataset.tile); if (th && th.soon) return themeNote(`Tema ${th.name} hadir di Season 2!`); return setSkin(t.dataset.tile); }
   if (t.dataset.pick != null) { SFX.click(); return openPick(t.dataset.pick === 'cpu' ? 'cpu' : +t.dataset.pick); }
@@ -2911,6 +3035,10 @@ document.addEventListener('click', e => {
     case 'continue': { FS.auto(); const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
     case 'settings': if (cur === 'game' && busy) break; show('settings'); break;
     case 'about': show('about'); break;
+    case 'album': albSkin = S.skin; show('album'); break;
+    case 'albExport': exportAlbum(); break;
+    case 'albImport': $('#albFile').click(); break;
+    case 'albFromWin': albSkin = G ? G.skin : S.skin; goHome(); show('album'); break;
     case 'back': goBack(); break;
     case 'start': FS.auto(); readInputs(); startGame(); break;
     case 'addPlayer': {

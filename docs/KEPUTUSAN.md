@@ -213,7 +213,7 @@ Hasil uji V 1.6 di HP: Unicorn berjalan baik, nyaris tanpa galat. Uji di IFP unt
 - Barisan karakter di Beranda menyesuaikan lebar layar bila karakter banyak (Unicorn: 6 karakter + 2 siluet).
 - Versi 1.7; sw.js memakai simpanan baru (hahe-v8) agar pembaruan sampai ke aplikasi terpasang.
 
-### Rencana (sudah disetujui, belum dikerjakan): Album Karakter
+### Rencana Album Karakter (SELESAI di Versi 1.8, lihat bagian 23)
 - Menu di Beranda bernama **Album Karakter**: daftar karakter per tema (gambar, nama, satu atau dua kalimat fakta/cerita). Karakter terkunci tampil sebagai siluet dengan petunjuk "Main 5 kali untuk membuka".
 - **Gembok** (kecuali Borneo, yang hanya punya 3 karakter utama): karakter urutan ke-3 terbuka setelah **5 kali** memainkan tema, urutan ke-4 setelah **10 kali**. **Tingang selalu terbuka.** Karakter yang digembok adalah karakter yang sudah ada, bukan karakter baru.
 - Hitungan "main" = permainan **sampai selesai** (ada juara), dihitung **per tema**, disimpan **per perangkat**.
@@ -225,6 +225,16 @@ Hasil uji V 1.6 di HP: Unicorn berjalan baik, nyaris tanpa galat. Uji di IFP unt
 
 ### Rencana: jalur Play Store
 Web dibungkus (bukan native). Mulai dengan pembungkus ringan (TWA) dari hahe.totogutomo.com; HaHe sudah PWA dan bisa offline setelah dibuka sekali. Dibahas setelah semua tema selesai. Karakter harus desain asli; backsound dicek lisensinya; aturan aplikasi anak/keluarga berlaku.
+
+## 23. Update Versi 1.8 (24 Okt 2026)
+- **Tema Unicorn diganti namanya menjadi "Negeri Dongeng"** (karakter Unicorn tetap bernama Unicorn). Princess, Peri Kucing, Narwal, dan lainnya tetap di tema ini.
+- **Album Karakter** (menu di Beranda): daftar karakter per tema (gambar, nama, satu atau dua kalimat fakta/cerita), pilih tema lewat tombol di atas. Karakter terkunci tampil sebagai "?" dengan petunjuk berapa kali harus main. Karakter Season 2 tampil sebagai siluet.
+- **Gembok** (kecuali Hutan Borneo): karakter urutan ke-3 di tiap tema terbuka setelah **5 kali** main sampai selesai, urutan ke-4 setelah **10 kali**. Tingang selalu terbuka. Di Negeri Dongeng: Peri Kucing (5 kali) dan Narwal (10 kali); Unicorn, Kuda Poni, Putri Mawar, dan Tingang selalu terbuka.
+- Hitungan dihitung **per tema**, hanya untuk permainan yang **selesai** (ada juara), disimpan **per perangkat**.
+- Saat karakter terbuka: kotak "Karakter terbuka!" muncul di layar juara dengan tombol "Lihat di Album".
+- Jendela Pilih Karakter menandai karakter terkunci (🔒 dan jumlah main). Pilihan awal, **karakter komputer**, dan **Mode Cepat** hanya memakai karakter yang sudah terbuka.
+- **Simpan progres / Muat progres** (berkas hahe-album.json): pindah perangkat atau berbagi; saat dimuat, digabung dengan angka tertinggi.
+- Versi 1.8; sw.js memakai simpanan baru (hahe-v9).
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
