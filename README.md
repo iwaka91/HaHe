@@ -5,7 +5,7 @@ Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa 
 
 Main di: **hahe.totogutomo.com**
 
-## Fitur (Versi 2.3)
+## Fitur (Versi 2.4)
 - Ular tangga untuk 1 sampai beberapa pemain; 1 pemain berarti melawan komputer (karakter komputer acak dan bisa diganti).
 - Tujuh tema (Hutan Borneo punya 5 karakter aktif: Ksatria Talawang terkunci sampai 2 kali main dan MPA terkunci sampai 1 kali main sampai selesai; Hutan Borneo juga berkabut asap, dengan tombol "Padamkan Karhutla"): Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng (pilih tema di Beranda; tema yang sudah jadi di kiri, yang belum di kanan dengan label "Season 2": Bajak Laut dan Dinosaurus). Negeri Dongeng punya Putri Mawar dan dua siluet Princess Season 2, dan **terkunci**: terbuka setelah Hutan Borneo dimainkan sampai selesai 5 kali.
 - **Mode Edukasi**: kotak **[?]** muncul acak (Sedikit 15%, Sedang 25%, Banyak 40%), berisi soal Mengeja, Menghitung (tambah, kurang, kali, bagi; satuan sampai ribuan), Tebak Kata (Indonesia/English), dan Tantangan aktivitas. Jawaban benar berarti lempar dadu lagi. Tidak aktif saat melawan komputer.
@@ -27,7 +27,7 @@ Main di: **hahe.totogutomo.com**
 - `docs/uji/hahe-album-semua-karakter.json`: berkas uji, muat lewat Album > Muat progres untuk membuka semua tema, karakter, dan dadu.
 
 ## Status dan rencana
-- Versi 2.3 terkirim; perlu diuji di HP dan IFP (ikon dan pemasangan diuji ulang di hahe.totogutomo.com setelah deploy).
+- Versi 2.4 terkirim; perlu diuji di HP dan IFP (ikon dan pemasangan diuji ulang di hahe.totogutomo.com setelah deploy).
 - Berikutnya: tema 3D Bajak Laut dan Dinosaurus (Season 2), lalu Musim kedua Borneo.
 - Backsound per tema menyusul setelah semua tema jadi (kredit ditulis di Tentang).
 

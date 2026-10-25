@@ -76,7 +76,7 @@ Untuk papan 10×10. Pada papan 8×8 dan 6×6 jumlah dikurangi sebanding (minimal
 
 ## 10. About
 - Arti HaHe (Handipe Hejan) dan tujuan game.
-- Pembuat: Toto Gutomo, lalu di bawahnya **"Guru SMA Negeri 3 Maliku"**.
+- Pembuat: Toto Gutomo. (Khusus HaHe sejak Versi 2.4: nama lengkap tanpa keterangan sekolah, lihat bagian 29.)
 - "Game dibangun atas permintaan: **Cherry 🍒**" (ikon ceri digambar sendiri, bukan emoji bawaan).
 - Kredit backsound.
 
@@ -279,6 +279,19 @@ Hasil diskusi hasil uji V 1.8 (delapan poin Pak Toto), semua dikerjakan.
 - **Masker** dipindah ke baris paling bawah Beranda (kiri dan kanan tulisan footer, di atas daun tema), diperbesar dan lebih detail: masker medis berlipat dan masker gas berlensa, filter, dan katup. Tampil hanya saat kabut ada. Beranda jadi sedikit lebih panjang (bisa digulir).
 - Mockup Beranda v2.2 (ikon dan masker) hanya di Claude Design, belum disimpan ke repo; di mockup masker menimpa area bawah, di game dipindah ke baris footer agar tidak menutup tombol.
 - Versi 2.3; sw.js memakai simpanan baru (hahe-v14).
+
+## 29. Update Versi 2.4 (25 Okt 2026)
+HaHe sudah **online di hahe.totogutomo.com** (diunggah Pak Toto). Instalasi dan ikon pasang sudah diuji berfungsi. Versi ini adalah polish menuju rilis publik.
+- **Beranda desktop satu halaman** (layar lebar landscape): dua kolom. Kiri: logo, karakter, pilih tema. Kanan: Main Baru, Padamkan Karhutla Borneo, Pasang. Pengaturan, Layar Penuh, Tentang jadi ikon di kanan atas, sejajar Album. Footer tidak terpotong lagi. HP tetap satu kolom.
+- **Kabut Beranda**: siluet hutan merah, api kecil, toast "Kabut asap melanda Borneo! Ayo padamkan Karhutla", lalu 5 kalatu (abu daun terbakar) yang sangat besar melayang (tidak di Mode Ringan).
+- **Kabut papan**: dasar kabut diperkuat. **Serangan kabut** acak tiap 4 sampai 6 giliran (tidak di giliran pertama): toast "Kabut asap menyerang!" hitung mundur 3-2-1, kabut datang dan segera hilang; 1 dari 4 serangan berupa **kabut hitam**. Tidak menghentikan permainan.
+- **Tombol "Padamkan Karhutla Borneo"**: tekan 1 "Pemadaman belum optimal / Doain segera pulih ya"; tekan 2 "Terima kasih dukungannya untuk Karhutla Borneo"; tekan 3 "Mohon maaf, kabut asap belum menghilang" lalu tombol abu-abu (aktif lagi setelah halaman dimuat ulang).
+- **Pengaturan > Efek kabut asap** hidup/mati (mematikan seluruh efek kabut, tombol Karhutla, dan masker).
+- **Tentang**: nama lengkap "Toto Gutomo, S.Pd., Gr., M.Pd., CPSS" (tanpa keterangan sekolah, hanya untuk HaHe, karena isu karhutla sensitif); ucapan terima kasih kepada ananda Cherry, pemrakarsa game dan penguji setia; disclaimer edukasi kabut asap (tidak menunjuk pihak mana pun, tidak menggalang dana); lisensi dan kredit (Game (c) 2026 Toto Gutomo; seluruh gambar dibuat dengan bantuan AI berdasarkan arahan pembuat; huruf Lilita One dan Nunito, SIL OFL); kredit backsound menyusul.
+- **Halaman Privasi** (dari Tentang): tidak ada akun, iklan, pelacak; data hanya di perangkat; satu-satunya hubungan internet adalah Google Fonts.
+- **Ikon baru**: Tingang dengan dadu kecil di pojok kanan bawah, latar hijau hutan (ikon biasa dan maskable).
+- Versi 2.4; sw.js memakai simpanan baru (hahe-v15).
+- Menunggu: backsound dan tangkapan layar lisensinya dari Pak Toto; uji ulang Pak Toto setelah update.
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

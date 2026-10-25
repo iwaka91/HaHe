@@ -96,7 +96,7 @@ input{font-family:inherit}
 @keyframes klFly{0%{transform:translate(0,0) rotate(0);opacity:0}12%{opacity:.9}100%{transform:translate(50px,-140px) rotate(220deg);opacity:0}}
 .hz-board{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:6;border-radius:14px;overflow:hidden;opacity:0;animation:hzCover 26s ease-in-out infinite;background:radial-gradient(ellipse at 40% 45%,rgba(214,200,160,.98),rgba(214,200,160,.9) 50%,rgba(214,200,160,.7))}
 :root[data-haze="1"] #game.active .hz-board{display:block}
-@keyframes hzCover{0%,38%{opacity:.12}48%,60%{opacity:.93}72%,100%{opacity:.12}}
+@keyframes hzCover{0%,38%{opacity:.2}48%,60%{opacity:.93}72%,100%{opacity:.2}}
 .q-lite .hz-a,.q-lite .hz-b{animation:none}
 .q-lite .kl.k2{display:none}
 .q-lite .kl{animation-duration:14s}
@@ -105,7 +105,34 @@ input{font-family:inherit}
 .karhutla{display:none;border:2px solid #fff;border-radius:16px;background:#1f6fb8;color:#fff;font-weight:700;font-size:15px;font-family:inherit;min-height:46px;padding:0 14px;cursor:pointer;box-shadow:0 4px 0 #134a7d}
 .karhutla:active{transform:translateY(2px);box-shadow:0 2px 0 #134a7d}
 :root[data-haze="1"] #home .karhutla,:root[data-haze="1"] #game .karhutla{display:block}
-.karhutla.k-game{margin-top:8px;font-size:13px;min-height:40px}
+.karhutla.k-game{margin-top:8px;font-size:13px;min-height:40px;line-height:1.15}
+.karhutla:disabled{background:#8d949a;border-color:#d8dbdd;box-shadow:0 4px 0 #5f666b;color:#e9ebec;cursor:default;transform:none}
+#hzMsg .hzn{display:block;font-family:var(--disp);font-size:54px;line-height:1;color:#b3261e;margin-top:2px}
+/* kabut menyerang di papan: datang lalu hilang segera */
+.hz-atk{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:7;border-radius:14px;overflow:hidden;opacity:0;background:radial-gradient(ellipse at 40% 45%,rgba(222,208,168,1),rgba(214,200,160,.97) 55%,rgba(190,172,128,.92))}
+.hz-atk.black{background:radial-gradient(ellipse at 45% 40%,rgba(70,64,60,.99),rgba(28,25,23,.98) 60%,rgba(8,7,6,.98))}
+:root[data-haze="1"] #game.active .hz-atk{display:block}
+.hz-atk.go{animation:hzAtk 3.6s ease-in-out forwards}
+@keyframes hzAtk{0%{opacity:0}20%,66%{opacity:1}100%{opacity:0}}
+.q-lite .hz-atk{filter:none}.q-lite .hz-atk.go{animation-name:hzAtkLite}
+@keyframes hzAtkLite{0%{opacity:0}20%,66%{opacity:.8}100%{opacity:0}}
+/* Beranda berkabut: siluet hutan merah, api kecil, kalatu besar */
+.hz-fire{display:none;position:absolute;left:0;right:0;bottom:0;height:17%;overflow:visible}
+:root[data-hzs="home"] .hz-fire{display:block}
+:root[data-hzs="home"] #home .footer{text-shadow:0 1px 3px rgba(40,6,2,.9)}
+.hz-fire>svg.sil{position:absolute;left:0;bottom:0;width:100%;height:100%;filter:drop-shadow(0 0 8px rgba(255,80,30,.55))}
+.hz-flame{position:absolute;bottom:9%;transform-origin:50% 100%;animation:flame 1.1s ease-in-out infinite;filter:drop-shadow(0 0 5px rgba(255,120,30,.9))}
+@keyframes flame{0%,100%{transform:scale(1,1) rotate(-2deg)}35%{transform:scale(.88,1.18) rotate(2deg)}70%{transform:scale(1.08,.9) rotate(-1deg)}}
+.q-lite .hz-flame{animation:none}
+.kl.kx{width:var(--s,34px);height:calc(var(--s,34px)*.62);border-radius:0;clip-path:polygon(8% 45%,40% 0,100% 28%,82% 78%,42% 100%,0 72%);background:#120d0a;opacity:0;animation:klBig 15s ease-in-out forwards}
+@keyframes klBig{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.92}85%{opacity:.85}100%{transform:translate(var(--dx,90px),var(--dy,-340px)) rotate(var(--rt,260deg));opacity:0}}
+.q-lite .kl.kx{display:none}
+.homeic{display:none;position:absolute;top:max(8px,env(safe-area-inset-top));width:58px;height:58px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:9px;cursor:pointer;z-index:3}
+.homeic svg{width:100%;height:100%;display:block;fill:none;stroke:#5a3315;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.homeic:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
+.hcol{display:contents}
+.about .maker .nm{line-height:1.15}
+.privlist{margin:0;padding-left:20px}.privlist li{margin:0 0 8px;font-weight:700;font-size:15px}
 #hzMsg{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%) scale(.7);opacity:0;pointer-events:none;z-index:45;padding:12px 22px;border-radius:20px;background:linear-gradient(#fff8e0,#ffe9a8);border:3px solid #7a4a22;box-shadow:0 6px 0 #5a3315;color:#3a2411;font-weight:700;font-size:18px;text-align:center;transition:transform .25s cubic-bezier(.3,1.6,.5,1),opacity .2s;max-width:86%}
 #hzMsg.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 
@@ -170,6 +197,23 @@ input{font-family:inherit}
 @media (max-height:720px){#home{gap:8px}#home .logo{font-size:min(20vw,84px)}#home .hello{font-size:20px}#home .menu{gap:10px}#home .bbtn{min-height:54px}#home .trio{min-height:90px}.themes{padding-top:16px}}
 #home .menu{flex:none}
 #home .logo,#home .hello,#home .tagpill{flex:none}
+/* Beranda desktop (laptop dan IFP): satu halaman, dua kolom */
+@media (min-width:900px) and (min-height:540px){
+  body.land #home.active{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.7fr);grid-template-rows:minmax(0,1fr) auto;column-gap:28px;row-gap:0;overflow:hidden;align-items:center;justify-items:center}
+  body.land #home>.grow{display:none}
+  body.land #home .hL{grid-area:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;min-height:0}
+  body.land #home .hR{grid-area:1/2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:0}
+  body.land #home .maskband{grid-area:2/1/3/3;width:100%}
+  body.land #home .hello{padding:0}
+  body.land #home .menu{width:min(380px,100%);margin-top:0}
+  body.land #home .mobonly,body.land #home #btnFs{display:none}
+  body.land #home .logo{font-size:min(15vw,150px,22vh)}
+  body.land #home .trio{min-height:0}
+  body.land #home .mask{width:min(8vw,76px)}
+  body.land #home .mk-r{width:min(8.5vw,82px)}
+  body.land #home .homeic{display:block}
+  body.land #home .hi1{right:78px}body.land #home .hi2{right:146px}body.land #home .hi3{right:214px}
+}
 
 /* ---------- LEMBAR (setup, pengaturan, about) ---------- */
 .sheetwrap{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -1628,6 +1672,13 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
   <!-- KABUT ASAP (hanya Hutan Borneo) -->
   <div id="haze" aria-hidden="true">
     <div class="hz-sun"></div><div class="hz-a"></div><div class="hz-b"></div>
+    <div class="hz-fire">
+      <svg class="sil" viewBox="0 0 390 100" preserveAspectRatio="none"><path d="M0 100V62L12 40L22 60L34 30L46 58L58 44L72 66L86 36L98 60L112 48L126 70L140 42L152 62L166 34L178 60L192 46L206 68L220 38L234 62L248 44L262 66L276 30L288 58L302 42L316 64L330 36L344 60L358 46L372 66L384 40L390 52V100Z" fill="#9c1f14" opacity=".55"/><path d="M0 100V78L16 58L30 76L46 52L60 74L78 56L96 80L116 60L134 82L156 58L176 80L198 62L220 84L242 60L262 82L284 56L306 80L328 60L350 82L372 62L390 78V100Z" fill="#6e120c" opacity=".7"/></svg>
+      <svg class="hz-flame" style="left:9%;width:22px" viewBox="0 0 20 28"><path d="M10 1C12 8 18 11 17 19C16.5 24 13 27 10 27C6 27 3 24 3 19C3 14 7 12 8 8C9 10 10 8 10 1Z" fill="#ff6a1a"/><path d="M10 12C12 16 14 18 13 22C12.5 25 11 26 10 26C8 26 7 24 7 22C7 19 9 17 10 12Z" fill="#ffd23f"/></svg>
+      <svg class="hz-flame" style="left:34%;width:16px;animation-delay:-.4s" viewBox="0 0 20 28"><path d="M10 1C12 8 18 11 17 19C16.5 24 13 27 10 27C6 27 3 24 3 19C3 14 7 12 8 8C9 10 10 8 10 1Z" fill="#ff6a1a"/><path d="M10 12C12 16 14 18 13 22C12.5 25 11 26 10 26C8 26 7 24 7 22C7 19 9 17 10 12Z" fill="#ffd23f"/></svg>
+      <svg class="hz-flame" style="left:61%;width:20px;animation-delay:-.7s" viewBox="0 0 20 28"><path d="M10 1C12 8 18 11 17 19C16.5 24 13 27 10 27C6 27 3 24 3 19C3 14 7 12 8 8C9 10 10 8 10 1Z" fill="#ff6a1a"/><path d="M10 12C12 16 14 18 13 22C12.5 25 11 26 10 26C8 26 7 24 7 22C7 19 9 17 10 12Z" fill="#ffd23f"/></svg>
+      <svg class="hz-flame" style="left:86%;width:15px;animation-delay:-.2s" viewBox="0 0 20 28"><path d="M10 1C12 8 18 11 17 19C16.5 24 13 27 10 27C6 27 3 24 3 19C3 14 7 12 8 8C9 10 10 8 10 1Z" fill="#ff6a1a"/><path d="M10 12C12 16 14 18 13 22C12.5 25 11 26 10 26C8 26 7 24 7 22C7 19 9 17 10 12Z" fill="#ffd23f"/></svg>
+    </div>
     <span class="kl" style="left:12%;top:70%;width:5px;height:3px;animation-delay:0s"></span>
     <span class="kl" style="left:30%;top:82%;width:4px;height:4px;animation-delay:-2.4s"></span>
     <span class="kl" style="left:48%;top:64%;width:6px;height:3px;animation-delay:-4.8s"></span>
@@ -1655,19 +1706,25 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
   <!-- BERANDA -->
   <section class="screen" id="home">
     <button class="homealb" data-act="album" aria-label="Album Karakter"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3" width="15" height="18" rx="2" fill="#fff3d6" stroke="#5a3315" stroke-width="1.6"/><path d="M6.5 3v18" stroke="#5a3315" stroke-width="1.6"/><circle cx="13" cy="10" r="2.6" fill="#e07a25"/><path d="M8.8 17c.6-2.6 2.2-3.6 4.2-3.6s3.6 1 4.2 3.6z" fill="#e07a25"/><rect x="18" y="6" width="3" height="4" rx=".8" fill="#5a3315"/></svg></button>
+    <button class="homeic hi1" data-act="settings" aria-label="Pengaturan" title="Pengaturan"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/></svg></button>
+    <button class="homeic hi2" data-act="fs" aria-label="Layar Penuh" title="Layar Penuh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+    <button class="homeic hi3" data-act="about" aria-label="Tentang" title="Tentang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="#5a3315"/></svg></button>
     <div class="grow"></div>
+    <div class="hcol hL">
     <div class="hello" id="hello">Tabe!</div>
     <div class="logo"><span class="h1">Ha</span><span class="h2">He</span></div>
     <div class="tagpill" style="align-self:center">Handipe Hejan · Ular Tangga</div>
     <div class="trio" id="homeTrio"></div>
     <div class="thwrap"><div class="tagpill" style="align-self:center">Pilih Tema</div><div class="themes" id="themeRow"></div><div class="thnote" id="thNote"></div></div>
+    </div>
+    <div class="hcol hR">
     <div class="menu">
       <button class="bbtn gold hidden" id="btnContinue" data-act="continue">LANJUTKAN</button>
       <div class="newwrap">
         <button class="bbtn" data-act="newgame">MAIN BARU</button>
       </div>
-      <button class="karhutla" data-act="karhutla">🔥 Padamkan Karhutla</button>
-      <div style="display:flex;gap:12px">
+      <button class="karhutla" data-act="karhutla">🔥 Padamkan Karhutla Borneo</button>
+      <div class="mobonly" style="display:flex;gap:12px">
         <button class="bbtn wood sm" data-act="settings">Pengaturan</button>
         <button class="bbtn wood sm" data-act="about">Tentang</button>
       </div>
@@ -1675,6 +1732,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
         <button class="bbtn wood sm" id="btnFs" data-act="fs" style="font-size:16px;padding:0 8px;min-height:46px">⛶ Layar Penuh</button>
         <button class="bbtn wood sm" id="btnInstall" data-act="install" style="font-size:16px;padding:0 8px;min-height:46px">⬇ Pasang HaHe</button>
       </div>
+    </div>
     </div>
     <div class="grow"></div>
     <div class="maskband"><svg class="mask mk-l" viewBox="0 0 130 110" role="img" aria-label="Masker medis"><defs><linearGradient id="mdc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8f0fb"/><stop offset="1" stop-color="#8cc8e8"/></linearGradient></defs>
@@ -1721,6 +1779,15 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
     <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
   </section>
 
+  <!-- PRIVASI -->
+  <section class="screen" id="privacy">
+    <div class="sheetwrap">
+      <div class="sheethead"><button class="rbtn" data-act="back" aria-label="Kembali"><svg><use href="#ic-back"/></svg></button><h2>Privasi</h2></div>
+      <div class="sheet about" id="privacyBody"></div>
+    </div>
+    <div class="footer">HaHe ©2026 | hahe.totogutomo.com</div>
+  </section>
+
   <!-- ALBUM KARAKTER -->
   <section class="screen" id="album">
     <div class="sheetwrap">
@@ -1742,12 +1809,13 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
         </div>
       </div>
       <div class="plist" id="plist"></div>
-      <button class="karhutla k-game" data-act="karhutla">🔥 Padamkan Karhutla</button>
+      <button class="karhutla k-game" data-act="karhutla">🔥 Padamkan Karhutla Borneo</button>
     </div>
     <div class="colC">
       <div class="boardslot ordBoard" id="boardslot">
         <div class="board" id="board"></div>
         <div class="hz-board" id="hzBoard" aria-hidden="true"></div>
+        <div class="hz-atk" id="hzAtk" aria-hidden="true"></div>
         <div class="toast" id="toast"><div class="big"></div><div class="small"></div></div>
       </div>
     </div>
@@ -2014,7 +2082,7 @@ const store = {
   del(k) { try { localStorage.removeItem(k); } catch (e) {} }
 };
 const DEFAULTS = {
-  theme: 'light', layout: 'auto', quality: 'best',
+  theme: 'light', layout: 'auto', quality: 'best', fog: true,
   bgm: true, bgmVol: 0.5, sfx: true, sfxVol: 0.8,
   skin: 'borneo', dice: 'kayu', full: true,
   mode: 'klasik', timeMin: 5, throws: 10, level: 'standar', size: 'auto',
@@ -2089,21 +2157,77 @@ function remapPions(list, skinId) {
 function freePion(list) { const ids = availPions(skin().id); return ids.find(x => !list.some(p => p.pion === x)) || ids[list.length % ids.length]; }
 // tema yang tampil: saat bermain mengikuti tema permainan
 function visSkin() { return cur === 'game' && G ? G.skin : S.skin; }
-// Kabut asap: hanya Hutan Borneo, hanya di Beranda dan papan. KABUT_BISA_PADAM = false: tombol hanya membalas doa
-// (kritik kabut asap yang belum reda). Ubah ke true pada pembaruan nanti agar kabut benar-benar bisa dipadamkan.
+// Kabut asap: hanya Hutan Borneo, hanya di Beranda dan papan; bisa dimatikan di Pengaturan (S.fog).
+// KABUT_BISA_PADAM = false: tombol hanya membalas dengan pesan (kritik kabut asap yang belum reda).
 const KABUT_BISA_PADAM = false;
-let hazeOff = false;
+let hazeOff = false, hazeWas = false, khCount = 0, hzMsgT = null, hzIntroAt = 0, hzIntroT = [];
+function showHz(html, ms) {
+  const m = $('#hzMsg'); m.innerHTML = html; m.classList.add('show'); clearTimeout(hzMsgT);
+  if (ms) hzMsgT = setTimeout(() => m.classList.remove('show'), ms);
+}
+function hideHz() { clearTimeout(hzMsgT); $('#hzMsg').classList.remove('show'); }
 function applyHaze() {
-  const on = visSkin() === 'borneo' && !hazeOff && (cur === 'home' || cur === 'game');
+  const on = visSkin() === 'borneo' && !hazeOff && S.fog !== false && (cur === 'home' || cur === 'game');
   const v = on ? '1' : '0';
   const sc = on ? cur : ''; if (document.documentElement.dataset.hzs !== sc) document.documentElement.dataset.hzs = sc;
   if (document.documentElement.dataset.haze !== v) document.documentElement.dataset.haze = v;
+  if (!on || cur !== 'game') fogAtkCancel();
+  if (!on || cur !== 'home') { hzIntroT.forEach(clearTimeout); hzIntroT = []; }
+  if (on && cur === 'home' && (!hazeWas || performance.now() - hzIntroAt > 45000)) fogIntro();
+  hazeWas = on;
 }
-let hzMsgT = null;
+// Beranda berkabut: toast sambutan, lalu beberapa kalatu (abu daun terbakar) yang sangat besar melayang
+function fogIntro() {
+  hzIntroAt = performance.now();
+  hzIntroT.forEach(clearTimeout); hzIntroT = [];
+  hzIntroT.push(setTimeout(() => {
+    if (cur !== 'home' || document.documentElement.dataset.haze !== '1') return;
+    showHz('Kabut asap melanda Borneo!<br><span style="font-size:15px">Ayo padamkan Karhutla</span>', 3000);
+  }, 800));
+  hzIntroT.push(setTimeout(() => {
+    if (cur !== 'home' || document.documentElement.dataset.haze !== '1' || document.body.classList.contains('q-lite')) return;
+    const top = $('#hazeTop'); if (!top) return;
+    for (let i = 0; i < 5; i++) {
+      const k = document.createElement('span'); k.className = 'kl kx';
+      const sz = 30 + Math.random() * 26;
+      k.style.cssText = `left:${(6 + i * 18 + Math.random() * 8).toFixed(0)}%;top:${(72 + Math.random() * 22).toFixed(0)}%;--s:${sz.toFixed(0)}px;--dx:${(-60 + Math.random() * 160).toFixed(0)}px;--dy:${(-(280 + Math.random() * 160)).toFixed(0)}px;--rt:${(Math.random() < .5 ? -1 : 1) * (180 + Math.random() * 180) | 0}deg;animation-delay:${(i * 0.7).toFixed(1)}s`;
+      top.appendChild(k); setTimeout(() => k.remove(), 17000);
+    }
+  }, 3900));
+}
+// Kabut menyerang di papan: sekitar tiap 4 sampai 6 giliran (tidak di giliran pertama), kabut hitam paling jarang
+let atkG = null, atkIn = 0, atkT = [];
+function fogAtkCancel() {
+  if (atkT.length) hideHz();
+  atkT.forEach(clearTimeout); atkT = [];
+  const a = $('#hzAtk'); if (a) a.classList.remove('go', 'black');
+}
+function fogAtkTick() {
+  if (!G || G.over || cur !== 'game' || document.documentElement.dataset.haze !== '1') return;
+  if (atkG !== G) { atkG = G; atkIn = 4 + Math.floor(Math.random() * 3); }
+  if (--atkIn > 0 || atkT.length) return;
+  atkIn = 4 + Math.floor(Math.random() * 3);
+  const black = Math.random() < 0.25;
+  const num = n => `Kabut asap menyerang!<span class="hzn">${n}</span>`;
+  showHz(num(3));
+  atkT.push(setTimeout(() => showHz(num(2)), 1000));
+  atkT.push(setTimeout(() => showHz(num(1)), 2000));
+  atkT.push(setTimeout(() => {
+    hideHz();
+    const a = $('#hzAtk'); if (!a) return;
+    a.classList.remove('go', 'black'); void a.offsetWidth;
+    if (black) a.classList.add('black'); a.classList.add('go');
+  }, 3000));
+  atkT.push(setTimeout(() => { atkT = []; const a = $('#hzAtk'); if (a) a.classList.remove('go', 'black'); }, 6800));
+}
+// Tombol Padamkan Karhutla Borneo: tekan 1 dan 2 membalas pesan, tekan 3 menjadi abu-abu (aktif lagi saat halaman dimuat ulang)
 function karhutla() {
   if (KABUT_BISA_PADAM) { hazeOff = true; applyHaze(); return; }
-  const m = $('#hzMsg'); m.innerHTML = 'Pemadaman belum optimal<br><span style="font-size:15px">Doain segera pulih ya 🙏</span>';
-  m.classList.add('show'); clearTimeout(hzMsgT); hzMsgT = setTimeout(() => m.classList.remove('show'), 2200);
+  if (khCount >= 3) return;
+  khCount++;
+  if (khCount === 1) showHz('Pemadaman belum optimal<br><span style="font-size:15px">Doain segera pulih ya 🙏</span>', 2200);
+  else if (khCount === 2) showHz('Terima kasih dukungannya<br><span style="font-size:15px">untuk Karhutla Borneo</span>', 2400);
+  else { showHz('Mohon maaf, kabut asap belum menghilang', 2800); document.querySelectorAll('.karhutla').forEach(b => { b.disabled = true; }); }
 }
 function applySkin() { const s = visSkin(); if (document.documentElement.dataset.skin !== s) document.documentElement.dataset.skin = s; applyHaze(); }
 
@@ -2247,12 +2371,14 @@ function show(id, push = true) {
   if (push && cur !== id) prev.push(cur);
   if (cur === 'settings' && id !== 'settings') pend = null; // keluar Pengaturan: perubahan yang belum disimpan dibatalkan
   cur = id;
+  if (!atkT.length) hideHz();
   applySkin(); BGM.sync();
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
   if (id === 'home') renderHome();
   if (id === 'setup') renderSetup();
   if (id === 'settings') renderSettings();
   if (id === 'about') renderAbout();
+  if (id === 'privacy') renderPrivacy();
   if (id === 'album') renderAlbum();
   if (id === 'game') { renderGame(); }
   applyLayout();
@@ -2521,7 +2647,9 @@ function renderSettings() {
   // Tampilan
   h += `<div class="sec"><h3>Tampilan</h3>${chips('theme', [['light', 'Terang'], ['dark', 'Gelap']], S.theme)}
     <div class="hint">Tata letak layar:</div>${chips('layout', [['auto', 'Otomatis'], ['portrait', 'Potret'], ['landscape', 'Landscape']], S.layout)}
-    <div class="hint">Kualitas grafis:</div>${chips('quality', [['best', 'Best', 'gerak penuh'], ['lite', 'Ringan', 'HP lama']], S.quality)}</div>`;
+    <div class="hint">Kualitas grafis:</div>${chips('quality', [['best', 'Best', 'gerak penuh'], ['lite', 'Ringan', 'HP lama']], S.quality)}
+    <div class="toggle"><span class="lbl">Efek kabut asap</span><button class="sw ${S.fog !== false ? 'on' : ''}" data-sw="fog" aria-label="Efek kabut asap"></button></div>
+    <div class="hint" style="margin-top:0">Hanya tampil di tema Hutan Borneo. Matikan bila kurang nyaman.</div></div>`;
   // Suara
   const miss = BGM.missing[sk.bgm];
   h += `<div class="sec"><h3>Suara</h3>
@@ -2577,10 +2705,29 @@ function renderAbout() {
   <p><b>HaHe</b> merupakan singkatan dari kata <b>Handipe</b> dan <b>Hejan</b>, yang berarti <b>Ular</b> dan <b>Tangga</b> dalam bahasa Dayak Ngaju.</p>
   <p style="text-align:center;font-family:var(--disp);font-size:20px;font-weight:400">“${SAPAAN.beranda}”</p>
   <p>Game santai untuk bermain bersama keluarga, teman, sahabat, pasangan, dan siapa pun, di HP, tablet, maupun IFP kelas.</p>
-  <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm">Toto Gutomo</div><div class="sk">Guru SMA Negeri 3 Maliku</div></div>
-  <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Game dibangun atas permintaan: <b>Cherry</b></span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
-  <div class="sec" style="margin-top:16px"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.3 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="maker"><div class="hint" style="margin:0">Pembuat</div><div class="nm" style="font-size:21px">Toto Gutomo, S.Pd., Gr., M.Pd., CPSS</div></div>
+  <div class="cherry"><svg aria-hidden="true"><use href="#ic-cherry"/></svg><span>Terima kasih kepada ananda <b>Cherry</b>, pemrakarsa game ini dan penguji setia.</span><svg aria-hidden="true"><use href="#ic-cherry"/></svg></div>
+  <div class="sec" style="margin-top:16px"><h3>Tentang efek kabut asap</h3><p class="hint" style="margin:0">Efek kabut asap dalam game ini hanya pengingat dan edukasi bahwa kebakaran hutan dan lahan (karhutla) merugikan kesehatan dan alam. Game ini tidak menunjuk pihak mana pun dan tidak menggalang dana. Mari cegah sebelum terjadi: jangan membakar lahan atau sampah, dan laporkan api yang terlihat kepada pihak berwenang. Efek kabut dapat dimatikan di Pengaturan.</p></div>
+  <div class="sec"><h3>Lisensi dan kredit</h3>
+    <p class="hint" style="margin:0 0 6px">Game HaHe © 2026 Toto Gutomo.</p>
+    <p class="hint" style="margin:0 0 6px">Seluruh gambar (karakter, ikon, dan latar) dibuat dengan bantuan kecerdasan buatan (AI) berdasarkan arahan dan rancangan pembuat.</p>
+    <p class="hint" style="margin:0">Huruf: Lilita One dan Nunito (Google Fonts, lisensi SIL Open Font License).</p></div>
+  <div class="sec"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
+  <div class="sec"><h3>Privasi</h3><button class="bbtn wood sm" data-act="privacy" style="font-size:17px">Kebijakan Privasi</button></div>
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.4 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+}
+function renderPrivacy() {
+  $('#privacyBody').innerHTML = `
+  <p><b>HaHe tidak meminta, mengumpulkan, atau mengirim data pribadi Anda.</b></p>
+  <ul class="privlist">
+    <li>Tidak ada akun, iklan, maupun pelacak.</li>
+    <li>Pengaturan, nama pemain, permainan terakhir, dan progres Album hanya disimpan di perangkat ini dan tidak dikirim ke mana pun.</li>
+    <li>Berkas progres Album (hahe-album.json) hanya dibuat bila Anda sendiri menyimpannya.</li>
+    <li>Satu-satunya hubungan ke internet adalah mengambil huruf dari Google Fonts saat perangkat online; Google dapat menerima alamat internet (IP) perangkat pada saat itu. Setelah HaHe dipasang, game bisa dimainkan tanpa internet.</li>
+    <li>Untuk menghapus data, hapus data situs di peramban atau copot HaHe dari perangkat.</li>
+    <li>Nama pemain hanya untuk tampilan di permainan, jadi aman dimainkan oleh anak-anak.</li>
+  </ul>
+  <p class="hint">Pertanyaan: totogutomo92@gmail.com</p>`;
 }
 
 // ---------- Album Karakter ----------
@@ -2855,6 +3002,7 @@ function sizeBoard() {
   const s = Math.floor(Math.min(slot.clientWidth, slot.clientHeight));
   b.style.width = b.style.height = Math.max(120, s) + 'px';
   const hb = $('#hzBoard'); if (hb) hb.style.width = hb.style.height = Math.max(120, s) + 'px';
+  const ha = $('#hzAtk'); if (ha) ha.style.width = ha.style.height = Math.max(120, s) + 'px';
   const pw = b.querySelectorAll('.pion .tag');
   const fs = Math.max(8, Math.min(14, s / 34));
   pw.forEach(t => { t.style.fontSize = fs + 'px'; t.style.lineHeight = (fs * 1.35) + 'px'; });
@@ -3089,6 +3237,7 @@ function startTurn() {
   busy = false;
   placeAll(); updateHud();
   startTimer();
+  fogAtkTick();
   const p = G.players[G.turn];
   if (p.cpu) setTimeout(() => { if (G && !G.over && cur === 'game' && !paused() && G.players[G.turn] === p) doRoll(); }, 900);
 }
@@ -3373,7 +3522,7 @@ document.addEventListener('click', e => {
   if (t.dataset.ring != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players, p = L[+t.dataset.ring]; p.ring = ringPickerNext(p.ring, L.filter(x => x !== p).map(x => x.ring)); saveDraft(); SFX.click(); return renderSetup(); }
   if (t.dataset.del != null) { const L = draft.kind === 'kelompok' ? draft.teams : draft.players; if (L.length > 2) L.splice(+t.dataset.del, 1); saveDraft(); return renderSetup(); }
   if (t.dataset.sw) {
-    S[t.dataset.sw] = !S[t.dataset.sw]; saveSettings(); SFX.vol(); BGM.sync(); // backsound: langsung main/berhenti saat dinyalakan/dimatikan
+    S[t.dataset.sw] = t.dataset.sw === 'fog' ? S.fog === false : !S[t.dataset.sw]; saveSettings(); SFX.vol(); BGM.sync(); if (t.dataset.sw === 'fog') applyHaze(); // backsound: langsung main/berhenti saat dinyalakan/dimatikan
     if (t.dataset.sw === 'sfx' && S.sfx) SFX.step(); else SFX.click(); // efek suara: langsung berbunyi saat dinyalakan (pratinjau)
     return renderSettings();
   }
@@ -3395,6 +3544,7 @@ document.addEventListener('click', e => {
     case 'continue': { FS.auto(); const sv = store.get('hahe.save', null); if (sv && !sv.over) { G = sv; show('game'); startTurn(); } break; }
     case 'settings': if (cur === 'game' && busy) break; show('settings'); break;
     case 'about': show('about'); break;
+    case 'privacy': show('privacy'); break;
     case 'karhutla': karhutla(); break;
     case 'album': albSkin = S.skin; albFocus = ''; show('album'); break;
     case 'albExport': exportAlbum(); break;
