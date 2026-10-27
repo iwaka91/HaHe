@@ -293,5 +293,15 @@ HaHe sudah **online di hahe.totogutomo.com** (diunggah Pak Toto). Instalasi dan 
 - Versi 2.4; sw.js memakai simpanan baru (hahe-v15).
 - Menunggu: backsound dan tangkapan layar lisensinya dari Pak Toto; uji ulang Pak Toto setelah update.
 
+## 30. Update Versi 2.5 (27 Okt 2026)
+Hasil uji Versi 2.4 oleh Pak Toto (desktop, kabut, tombol Karhutla, Tentang, Privasi, ikon pasang semuanya berfungsi); tujuh poin dikerjakan.
+- **Tema di Beranda desktop dua baris**: 5 di atas, 4 di bawah, rata tengah (HP tetap satu baris yang digeser).
+- **Kalatu kurus** ditambah di Beranda berkabut: 3 buah dengan panjang berbeda-beda (48, 74, 100 px); kalatu gemuk dipertahankan. Tidak tampil di Mode Ringan.
+- **Tombol Padamkan Karhutla, tekan ke-3**: pesan ditambah "Jika kabut asap mengganggu, matikan pada Pengaturan".
+- **Serangan kabut di papan** (putih dan hitam) bukan lagi penutup rata: berupa gumpalan tebal, tipis, dan jernih yang tersebar tidak merata dan bergeser pelan, sehingga sebagian papan tetap terlihat. Kabut hitam memakai bentuk yang sama dengan warna gelap. Mode Ringan: gumpalan diam. Tidak menghentikan permainan.
+- **Buka karakter diturunkan** (semua tema selain Hutan Borneo): karakter urutan ke-3 terbuka di **3x** main sampai selesai (dulu 5x), urutan ke-4 di **5x** (dulu 10x). Hutan Borneo tidak berubah (MPA 1x, Talawang 2x, Negeri Dongeng 5x). Tulisan di Album dan kotak pilihan karakter ikut menyesuaikan.
+- Mockup kabut papan putih dan hitam hanya di Claude Design; **tidak disimpan ke repo** (keputusan Pak Toto).
+- Versi 2.5; sw.js memakai simpanan baru (hahe-v16).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).

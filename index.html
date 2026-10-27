@@ -109,8 +109,18 @@ input{font-family:inherit}
 .karhutla:disabled{background:#8d949a;border-color:#d8dbdd;box-shadow:0 4px 0 #5f666b;color:#e9ebec;cursor:default;transform:none}
 #hzMsg .hzn{display:block;font-family:var(--disp);font-size:54px;line-height:1;color:#b3261e;margin-top:2px}
 /* kabut menyerang di papan: datang lalu hilang segera */
-.hz-atk{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:7;border-radius:14px;overflow:hidden;opacity:0;background:radial-gradient(ellipse at 40% 45%,rgba(222,208,168,1),rgba(214,200,160,.97) 55%,rgba(190,172,128,.92))}
-.hz-atk.black{background:radial-gradient(ellipse at 45% 40%,rgba(70,64,60,.99),rgba(28,25,23,.98) 60%,rgba(8,7,6,.98))}
+.hz-atk{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:7;border-radius:14px;overflow:hidden;opacity:0;--fa:224,210,170;--fb:214,200,160;--fv:.16;background:rgba(var(--fb),var(--fv))}
+.hz-atk.black{--fa:22,19,17;--fb:36,31,28;--fv:.2}
+/* gumpalan kabut: tebal, tipis, dan jernih tersebar tidak merata; sebagian papan tetap terlihat */
+.hz-atk i{position:absolute;display:block;border-radius:50%;filter:blur(7px)}
+.hz-atk .b1{left:-28%;top:9%;width:90%;height:62%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.98),rgba(var(--fa),.9) 38%,rgba(var(--fb),0) 72%);animation:atkD1 9s ease-in-out infinite}
+.hz-atk .b2{right:-34%;top:47%;width:90%;height:66%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.96),rgba(var(--fa),.85) 40%,rgba(var(--fb),0) 72%);animation:atkD2 12s ease-in-out infinite}
+.hz-atk .b3{left:6%;top:-22%;width:72%;height:40%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.6),rgba(var(--fb),0) 70%);animation:atkD1 11s ease-in-out infinite}
+.hz-atk .b4{left:3%;bottom:-22%;width:75%;height:47%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.78),rgba(var(--fb),0) 70%);animation:atkD2 10s ease-in-out infinite}
+.hz-atk .b5{left:47%;top:25%;width:40%;height:25%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.56),rgba(var(--fb),0) 70%);animation:atkD1 8s ease-in-out infinite}
+@keyframes atkD1{0%,100%{transform:translateX(-4%)}50%{transform:translateX(5%)}}
+@keyframes atkD2{0%,100%{transform:translateX(5%)}50%{transform:translateX(-4%)}}
+.q-lite .hz-atk i{filter:none;animation:none}
 :root[data-haze="1"] #game.active .hz-atk{display:block}
 .hz-atk.go{animation:hzAtk 3.6s ease-in-out forwards}
 @keyframes hzAtk{0%{opacity:0}20%,66%{opacity:1}100%{opacity:0}}
@@ -126,7 +136,8 @@ input{font-family:inherit}
 .q-lite .hz-flame{animation:none}
 .kl.kx{width:var(--s,34px);height:calc(var(--s,34px)*.62);border-radius:0;clip-path:polygon(8% 45%,40% 0,100% 28%,82% 78%,42% 100%,0 72%);background:#120d0a;opacity:0;animation:klBig 15s ease-in-out forwards}
 @keyframes klBig{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.92}85%{opacity:.85}100%{transform:translate(var(--dx,90px),var(--dy,-340px)) rotate(var(--rt,260deg));opacity:0}}
-.q-lite .kl.kx{display:none}
+.kl.ky{width:var(--s,60px);height:calc(var(--s,60px)*.17);border-radius:0;clip-path:polygon(0 55%,22% 8%,100% 30%,86% 92%,34% 100%);background:#120d0a;opacity:0;animation:klBig 15s ease-in-out forwards}
+.q-lite .kl.kx,.q-lite .kl.ky{display:none}
 .homeic{display:none;position:absolute;top:max(8px,env(safe-area-inset-top));width:58px;height:58px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:9px;cursor:pointer;z-index:3}
 .homeic svg{width:100%;height:100%;display:block;fill:none;stroke:#5a3315;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .homeic:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
@@ -212,6 +223,9 @@ input{font-family:inherit}
   body.land #home .mask{width:min(8vw,76px)}
   body.land #home .mk-r{width:min(8.5vw,82px)}
   body.land #home .homeic{display:block}
+  /* tema dua baris: 5 di atas, 4 di bawah (rata tengah) */
+  body.land #home .themes{flex-wrap:wrap;overflow:visible;justify-content:center;width:min(100%,470px);row-gap:12px;padding:16px 8px 4px}
+  body.land #home .themes .tile:first-child,body.land #home .themes .tile:last-child{margin-left:0;margin-right:0}
   body.land #home .hi1{right:78px}body.land #home .hi2{right:146px}body.land #home .hi3{right:214px}
 }
 
@@ -1815,7 +1829,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       <div class="boardslot ordBoard" id="boardslot">
         <div class="board" id="board"></div>
         <div class="hz-board" id="hzBoard" aria-hidden="true"></div>
-        <div class="hz-atk" id="hzAtk" aria-hidden="true"></div>
+        <div class="hz-atk" id="hzAtk" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i></div>
         <div class="toast" id="toast"><div class="big"></div><div class="small"></div></div>
       </div>
     </div>
@@ -2103,7 +2117,7 @@ let draft = store.get('hahe.draft', null) || {
 function saveDraft() { store.set('hahe.draft', draft); }
 
 // ---------- Album Karakter: hitungan main & gembok ----------
-// Karakter urutan ke-3 (non-Tingang) terbuka setelah 5 kali main sampai selesai di tema itu, urutan ke-4 setelah 10 kali.
+// Karakter urutan ke-3 (non-Tingang) terbuka setelah 3 kali main sampai selesai di tema itu, urutan ke-4 setelah 5 kali.
 // Tingang selalu terbuka; Hutan Borneo tanpa gembok. Disimpan per perangkat.
 let ALB = store.get('hahe.album', null) || { plays: {} };
 if (!ALB.plays || typeof ALB.plays !== 'object') ALB.plays = {};
@@ -2113,7 +2127,7 @@ function lockNeed(skinId, pionId) {
   if (isTingang(pionId)) return 0;
   if (skinId === 'borneo') return pionId === 'talawang' ? 2 : pionId === 'mpa' ? 1 : 0; // Borneo: Ksatria Talawang digembok 2×, MPA digembok 1×
   const k = SKINS[skinId].pions.map(x => x.id).filter(x => !isTingang(x)).indexOf(pionId);
-  return k === 2 ? 5 : k === 3 ? 10 : 0;
+  return k === 2 ? 3 : k === 3 ? 5 : 0;
 }
 const playsOf = skinId => Math.max(0, Math.floor(+ALB.plays[skinId] || 0));
 const isOpen = (skinId, pionId) => playsOf(skinId) >= lockNeed(skinId, pionId);
@@ -2193,6 +2207,12 @@ function fogIntro() {
       k.style.cssText = `left:${(6 + i * 18 + Math.random() * 8).toFixed(0)}%;top:${(72 + Math.random() * 22).toFixed(0)}%;--s:${sz.toFixed(0)}px;--dx:${(-60 + Math.random() * 160).toFixed(0)}px;--dy:${(-(280 + Math.random() * 160)).toFixed(0)}px;--rt:${(Math.random() < .5 ? -1 : 1) * (180 + Math.random() * 180) | 0}deg;animation-delay:${(i * 0.7).toFixed(1)}s`;
       top.appendChild(k); setTimeout(() => k.remove(), 17000);
     }
+    // 3 kalatu kurus dengan panjang berbeda-beda
+    [48, 74, 100].forEach((len, i) => {
+      const k = document.createElement('span'); k.className = 'kl ky';
+      k.style.cssText = `left:${(14 + i * 28 + Math.random() * 10).toFixed(0)}%;top:${(76 + Math.random() * 16).toFixed(0)}%;--s:${len}px;--dx:${(-70 + Math.random() * 170).toFixed(0)}px;--dy:${(-(260 + Math.random() * 180)).toFixed(0)}px;--rt:${(Math.random() < .5 ? -1 : 1) * (150 + Math.random() * 200) | 0}deg;animation-delay:${(0.4 + i * 0.9).toFixed(1)}s`;
+      top.appendChild(k); setTimeout(() => k.remove(), 17500);
+    });
   }, 3900));
 }
 // Kabut menyerang di papan: sekitar tiap 4 sampai 6 giliran (tidak di giliran pertama), kabut hitam paling jarang
@@ -2227,7 +2247,7 @@ function karhutla() {
   khCount++;
   if (khCount === 1) showHz('Pemadaman belum optimal<br><span style="font-size:15px">Doain segera pulih ya 🙏</span>', 2200);
   else if (khCount === 2) showHz('Terima kasih dukungannya<br><span style="font-size:15px">untuk Karhutla Borneo</span>', 2400);
-  else { showHz('Mohon maaf, kabut asap belum menghilang', 2800); document.querySelectorAll('.karhutla').forEach(b => { b.disabled = true; }); }
+  else { showHz('Mohon maaf, kabut asap belum menghilang<br><span style="font-size:15px">Jika kabut asap mengganggu, matikan pada Pengaturan</span>', 4200); document.querySelectorAll('.karhutla').forEach(b => { b.disabled = true; }); }
 }
 function applySkin() { const s = visSkin(); if (document.documentElement.dataset.skin !== s) document.documentElement.dataset.skin = s; applyHaze(); }
 
@@ -2714,7 +2734,7 @@ function renderAbout() {
     <p class="hint" style="margin:0">Huruf: Lilita One dan Nunito (Google Fonts, lisensi SIL Open Font License).</p></div>
   <div class="sec"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
   <div class="sec"><h3>Privasi</h3><button class="bbtn wood sm" data-act="privacy" style="font-size:17px">Kebijakan Privasi</button></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.4 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.5 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 function renderPrivacy() {
   $('#privacyBody').innerHTML = `
@@ -2785,7 +2805,7 @@ function renderAlbum() {
     const sk = SKINS[albSkin], n = playsOf(albSkin), s2 = SEASON2[albSkin];
     h += albSkin === 'borneo'
       ? `<div class="alb-head">Buka karakter dan tema dengan main di tema Borneo: 1× main dapat karakter MPA, 2× main dapat Ksatria Talawang, 5× main dapat tema Negeri Dongeng</div>`
-      : `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}× (karakter 🔒 terbuka di 5× dan 10×)</div>`;
+      : `<div class="alb-head">${esc(sk.name)} · main sampai selesai: ${n}× (karakter 🔒 terbuka di 3× dan 5×)</div>`;
     if (!themeOpen(albSkin)) h += `<div class="alb-head">🔒 ${esc(themeHint(albSkin))}</div>`;
     // semua karakter tampil; yang terkunci redup + gembok, faktanya disembunyikan (hitungan main tetap ada)
     h += sk.pions.map(x => {
