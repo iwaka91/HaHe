@@ -65,6 +65,36 @@ input{font-family:inherit}
 .homealb{position:absolute;right:10px;top:max(8px,env(safe-area-inset-top));width:58px;height:58px;border-radius:14px;border:3px solid #5a3315;background:linear-gradient(#e9b87a,#b9783a);box-shadow:0 4px 0 #5a3315;padding:6px;cursor:pointer;z-index:3}
 .homealb svg{width:100%;height:100%;display:block}
 .homealb:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
+.homealb.hcof{right:78px}
+/* Traktir Kopi Pengembang (Versi 2.5.1) */
+#kopim .mbox{width:min(420px,100%);text-align:left;gap:10px}
+#kopim .bbtn{font-size:21px}
+.kophead{display:flex;align-items:center;gap:12px}
+.kophead .kic{flex:none;width:52px;height:52px;border-radius:50%;background:#6b3f1d;display:flex;align-items:center;justify-content:center}
+.kophead .kic svg{width:30px;height:30px}
+.kophead h2{flex:1;line-height:1.05;font-size:28px}
+.kophead .kx{flex:none;width:46px;height:46px;border-radius:50%;border:3px solid #6b3f1d;background:#fff;color:#3a2411;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.kophead .kx svg{width:22px;height:22px;stroke:#3a2411;stroke-width:3;stroke-linecap:round;fill:none}
+.kopsub{font-weight:800;font-size:17px;line-height:1.35}
+.kopsteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:15.5px;line-height:1.3}
+.kopsteps li{display:flex;gap:10px;align-items:flex-start}
+.kopsteps b{flex:none;width:28px;height:28px;border-radius:50%;background:#6b3f1d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px}
+.kopnote{text-align:center;font-weight:700;font-size:14px;opacity:.8}
+.kopmerch{border:2.5px solid #2f7d3a;background:#e1f3d8;color:#17492a;border-radius:16px;padding:10px 12px;font-weight:800;font-size:14.5px;line-height:1.35}
+.kopmerch ul{margin:6px 0;padding-left:20px}.kopmerch li{margin:3px 0}
+.kopmerch small{display:block;font-weight:700;font-size:13.5px}
+.kopreq{border-top:2px solid #e2c488;padding-top:10px;font-weight:700;font-size:14.5px;line-height:1.35}
+.kopmail{display:flex;gap:10px;margin-top:8px}
+.kopmail input{flex:1;min-width:0;border:2.5px solid #e2c488;border-radius:14px;padding:10px 12px;font-weight:800;font-size:15px;font-family:inherit;color:#3a2411;background:#fff}
+.kopmail .bbtn{flex:none;min-height:46px;font-size:16px;padding:0 16px}
+/* kartu kode di Album */
+.codecard{margin-top:14px;border:3px solid var(--sheetLine);border-radius:18px;background:var(--chip);padding:12px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.codecard h3{margin:0;font-family:var(--disp);font-weight:400;font-size:22px}
+.codecard input,.codecard textarea{width:100%;box-sizing:border-box;border:2.5px solid var(--sheetLine);border-radius:12px;padding:9px 11px;font-weight:700;font-size:15px;font-family:inherit;color:var(--sheetInk);background:#fff}
+.codecard textarea{resize:none;font-size:13px;word-break:break-all}
+.codecard .cmsg{font-weight:800;font-size:14px;min-height:18px}
+.codecard .cmsg.bad{color:#b3261e}.codecard .cmsg.ok{color:#1f7a34}
+.codecard.done{background:#e1f3d8;border-color:#2f7d3a;color:#17492a}
 .newwrap{position:relative;display:flex;flex-direction:column}
 #home .hello{padding:0 62px;box-sizing:border-box}
 .newwrap .bbtn{width:100%}
@@ -111,13 +141,9 @@ input{font-family:inherit}
 /* kabut menyerang di papan: datang lalu hilang segera */
 .hz-atk{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:7;border-radius:14px;overflow:hidden;opacity:0;--fa:224,210,170;--fb:214,200,160;--fv:.16;background:rgba(var(--fb),var(--fv))}
 .hz-atk.black{--fa:22,19,17;--fb:36,31,28;--fv:.2}
-/* gumpalan kabut: tebal, tipis, dan jernih tersebar tidak merata; sebagian papan tetap terlihat */
-.hz-atk i{position:absolute;display:block;border-radius:50%;filter:blur(7px)}
-.hz-atk .b1{left:-28%;top:9%;width:90%;height:62%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.98),rgba(var(--fa),.9) 38%,rgba(var(--fb),0) 72%);animation:atkD1 9s ease-in-out infinite}
-.hz-atk .b2{right:-34%;top:47%;width:90%;height:66%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.96),rgba(var(--fa),.85) 40%,rgba(var(--fb),0) 72%);animation:atkD2 12s ease-in-out infinite}
-.hz-atk .b3{left:6%;top:-22%;width:72%;height:40%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.6),rgba(var(--fb),0) 70%);animation:atkD1 11s ease-in-out infinite}
-.hz-atk .b4{left:3%;bottom:-22%;width:75%;height:47%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.78),rgba(var(--fb),0) 70%);animation:atkD2 10s ease-in-out infinite}
-.hz-atk .b5{left:47%;top:25%;width:40%;height:25%;background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.56),rgba(var(--fb),0) 70%);animation:atkD1 8s ease-in-out infinite}
+/* gumpalan kabut kecil, banyak, tersebar di seluruh papan (letak diacak tiap serangan): tebal, tipis, dan jernih tidak merata */
+.hz-atk i{position:absolute;display:block;border-radius:50%;filter:blur(5px);background:radial-gradient(ellipse at 50% 50%,rgba(var(--fa),.95),rgba(var(--fa),.8) 40%,rgba(var(--fb),0) 72%);animation:atkD1 9s ease-in-out infinite}
+.hz-atk i.d2{animation-name:atkD2}
 @keyframes atkD1{0%,100%{transform:translateX(-4%)}50%{transform:translateX(5%)}}
 @keyframes atkD2{0%,100%{transform:translateX(5%)}50%{transform:translateX(-4%)}}
 .q-lite .hz-atk i{filter:none;animation:none}
@@ -226,7 +252,7 @@ input{font-family:inherit}
   /* tema dua baris: 5 di atas, 4 di bawah (rata tengah) */
   body.land #home .themes{flex-wrap:wrap;overflow:visible;justify-content:center;width:min(100%,470px);row-gap:12px;padding:16px 8px 4px}
   body.land #home .themes .tile:first-child,body.land #home .themes .tile:last-child{margin-left:0;margin-right:0}
-  body.land #home .hi1{right:78px}body.land #home .hi2{right:146px}body.land #home .hi3{right:214px}
+  body.land #home .hi1{right:146px}body.land #home .hi2{right:214px}body.land #home .hi3{right:282px}
 }
 
 /* ---------- LEMBAR (setup, pengaturan, about) ---------- */
@@ -1720,6 +1746,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
   <!-- BERANDA -->
   <section class="screen" id="home">
     <button class="homealb" data-act="album" aria-label="Album Karakter"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3" width="15" height="18" rx="2" fill="#fff3d6" stroke="#5a3315" stroke-width="1.6"/><path d="M6.5 3v18" stroke="#5a3315" stroke-width="1.6"/><circle cx="13" cy="10" r="2.6" fill="#e07a25"/><path d="M8.8 17c.6-2.6 2.2-3.6 4.2-3.6s3.6 1 4.2 3.6z" fill="#e07a25"/><rect x="18" y="6" width="3" height="4" rx=".8" fill="#5a3315"/></svg></button>
+    <button class="homealb hcof" data-act="kopi" aria-label="Traktir Kopi Pengembang" title="Traktir Kopi Pengembang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 2.6c-1 1.1 1 1.9 0 3M12 2.6c-1 1.1 1 1.9 0 3M15.8 2.6c-1 1.1 1 1.9 0 3" fill="none" stroke="#5a3315" stroke-width="1.6" stroke-linecap="round"/><path d="M4 9h13v5.2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="#fff3d6" stroke="#5a3315" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 10.4h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="#5a3315" stroke-width="1.6" stroke-linecap="round"/><path d="M3 21.4h15" stroke="#5a3315" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     <button class="homeic hi1" data-act="settings" aria-label="Pengaturan" title="Pengaturan"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/></svg></button>
     <button class="homeic hi2" data-act="fs" aria-label="Layar Penuh" title="Layar Penuh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
     <button class="homeic hi3" data-act="about" aria-label="Tentang" title="Tentang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="#5a3315"/></svg></button>
@@ -1829,7 +1856,7 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
       <div class="boardslot ordBoard" id="boardslot">
         <div class="board" id="board"></div>
         <div class="hz-board" id="hzBoard" aria-hidden="true"></div>
-        <div class="hz-atk" id="hzAtk" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i></div>
+        <div class="hz-atk" id="hzAtk" aria-hidden="true"></div>
         <div class="toast" id="toast"><div class="big"></div><div class="small"></div></div>
       </div>
     </div>
@@ -1895,6 +1922,35 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
   <div class="modal" id="infom">
     <div class="mbox"><h2 id="infoT"></h2><div id="infoP" style="font-weight:700;line-height:1.5;text-align:left"></div>
       <button class="bbtn sm" data-act="infoOk">MENGERTI</button>
+    </div>
+  </div>
+
+  <!-- TRAKTIR KOPI PENGEMBANG -->
+  <div class="modal" id="kopim">
+    <div class="mbox" role="dialog" aria-labelledby="kopT">
+      <div class="kophead">
+        <div class="kic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5.2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="#fff3d6"/><path d="M17 10.4h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="#fff3d6" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h2 id="kopT">Traktir Kopi Pengembang</h2>
+        <button class="kx" data-act="kopiClose" aria-label="Tutup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="kopsub">Dukung pengembang dengan mentraktir kopi, berapa pun nominalnya boleh!</div>
+      <ol class="kopsteps">
+        <li><b>1</b><span>Buka Saweria, isi nominal sesukamu.</span></li>
+        <li><b>2</b><span>Isi surel aktif pada formulir.</span></li>
+        <li><b>3</b><span>Bila mendapat merchandise, tunggu kode di surel, lalu masukkan di Album Karakter.</span></li>
+      </ol>
+      <button class="bbtn" data-act="saweria">Traktir Kopi lewat Saweria</button>
+      <div class="kopnote">Minta izin orang tua dulu ya.</div>
+      <div class="kopmerch">Merchandise: kode untuk membuka karakter, dikirim lewat surel (maksimal 3 x 24 jam).
+        <ul>
+          <li>Sawer minimal <b>10rb</b>: kode semua karakter sampai bundle update 30 Okt 2026.</li>
+          <li>Sawer minimal <b>25rb</b>: kode semua karakter, termasuk karakter baru berikutnya.</li>
+        </ul>
+        <small>Karakter baru setelah 30 Okt 2026 tetap bisa dibuka dengan bermain sesuai syaratnya.</small>
+      </div>
+      <div class="kopreq">Mau request karakter khusus? Tema khusus keluarga? Tema lainnya? Aturan khusus? Hubungi pengembang untuk info lebih lanjut.
+        <div class="kopmail"><input type="text" id="kopMail" value="totogutomo92@gmail.com" readonly aria-label="Surel pengembang"><button class="bbtn wood sm" data-act="kopiCopy">Salin</button></div>
+      </div>
     </div>
   </div>
 
@@ -2130,11 +2186,20 @@ function lockNeed(skinId, pionId) {
   return k === 2 ? 3 : k === 3 ? 5 : 0;
 }
 const playsOf = skinId => Math.max(0, Math.floor(+ALB.plays[skinId] || 0));
-const isOpen = (skinId, pionId) => playsOf(skinId) >= lockNeed(skinId, pionId);
+// Kode merchandise (Versi 2.5.1): t = 'B' (10rb, bundle update 30 Okt 2026) atau 'A' (25rb, semua termasuk karakter baru berikutnya).
+// Kode = tanda tangan digital atas surel pembeli; aplikasi hanya memegang kunci PUBLIK, kunci rahasia ada di alat pembuat kode milik pengembang.
+const BUNDLE_SKINS = ['borneo', 'angkasa', 'eskrim', 'salju', 'kebun', 'bawahlaut', 'unicorn'];
+const BUNDLE_PIONS = ['tingang', 'orangutan', 'bekantan', 'talawang', 'mpa', 'astronot', 'alien', 'robot', 'roket', 'tingangangkasa', 'cone', 'loli', 'sundae', 'milkshake', 'tingangeskrim', 'manusiasalju', 'penguin', 'beruangkutub', 'rusa', 'tingangsalju', 'lebah', 'kupu', 'kepik', 'siput', 'tingangkebun', 'ikan', 'kepiting', 'gurita', 'penyu', 'tingangselam', 'unicorn', 'poni', 'perikucing', 'narwal', 'putri', 'tingangunicorn'];
+const CODE_PUB = { kty: 'EC', crv: 'P-256', x: 'pEuhPjgTAkpTips9qXUWUGSqZ1V69_WebwfmGx0i2fA', y: 'HlhfWnpKyzkLJ1_2cIt5mVdCzin6bs7IP-vmANpHAhQ', ext: true };
+const B32 = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const unlT = () => (ALB.unl && (ALB.unl.t === 'A' || ALB.unl.t === 'B')) ? ALB.unl.t : '';
+const unlPion = id => unlT() === 'A' || (unlT() === 'B' && BUNDLE_PIONS.includes(id));
+const unlSkin = id => unlT() === 'A' || (unlT() === 'B' && BUNDLE_SKINS.includes(id));
+const isOpen = (skinId, pionId) => unlPion(pionId) || playsOf(skinId) >= lockNeed(skinId, pionId);
 const availPions = skinId => SKINS[skinId].pions.map(x => x.id).filter(id => isOpen(skinId, id));
 // Tema terkunci: Negeri Dongeng terbuka setelah Hutan Borneo dimainkan sampai selesai 5×
 const THEME_LOCK = { unicorn: { from: 'borneo', need: 5 } };
-const themeOpen = id => { const k = THEME_LOCK[id]; return !k || playsOf(k.from) >= k.need; };
+const themeOpen = id => { const k = THEME_LOCK[id]; return !k || unlSkin(id) || playsOf(k.from) >= k.need; };
 const themeHint = id => { const k = THEME_LOCK[id]; return k ? `Mainkan tema ${SKINS[k.from].name} ${k.need}× untuk membuka ${SKINS[id].name} (sekarang ${Math.min(playsOf(k.from), k.need)}×)` : ''; };
 // Dadu ikut terbuka bersama temanya. Dadu Ajaib (magic) hanya bisa dipakai di tema asalnya.
 const diceOpen = id => !!DICE[id] && themeOpen(DICE[id].skin);
@@ -2195,7 +2260,7 @@ function fogIntro() {
   hzIntroAt = performance.now();
   hzIntroT.forEach(clearTimeout); hzIntroT = [];
   hzIntroT.push(setTimeout(() => {
-    if (cur !== 'home' || document.documentElement.dataset.haze !== '1') return;
+    if (cur !== 'home' || document.documentElement.dataset.haze !== '1' || $('#kopim').classList.contains('show')) return;
     showHz('Kabut asap melanda Borneo!<br><span style="font-size:15px">Ayo padamkan Karhutla</span>', 3000);
   }, 800));
   hzIntroT.push(setTimeout(() => {
@@ -2222,6 +2287,18 @@ function fogAtkCancel() {
   atkT.forEach(clearTimeout); atkT = [];
   const a = $('#hzAtk'); if (a) a.classList.remove('go', 'black');
 }
+// Gumpalan kabut papan: 16 gumpalan kecil di kisi 4x4, letak dan tebalnya diacak tiap serangan; 2 sampai 3 petak dibiarkan jernih
+function fogScatter(a) {
+  const N = 4, skip = new Set(); while (skip.size < 2 + Math.floor(Math.random() * 2)) skip.add(Math.floor(Math.random() * N * N));
+  let h = '';
+  for (let i = 0; i < N * N; i++) {
+    if (skip.has(i)) continue;
+    const cx = ((i % N) + 0.5) / N * 100 + (Math.random() - .5) * 14, cy = (Math.floor(i / N) + 0.5) / N * 100 + (Math.random() - .5) * 14;
+    const w = 24 + Math.random() * 16, ht = 20 + Math.random() * 14, o = 0.35 + Math.random() * 0.65;
+    h += `<i class="${Math.random() < .5 ? 'd2' : ''}" style="left:${(cx - w / 2).toFixed(1)}%;top:${(cy - ht / 2).toFixed(1)}%;width:${w.toFixed(1)}%;height:${ht.toFixed(1)}%;opacity:${o.toFixed(2)};animation-duration:${(7 + Math.random() * 6).toFixed(1)}s;animation-delay:${(-Math.random() * 6).toFixed(1)}s"></i>`;
+  }
+  a.innerHTML = h;
+}
 function fogAtkTick() {
   if (!G || G.over || cur !== 'game' || document.documentElement.dataset.haze !== '1') return;
   if (atkG !== G) { atkG = G; atkIn = 4 + Math.floor(Math.random() * 3); }
@@ -2235,7 +2312,7 @@ function fogAtkTick() {
   atkT.push(setTimeout(() => {
     hideHz();
     const a = $('#hzAtk'); if (!a) return;
-    a.classList.remove('go', 'black'); void a.offsetWidth;
+    a.classList.remove('go', 'black'); fogScatter(a); void a.offsetWidth;
     if (black) a.classList.add('black'); a.classList.add('go');
   }, 3000));
   atkT.push(setTimeout(() => { atkT = []; const a = $('#hzAtk'); if (a) a.classList.remove('go', 'black'); }, 6800));
@@ -2732,9 +2809,10 @@ function renderAbout() {
     <p class="hint" style="margin:0 0 6px">Game HaHe © 2026 Toto Gutomo.</p>
     <p class="hint" style="margin:0 0 6px">Seluruh gambar (karakter, ikon, dan latar) dibuat dengan bantuan kecerdasan buatan (AI) berdasarkan arahan dan rancangan pembuat.</p>
     <p class="hint" style="margin:0">Huruf: Lilita One dan Nunito (Google Fonts, lisensi SIL Open Font License).</p></div>
+  <div class="sec"><h3>Dukungan pengembang</h3><p class="hint" style="margin:0">Dukungan lewat tombol kopi diproses oleh Saweria, layanan pihak lain. Surel pendukung diterima pengembang lewat Saweria, bukan lewat aplikasi ini.</p></div>
   <div class="sec"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
   <div class="sec"><h3>Privasi</h3><button class="bbtn wood sm" data-act="privacy" style="font-size:17px">Kebijakan Privasi</button></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.5 · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.5.1 · Traktir Kopi &amp; kode karakter · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 function renderPrivacy() {
   $('#privacyBody').innerHTML = `
@@ -2742,8 +2820,9 @@ function renderPrivacy() {
   <ul class="privlist">
     <li>Tidak ada akun, iklan, maupun pelacak.</li>
     <li>Pengaturan, nama pemain, permainan terakhir, dan progres Album hanya disimpan di perangkat ini dan tidak dikirim ke mana pun.</li>
-    <li>Berkas progres Album (hahe-album.json) hanya dibuat bila Anda sendiri menyimpannya.</li>
-    <li>Satu-satunya hubungan ke internet adalah mengambil huruf dari Google Fonts saat perangkat online; Google dapat menerima alamat internet (IP) perangkat pada saat itu. Setelah HaHe dipasang, game bisa dimainkan tanpa internet.</li>
+    <li>Berkas progres Album (hahe-album.json) hanya dibuat bila Anda sendiri menyimpannya. Bila Anda memasukkan kode merchandise, surel dan kode itu ikut tersimpan di perangkat dan di berkas tersebut, supaya karakter tetap terbuka saat berganti perangkat. Kode diperiksa di perangkat, tanpa internet.</li>
+    <li>Tombol kopi membuka situs Saweria (layanan pihak lain, dengan kebijakan privasinya sendiri) hanya bila Anda menekannya. HaHe tidak menerima atau menyimpan data pembayaran. Surel yang Anda isi di Saweria diterima pengembang lewat Saweria, bukan lewat aplikasi, dan hanya dipakai untuk mengirim kode merchandise.</li>
+    <li>Selain itu, satu-satunya hubungan ke internet adalah mengambil huruf dari Google Fonts saat perangkat online; Google dapat menerima alamat internet (IP) perangkat pada saat itu. Setelah HaHe dipasang, game bisa dimainkan tanpa internet.</li>
     <li>Untuk menghapus data, hapus data situs di peramban atau copot HaHe dari perangkat.</li>
     <li>Nama pemain hanya untuk tampilan di permainan, jadi aman dimainkan oleh anak-anak.</li>
   </ul>
@@ -2809,20 +2888,74 @@ function renderAlbum() {
     if (!themeOpen(albSkin)) h += `<div class="alb-head">🔒 ${esc(themeHint(albSkin))}</div>`;
     // semua karakter tampil; yang terkunci redup + gembok, faktanya disembunyikan (hitungan main tetap ada)
     h += sk.pions.map(x => {
-      const need = lockNeed(albSkin, x.id), open = n >= need;
+      const need = lockNeed(albSkin, x.id), open = isOpen(albSkin, x.id);
       return open
         ? `<div class="alcard" data-card="${x.id}"><div class="av">${avatarSVG(x.id, 'emas')}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">${esc(factOf(x.id))}</div></div></div>`
         : `<div class="alcard lk" data-card="${x.id}"><div class="av">${avatarSVG(x.id, 'emas')}${LOCK_SVG}</div><div><div class="nm">${esc(x.name)}</div><div class="tx">Buka karakter untuk mengenali lebih jauh. Mainkan tema ini sampai selesai ${need}× (sekarang ${n}×).</div></div></div>`;
     }).join('');
     if (s2) h += s2.map(id => `<div class="alcard s2"><div class="av">${avatarSVG(id, 'hitam')}</div><div><div class="nm">Season 2</div><div class="tx">Karakter ini menyusul di Season 2.</div></div></div>`).join('');
   }
+  h += codeCardHTML();
   h += `<div class="alb-tools"><button class="bbtn wood sm" data-act="albExport">⬆ Simpan progres</button><button class="bbtn wood sm" data-act="albImport">⬇ Muat progres</button></div><div class="hint" id="albMsg">${esc(albMsg)}</div><div class="hint">Progres tersimpan di perangkat ini. Berkas progres bisa dipindah ke perangkat lain atau dibagikan.</div>`;
   const sb = $('#albumBody'); sb.innerHTML = h;
   // dari Beranda: karakter yang diketuk disorot dan digulir ke tengah
   if (albFocus) { const f = sb.querySelector(`[data-card="${albFocus}"]`); albFocus = ''; if (f) { f.classList.add('hl'); setTimeout(() => f.scrollIntoView({ block: 'center', behavior: 'smooth' }), 80); } }
 }
+// ---------- Kode merchandise ----------
+function b32dec(str) {
+  let bits = 0, val = 0; const out = [];
+  for (const ch of str) { const i = B32.indexOf(ch); if (i < 0) return null; val = (val << 5) | i; bits += 5; if (bits >= 8) { out.push((val >>> (bits - 8)) & 255); bits -= 8; val &= (1 << bits) - 1; } }
+  return new Uint8Array(out);
+}
+const cleanMail = e => String(e || '').trim().toLowerCase();
+const cleanCode = c => String(c || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+// hasil: 'A', 'B', atau '' bila tidak cocok
+async function checkCode(email, code) {
+  try {
+    const em = cleanMail(email), cc = cleanCode(code);
+    if (!em || cc.length < 100 || !(window.crypto && crypto.subtle)) return '';
+    const sig = b32dec(cc.slice(0, 103)); if (!sig || sig.length !== 64) return '';
+    const key = await crypto.subtle.importKey('jwk', CODE_PUB, { name: 'ECDSA', namedCurve: 'P-256' }, false, ['verify']);
+    for (const t of ['A', 'B']) {
+      if (await crypto.subtle.verify({ name: 'ECDSA', hash: 'SHA-256' }, key, sig, new TextEncoder().encode(`HAHE1|${t}|${em}`))) return t;
+    }
+  } catch (e) {}
+  return '';
+}
+function setUnl(t, email, code) {
+  if (unlT() === 'A' && t === 'B') return; // tingkat lebih tinggi tidak diturunkan
+  ALB.unl = { t, e: cleanMail(email), c: cleanCode(code).slice(0, 103) }; saveAlbum();
+}
+function codeCardHTML() {
+  const t = unlT();
+  const info = t === 'A' ? 'Semua karakter terbuka, termasuk karakter baru berikutnya. Terima kasih sudah mendukung HaHe! ☕'
+    : t === 'B' ? 'Semua karakter sampai bundle update 30 Okt 2026 terbuka. Karakter baru sesudahnya tetap bisa dibuka dengan bermain.' : '';
+  if (t === 'A') return `<div class="codecard done"><h3>✅ Semua karakter terbuka</h3><div class="cmsg">${esc(info)}</div></div>`;
+  return `<div class="codecard">${t ? `<h3>✅ Bundle 30 Okt 2026 terbuka</h3><div class="cmsg">${esc(info)}</div><div class="cmsg">Punya kode 25rb? Masukkan di bawah.</div>` : '<h3>Punya kode?</h3>'}
+    <input type="email" id="codeMail" placeholder="Surel (yang dipakai di Saweria)" autocomplete="off" inputmode="email" aria-label="Surel">
+    <textarea id="codeVal" rows="3" placeholder="Tempel kode dari surel" autocomplete="off" spellcheck="false" aria-label="Kode"></textarea>
+    <button class="bbtn sm" data-act="albCode">Buka Semua Karakter</button>
+    <div class="cmsg" id="codeMsg" role="status"></div></div>`;
+}
+async function applyCode() {
+  const m = $('#codeMail'), c = $('#codeVal'), msg = $('#codeMsg'); if (!m || !c || !msg) return;
+  const setMsg = (txt, cls) => { msg.textContent = txt; msg.className = 'cmsg ' + (cls || ''); };
+  if (!m.value.trim() || !cleanCode(c.value)) return setMsg('Isi surel dan kode dulu ya.', 'bad');
+  setMsg('Memeriksa kode…');
+  if (!(window.crypto && crypto.subtle)) return setMsg('Peramban ini belum bisa memeriksa kode. Buka HaHe lewat alamat hahe.totogutomo.com.', 'bad');
+  const t = await checkCode(m.value, c.value);
+  if (!t) return setMsg('Kode tidak cocok. Pastikan surelnya sama persis dengan yang dipakai di Saweria dan kodenya utuh.', 'bad');
+  setUnl(t, m.value, c.value); SFX.click();
+  albMsg = t === 'A' ? 'Kode diterima: semua karakter terbuka!' : 'Kode diterima: karakter bundle 30 Okt 2026 terbuka!';
+  renderAlbum(); toast('Karakter terbuka!', t === 'A' ? 'Semua karakter' : 'Bundle 30 Okt 2026');
+}
+function copyMail() {
+  const v = $('#kopMail').value, ok = () => toast('Surel disalin', v);
+  try { navigator.clipboard.writeText(v).then(ok, () => { $('#kopMail').select(); document.execCommand('copy'); ok(); }); }
+  catch (e) { try { $('#kopMail').select(); document.execCommand('copy'); ok(); } catch (e2) {} }
+}
 function exportAlbum() {
-  const data = JSON.stringify({ app: 'HaHe', album: 1, plays: ALB.plays }, null, 1);
+  const data = JSON.stringify({ app: 'HaHe', album: 1, plays: ALB.plays, unl: unlT() ? ALB.unl : undefined }, null, 1);
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([data], { type: 'application/json' })); a.download = 'hahe-album.json';
   document.body.appendChild(a); a.click();
@@ -2836,6 +2969,8 @@ $('#albFile').addEventListener('change', () => {
     if (!d || d.app !== 'HaHe' || !d.plays || typeof d.plays !== 'object') throw 0;
     Object.keys(SKINS).forEach(k => { const v = Math.min(999, Math.max(0, Math.floor(+d.plays[k] || 0))); if (v > playsOf(k)) ALB.plays[k] = v; });
     saveAlbum(); albMsg = 'Progres berhasil dimuat (digabung dengan progres di perangkat ini).';
+    // status "semua karakter terbuka" ikut dipindah, tetapi kodenya diperiksa ulang
+    if (d.unl && d.unl.e && d.unl.c) return checkCode(d.unl.e, d.unl.c).then(t => { if (t) setUnl(t, d.unl.e, d.unl.c); });
   }).catch(() => { albMsg = 'Berkas tidak cocok. Pilih berkas hahe-album.json dari HaHe.'; }).then(() => { inp.value = ''; renderAlbum(); });
 });
 
@@ -3566,6 +3701,11 @@ document.addEventListener('click', e => {
     case 'about': show('about'); break;
     case 'privacy': show('privacy'); break;
     case 'karhutla': karhutla(); break;
+    case 'kopi': hideHz(); modal('kopim', true); break;
+    case 'kopiClose': modal('kopim', false); break;
+    case 'kopiCopy': copyMail(); break;
+    case 'saweria': try { window.open('https://saweria.co/totogutomo', '_blank', 'noopener'); } catch (e) {} break;
+    case 'albCode': applyCode(); break;
     case 'album': albSkin = S.skin; albFocus = ''; show('album'); break;
     case 'albExport': exportAlbum(); break;
     case 'albImport': $('#albFile').click(); break;
@@ -3680,7 +3820,7 @@ addEventListener('popstate', () => {
   const open = id => $('#' + id).classList.contains('show');
   if (open('quizm')) { armBack(); return; } // soal harus dijawab dulu
   if (open('quickm')) { armBack(); return modal('quickm', false); }
-  if (cur === 'home' && !['confirm', 'infom', 'pickm'].some(open)) {
+  if (cur === 'home' && !['confirm', 'infom', 'pickm', 'kopim'].some(open)) {
     if (open('exitm')) return; // back kedua di peringatan: biarkan keluar
     modal('exitm', true); return; // peringatan keluar (back berikutnya = keluar)
   }
@@ -3689,6 +3829,7 @@ addEventListener('popstate', () => {
   if (open('infom')) return modal('infom', false);
   if (open('confirm')) return modal('confirm', false);
   if (open('pickm')) return modal('pickm', false);
+  if (open('kopim')) return modal('kopim', false);
   if (open('win')) return goHome();
   if (open('pause')) { modal('pause', false); startTurn(); return; }
   if (cur === 'game') { if (!busy) modal('pause', true); return; }

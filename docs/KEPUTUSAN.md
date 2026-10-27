@@ -303,5 +303,18 @@ Hasil uji Versi 2.4 oleh Pak Toto (desktop, kabut, tombol Karhutla, Tentang, Pri
 - Mockup kabut papan putih dan hitam hanya di Claude Design; **tidak disimpan ke repo** (keputusan Pak Toto).
 - Versi 2.5; sw.js memakai simpanan baru (hahe-v16).
 
+## 31. Update Versi 2.5.1 (28 Okt 2026)
+Hasil uji Versi 2.5: kabut papan hanya dua gumpalan besar, kurang luas dan kurang tersebar. Fitur Traktir Kopi (rencana "2.6") digabung ke versi kecil ini atas permintaan Pak Toto (nomor 2.5.1, bukan 2.6). Mockup tidak diubah.
+- **Ikon kopi** di Beranda, di kiri ikon Album (di desktop landscape ikon Pengaturan, Layar Penuh, Tentang bergeser satu tempat ke kiri).
+- **Dialog "Traktir Kopi Pengembang"**: nominal bebas ("berapa pun nominalnya boleh"), tiga langkah (Saweria, surel aktif, kode di surel lalu Album Karakter), tombol ke https://saweria.co/totogutomo, "Minta izin orang tua dulu ya.", kotak hijau merchandise dua tingkat, lalu ajakan request karakter/tema khusus dengan surel totogutomo92@gmail.com dan tombol Salin. Tombol Back Android menutup dialog.
+- **Dua tingkat kode**: sawer minimal **10rb** = kode semua karakter sampai bundle update 30 Okt 2026 (36 karakter, 7 tema yang ada); sawer minimal **25rb** = kode semua karakter, termasuk karakter baru berikutnya. Kode 10rb tidak membuka karakter baru sesudah 30 Okt; karakter itu tetap bisa dibuka dengan bermain sesuai syarat. Kode 25rb mengalahkan 10rb (tidak turun tingkat). Naik tingkat (bayar selisih) diatur Pak Toto lewat balasan surel, tidak ditulis di dialog.
+- **Cara kerja kode**: kode = tanda tangan digital atas surel pembeli + tingkat (ECDSA P-256). Aplikasi hanya memegang kunci **publik**; kunci rahasia hanya ada di berkas pribadi "HaHe-Pembuat-Kode.html" milik Pak Toto (TIDAK di repo). Surel tidak peka huruf besar/kecil; kode boleh ditempel dengan atau tanpa tanda hubung. Diperiksa di perangkat, tanpa internet. Tanpa server, jadi kode tidak bisa dibatasi sekali pakai.
+- **Tema Negeri Dongeng** ikut terbuka bila kode berlaku untuk tema itu (karakternya tidak bisa dipakai bila temanya masih terkunci).
+- **Album Karakter**: kartu "Punya kode?" (kolom Surel dan Kode, tombol Buka Semua Karakter) di bawah daftar karakter; setelah terbuka kartu berubah jadi status. Status ikut tersimpan di berkas Simpan/Muat progres dan diperiksa ulang saat dimuat (berkas yang surelnya diubah ditolak).
+- **Tentang** ditambah "Dukungan pengembang" (Saweria pihak lain; surel diterima lewat Saweria, bukan aplikasi). **Privasi** diperbarui (Saweria, surel dan kode tersimpan di perangkat dan berkas progres, kode diperiksa tanpa internet). Tulisan "tidak menggalang dana" pada disclaimer kabut tetap; dialog kopi tidak dikaitkan dengan Karhutla.
+- **Kabut papan** (putih dan hitam): kini 13 sampai 14 gumpalan kecil di kisi 4x4 yang tersebar di seluruh papan, letak dan tebalnya diacak tiap serangan; 2 sampai 3 petak dibiarkan jernih. Mode Ringan: gumpalan diam. Tidak menghentikan permainan.
+- Versi 2.5.1; sw.js memakai simpanan baru (hahe-v17).
+- Menunggu: uji Pak Toto (dialog kopi, kartu kode dengan kode asli dari alat pembuat, kabut baru) di HP dan IFP; mockup dukungan kopi belum disimpan ke docs/mockup (tawarkan).
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
