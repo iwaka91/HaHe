@@ -316,6 +316,14 @@ Hasil uji Versi 2.5: kabut papan hanya dua gumpalan besar, kurang luas dan kuran
 - Versi 2.5.1; sw.js memakai simpanan baru (hahe-v17).
 - Menunggu: uji Pak Toto (dialog kopi, kartu kode dengan kode asli dari alat pembuat, kabut baru) di HP dan IFP; mockup dukungan kopi belum disimpan ke docs/mockup (tawarkan).
 
+## 32. Update Versi 2.5.2 (1 Nov 2026)
+Hasil uji Versi 2.5.1 oleh Pak Toto: lolos (dialog kopi, kartu kode dengan kode asli, kabut). Alat pembuat kode sudah diunggah ke Netlify dan dipastikan tidak bisa dibuka publik. Perubahan hanya pada dialog kopi dan teks kode.
+- **Ketentuan sawer baru**: minimal **10rb** = kode semua karakter **Musim 1**; minimal **25rb** = kode **Musim 1 dan semua musim ke depan, selama aplikasi aktif** (menggantikan "bundle update 30 Okt 2026"). Kode lama tetap berlaku (tingkat B dan A tidak berubah, kunci tidak diganti). Teks di dialog kopi, kartu kode Album, pesan dan toast ikut diperbarui.
+- **Dialog kopi satu layar tanpa geser**: ukuran huruf dan jarak mengikuti tinggi layar; di layar lanskap (HP, IFP, laptop) tampil dua kolom. Sudah diuji di 412x780, 390x640, 780x360, dan 1280x720.
+- **Tombol Salin dan kotak surel dihapus**: diganti surel yang bisa diketuk (totogutomo92@gmail.com, membuka aplikasi surel; teksnya tetap bisa ditahan untuk disalin).
+- Versi 2.5.2; sw.js memakai simpanan baru (hahe-v18).
+- Catatan: isi Musim 1 = 36 karakter di 7 tema yang ada sekarang. Penanda musim per karakter belum dibuat; dibahas saat Musim 2 dimulai. Mockup dukungan kopi belum diperbarui (menunggu "Update Mockup").
+
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
 - `docs/mockup/dukungan-kopi/` (disimpan 1 Nov 2026): Beranda + dialog kopi dan Album + kotak kode. Teks mockup belum diperbarui ke dua tingkat 10rb/25rb; lihat CATATAN.md di folder itu dan bagian 31.

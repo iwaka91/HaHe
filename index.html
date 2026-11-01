@@ -66,27 +66,28 @@ input{font-family:inherit}
 .homealb svg{width:100%;height:100%;display:block}
 .homealb:active{transform:translateY(2px);box-shadow:0 2px 0 #5a3315}
 .homealb.hcof{right:78px}
-/* Traktir Kopi Pengembang (Versi 2.5.1) */
-#kopim .mbox{width:min(420px,100%);text-align:left;gap:10px}
-#kopim .bbtn{font-size:21px}
-.kophead{display:flex;align-items:center;gap:12px}
-.kophead .kic{flex:none;width:52px;height:52px;border-radius:50%;background:#6b3f1d;display:flex;align-items:center;justify-content:center}
-.kophead .kic svg{width:30px;height:30px}
-.kophead h2{flex:1;line-height:1.05;font-size:28px}
-.kophead .kx{flex:none;width:46px;height:46px;border-radius:50%;border:3px solid #6b3f1d;background:#fff;color:#3a2411;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
-.kophead .kx svg{width:22px;height:22px;stroke:#3a2411;stroke-width:3;stroke-linecap:round;fill:none}
-.kopsub{font-weight:800;font-size:17px;line-height:1.35}
-.kopsteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:15.5px;line-height:1.3}
-.kopsteps li{display:flex;gap:10px;align-items:flex-start}
-.kopsteps b{flex:none;width:28px;height:28px;border-radius:50%;background:#6b3f1d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px}
-.kopnote{text-align:center;font-weight:700;font-size:14px;opacity:.8}
-.kopmerch{border:2.5px solid #2f7d3a;background:#e1f3d8;color:#17492a;border-radius:16px;padding:10px 12px;font-weight:800;font-size:14.5px;line-height:1.35}
-.kopmerch ul{margin:6px 0;padding-left:20px}.kopmerch li{margin:3px 0}
-.kopmerch small{display:block;font-weight:700;font-size:13.5px}
-.kopreq{border-top:2px solid #e2c488;padding-top:10px;font-weight:700;font-size:14.5px;line-height:1.35}
-.kopmail{display:flex;gap:10px;margin-top:8px}
-.kopmail input{flex:1;min-width:0;border:2.5px solid #e2c488;border-radius:14px;padding:10px 12px;font-weight:800;font-size:15px;font-family:inherit;color:#3a2411;background:#fff}
-.kopmail .bbtn{flex:none;min-height:46px;font-size:16px;padding:0 16px}
+/* Traktir Kopi Pengembang (Versi 2.5.2): satu layar tanpa geser; ukuran ikut tinggi layar */
+#kopim .mbox{width:min(420px,100%);text-align:left;gap:0;padding:1.1em 1.2em;font-size:15px;font-size:clamp(11.5px,1.95vh,15px);font-size:clamp(11.5px,1.95dvh,15px)}
+#kopim .kcols{display:flex;flex-direction:column;gap:.7em}
+#kopim .kcol{display:flex;flex-direction:column;gap:.6em;min-width:0}
+#kopim .bbtn{font-size:1.4em;min-height:2.3em;border-radius:1em;margin-top:.2em}
+.kophead{display:flex;align-items:center;gap:.7em}
+.kophead .kic{flex:none;width:3em;height:3em;border-radius:50%;background:#6b3f1d;display:flex;align-items:center;justify-content:center}
+.kophead .kic svg{width:1.7em;height:1.7em}
+#kopim .kophead h2{flex:1;line-height:1.05;font-size:1.8em;margin:0}
+.kophead .kx{flex:none;width:2.7em;height:2.7em;border-radius:50%;border:3px solid #6b3f1d;background:#fff;color:#3a2411;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.kophead .kx svg{width:1.3em;height:1.3em;stroke:#3a2411;stroke-width:3;stroke-linecap:round;fill:none}
+.kopsub{font-weight:800;font-size:1.1em;line-height:1.3}
+.kopsteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.45em;font-weight:700;font-size:1em;line-height:1.3}
+.kopsteps li{display:flex;gap:.65em;align-items:flex-start}
+.kopsteps b{flex:none;width:1.8em;height:1.8em;border-radius:50%;background:#6b3f1d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95em}
+.kopnote{text-align:center;font-weight:700;font-size:.93em;opacity:.8}
+.kopmerch{border:2.5px solid #2f7d3a;background:#e1f3d8;color:#17492a;border-radius:1em;padding:.6em .8em;font-weight:800;font-size:.97em;line-height:1.35}
+.kopmerch ul{margin:.4em 0;padding-left:1.3em}.kopmerch li{margin:.25em 0}
+.kopmerch small{display:block;font-weight:700;font-size:.93em}
+.kopreq{border-top:2px solid #e2c488;padding-top:.6em;font-weight:700;font-size:.97em;line-height:1.35}
+.kopmail{display:inline-block;margin-top:.3em;padding:.25em 0;font-weight:900;font-size:1.12em;color:#6b3f1d;text-decoration:underline;word-break:break-all;user-select:text;-webkit-user-select:text}
+@media (min-aspect-ratio:5/4){#kopim .mbox{width:min(780px,100%)}#kopim .kcols{flex-direction:row;gap:1.2em}#kopim .kcol{flex:1}}
 /* kartu kode di Album */
 .codecard{margin-top:14px;border:3px solid var(--sheetLine);border-radius:18px;background:var(--chip);padding:12px;display:flex;flex-direction:column;gap:8px;text-align:left}
 .codecard h3{margin:0;font-family:var(--disp);font-weight:400;font-size:22px}
@@ -1928,28 +1929,34 @@ input[type=range]{width:100%;accent-color:#2fa84a;height:30px}
   <!-- TRAKTIR KOPI PENGEMBANG -->
   <div class="modal" id="kopim">
     <div class="mbox" role="dialog" aria-labelledby="kopT">
-      <div class="kophead">
-        <div class="kic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5.2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="#fff3d6"/><path d="M17 10.4h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="#fff3d6" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h2 id="kopT">Traktir Kopi Pengembang</h2>
-        <button class="kx" data-act="kopiClose" aria-label="Tutup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      </div>
-      <div class="kopsub">Dukung pengembang dengan mentraktir kopi, berapa pun nominalnya boleh!</div>
-      <ol class="kopsteps">
-        <li><b>1</b><span>Buka Saweria, isi nominal sesukamu.</span></li>
-        <li><b>2</b><span>Isi surel aktif pada formulir.</span></li>
-        <li><b>3</b><span>Bila mendapat merchandise, tunggu kode di surel, lalu masukkan di Album Karakter.</span></li>
-      </ol>
-      <button class="bbtn" data-act="saweria">Traktir Kopi lewat Saweria</button>
-      <div class="kopnote">Minta izin orang tua dulu ya.</div>
-      <div class="kopmerch">Merchandise: kode untuk membuka karakter, dikirim lewat surel (maksimal 3 x 24 jam).
-        <ul>
-          <li>Sawer minimal <b>10rb</b>: kode semua karakter sampai bundle update 30 Okt 2026.</li>
-          <li>Sawer minimal <b>25rb</b>: kode semua karakter, termasuk karakter baru berikutnya.</li>
-        </ul>
-        <small>Karakter baru setelah 30 Okt 2026 tetap bisa dibuka dengan bermain sesuai syaratnya.</small>
-      </div>
-      <div class="kopreq">Mau request karakter khusus? Tema khusus keluarga? Tema lainnya? Aturan khusus? Hubungi pengembang untuk info lebih lanjut.
-        <div class="kopmail"><input type="text" id="kopMail" value="totogutomo92@gmail.com" readonly aria-label="Surel pengembang"><button class="bbtn wood sm" data-act="kopiCopy">Salin</button></div>
+      <div class="kcols">
+        <div class="kcol">
+          <div class="kophead">
+            <div class="kic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5.2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="#fff3d6"/><path d="M17 10.4h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="#fff3d6" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h2 id="kopT">Traktir Kopi Pengembang</h2>
+            <button class="kx" data-act="kopiClose" aria-label="Tutup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </div>
+          <div class="kopsub">Dukung pengembang dengan mentraktir kopi, berapa pun nominalnya boleh!</div>
+          <ol class="kopsteps">
+            <li><b>1</b><span>Buka Saweria, isi nominal sesukamu.</span></li>
+            <li><b>2</b><span>Isi surel aktif pada formulir.</span></li>
+            <li><b>3</b><span>Bila mendapat merchandise, tunggu kode di surel, lalu masukkan di Album Karakter.</span></li>
+          </ol>
+          <button class="bbtn" data-act="saweria">Traktir Kopi lewat Saweria</button>
+          <div class="kopnote">Minta izin orang tua dulu ya.</div>
+        </div>
+        <div class="kcol">
+          <div class="kopmerch">Merchandise: kode untuk membuka karakter, dikirim lewat surel (maksimal 3 x 24 jam).
+            <ul>
+              <li>Sawer minimal <b>10rb</b>: kode semua karakter Musim 1.</li>
+              <li>Sawer minimal <b>25rb</b>: kode Musim 1 dan semua musim ke depan, selama aplikasi aktif.</li>
+            </ul>
+            <small>Karakter musim berikutnya tetap bisa dibuka dengan bermain sesuai syaratnya.</small>
+          </div>
+          <div class="kopreq">Mau request karakter khusus? Tema khusus keluarga? Tema lainnya? Aturan khusus? Hubungi pengembang untuk info lebih lanjut.
+            <a class="kopmail" href="mailto:totogutomo92@gmail.com">totogutomo92@gmail.com</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2186,7 +2193,7 @@ function lockNeed(skinId, pionId) {
   return k === 2 ? 3 : k === 3 ? 5 : 0;
 }
 const playsOf = skinId => Math.max(0, Math.floor(+ALB.plays[skinId] || 0));
-// Kode merchandise (Versi 2.5.1): t = 'B' (10rb, bundle update 30 Okt 2026) atau 'A' (25rb, semua termasuk karakter baru berikutnya).
+// Kode merchandise (Versi 2.5.1, teks diubah di 2.5.2): t = 'B' (10rb, semua karakter Musim 1) atau 'A' (25rb, Musim 1 dan semua musim ke depan selama aplikasi aktif).
 // Kode = tanda tangan digital atas surel pembeli; aplikasi hanya memegang kunci PUBLIK, kunci rahasia ada di alat pembuat kode milik pengembang.
 const BUNDLE_SKINS = ['borneo', 'angkasa', 'eskrim', 'salju', 'kebun', 'bawahlaut', 'unicorn'];
 const BUNDLE_PIONS = ['tingang', 'orangutan', 'bekantan', 'talawang', 'mpa', 'astronot', 'alien', 'robot', 'roket', 'tingangangkasa', 'cone', 'loli', 'sundae', 'milkshake', 'tingangeskrim', 'manusiasalju', 'penguin', 'beruangkutub', 'rusa', 'tingangsalju', 'lebah', 'kupu', 'kepik', 'siput', 'tingangkebun', 'ikan', 'kepiting', 'gurita', 'penyu', 'tingangselam', 'unicorn', 'poni', 'perikucing', 'narwal', 'putri', 'tingangunicorn'];
@@ -2812,7 +2819,7 @@ function renderAbout() {
   <div class="sec"><h3>Dukungan pengembang</h3><p class="hint" style="margin:0">Dukungan lewat tombol kopi diproses oleh Saweria, layanan pihak lain. Surel pendukung diterima pengembang lewat Saweria, bukan lewat aplikasi ini.</p></div>
   <div class="sec"><h3>Kredit backsound</h3><p class="hint" style="margin:0">Menyusul.</p></div>
   <div class="sec"><h3>Privasi</h3><button class="bbtn wood sm" data-act="privacy" style="font-size:17px">Kebijakan Privasi</button></div>
-  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.5.1 · Traktir Kopi &amp; kode karakter · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
+  <div class="sec"><h3>Versi</h3><p class="hint" style="margin:0">Versi 2.5.2 · Traktir Kopi &amp; kode karakter · Kabut asap Borneo · Karakter MPA · Tema Hutan Borneo, Luar Angkasa, Es Krim, Negeri Salju, Kebun Ceria, Bawah Laut, Negeri Dongeng · Album Karakter &amp; Dadu · Dadu Ajaib · Mode Edukasi &amp; Mode Cepat</p></div>`;
 }
 function renderPrivacy() {
   $('#privacyBody').innerHTML = `
@@ -2928,10 +2935,10 @@ function setUnl(t, email, code) {
 }
 function codeCardHTML() {
   const t = unlT();
-  const info = t === 'A' ? 'Semua karakter terbuka, termasuk karakter baru berikutnya. Terima kasih sudah mendukung HaHe! ☕'
-    : t === 'B' ? 'Semua karakter sampai bundle update 30 Okt 2026 terbuka. Karakter baru sesudahnya tetap bisa dibuka dengan bermain.' : '';
+  const info = t === 'A' ? 'Semua karakter Musim 1 dan semua musim ke depan terbuka, selama aplikasi aktif. Terima kasih sudah mendukung HaHe! ☕'
+    : t === 'B' ? 'Semua karakter Musim 1 terbuka. Karakter musim berikutnya tetap bisa dibuka dengan bermain.' : '';
   if (t === 'A') return `<div class="codecard done"><h3>✅ Semua karakter terbuka</h3><div class="cmsg">${esc(info)}</div></div>`;
-  return `<div class="codecard">${t ? `<h3>✅ Bundle 30 Okt 2026 terbuka</h3><div class="cmsg">${esc(info)}</div><div class="cmsg">Punya kode 25rb? Masukkan di bawah.</div>` : '<h3>Punya kode?</h3>'}
+  return `<div class="codecard">${t ? `<h3>✅ Musim 1 terbuka</h3><div class="cmsg">${esc(info)}</div><div class="cmsg">Punya kode 25rb? Masukkan di bawah.</div>` : '<h3>Punya kode?</h3>'}
     <input type="email" id="codeMail" placeholder="Surel (yang dipakai di Saweria)" autocomplete="off" inputmode="email" aria-label="Surel">
     <textarea id="codeVal" rows="3" placeholder="Tempel kode dari surel" autocomplete="off" spellcheck="false" aria-label="Kode"></textarea>
     <button class="bbtn sm" data-act="albCode">Buka Semua Karakter</button>
@@ -2946,13 +2953,8 @@ async function applyCode() {
   const t = await checkCode(m.value, c.value);
   if (!t) return setMsg('Kode tidak cocok. Pastikan surelnya sama persis dengan yang dipakai di Saweria dan kodenya utuh.', 'bad');
   setUnl(t, m.value, c.value); SFX.click();
-  albMsg = t === 'A' ? 'Kode diterima: semua karakter terbuka!' : 'Kode diterima: karakter bundle 30 Okt 2026 terbuka!';
-  renderAlbum(); toast('Karakter terbuka!', t === 'A' ? 'Semua karakter' : 'Bundle 30 Okt 2026');
-}
-function copyMail() {
-  const v = $('#kopMail').value, ok = () => toast('Surel disalin', v);
-  try { navigator.clipboard.writeText(v).then(ok, () => { $('#kopMail').select(); document.execCommand('copy'); ok(); }); }
-  catch (e) { try { $('#kopMail').select(); document.execCommand('copy'); ok(); } catch (e2) {} }
+  albMsg = t === 'A' ? 'Kode diterima: semua karakter terbuka!' : 'Kode diterima: semua karakter Musim 1 terbuka!';
+  renderAlbum(); toast('Karakter terbuka!', t === 'A' ? 'Semua musim' : 'Musim 1');
 }
 function exportAlbum() {
   const data = JSON.stringify({ app: 'HaHe', album: 1, plays: ALB.plays, unl: unlT() ? ALB.unl : undefined }, null, 1);
@@ -3703,7 +3705,6 @@ document.addEventListener('click', e => {
     case 'karhutla': karhutla(); break;
     case 'kopi': hideHz(); modal('kopim', true); break;
     case 'kopiClose': modal('kopim', false); break;
-    case 'kopiCopy': copyMail(); break;
     case 'saweria': try { window.open('https://saweria.co/totogutomo', '_blank', 'noopener'); } catch (e) {} break;
     case 'albCode': applyCode(); break;
     case 'album': albSkin = S.skin; albFocus = ''; show('album'); break;
