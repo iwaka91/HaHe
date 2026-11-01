@@ -1,0 +1,14 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-27T15:40:00Z" },
+  "title": "HaHe Mockup Dukungan Kopi",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "Beranda: ikon kopi dan dialog dukungan (HP potret)" },
+    "Album.dc.html": { "x": 470, "y": 0, "w": 390, "h": 844, "title": "Album Karakter: kotak Punya kode (HP potret)" }
+  },
+  "order": ["Main.dc.html", "Album.dc.html"],
+  "notes": {},
+  "designSystems": []
+}

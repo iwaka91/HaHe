@@ -318,3 +318,4 @@ Hasil uji Versi 2.5: kabut papan hanya dua gumpalan besar, kurang luas dan kuran
 
 ## Mockup
 Lihat `docs/mockup/` (papan Hutan Borneo, HP potret, versi final: pion 3D, bingkai Dayak, dadu terlempar).
+- `docs/mockup/dukungan-kopi/` (disimpan 1 Nov 2026): Beranda + dialog kopi dan Album + kotak kode. Teks mockup belum diperbarui ke dua tingkat 10rb/25rb; lihat CATATAN.md di folder itu dan bagian 31.
